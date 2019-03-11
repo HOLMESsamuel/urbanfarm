@@ -8,8 +8,8 @@ body{
 footer{
 	background-color: #FFE599;
 	border: 2px black solid;
-	padding: 10px 10px 10px 10px;
-	margin: 5px 5px 5px 5px;
+	padding: 10px;
+	margin: 5px;
 	clear: both;
 	height: 90px;
 }
@@ -66,16 +66,7 @@ header{
 	border-radius: 5px;
 }
 
-#image{
-	margin-left: 165px;
-	margin-right: 165px;
-	float: left;
-	
-}
 
-#image:hover{
-	box-shadow: 3px 3px 3px black;
-}
 
 
 
