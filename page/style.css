@@ -22,6 +22,34 @@ footer{
 	margin: 5px 5px 5px 5px;
 }
 
+.column {
+	float: left;
+	width: 25%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+  
+.column_corp{
+	background-color: #FFF;
+	border: 2px black solid;
+	height: 300px;
+	padding: 20px;
+	margin: 5px 5px 5px 5px;
+}
+
+.column_menu{
+	background-color: #FFF;
+	border: 2px black solid;
+	height: 300px;
+	padding: 20px;
+	margin: 5px 5px 5px 5px;
+}
+
 header{
 	text-align: center;
 }
