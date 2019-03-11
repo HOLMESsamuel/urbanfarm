@@ -43,3 +43,17 @@ footer{
 	 margin: 1% 10%;
 	 display: inline-block;
  }
+
+ #nav {
+	 text-align: center;
+	 margin: 15px auto;
+
+ }
+
+ #nav input{
+	 text-align: center;
+	 padding: 10px;
+	 border: 1px solid gray;
+	 width: 80%;
+	 margin: 10px auto;
+ }

@@ -4,13 +4,9 @@
 <div id ="nav">
 <form method="post" action="page_commande.php">
 	<p>
-		<label for="name">Nom d'utilisateur :</label>
+		<input type="text" name="pseudo" placeholder="Nom d'utilisateur"/>
 		<br/>
-		<input type="text" name="pseudo"/>
-		<br/>
-		<label for="name">Mot de passe :</label>
-		<br/>
-		<input type="password" name="mot de passe"/>
+		<input type="password" name="mot de passe" placeholder="mot de passe"/>
 		<br/>
 		<input type="submit" value="valider"/>
 	</p>
