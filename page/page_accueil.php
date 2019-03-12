@@ -14,11 +14,9 @@
 	<body>
 <div class="container">
     <div id="col1">
-        <p>colonnzertyuie 1</p>
 	    <?php include("elem/elem_menu.php"); ?>
     </div>
     <div id="col2">
-        <p>colonne 2</p>
 	    <?php include("elem/elem_corp.php"); ?>
     </div>
 </div>

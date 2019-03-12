@@ -37,9 +37,23 @@ footer{
 	border-top: 1px black solid;
 	clear: both;
 	text-align: center;
-	height: 90px;
+	height: 96px;
 }
  #image{
 	 margin: 1% 10%;
 	 display: inline-block;
+ }
+
+ #nav {
+	 text-align: center;
+	 margin: 15px auto;
+
+ }
+
+ #nav input{
+	 text-align: center;
+	 padding: 10px;
+	 border: 1px solid gray;
+	 width: 80%;
+	 margin: 10px auto;
  }
