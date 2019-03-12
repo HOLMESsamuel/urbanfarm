@@ -12,15 +12,15 @@
 	<body>
 
 	<body>
-<div class="container">
-    <div id="col1">
-	    <?php include("elem/elem_menu.php"); ?>
-    </div>
-    <div id="col2">
-	    <?php include("elem/elem_corp.php"); ?>
-    </div>
-</div>
-</body>
+		<div class="container">
+	    	<div id="col1">
+			    	<?php include("elem/elem_menu.php"); ?>
+    		</div>
+		    <div id="col2">
+		    	<?php include("elem/elem_corp.php"); ?>
+	    	</div>
+		</div>
+	</body>
 
 	<footer>
 		<?php include("elem/elem_pied.php"); ?>

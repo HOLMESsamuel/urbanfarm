@@ -7,9 +7,19 @@
 	<header>
 		<?php include("elem/elem_entete.php"); ?>
 	</header>
+
 	<body>
-		<?php include("elem/elem_menu.php"); ?>
+		<div class="container">
+	    	<div id="col1">
+			    	<?php include("elem/elem_menu.php"); ?>
+    		</div>
+		    <div id="col2">
+				/* Complete the main part here */	
+
+	    	</div>
+		</div>
 	</body>
+
 	<footer>
 		<?php include("elem/elem_pied.php"); ?>
 	</footer>
