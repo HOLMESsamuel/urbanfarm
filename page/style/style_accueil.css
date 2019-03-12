@@ -7,17 +7,20 @@
 
 
 #img_slider {
-	margin: 1% 10%;
+	position: relative;
+	width: 60%;
+	margin: 1% auto;
 }
 
 .image {
 	position: absolute;
-	width: 60%;
+	width: 100%;
+	height: auto;
 }
 
 .image img {
 	width: 100%;
-	height: 100%;
+	height: auto;
 	border: 1px black solid;
 }
 
