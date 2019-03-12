@@ -17,8 +17,10 @@ header{
 .container {
     height: 70%;
     margin: 15px;
-    display: grid;
-	grid-template-columns: 20% 80%;
+	display:-ms-grid;
+    	display: grid;
+	-ms-grid-columns: 1fr 4fr;
+		grid-template-columns: 1fr 4fr;
 	
 }
 

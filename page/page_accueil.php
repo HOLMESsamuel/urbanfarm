@@ -16,7 +16,9 @@
 			    	<?php include("elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
-		    	<?php include("elem/elem_corp.php"); ?>
+				
+			
+
 	    	</div>
 		</div>
 	</body>
