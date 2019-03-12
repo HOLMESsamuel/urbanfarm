@@ -17,15 +17,37 @@
 </form>
 </div>
 
-<?php else: ?>
+<?php elseif (basename($_SERVER['PHP_SELF']) != 'page_inscription.php'): ?>
 
-<nav>
-<ul>
-	<li> <a href="page_profil.php">Profil</a> </li>
-	<li> <a href="page_commande.php">Commande</a> </li>
-	<li> <a href="page_consomation.php">Consommation</a> </li>
-	<li> <a href="page_accueil.php">Déconnexion</a> </li>
-</ul>
-</nav>
+<div id ="menu">
+<form method="post" action="page_profil.php">
+	<p>
+		<input type="submit" value="Profil"/>
+		<br/>
+	</p>
+</form>
+<br/>
+<form method="post" action="page_commande.php">
+	<p>
+		<input type="submit" value="Commande"/>
+		<br/>
+	</p>
+</form>
+<br/>
+<form method="post" action="page_consomation.php">
+	<p>
+		<input type="submit" value="Consommation"/>
+		<br/>
+	</p>
+</form>
+<br/>
+<form method="post" action="page_accueil.php">
+	<p>
+		<input type="submit" value="Accueil"/>
+		<br/>
+	</p>
+</form>
+<br/>
+</div>
 
 <?php endif ?>

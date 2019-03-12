@@ -17,10 +17,9 @@ header{
 .container {
     height: 70%;
     margin: 15px;
-	display:-ms-grid;
-    	display: grid;
-	-ms-grid-columns: 1fr 4fr;
-		grid-template-columns: 1fr 4fr;
+	display: grid;
+	-ms-grid-columns : repeat(4,1fr);
+	grid-template-columns: 1fr 4fr;
 	
 }
 
@@ -59,3 +58,17 @@ footer{
 	 width: 80%;
 	 margin: 10px auto;
  }
+
+ #menu {
+	text-align: center;
+	margin: 90px auto;
+
+}
+
+#menu input{
+	text-align: center;
+	padding: 10px;
+	border: 1px solid gray;
+	width: 70%;
+	margin: 15px auto;
+}
