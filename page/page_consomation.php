@@ -2,7 +2,7 @@
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
-		<link rel = "stylesheet" href = "style.css"/>
+		<link rel = "stylesheet" href = "style/style_consomation.css"/>
 	</head>
 	<header>
 		<?php include("elem/elem_entete.php"); ?>
