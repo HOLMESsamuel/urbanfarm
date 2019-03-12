@@ -16,7 +16,9 @@
 			    	<?php include("elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
-				
+			<p>
+				azertyuiolkjnbvcxcvb
+			</p>
 			<div id="img_slider">
 			<input type="radio" name="images" id="i1" checked>
 			<input type="radio" name="images" id="i2">

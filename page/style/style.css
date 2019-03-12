@@ -16,10 +16,11 @@ header{
 
 .container {
     height: 70%;
-    margin: 15px;
-	display: grid;
+	margin: 15px;
+	display:-ms-grid;
+		display: grid;
 	-ms-grid-columns : repeat(4,1fr);
-	grid-template-columns: 1fr 4fr;
+		grid-template-columns: 1fr 4fr;
 	
 }
 
