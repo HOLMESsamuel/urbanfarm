@@ -16,8 +16,6 @@
 	position: absolute;
 	width: 50%;
 	height: width*3;
-	border: 4px solid white;
-	border-radius: 4px;
 }
 
 .image img {

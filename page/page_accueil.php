@@ -23,22 +23,22 @@
 			<input type="radio" name="images" id="i3">
 			<input type="radio" name="images" id="i4">
 			<div class="image" id="one">
-				<img src="img/ferme_1.jpg">
-				<label for="i3" class="precedent">&lt;</label>
+				<img src="img/f1.jpg">
+				<label for="i4" class="precedent">&lt;</label>
 				<label for="i2" class="suivant">&gt;</label>
 			</div>
 			<div class="image" id="two">
-				<img src="img/ferme_2.jpg">
+				<img src="img/f2.jpg">
 				<label for="i1" class="precedent">&lt;</label>
 				<label for="i3" class="suivant">&gt;</label>
 			</div>
 			<div class="image" id="three">
-				<img src="img/ferme_3.jpg">
+				<img src="img/f3.jpg">
 				<label for="i2" class="precedent">&lt;</label>
 				<label for="i4" class="suivant">&gt;</label>
 			</div>
 			<div class="image" id="four">
-				<img src="img/ferme_4.jpg">
+				<img src="img/f4.jpg">
 				<label for="i3" class="precedent">&lt;</label>
 				<label for="i1" class="suivant">&gt;</label>
 			</div>
