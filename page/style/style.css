@@ -57,6 +57,13 @@ footer{
 	 border: 1px solid gray;
 	 width: 80%;
 	 margin: 10px auto;
+	 transition: 0.3s ease;
+
+ }
+
+ #nav input:hover{
+	 background-color: grey;
+	 color: white;
  }
 
  #menu {
@@ -71,4 +78,10 @@ footer{
 	border: 1px solid gray;
 	width: 70%;
 	margin: 15px auto;
+	transition: 0.3s ease;
+}
+
+#menu input:hover{
+	background-color: gray;
+	color: white;
 }

@@ -6,9 +6,9 @@
 	<p>
 		<input type="text" name="pseudo" placeholder="Nom d'utilisateur"/>
 		<br/>
-		<input type="password" name="mot de passe" placeholder="mot de passe"/>
+		<input type="password" name="mot de passe" placeholder="Mot de passe"/>
 		<br/>
-		<input type="submit" value="valider"/>
+		<input type="submit" value="Valider"/>
 	</p>
 </form>
 <br/>
