@@ -1,6 +1,11 @@
 <!DOCTYPE HTML>
 <?php
-$bdd = new PDO('mysql:host=localhost;dbname=urbanfarm', 'root', '');
+try {
+	$bdd = new PDO('mysql:host=localhost;dbname=urbanfarm;charset=utf8', 'root', '');
+} catch(Exception $e) {
+	die('Erreur : '.$e->getMessage());
+}
+
 
 
 if(isset($_POST['inscription'])) {
@@ -33,9 +38,17 @@ if(isset($_POST['inscription'])) {
 			$erreur="les mot de passe ne sont pas les même";
 		}
 		else {
-			$creationUtilisateur = $bdd->prepare("INSERT INTO utilisateur(email, nom, prenom, civilité, adresse, mot de passe, propriétaire) VALUES (?, ?, ?, ?,?,?,?)");
-			$creationUtilisateur->execute(array($mail,$nom,$prenom,"M","truc",$mdp,"oui"));
+			try {
+				$bdd->exec('INSERT INTO compte(email, prenom, mdp) VALUES ("'.$mail.'","'.$prenom.'","'.$mdp.'")');
+			} catch (Exception $e) {
+				echo $e;
+			}
+			
 			$erreur = "compte créé";
+			$test = $bdd->query('SELECT * FROM actionneur');
+			$data = $test->fetch();
+			echo $data['type'];
+			
 		}
 
 	} else {
