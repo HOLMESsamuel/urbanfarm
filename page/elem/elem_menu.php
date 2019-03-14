@@ -14,10 +14,17 @@ if(isset($_POST['valider'])){
 	$mail = htmlspecialchars($_POST['mail']);
 	$mdp = htmlspecialchars($_POST['mdp']);
 
-	if(!empty($_POST['mail']) AND !empty($_POST['mdp'])){
-
-	} else {
+	if(empty($_POST['mail']) OR empty($_POST['mdp'])){
 		$erreur = "certains champs ne sont pas remplis";
+	} else {
+		$req = $bdd->prepare("SELECT * FROM utilisateur WHERE mail=? AND mdp=?");
+		$req->execute(array($mail,$mdp));
+		$exist = $req-><rowCount();
+		if($exist == 1){
+
+		} else {
+			$erreur = "Le mail ou le mot de passe est incorect";
+		}
 	}
 }
 
