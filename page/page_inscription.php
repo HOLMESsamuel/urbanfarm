@@ -2,6 +2,9 @@
 <?php
 try {
 	$bdd = new PDO('mysql:host=localhost;dbname=urbanfarm;charset=utf8', 'root', '');
+	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+	
 } catch(Exception $e) {
 	die('Erreur : '.$e->getMessage());
 }
@@ -11,11 +14,11 @@ try {
 if(isset($_POST['inscription'])) {
 
 	$prenom = htmlspecialchars($_POST['prenom']); //pour rendre impossible la saisie de code
-		$nom = htmlspecialchars($_POST['nom']);
-		$mail = htmlspecialchars($_POST['mail']);
-		$confmail = htmlspecialchars($_POST['confmail']);
-		$mdp = sha1($_POST['mdp']);
-		$confmdp = sha1($_POST['confmdp']);
+	$nom = htmlspecialchars($_POST['nom']);
+	$mail = htmlspecialchars($_POST['mail']);
+	$confmail = htmlspecialchars($_POST['confmail']);
+	$mdp = sha1($_POST['mdp']);
+	$confmdp = sha1($_POST['confmdp']);
 
 	if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mail']) AND !empty($_POST['confmail']) AND !empty($_POST['mdp']) AND !empty($_POST['confmdp'])){
 		
@@ -39,15 +42,14 @@ if(isset($_POST['inscription'])) {
 		}
 		else {
 			try {
-				$bdd->exec('INSERT INTO compte(email, prenom, mdp) VALUES ("'.$mail.'","'.$prenom.'","'.$mdp.'")');
+				$req = $bdd->prepare('INSERT INTO utilisateur(email, nom, prenom, civilité, adresse, motdepasse, propriétaire) VALUES (?,?,?,?,?,?,?)');
+				$req->execute(array($mail,$nom,$prenom,"m","truc",$mdp,"oui"));
 			} catch (Exception $e) {
 				echo $e;
 			}
+
 			
 			$erreur = "compte créé";
-			$test = $bdd->query('SELECT * FROM actionneur');
-			$data = $test->fetch();
-			echo $data['type'];
 			
 		}
 
@@ -74,24 +76,32 @@ if(isset($_POST['inscription'])) {
 		    <div id="col2">
 				<h2>Inscription</h2>
 				<form method="POST" action="">
-					<label for="prenom">Prénom : </label>
-					<input type="text" placeholder="prenom" id="prenom" name="prenom" value="<?php if(isset($prenom)) {echo $prenom;}?>"/>
-					</br>
-					<label for="nom">Nom : </label>
-					<input type="text" placeholder="nom" id="nom" name="nom" value="<?php if(isset($nom)) {echo $nom;}?>"/>
-					</br>
-					<label for="mail">Mail : </label>
-					<input type="mail" placeholder="mail" id="mail" name="mail" value="<?php if(isset($mail)) {echo $mail;}?>"/>
-					</br>
-					<label for="confmail">Confirmez le Mail : </label>
-					<input type="mail"  id="confmail" name="confmail" value="<?php if(isset($confmail)) {echo $confmail;}?>"/>
-					</br>
-					<label for="password">Mot de passe : </label>
-					<input type="password" placeholder="mot de passe" id="mdp" name="mdp"/>
-					</br>
-					<label for="confpassword">Confirmez le mot de passe : </label>
-					<input type="password" id="confmdp" name="confmdp"/>
-					</br>
+					<table>
+					<tr>
+						<th><label for="prenom">Prénom : </label></th>
+						<th><input type="text" placeholder="prenom" id="prenom" name="prenom" value="<?php if(isset($prenom)) {echo $prenom;}?>"/></th>
+					</tr>
+					<tr>
+						<th><label for="nom">Nom : </label></th>
+						<th><input type="text" placeholder="nom" id="nom" name="nom" value="<?php if(isset($nom)) {echo $nom;}?>"/></th>
+					</tr>
+					<tr>
+						<th><label for="mail">Mail : </label></th>
+						<th><input type="mail" placeholder="mail" id="mail" name="mail" value="<?php if(isset($mail)) {echo $mail;}?>"/></th>
+					</tr>
+					<tr>
+						<th><label for="confmail">Confirmez le Mail : </label></th>
+						<th><input type="mail"  id="confmail" name="confmail" value="<?php if(isset($confmail)) {echo $confmail;}?>"/></th>
+					</tr>
+					<tr>
+						<th><label for="password">Mot de passe : </label></th>
+						<th><input type="password" placeholder="mot de passe" id="mdp" name="mdp"/></th>
+					</tr>
+					<tr>
+						<th><label for="confpassword">Confirmez le mot de passe : </label></th>
+						<th><input type="password" id="confmdp" name="confmdp"/></th>
+					</tr>
+					</table>
 					<input type="submit" name="inscription" value="Confirmer"/>
 				</form>
 				<?php 
