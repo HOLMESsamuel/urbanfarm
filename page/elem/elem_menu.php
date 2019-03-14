@@ -1,15 +1,41 @@
 
 <?php if (basename($_SERVER['PHP_SELF'])== 'page_accueil.php'): ?>
+<?php
+try {
+	$bdd = new PDO('mysql:host=localhost;dbname=urbanfarm;charset=utf8', 'root', '');
+	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+	
+} catch(Exception $e) {
+	die('Erreur : '.$e->getMessage());
+}
 
+if(isset($_POST['valider'])){
+	$mail = htmlspecialchars($_POST['mail']);
+	$mdp = htmlspecialchars($_POST['mdp']);
+
+	if(!empty($_POST['mail']) AND !empty($_POST['mdp'])){
+
+	} else {
+		$erreur = "certains champs ne sont pas remplis";
+	}
+}
+
+?>
 <div id ="nav">
-<form method="post" action="page_commande.php">
+<form method="post" action="">
 	<p>
-		<input type="text" name="pseudo" placeholder="Nom d'utilisateur"/>
+		<input type="text" name="mail" placeholder="E-mail"/>
 		<br/>
-		<input type="password" name="mot de passe" placeholder="Mot de passe"/>
+		<input type="password" name="mdp" placeholder="Mot de passe"/>
 		<br/>
-		<input type="submit" value="Valider"/>
+		<input name="valider" type="submit" value="Valider"/>
 	</p>
+	<?php
+	if(isset($erreur)){
+		echo $erreur;
+	}  
+	?>
 </form>
 <br/>
 <form action="page_inscription.php">
