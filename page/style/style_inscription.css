@@ -1,20 +1,16 @@
-#col2 {
+.container {
     text-align: center;
+    width: 90%;
+    margin: 5px auto;
+    border: 1px solid black;
 }
 
-h2 {
-    margin: 10px auto;
-}
 
- table {
-     margin: 0px auto;
- }
 
 input {
-    text-align: left;
 	padding: 10px;
 	border: 1px solid gray;
-	width: 90%;
+	width: 150%;
 	margin: 5px auto;
 	transition: 0.3s ease;
 }

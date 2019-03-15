@@ -73,11 +73,8 @@ if(isset($_POST['inscription'])) {
 	
 	<body>
 		<div class="container">
-	    	<div id="col1">
-			    	<?php include("elem/elem_menu.php"); ?>
-    		</div>
-		    <div id="col2">
 				<h2>Inscription</h2>
+				</br>
 				<form method="POST" action="">
 					<table>
 					<tr>
@@ -121,8 +118,6 @@ if(isset($_POST['inscription'])) {
 					echo $erreur;
 				}
 				?>
-			
-	    	</div>
 		</div>
 	</body>
 
