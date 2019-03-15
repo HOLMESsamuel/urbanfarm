@@ -9,3 +9,7 @@ h2 {
  table {
      margin: 0px auto;
  }
+
+input {
+    width: 200px;
+}

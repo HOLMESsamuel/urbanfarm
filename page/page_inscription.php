@@ -15,12 +15,15 @@ if(isset($_POST['inscription'])) {
 
 	$prenom = htmlspecialchars($_POST['prenom']); //pour rendre impossible la saisie de code
 	$nom = htmlspecialchars($_POST['nom']);
+	$civilite = $_POST['civilité'];
+	$adresse = htmlspecialchars($_POST['adresse']);
 	$mail = htmlspecialchars($_POST['mail']);
 	$confmail = htmlspecialchars($_POST['confmail']);
 	$mdp = sha1($_POST['mdp']);
 	$confmdp = sha1($_POST['confmdp']);
 
-	if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['mail']) AND !empty($_POST['mail']) AND !empty($_POST['confmail']) AND !empty($_POST['mdp']) AND !empty($_POST['confmdp'])){
+
+	if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse']) AND !empty($_POST['mail']) AND !empty($_POST['mail']) AND !empty($_POST['confmail']) AND !empty($_POST['mdp']) AND !empty($_POST['confmdp'])){
 		
 
 		if(strlen($prenom) > 20){
@@ -43,7 +46,7 @@ if(isset($_POST['inscription'])) {
 		else {
 			try {
 				$req = $bdd->prepare('INSERT INTO utilisateur(email, nom, prenom, civilité, adresse, motdepasse, propriétaire) VALUES (?,?,?,?,?,?,?)');
-				$req->execute(array($mail,$nom,$prenom,"m","truc",$mdp,"oui"));
+				$req->execute(array($mail,$nom,$prenom,$civilite,$adresse,$mdp,"oui"));
 			} catch (Exception $e) {
 				echo $e;
 			}
@@ -84,6 +87,15 @@ if(isset($_POST['inscription'])) {
 					<tr>
 						<th><label for="nom">Nom : </label></th>
 						<th><input type="text" placeholder="nom" id="nom" name="nom" value="<?php if(isset($nom)) {echo $nom;}?>"/></th>
+					</tr>
+					<tr>
+						<th><label for="nadresse">Adresse : </label></th>
+						<th><input type="text" placeholder="Adresse" id="adresse" name="adresse" value="<?php if(isset($adresse)) {echo $adresse;}?>"/></th>
+					</tr>
+					<tr>
+						<th><label for="civilité">Civilité : </label></th>
+						<th>M<input type="radio" id="civilité1" name="civilité" value="M" checked/></th>
+						<th>Mme<input type="radio" id="civilité2" name="civilité" value="Mme"/></th>
 					</tr>
 					<tr>
 						<th><label for="mail">Mail : </label></th>
