@@ -114,7 +114,7 @@ if(isset($_POST['inscription'])) {
 						<th><input type="password" id="confmdp" name="confmdp"/></th>
 					</tr>
 					</table>
-					<input type="submit" name="inscription" value="Confirmer"/>
+					<input type="submit" id="btnValider" name="inscription" value="Confirmer"/>
 				</form>
 				<?php 
 				if(isset($erreur)){

@@ -11,5 +11,19 @@ h2 {
  }
 
 input {
-    width: 200px;
+    text-align: left;
+	padding: 10px;
+	border: 1px solid gray;
+	width: 90%;
+	margin: 5px auto;
+	transition: 0.3s ease;
+}
+
+#btnValider {
+    width: 50%;
+    text-align: center;
+}
+#btnValider:hover {
+    background-color: gray;
+	color: white;
 }

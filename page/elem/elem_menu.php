@@ -34,9 +34,9 @@ if(isset($_POST['valider'])){
 	<p>
 		<input type="text" name="mail" placeholder="E-mail"/>
 		<br/>
-		<input type="password" name="mdp" placeholder="Mot de passe"/>
+		<input type="password"  name="mdp" placeholder="Mot de passe"/>
 		<br/>
-		<input name="valider" type="submit" value="Valider"/>
+		<input name="valider" class="entree" type="submit" value="Valider"/>
 	</p>
 	<?php
 	if(isset($erreur)){
@@ -46,7 +46,7 @@ if(isset($_POST['valider'])){
 </form>
 <br/>
 <form action="page_inscription.php">
-	<input type="submit" value="Nouvel Utilisateur">
+	<input type="submit" class="entree" value="Nouvel Utilisateur">
 </form>
 </div>
 
