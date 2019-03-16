@@ -103,7 +103,7 @@ if(isset($_POST['inscription'])) {
 					</tr>
 					<tr>
 						<th><label for="confmail">Confirmez le Mail : </label></th>
-						<th><input type="mail"  id="confmail" name="confmail" value="<?php if(isset($confmail)) {echo $confmail;}?>"/></th>
+						<th><input type="mail" placeholder="confirmer le mail" id="confmail" name="confmail" value="<?php if(isset($confmail)) {echo $confmail;}?>"/></th>
 					</tr>
 					<tr>
 						<th><label for="password">Mot de passe : </label></th>
@@ -111,7 +111,7 @@ if(isset($_POST['inscription'])) {
 					</tr>
 					<tr>
 						<th><label for="confpassword">Confirmez le mot de passe : </label></th>
-						<th><input type="password" id="confmdp" name="confmdp"/></th>
+						<th><input type="password" placeholder="confirmer le mot de passe" id="confmdp" name="confmdp"/></th>
 					</tr>
 					</table>
 					<input type="submit" id="btnValider" name="inscription" value="Confirmer"/>

@@ -53,34 +53,11 @@ if(isset($_POST['valider'])){
 <?php elseif (basename($_SERVER['PHP_SELF']) != 'page_inscription.php'): ?>
 
 <div id ="menu">
-<form method="post" action="page_profil.php">
-	<p>
-		<input type="submit" value="Profil"/>
-		<br/>
-	</p>
-</form>
-<br/>
-<form method="post" action="page_commande.php">
-	<p>
-		<input type="submit" value="Commande"/>
-		<br/>
-	</p>
-</form>
-<br/>
-<form method="post" action="page_consomation.php">
-	<p>
-		<input type="submit" value="Consommation"/>
-		<br/>
-	</p>
-</form>
-<br/>
-<form method="post" action="page_accueil.php">
-	<p>
-		<input type="submit" value="Accueil"/>
-		<br/>
-	</p>
-</form>
-<br/>
+	<a href="page_profil.php" class="bouton">Profil</a>
+	<a href="page_commande.php" class="bouton">Commande</a>
+	<a href="page_consommation.php" class="bouton">Consommation</a>
+	<a href="page_accueil.php" class="bouton">Deconnexion</a>
+
 </div>
 
 <?php endif ?>
