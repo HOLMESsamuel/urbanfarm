@@ -9,6 +9,7 @@
 #col1 {
     -ms-grid-column:1; 
     text-align: center;
+    background-color: white;
 }
 #col2 {
     -ms-grid-column:2; 
@@ -66,6 +67,10 @@ input[type=radio]:checked + label:before {
     box-shadow: inset 0px 0px 0px 2px #fff;
 }
 
+#civilite label {
+    cursor: pointer;
+}
+
 #civilite #p1 {
     -ms-grid-column:1;
 }
@@ -77,6 +82,7 @@ input[type=radio]:checked + label:before {
 #btnValider {
     width: 50%;
     text-align: center;
+    cursor: pointer;
 }
 #btnValider:hover {
     background-color: gray;
