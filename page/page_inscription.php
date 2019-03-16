@@ -73,47 +73,28 @@ if(isset($_POST['inscription'])) {
 	
 	<body>
 		<div class="container">
-	    	<div id="col1">
-			    	<?php include("elem/elem_menu.php"); ?>
-    		</div>
-		    <div id="col2">
+		<div id="col1">
 				<h2>Inscription</h2>
-				<form method="POST" action="">
-					<table>
-					<tr>
-						<th><label for="prenom">Prénom : </label></th>
-						<th><input type="text" placeholder="prenom" id="prenom" name="prenom" value="<?php if(isset($prenom)) {echo $prenom;}?>"/></th>
-					</tr>
-					<tr>
-						<th><label for="nom">Nom : </label></th>
-						<th><input type="text" placeholder="nom" id="nom" name="nom" value="<?php if(isset($nom)) {echo $nom;}?>"/></th>
-					</tr>
-					<tr>
-						<th><label for="nadresse">Adresse : </label></th>
-						<th><input type="text" placeholder="Adresse" id="adresse" name="adresse" value="<?php if(isset($adresse)) {echo $adresse;}?>"/></th>
-					</tr>
-					<tr>
-						<th><label for="civilité">Civilité : </label></th>
-						<th>M<input type="radio" id="civilité1" name="civilité" value="M" checked/></th>
-						<th>Mme<input type="radio" id="civilité2" name="civilité" value="Mme"/></th>
-					</tr>
-					<tr>
-						<th><label for="mail">Mail : </label></th>
-						<th><input type="mail" placeholder="mail" id="mail" name="mail" value="<?php if(isset($mail)) {echo $mail;}?>"/></th>
-					</tr>
-					<tr>
-						<th><label for="confmail">Confirmez le Mail : </label></th>
-						<th><input type="mail" placeholder="confirmer le mail" id="confmail" name="confmail" value="<?php if(isset($confmail)) {echo $confmail;}?>"/></th>
-					</tr>
-					<tr>
-						<th><label for="password">Mot de passe : </label></th>
-						<th><input type="password" placeholder="mot de passe" id="mdp" name="mdp"/></th>
-					</tr>
-					<tr>
-						<th><label for="confpassword">Confirmez le mot de passe : </label></th>
-						<th><input type="password" placeholder="confirmer le mot de passe" id="confmdp" name="confmdp"/></th>
-					</tr>
-					</table>
+				<form method="POST" action="">	
+					<input type="text" placeholder="prenom" id="prenom" name="prenom" value="<?php if(isset($prenom)) {echo $prenom;}?>"/>	
+					<input type="text" placeholder="nom" id="nom" name="nom" value="<?php if(isset($nom)) {echo $nom;}?>"/>
+					<input type="text" placeholder="Adresse" id="adresse" name="adresse" value="<?php if(isset($adresse)) {echo $adresse;}?>"/>
+					<br>
+					<div id=civilite>
+						<p id="p1">
+							<input type="radio" id="civilité1" name="civilité" value="M" checked/>
+							<label for="civilité1">M</label>
+						</p>
+						<p id="p2">
+							<input type="radio" id="civilité2" name="civilité" value="Mme"/>
+							<label for="civilité2">Mme</label>
+						</p>
+					</div>
+					<br>
+					<input type="mail" placeholder="mail" id="mail" name="mail" value="<?php if(isset($mail)) {echo $mail;}?>"/>
+					<input type="mail" placeholder="confirmer le mail" id="confmail" name="confmail" value="<?php if(isset($confmail)) {echo $confmail;}?>"/>
+					<input type="password" placeholder="mot de passe" id="mdp" name="mdp"/>
+					<input type="password" placeholder="confirmer le mot de passe" id="confmdp" name="confmdp"/>
 					<input type="submit" id="btnValider" name="inscription" value="Confirmer"/>
 				</form>
 				<?php 
@@ -123,6 +104,10 @@ if(isset($_POST['inscription'])) {
 				?>
 			
 	    	</div>
+	    	<div id="col2">
+
+    		</div>
+		    
 		</div>
 	</body>
 

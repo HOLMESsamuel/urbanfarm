@@ -44,7 +44,7 @@
 						<img src="img/f4.jpg">
 						<label for="i3" class="precedent">&lt;</label>
 						<label for="i1" class="suivant">&gt;</label>
-						<label class="descriptif">Automatisez tout un poulailler !</label>
+						<label class="descriptif">Automatisez tout un poulailler </label>
 					</div>
 				</div>
 	    	</div>
