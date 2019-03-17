@@ -56,6 +56,16 @@ footer{
 
  }
 
+ #nav input{
+	text-align: center;
+	padding: 10px;
+	border: 1px solid gray;
+	width: 80%;
+	margin: 10px auto;
+	transition: 0.3s ease;
+	text-transform: uppercase;
+}
+
  .entree:hover{
 	 background-color: grey;
 	 color: white;
