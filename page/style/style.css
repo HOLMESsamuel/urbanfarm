@@ -44,9 +44,13 @@ footer{
 	clear: both;
 	text-align: center;
 	height: 96px;
+	display:-ms-grid;
+		display: grid;
+	-ms-grid-columns :  1fr 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
 }
  #image{
-	 margin: 1% 10%;
+	 margin: 10px;
 	 display: inline-block;
  }
 
