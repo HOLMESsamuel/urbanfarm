@@ -7,8 +7,14 @@
 
 #img_slider {
 	position: relative;
-	width: 60%;
-	margin: 1% auto;
+	width: 80%;
+	margin: 0px auto;
+	margin-bottom: 100px;
+}
+
+footer {
+	clear : both;
+	float: none;
 }
 
 .image {
