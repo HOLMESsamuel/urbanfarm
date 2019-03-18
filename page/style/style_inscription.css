@@ -1,3 +1,9 @@
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
 .container {
     height: 70%;
 	margin: 15px;
@@ -13,11 +19,12 @@
 }
 #col2 {
     -ms-grid-column:2; 
+    text-align: center;
     
 }
 
 h2 {
-    margin: 10px auto;
+    margin: 20px auto;
 }
 
  table {

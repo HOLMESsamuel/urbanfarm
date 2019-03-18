@@ -8,8 +8,17 @@ try {
 } catch(Exception $e) {
 	die('Erreur : '.$e->getMessage());
 }
-
-
+if(isset($_POST['nombre'])){
+	$nombre = $_POST['nombre'];
+} else {
+	$nombre = 0;
+}
+if(isset($_POST['bouton'])){
+	$nombre = $nombre +1;
+	$formulaire = "<form method='POST' action=''>
+	<input type='text'>
+	</form>";
+}
 
 if(isset($_POST['inscription'])) {
 
@@ -72,9 +81,10 @@ if(isset($_POST['inscription'])) {
 	</header>	
 	
 	<body>
+		<h1>Inscription</h1>
 		<div class="container">
 		<div id="col1">
-				<h2>Inscription</h2>
+				<h2>Vos informations personnelles</h2>
 				<form method="POST" action="">	
 					<input type="text" placeholder="prenom" id="prenom" name="prenom" value="<?php if(isset($prenom)) {echo $prenom;}?>"/>	
 					<input type="text" placeholder="nom" id="nom" name="nom" value="<?php if(isset($nom)) {echo $nom;}?>"/>
@@ -105,6 +115,20 @@ if(isset($_POST['inscription'])) {
 			
 	    	</div>
 	    	<div id="col2">
+				<h2>Votre installation</h2>
+				<form method="POST" action="page_inscription.php">
+					<input type="submit"  name="bouton" value="Ajouter une installation"/>
+					<input type="hidden" name="nombre" value=<?php $nombre ?>/>
+				</form>
+				<?php
+				if(isset($formulaire)){
+					for($n=0;$n<$nombre;$n++){
+						echo $formulaire;
+					}
+					echo $nombre;
+					
+				} 
+				?>
 
     		</div>
 		    
