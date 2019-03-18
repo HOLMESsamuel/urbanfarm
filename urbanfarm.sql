@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 12 mars 2019 à 09:02
+-- Généré le :  lun. 18 mars 2019 à 14:14
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -43,7 +43,21 @@ CREATE TABLE IF NOT EXISTS `actionneur` (
 --
 
 INSERT INTO `actionneur` (`n°Actionneur`, `type`, `etat`, `n°installation`) VALUES
-(1, 'moteur', 'on', 1);
+(1, 'moteur', 'on', 1),
+(2, 'moteur', 'off', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `article`
+--
+
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE IF NOT EXISTS `article` (
+  `n°article` int(11) NOT NULL,
+  `type` varchar(255) COLLATE latin1_bin NOT NULL,
+  PRIMARY KEY (`n°article`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 -- --------------------------------------------------------
 
@@ -53,22 +67,28 @@ INSERT INTO `actionneur` (`n°Actionneur`, `type`, `etat`, `n°installation`) VA
 
 DROP TABLE IF EXISTS `capteur`;
 CREATE TABLE IF NOT EXISTS `capteur` (
-  `n°capteur` int(11) NOT NULL,
+  `n°capteur` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(20) COLLATE latin1_bin NOT NULL,
   `etat` varchar(10) COLLATE latin1_bin NOT NULL,
-  `date` date NOT NULL,
-  `valeur` int(11) NOT NULL,
   `n°installation` int(11) NOT NULL,
   PRIMARY KEY (`n°capteur`),
   UNIQUE KEY `n°installation` (`n°installation`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
+-- --------------------------------------------------------
+
 --
--- Déchargement des données de la table `capteur`
+-- Structure de la table `donnée`
 --
 
-INSERT INTO `capteur` (`n°capteur`, `type`, `etat`, `date`, `valeur`, `n°installation`) VALUES
-(1, 'temperature', 'on', '2019-03-12', 30, 1);
+DROP TABLE IF EXISTS `donnée`;
+CREATE TABLE IF NOT EXISTS `donnée` (
+  `n°donnée` int(11) NOT NULL AUTO_INCREMENT,
+  `n°capteur` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `valeur` int(11) NOT NULL,
+  PRIMARY KEY (`n°donnée`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 -- --------------------------------------------------------
 
@@ -108,27 +128,45 @@ INSERT INTO `installation` (`n°installation`, `type`, `adresse`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `message`
+--
+
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE IF NOT EXISTS `message` (
+  `email` varchar(255) COLLATE latin1_bin NOT NULL,
+  `texte` text COLLATE latin1_bin NOT NULL,
+  `date` date NOT NULL,
+  `n°message` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`n°message`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `utilisateur`
 --
 
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `email` varchar(20) COLLATE latin1_bin NOT NULL,
-  `nom` varchar(20) COLLATE latin1_bin NOT NULL,
-  `prenom` varchar(20) COLLATE latin1_bin NOT NULL,
-  `civilité` varchar(1) COLLATE latin1_bin NOT NULL,
-  `adresse` varchar(40) COLLATE latin1_bin NOT NULL,
-  `mot de passe` varchar(30) COLLATE latin1_bin NOT NULL,
-  `propriétaire` varchar(4) COLLATE latin1_bin NOT NULL,
-  PRIMARY KEY (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `email` varchar(255) COLLATE latin1_bin NOT NULL,
+  `nom` varchar(255) COLLATE latin1_bin NOT NULL,
+  `prenom` varchar(255) COLLATE latin1_bin NOT NULL,
+  `civilité` varchar(255) COLLATE latin1_bin NOT NULL,
+  `adresse` varchar(255) COLLATE latin1_bin NOT NULL,
+  `motdepasse` varchar(255) COLLATE latin1_bin NOT NULL,
+  `propriétaire` varchar(255) COLLATE latin1_bin NOT NULL,
+  `n°panier` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`email`),
+  KEY `INDEX` (`n°panier`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`email`, `nom`, `prenom`, `civilité`, `adresse`, `mot de passe`, `propriétaire`) VALUES
-('bob@thebest.com', 'bob', 'bob', 'M', '123 rue isep', '123', 'oui');
+INSERT INTO `utilisateur` (`email`, `nom`, `prenom`, `civilité`, `adresse`, `motdepasse`, `propriétaire`, `n°panier`) VALUES
+('bob@gmail.com', 'bob', 'bob', 'm', 'truc', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'oui', 1),
+('sam.holmes@live.fr', 'Holmes', 'Samuel', 'm', 'truc', 'de271790913ea81742b7d31a70d85f50a3d3e5ae', 'oui', 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
