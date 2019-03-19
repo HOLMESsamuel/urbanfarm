@@ -108,9 +108,7 @@ if(isset($_POST['inscription'])) {
 				<h2>Votre installation</h2>
 				<form method="POST" action="">
 					<div id=conteneur>
-						<div id="champs1">
-							<input type="text" id="input1" name="input1">
-						</div>
+						
 					</div>
 					<input type="button" value="ajouter une installation" onclick="ajouterChamps();">
 				</form>
