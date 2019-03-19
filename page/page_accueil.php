@@ -16,7 +16,7 @@
 			    <?php include("elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
-				<p> azertyuiolkjnbvcxcvb </p>
+					<p> blablabla </p>
 				<div id="img_slider">
 					<input type="radio" name="images" id="i1" checked>
 					<input type="radio" name="images" id="i2">
@@ -46,6 +46,9 @@
 						<label for="i1" class="suivant">&gt;</label>
 						<label class="descriptif">Automatisez tout un poulailler </label>
 					</div>
+					<img src="img/f4.jpg" width="100%">
+				</div>
+					<p> blablabla </p>
 				</div>
 	    	</div>
 		</div>
