@@ -1,0 +1,97 @@
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.container {
+    height: 70%;
+	margin: 15px;
+	display:-ms-grid;
+		display: grid;
+	-ms-grid-columns :  1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+}
+#col1 {
+    -ms-grid-column:1; 
+    text-align: center;
+    background-color: white;
+}
+#col2 {
+    -ms-grid-column:2; 
+    text-align: center;
+    
+}
+
+h2 {
+    margin: 20px auto;
+}
+
+ table {
+     margin: 0px auto;
+ }
+
+input {
+    text-align: left;
+	padding: 10px;
+	border: 1px solid gray;
+	width: 80%;
+	margin: 5px auto;
+	transition: 0.3s ease;
+}
+
+#civilite {
+    display:-ms-grid;
+		display: grid;
+	-ms-grid-columns :  1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+    margin: 0px auto;
+    width: 70%;
+    margin-top: 15px;
+}
+
+#civilite input {
+    width: 10px;
+    display: none;
+}
+
+input[type=radio] + label:before {
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-top: -3px;
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+    width: 17px;
+    height: 17px;
+}
+
+input[type=radio]:checked + label:before {
+    background: grey;
+    border-color: grey;
+    box-shadow: inset 0px 0px 0px 2px #fff;
+}
+
+#civilite label {
+    cursor: pointer;
+}
+
+#civilite #p1 {
+    -ms-grid-column:1;
+}
+
+#civilite #p2 {
+    -ms-grid-column:2;
+}
+
+#btnValider {
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+#btnValider:hover {
+    background-color: gray;
+	color: white;
+}
