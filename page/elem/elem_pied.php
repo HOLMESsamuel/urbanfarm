@@ -1,4 +1,3 @@
-<link rel = "stylesheet" href = "style-pied.css"/>
 <figure id="image">
 	<a href="page_contact.php"><img  src = "img/contact.png" height="50" title="Contact"/></a>
 	<figcaption>Contact</figcaption>

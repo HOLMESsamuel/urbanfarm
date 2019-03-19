@@ -8,17 +8,7 @@ try {
 } catch(Exception $e) {
 	die('Erreur : '.$e->getMessage());
 }
-if(isset($_POST['nombre'])){
-	$nombre = $_POST['nombre'];
-} else {
-	$nombre = 0;
-}
-if(isset($_POST['bouton'])){
-	$nombre = $nombre +1;
-	$formulaire = "<form method='POST' action=''>
-	<input type='text'>
-	</form>";
-}
+
 
 if(isset($_POST['inscription'])) {
 
@@ -116,25 +106,21 @@ if(isset($_POST['inscription'])) {
 	    	</div>
 	    	<div id="col2">
 				<h2>Votre installation</h2>
-				<form method="POST" action="page_inscription.php">
-					<input type="submit"  name="bouton" value="Ajouter une installation"/>
-					<input type="hidden" name="nombre" value=<?php $nombre ?>/>
+				<form method="POST" action="">
+					<div id=conteneur>
+						<div id="champs1">
+							<input type="text" id="input1" name="input1">
+						</div>
+					</div>
+					<input type="button" value="ajouter une installation" onclick="ajouterChamps();">
 				</form>
-				<?php
-				if(isset($formulaire)){
-					for($n=0;$n<$nombre;$n++){
-						echo $formulaire;
-					}
-					echo $nombre;
-					
-				} 
-				?>
+	
 
     		</div>
 		    
 		</div>
 	</body>
-
+	<script src="script/script_inscription.js"></script>
 	<footer>
 		<?php include("elem/elem_pied.php"); ?>
 	</footer>

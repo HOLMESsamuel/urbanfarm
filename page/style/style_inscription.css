@@ -20,6 +20,7 @@ h1 {
 #col2 {
     -ms-grid-column:2; 
     text-align: center;
+    transition: 0.3s ease;
     
 }
 
