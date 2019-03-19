@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Asap');
+
 *{
 	margin: 0;
 	padding: 0;
     /*    box-sizing: border-box;*/
 }
 
-
 #img_slider {
+	-ms-grid-row: 2;
 	position: relative;
 	width: 60%;
+	height: 100%;
 	margin: 1% auto;
 }
 

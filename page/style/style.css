@@ -32,9 +32,9 @@ header{
 
 #col2 {
 	-ms-grid-column:2; 
-    margin: 0px 5px;
-	height: 500px;
-    background-color: rgb(206, 203, 203);
+	margin: 0px 5px;
+	display: inline-block;
+    background-color: rgb(173, 149, 149);
 }
 
 footer{
