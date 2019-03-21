@@ -6,47 +6,54 @@ h1 {
 
 .container {
     height: 70%;
-	margin: 15px;
-	display:-ms-grid;
-		display: grid;
-	-ms-grid-columns :  1fr 1fr;
-		grid-template-columns: 1fr 1fr;
+    margin: 15px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
+
 #col1 {
-    -ms-grid-column:1; 
+    -ms-grid-column: 1;
     text-align: center;
     background-color: white;
 }
+
 #col2 {
-    -ms-grid-column:2; 
+    -ms-grid-column: 2;
     text-align: center;
     transition: 0.3s ease;
     background-color: white;
 }
 
+.champs {
+    border: 2px solid grey;
+    margin: 5px;
+    padding: 10px;
+}
 
 h2 {
     margin: 20px auto;
 }
 
- table {
-     margin: 0px auto;
- }
+table {
+    margin: 0px auto;
+}
 
 input {
     text-align: left;
-	padding: 10px;
-	border: 1px solid gray;
-	width: 80%;
-	margin: 5px auto;
-	transition: 0.3s ease;
+    padding: 10px;
+    border: 1px solid gray;
+    width: 80%;
+    margin: 5px auto;
+    transition: 0.3s ease;
 }
 
 #civilite {
-    display:-ms-grid;
-		display: grid;
-	-ms-grid-columns :  1fr 1fr;
-		grid-template-columns: 1fr 1fr;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     margin: 0px auto;
     width: 70%;
     margin-top: 15px;
@@ -57,7 +64,7 @@ input {
     display: none;
 }
 
-input[type=radio] + label:before {
+input[type=radio]+label:before {
     background: #fff;
     border: 2px solid #ccc;
     border-radius: 50%;
@@ -70,7 +77,7 @@ input[type=radio] + label:before {
     height: 17px;
 }
 
-input[type=radio]:checked + label:before {
+input[type=radio]:checked+label:before {
     background: grey;
     border-color: grey;
     box-shadow: inset 0px 0px 0px 2px #fff;
@@ -81,11 +88,11 @@ input[type=radio]:checked + label:before {
 }
 
 #civilite #p1 {
-    -ms-grid-column:1;
+    -ms-grid-column: 1;
 }
 
 #civilite #p2 {
-    -ms-grid-column:2;
+    -ms-grid-column: 2;
 }
 
 #btnValider {
@@ -93,7 +100,21 @@ input[type=radio]:checked + label:before {
     text-align: center;
     cursor: pointer;
 }
+
 #btnValider:hover {
     background-color: gray;
-	color: white;
+    color: white;
+}
+
+input[type=checkbox] {
+    width: 15px;
+}
+
+input[type=button] {
+    text-align: center;
+}
+
+input[type=button]:hover {
+    color: white;
+    background-color: grey;
 }
