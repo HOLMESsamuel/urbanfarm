@@ -43,7 +43,7 @@ function supprimer(){
 
 function creerChamps(ID){
     var champs = document.createElement("div");
-    champs.setAttribute("class", "champs");
+    champs.setAttribute("id", "champs" + ID);
     var temperature = document.createElement("input");
     temperature.setAttribute('type', 'checkbox');
     temperature.setAttribute('name', 'input' + ID);
