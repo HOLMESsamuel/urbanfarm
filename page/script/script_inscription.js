@@ -43,18 +43,18 @@ function supprimer(){
 
 function creerChamps(ID){
     var champs = document.createElement("div");
-    champs.setAttribute("id", "champs"+ID);
-    var input = document.createElement("input");
-    input.setAttribute('type', 'text');
-    input.setAttribute('name', 'input' + ID);
-    input.setAttribute('id', 'input' + ID);
+    champs.setAttribute("class", "champs");
+    var temperature = document.createElement("input");
+    temperature.setAttribute('type', 'checkbox');
+    temperature.setAttribute('name', 'input' + ID);
+    temperature.setAttribute('id', 'input' + ID);
 
     var Delete = document.createElement('input');
     Delete.setAttribute('type', 'button');
     Delete.setAttribute('value', 'Supprimer'+ID);
     Delete.setAttribute('id', 'supprimer' + ID);
     Delete.onclick = supprimer;
-    champs.appendChild(input);
+    champs.appendChild(temperature);
     champs.appendChild(Delete);
     return champs;
 }
