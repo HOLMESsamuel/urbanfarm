@@ -17,7 +17,7 @@ header{
 }
 
 .container {
-    height: 70%;
+	min-height: 06%;
 	margin: 15px;
 	display:-ms-grid;
 		display: grid;
@@ -36,7 +36,6 @@ header{
 	-ms-grid-column:2; 
 	margin: 0px 5px;
 	display: inline-block;
-    background-color: rgb(173, 149, 149);
 }
 
 footer{
