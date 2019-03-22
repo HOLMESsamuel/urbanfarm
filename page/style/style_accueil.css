@@ -42,7 +42,8 @@
 }
 
 .descriptif {
-	position: absolute;
+	position: inherit;
+	display: block;
 	text-align: center;
 	bottom: 20px;
 	background: rgba(88,88,88,0.6);
