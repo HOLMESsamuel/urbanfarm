@@ -39,44 +39,70 @@ function creerChamps(ID) {
     var champs = document.createElement("div");
     champs.setAttribute("class", "champs");
     champs.setAttribute("id", "champs" + ID);
-    var lblLumiere = document.createElement('label');
-    lblLumiere.innerHTML = 'lumiere';
-    var lumiere = document.createElement("input");
-    lumiere.setAttribute('type', 'checkbox');
-    lumiere.setAttribute('name', 'input' + ID);
-    lumiere.setAttribute('id', 'input' + ID);
-    lblLumiere.appendChild(lumiere);
 
-    var champs = document.createElement("div");
-    champs.setAttribute("class", "champs");
-    champs.setAttribute("id", "champs" + ID);
-    var lblMouvement = document.createElement('label');
-    lblMouvement.innerHTML = 'mouvement';
-    var mouvement = document.createElement("input");
-    mouvement.setAttribute('type', 'checkbox');
-    mouvement.setAttribute('name', 'input' + ID);
-    mouvement.setAttribute('id', 'input' + ID);
-    lblMouvement.appendChild(mouvement);
+    var titre = document.createElement('input');
+    titre.setAttribute('type', 'text');
+    titre.setAttribute('value', 'installation ' + ID);
+    titre.setAttribute('name', 'titre' + ID);
 
-    var champs = document.createElement("div");
-    champs.setAttribute("class", "champs");
-    champs.setAttribute("id", "champs" + ID);
+    var contenu = document.createElement('div');
+    contenu.setAttribute('class', 'contenu');
+
+    var liste = document.createElement('select');
+    liste.setAttribute('name', 'liste' + ID);
+    var optionPoulailler = document.createElement('option');
+    optionPoulailler.innerHTML = 'poulailler';
+    var optionSerre = document.createElement('option');
+    optionSerre.innerHTML = 'serre';
+    liste.appendChild(optionPoulailler);
+    liste.appendChild(optionSerre);
+
+    var champsTemperature = document.createElement('p');
     var lblTemperature = document.createElement('label');
     lblTemperature.innerHTML = 'temperature';
+    lblTemperature.setAttribute('for', 'temperature' + ID);
     var temperature = document.createElement("input");
     temperature.setAttribute('type', 'checkbox');
-    temperature.setAttribute('name', 'input' + ID);
-    temperature.setAttribute('id', 'input' + ID);
-    lblTemperature.appendChild(temperature);
+    temperature.setAttribute('name', 'temperature' + ID);
+    temperature.setAttribute('id', 'temperature' + ID);
+    champsTemperature.appendChild(temperature);
+    champsTemperature.appendChild(lblTemperature);
+
+    var champsMouvement = document.createElement('p');
+    var lblMouvement = document.createElement('label');
+    lblMouvement.innerHTML = 'mouvement';
+    lblMouvement.setAttribute('for', 'mouvement' + ID);
+    var mouvement = document.createElement("input");
+    mouvement.setAttribute('type', 'checkbox');
+    mouvement.setAttribute('name', 'mouvement' + ID);
+    mouvement.setAttribute('id', 'mouvement' + ID);
+    champsMouvement.appendChild(mouvement);
+    champsMouvement.appendChild(lblMouvement);
+
+    var champsLumiere = document.createElement('p');
+    var lblLumiere = document.createElement('label');
+    lblLumiere.innerHTML = 'lumiere';
+    lblLumiere.setAttribute('for', 'lumiere' + ID);
+    var lumiere = document.createElement("input");
+    lumiere.setAttribute('type', 'checkbox');
+    lumiere.setAttribute('name', 'lumiere' + ID);
+    lumiere.setAttribute('id', 'lumiere' + ID);
+    champsLumiere.appendChild(lumiere);
+    champsLumiere.appendChild(lblLumiere);
+
 
     var Delete = document.createElement('input');
     Delete.setAttribute('type', 'button');
-    Delete.setAttribute('value', 'Supprimer' + ID);
+    Delete.setAttribute('value', 'Supprimer');
     Delete.setAttribute('id', 'supprimer' + ID);
     Delete.onclick = supprimer;
-    champs.appendChild(lblLumiere);
-    champs.appendChild(lblMouvement);
-    champs.appendChild(lblTemperature);
+    champs.appendChild(titre);
+    contenu.appendChild(champsTemperature);
+    contenu.appendChild(champsMouvement);
+    contenu.appendChild(champsLumiere);
+    contenu.appendChild(liste);
+    champs.appendChild(contenu);
     champs.appendChild(Delete);
+
     return champs;
 }
