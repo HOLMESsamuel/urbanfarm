@@ -33,7 +33,7 @@ h1 {
 .champs {
     border: 1px solid grey;
     margin: 5px;
-    padding: 10px;
+    padding: 20px 40px;
 }
 
 h2 {
@@ -102,9 +102,9 @@ label {
 }
 
 #btnValider {
-    width: 50%;
-    text-align: center;
+    width: 30%;
     cursor: pointer;
+    text-align: center;
 }
 
 #btnValider:hover {
@@ -155,9 +155,10 @@ select {
     font-size: 17px;
     border: 1px solid grey;
     -ms-grid-column: 2;
-    -ms-grid-row: 1;
-    grid-row: 1;
+    -ms-grid-row: 2;
+    grid-row: 2;
     grid-column: 2;
+    text-align: right;
 }
 
 .contenu {
@@ -170,5 +171,9 @@ select {
 #col2 input[type=text] {
     text-align: center;
     margin-bottom: 15px;
+    width: 30%;
+}
+
+.champs input[type=button] {
     width: 50%;
 }

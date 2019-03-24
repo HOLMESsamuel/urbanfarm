@@ -2,6 +2,7 @@ var conteneur = document.getElementById("conteneur");
 var n = 0;
 var deletePattern = /^supprimer(\d+)$/
 var elementPattern = /^champs(\d+)$/
+var nb = 0;
 
 function ajouterChamps() {
     conteneur.appendChild(creerChamps(dernierChamps() + 1));
@@ -44,6 +45,7 @@ function creerChamps(ID) {
     titre.setAttribute('type', 'text');
     titre.setAttribute('value', 'installation ' + ID);
     titre.setAttribute('name', 'titre' + ID);
+    titre.setAttribute('id', 'titre' + ID);
 
     var contenu = document.createElement('div');
     contenu.setAttribute('class', 'contenu');
@@ -105,4 +107,8 @@ function creerChamps(ID) {
     champs.appendChild(Delete);
 
     return champs;
+}
+
+function nombreDeFormulaires() {
+    nb = dernierChamps();
 }
