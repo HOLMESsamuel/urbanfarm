@@ -50,8 +50,16 @@ function creerChamps(ID) {
     var contenu = document.createElement('div');
     contenu.setAttribute('class', 'contenu');
 
+    var adresse = document.createElement('input');
+    adresse.setAttribute('type', 'text');
+    adresse.setAttribute('class', 'adresse');
+    adresse.setAttribute('id', 'adresse' + ID);
+    adresse.setAttribute('name', 'adresse' + ID);
+    adresse.setAttribute('placeholder', 'adresse');
+
     var liste = document.createElement('select');
     liste.setAttribute('name', 'liste' + ID);
+    liste.setAttribute('id', 'liste' + ID);
     var optionPoulailler = document.createElement('option');
     optionPoulailler.innerHTML = 'poulailler';
     var optionSerre = document.createElement('option');
@@ -102,6 +110,7 @@ function creerChamps(ID) {
     contenu.appendChild(champsTemperature);
     contenu.appendChild(champsMouvement);
     contenu.appendChild(champsLumiere);
+    contenu.appendChild(adresse);
     contenu.appendChild(liste);
     champs.appendChild(contenu);
     champs.appendChild(Delete);

@@ -47,7 +47,10 @@ if(isset($_POST['inscription'])) {
 				for($i=1; $i<10; $i++){
 					if(isset($_POST['titre'.$i])){
 						$titre = htmlspecialchars($_POST['titre'.$i]);
-						/*recuperer le plus grand indice des installations (le dernier)*/
+						$type = htmlspecialchars($_POST['liste'.$i]);
+						/*$req = $bdd->prepare('INSERT INTO installation(nom, type, adresse, email) VALUES (?,?,?,?)');
+						$req->execute(array($titre, $type, $adresse, $email));*/
+						/* recuperer le dernier indice des installations*/
 						if(isset($_POST['temperature'.$i])){
 							$req = $bdd->prepare('INSERT INTO capteur(type, etat, n°installation) VALUES (?,?,?)');
 						}
