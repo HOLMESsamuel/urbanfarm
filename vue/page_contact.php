@@ -30,12 +30,25 @@
 				<br>
 				<form method="post" action="formulaire"></form>
 					<input type="mail" placeholder="Adresse mail" id="mail" name="mail" value="<?php if(isset($mail)) {echo $mail;}?>"/>	
+					<br>
 					<input type="titre" placeholder="Titre du message" id="titre" name="titre" value="<?php if(isset($itre)) {echo $titre;}?>"/>
 					<br>
-					<textarea id="text" name="text" rows="10" cols="100" placeholder="Ecrivez votre message ici ...">  </textarea>	
+					<textarea  id="text" placeholder="Ecrivez votre message ici ..."></textarea>
 					<br>
 					<input type="submit"  id="envoiMessage" name="envoi" value="Envoyer"/>
 				</form>
+			</div>
+
+			<div id="col3">
+				<h3> Où nous retrouver ? </h3>
+				<a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal" onclick="window.open(this.href); return false;"><img src="img\facebook-logo.png" width=40 class="logo" ></a>
+				<br>
+				<a href=""><img src="img\instagram_logo.png" width=40 class="logo" ></a>
+				<br>
+				<a href=""><img src="img\linkedin.png" width=55 class="logo" ></a>
+				<br>
+				<a href=""><img src="img\twitter_logo.png" width=75 class="logo" ></a>
+
 			</div>
 		</div>
 	</body>
