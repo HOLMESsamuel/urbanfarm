@@ -1,136 +1,125 @@
 @import url('https://fonts.googleapis.com/css?family=Sniglet');
-*{
-	margin: 0%;
-	padding: 0%;
-	font-family: 'Sniglet', sans-serif;
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Sniglet', sans-serif;
 }
 
-body{
-	margin-left: auto;
-	margin-right: auto;
+body {
+    margin-left: auto;
+    margin-right: auto;
 }
 
-header{
-	background-color: #B6D7A8;
-	border-bottom: 1px black solid;
-	text-align: center;
+header {
+    background-color: #B6D7A8;
+    border-bottom: 1px black solid;
+    text-align: center;
 }
 
 .container {
-	min-height: 06%;
-	margin: 15px;
-	display:-ms-grid;
-		display: grid;
-	-ms-grid-columns :  1fr 4fr;
-		grid-template-columns: 1fr 4fr;
-	
+    min-height: 06%;
+    margin: 15px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 4fr;
+    grid-template-columns: 1fr 4fr;
 }
 
 #col1 {
-	-ms-grid-column:1; 
+    -ms-grid-column: 1;
     margin: 0px 5px;
     background-color: rgb(241, 241, 241);
 }
 
 #col2 {
-	-ms-grid-column:2; 
-	margin: 0px 5px;
-	display: inline-block;
+    -ms-grid-column: 2;
+    margin: 0px 5px;
+    display: inline-block;
 }
 
-footer{
-	background-color: #FFE599;
-	border-top: 1px black solid;
-	clear: both;
-	text-align: center;
-	height: 96px;
-	display:-ms-grid;
-		display: grid;
-	-ms-grid-columns :  1fr 1fr 1fr 1fr;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-.con{
-	-ms-grid-column:1; 
-} 
-.bou{
-	-ms-grid-column:2; 
-} 
-.for{
-	-ms-grid-column:3; 
-} 
-.act{
-	-ms-grid-column:4; 
+footer {
+    background-color: #FFE599;
+    border-top: 1px black solid;
+    clear: both;
+    text-align: center;
+    height: 96px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
- #image{
-	 margin: 10px;
-	 display: inline-block;
- }
+.con {
+    -ms-grid-column: 1;
+}
 
- #nav {
-	 text-align: center;
-	 margin: 15px auto;
+.bou {
+    -ms-grid-column: 2;
+}
 
- }
+.for {
+    -ms-grid-column: 3;
+}
 
- #nav input{
-	text-align: center;
-	padding: 10px;
-	border: 1px solid gray;
-	width: 80%;
-	margin: 10px auto;
-	transition: 0.3s ease;
-	text-transform: uppercase;
+.act {
+    -ms-grid-column: 4;
+}
+
+#image {
+    margin: 10px;
+    display: inline-block;
+}
+
+#nav {
+    text-align: center;
+    margin: 15px auto;
+}
+
+#nav input {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid gray;
+    width: 80%;
+    margin: 10px auto;
+    text-transform: uppercase;
 }
 
 input {
-	cursor: pointer;
+    cursor: pointer;
 }
 
- .entree:hover{
-	 background-color: grey;
-	 color: white;
- }
-
- #menu {
-	text-align: center;
-	margin: 90px auto;
-	transform: translate(-50%, -50%);
-	top: 50%;
-	left: 50%;
-
+.entree:hover {
+    background-color: grey;
+    color: white;
+    transition: 0.3s ease;
 }
 
-.bouton{
-	cursor: pointer;
-	position: relative;
-	width: 60%;
-	left: 50%;
-	top: 150px;
-	text-decoration: none;
-	display: block;
-	border: 2px solid gray;
-	margin: 30px auto;
-	padding: 15px 30px;
-	color: black;
-	overflow: hidden;
-	text-transform: uppercase;
-	transition: 1s all ease;
+#menu {
+    text-align: center;
+    margin: 90px auto;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
 }
 
-.bouton::before {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	content: "";
-	background: gray;
-	transform: translate(-50%, -50%);
-	z-index: -1;
-	transition: 0.5s all ease;
-	width: 0;
-	height: 100%;
+.bouton {
+    cursor: pointer;
+    position: relative;
+    width: 60%;
+    left: 50%;
+    top: 150px;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    border: 1px solid gray;
+    margin: 40px auto;
+    padding: 10px;
+    text-transform: uppercase;
+    color: black;
 }
 
-.bouton:hover::before {
-	width: 100%;
+.bouton:hover {
+    background-color: grey;
+    color: white;
+    transition: 0.3s ease;
 }
