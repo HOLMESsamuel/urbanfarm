@@ -1,74 +1,77 @@
-
-*{
-	margin: 0;
-	padding: 0;
+* {
+    margin: 0;
+    padding: 0;
 }
 
 #img_slider {
-	-ms-grid-row: 2;
-	position: relative;
-	width: 60%;
-	height: 100%;
-	margin: 1% auto;
+    -ms-grid-row: 2;
+    position: relative;
+    width: 60%;
+    height: 100%;
+    margin: 1% auto;
 }
 
 .image {
-	position: absolute;
-	width: 100%;
-	height: auto;
+    position: absolute;
+    width: 100%;
+    height: auto;
 }
 
 .image img {
-	width: 100%;
-	height: auto;
-	border: 1px black solid;
+    width: 100%;
+    height: auto;
+    border: 1px black solid;
 }
 
-#i1, #i2, #i3, #i4 {
-	display: none;
+#i1,
+#i2,
+#i3,
+#i4 {
+    display: none;
 }
 
-.precedent, .suivant {
-	text-align: center;
-	position: absolute;
-	top: 48%;
-	width: 40px;
-	height: 40px;
-	cursor: pointer;
-	color: white;
-	font-size: 40px;
-	background: rgba(88,88,88,0.6);
-	border-radius: 50%;
+.precedent,
+.suivant {
+    text-align: center;
+    position: absolute;
+    top: 48%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    color: white;
+    font-size: 40px;
+    background: rgba(88, 88, 88, 0.6);
+    border-radius: 50%;
 }
 
 .descriptif {
-	position: inherit;
-	display: block;
-	text-align: center;
-	bottom: 20px;
-	background: rgba(88,88,88,0.6);
-	color: white;
-	width: 100%;
-	font-size: 3vh;
-	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
-	
+    position: inherit;
+    display: block;
+    text-align: center;
+    bottom: 20px;
+    background: rgba(88, 88, 88, 0.6);
+    color: white;
+    width: 100%;
+    font-size: 3vh;
+    text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
 
-.precedent:hover, .suivant:hover {
-	border: 1px solid white;
+.precedent:hover,
+.suivant:hover {
+    border: 1px solid white;
 }
 
 .suivant {
-	right: 0;
+    right: 0;
 }
 
 .precedent {
-	left: 0;
+    left: 0;
 }
 
-#i1:checked ~ #one,
-#i2:checked ~ #two,
-#i3:checked ~ #three,
-#i4:checked ~ #four{
-	z-index: 1;
+#i1:checked~#one,
+#i2:checked~#two,
+#i3:checked~#three,
+#i4:checked~#four {
+    z-index: 1;
 }
