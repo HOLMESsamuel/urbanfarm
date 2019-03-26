@@ -1,5 +1,6 @@
 <?php
 include("../modele/connexion.php");
+include("../modele/requeteUtilisateur.php");
 
 
 if(isset($_POST['inscription'])) {
@@ -54,8 +55,7 @@ if(isset($_POST['inscription'])) {
 						}
 					}
 				}
-				$req = $bdd->prepare('INSERT INTO utilisateur(email, nom, prenom, civilité, adresse, motdepasse, propriétaire) VALUES (?,?,?,?,?,?,?)');
-				$req->execute(array($mail,$nom,$prenom,$civilite,$adresse,$mdp,"oui"));
+				ajoutUtilisateur($bdd, $mail, $nom, $prenom, $civilite, $adresse, $mdp);
 			} catch (Exception $e) {
 				echo $e;
 			}
