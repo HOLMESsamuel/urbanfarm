@@ -46,7 +46,19 @@
 			    	<?php include("elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
-				
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+				<tr>
+				<td>Owner</td>
+				<td>
+							<select name="owner">
+				<?php 
+				//$sql = mysqli_query($connection, "SELECT username FROM users");
+				//while ($row = $sql->fetch_assoc()){
+				//echo "<option value=\"owner1\">" . $row['username'] . "</option>";				}
+				?>
+				</select>
+				</td>
+				</tr>
 				<div id="chartContainer"></div>
 			
 	    	</div>
