@@ -1,6 +1,8 @@
 <?php
 include("../modele/connexion.php");
 include("../modele/requeteUtilisateur.php");
+include("../modele/requeteInstallation.php");
+include("../modele/requeteCapteur.php");
 
 
 if(isset($_POST['inscription'])) {
@@ -37,14 +39,16 @@ if(isset($_POST['inscription'])) {
 		}
 		else {
 			try {
+				ajoutUtilisateur($bdd, $mail, $nom, $prenom, $civilite, $adresse, $mdp);
 				for($i=1; $i<10; $i++){
 					if(isset($_POST['titre'.$i])){
 						$titre = htmlspecialchars($_POST['titre'.$i]);
 						$type = htmlspecialchars($_POST['liste'.$i]);
 						$adresse = htmlspecialchars($_POST['adresse'.$i]);
-						/* recuperer le dernier indice des installations*/
+						ajoutInstallation($bdd, $nom, $type, $adresse, $mail);
+						$derniereInstallation = derniereInstallation($bdd);
 						if(isset($_POST['temperature'.$i])){
-							$req = $bdd->prepare('INSERT INTO capteur(type, etat, n°installation) VALUES (?,?,?)');
+							ajoutCapteur($bdd, 'temperature', 'on', $derniereInstallation);
 						}
 						if(isset($_POST['lumiere'.$i])){
 							echo "lumiere".$i;
@@ -54,7 +58,6 @@ if(isset($_POST['inscription'])) {
 						}
 					}
 				}
-				ajoutUtilisateur($bdd, $mail, $nom, $prenom, $civilite, $adresse, $mdp);
 			} catch (Exception $e) {
 				echo $e;
 			}
