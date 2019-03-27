@@ -45,16 +45,16 @@ if(isset($_POST['inscription'])) {
 						$titre = htmlspecialchars($_POST['titre'.$i]);
 						$type = htmlspecialchars($_POST['liste'.$i]);
 						$adresse = htmlspecialchars($_POST['adresse'.$i]);
-						ajoutInstallation($bdd, $nom, $type, $adresse, $mail);
+						ajoutInstallation($bdd, $titre, $type, $adresse, $mail);
 						$derniereInstallation = derniereInstallation($bdd);
 						if(isset($_POST['temperature'.$i])){
 							ajoutCapteur($bdd, 'temperature', 'on', $derniereInstallation);
 						}
 						if(isset($_POST['lumiere'.$i])){
-							echo "lumiere".$i;
+							ajoutCapteur($bdd, 'lumiere', 'on', $derniereInstallation);
 						}
 						if(isset($_POST['mouvement'.$i])){
-							echo "mouvement".$i;
+							ajoutCapteur($bdd, 'mouvement', 'on', $derniereInstallation);
 						}
 					}
 				}
