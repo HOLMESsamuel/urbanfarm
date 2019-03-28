@@ -15,7 +15,17 @@
 			    	<?php include("elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
-				/* Complete the main part here */	
+				<div id="gcheader1">
+					<h1>Aide et Support</h1>
+				</div>
+				<div id="gctextin">
+					<input type="text"value="Entrez question ici..." 
+					onfocus="if(value=='Entrez question ici...'){value=''}"
+					onblur="if(value=''){value='Entrez question ici...'}"/>
+				</div>
+				<div id="gcsearch">
+					<a href="">
+				</div>	
 
 	    	</div>
 		</div>
