@@ -42,6 +42,7 @@ function creerChamps(ID) {
     champs.setAttribute("id", "champs" + ID);
 
     var titre = document.createElement('input');
+    titre.setAttribute('class', 'titre');
     titre.setAttribute('type', 'text');
     titre.setAttribute('value', 'installation ' + ID);
     titre.setAttribute('name', 'titre' + ID);

@@ -7,6 +7,7 @@ include("../modele/requeteCapteur.php");
 
 if(isset($_POST['inscription'])) {
 
+	/* */
 	$prenom = htmlspecialchars($_POST['prenom']); //pour rendre impossible la saisie de code
 	$nom = htmlspecialchars($_POST['nom']);
 	$civilite = $_POST['civilité'];
