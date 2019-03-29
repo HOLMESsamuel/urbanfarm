@@ -13,4 +13,5 @@ function createComboBox(n) {
         liste.appendChild(optionCapteur);
     }
     comboBox.appendChild(liste);
+    graph.appendChild(liste);
 }
