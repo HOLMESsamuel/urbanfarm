@@ -1,0 +1,22 @@
+h1 {
+    font-size: 1.3em;
+    width: 100%;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-right: 0px;
+}
+
+.produit {
+    border: 2px solid black;
+    margin: 40px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.description {
+    width: 75%;
+}
+
