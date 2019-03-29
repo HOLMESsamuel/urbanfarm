@@ -1,4 +1,5 @@
-<?php if (basename($_SERVER['PHP_SELF'])== 'page_accueil.php'): ?>
+<?php session_start(); ?>
+<?php if (basename($_SERVER['PHP_SELF'])== 'page_accueil.php' || !isset($_SESSION['mail'])): ?>
 <?php include("../controleur/ct_accueil.php"); ?>
 <div id ="nav">
 <form method="post" action="">
@@ -21,8 +22,7 @@
 </form>
 </div>
 
-<?php elseif (basename($_SERVER['PHP_SELF']) != 'page_inscription.php'): ?>
-
+<?php elseif (isset($_SESSION['mail'])): ?>
 <div id ="menu">
 	<a href="page_profil.php" class="bouton">Profil</a>
 	<a href="page_commande.php" class="bouton">Commande</a>

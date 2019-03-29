@@ -10,6 +10,8 @@ if(isset($_POST['valider'])){
 		$erreur = "certains champs ne sont pas remplis";
 	} else {
 		if(estInscrit($bdd, $mail, $mdp)){
+			session_start();
+			$_SESSION['mail'] = $mail;
 			header('Location: page_profil.php');
 		} else {
 			$erreur = "Le mail ou le mot de passe est incorect";
