@@ -3,7 +3,7 @@
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
 		<link rel = "stylesheet" href = "style/style.css"/>
-		<link rel = "stylesheet" href = "style/styleforum.css"/>
+		<link rel = "stylesheet" href = "style/style_forum.css"/>
 	</head>
 	<header>
 		<?php include("elem/elem_entete.php"); ?>
