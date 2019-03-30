@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../modele/connexion.php");
 include("../modele/requeteUtilisateur.php");
 include("../modele/requeteInstallation.php");
@@ -64,7 +65,8 @@ if(isset($_POST['inscription'])) {
 			}
 
 			
-			$erreur = "compte créé";
+			$_SESSION['mail'] = $mail;
+			header('Location: page_profil.php?nouveau='.$_GET['nouveau']);
 			
 		}
 

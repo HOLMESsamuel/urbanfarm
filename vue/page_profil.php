@@ -24,4 +24,5 @@
 	<footer>
 		<?php include("elem/elem_pied.php"); ?>
 	</footer>
+	<?php include("../controleur/ct_profil.php"); ?>
 </html>

@@ -28,6 +28,7 @@
     -ms-grid-column: 3;
     grid-column: 3;
     margin: 0px 5px;
+    height: 120%;
     display: inline-block;
     background-color: rgb(241, 241, 241);
     text-align: center;
