@@ -51,7 +51,7 @@ session_destroy(); ?>
 					</div>
 					<img src="img/f4.jpg" width="100%">
 				</div>
-					<p> blablabla </p>
+					<h2>Dernières actualités</h2>
 				</div>
 	    	</div>
 		</div>

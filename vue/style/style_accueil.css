@@ -75,3 +75,11 @@
 #i4:checked~#four {
     z-index: 1;
 }
+
+h2 {
+    text-align: center;
+}
+
+#col2 {
+    overflow: auto;
+}
