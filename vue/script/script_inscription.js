@@ -1,8 +1,23 @@
-function openModalInfo() {
-    console.log("ok");
+var modalInfo = document.getElementById('modalInfo');
+
+window.addEventListener('click', closeModalExtInfo);
+
+function closeModalInfo() {
+    modalInfo.style.display = 'none';
+}
+
+function closeModalExtInfo(e) {
+    if (e.target == modalInfo) {
+        modalInfo.style.display = 'none';
+    }
 }
 
 
+function openModalInfo() {
+    modalInfo.style.display = "block";
+}
+
+//partie pour le modale des cgu
 
 var modal = document.getElementById('modal');
 var close = document.getElementById('close');

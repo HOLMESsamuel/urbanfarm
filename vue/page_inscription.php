@@ -14,8 +14,15 @@
 		<h1>Inscription</h1>
 		<form method="POST" action="">
 			<div class="container">
+			<div id="modalInfo">
+				<div class="interieurModal">
+					<span class="close" onclick="closeModalInfo();">&times;</span>
+					<p>Les infos</p>
+				</div>
+
+			</div>
 			<div id="modal">
-				<div id="interieurModal">
+				<div class="interieurModal">
 					<span class="close" onclick="closeModal();">&times;</span>
 					<p>Le modal</p>
 				</div>
@@ -61,7 +68,7 @@
 				
 				</div>
 				<div id="col2">
-					<h2>Votre installation<span id="lienInfo" onclick="openModalInfo();"> ?</span></h2>
+					<h2>Votre installation  <span id="lienInfo" onclick="openModalInfo();">  ?  </span></h2>
 					
 						<div id=conteneur>
 							
