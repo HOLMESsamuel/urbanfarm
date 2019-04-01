@@ -1,3 +1,9 @@
+function openModalInfo() {
+    console.log("ok");
+}
+
+
+
 var modal = document.getElementById('modal');
 var close = document.getElementById('close');
 
@@ -20,7 +26,7 @@ function closeModalExt(e) {
 
 
 
-
+//la partie suivante gere l'ajout de champs au formulaire
 
 
 var conteneur = document.getElementById("conteneur");
@@ -76,6 +82,12 @@ function creerChamps(ID) {
     var contenu = document.createElement('div');
     contenu.setAttribute('class', 'contenu');
 
+    var titreCapteur = document.createElement('h4');
+    titreCapteur.innerHTML = "Choisissez vos capteurs";
+
+    var titreActionneur = document.createElement("h4");
+    titreActionneur.innerHTML = "Choisissez vos actionneurs"
+
     var adresse = document.createElement('input');
     adresse.setAttribute('type', 'text');
     adresse.setAttribute('class', 'adresse');
@@ -95,11 +107,12 @@ function creerChamps(ID) {
 
     var champsTemperature = document.createElement('p');
     var lblTemperature = document.createElement('label');
-    lblTemperature.innerHTML = 'temperature';
+    lblTemperature.innerHTML = 'temperature    ';
     lblTemperature.setAttribute('for', 'temperature' + ID);
     var temperature = document.createElement("input");
     temperature.setAttribute('type', 'checkbox');
     temperature.setAttribute('name', 'temperature' + ID);
+    temperature.setAttribute('class', 'temperature');
     temperature.setAttribute('id', 'temperature' + ID);
     champsTemperature.appendChild(temperature);
     champsTemperature.appendChild(lblTemperature);
@@ -111,6 +124,7 @@ function creerChamps(ID) {
     var mouvement = document.createElement("input");
     mouvement.setAttribute('type', 'checkbox');
     mouvement.setAttribute('name', 'mouvement' + ID);
+    mouvement.setAttribute('class', 'mouvement');
     mouvement.setAttribute('id', 'mouvement' + ID);
     champsMouvement.appendChild(mouvement);
     champsMouvement.appendChild(lblMouvement);
@@ -122,10 +136,46 @@ function creerChamps(ID) {
     var lumiere = document.createElement("input");
     lumiere.setAttribute('type', 'checkbox');
     lumiere.setAttribute('name', 'lumiere' + ID);
+    champsLumiere.setAttribute('class', 'lumiere');
     lumiere.setAttribute('id', 'lumiere' + ID);
     champsLumiere.appendChild(lumiere);
     champsLumiere.appendChild(lblLumiere);
 
+    var champsMoteur = document.createElement('p');
+    var lblMoteur = document.createElement('label');
+    lblMoteur.innerHTML = 'moteur';
+    lblMoteur.setAttribute('for', 'moteur' + ID);
+    var moteur = document.createElement("input");
+    moteur.setAttribute('type', 'checkbox');
+    moteur.setAttribute('name', 'moteur' + ID);
+    champsMoteur.setAttribute('class', 'moteur');
+    moteur.setAttribute('id', 'moteur' + ID);
+    champsMoteur.appendChild(moteur);
+    champsMoteur.appendChild(lblMoteur);
+
+    var champsVentilateur = document.createElement('p');
+    var lblVentilateur = document.createElement('label');
+    lblVentilateur.innerHTML = 'ventilateur';
+    lblVentilateur.setAttribute('for', 'ventilateur' + ID);
+    var ventilateur = document.createElement("input");
+    ventilateur.setAttribute('type', 'checkbox');
+    ventilateur.setAttribute('name', 'ventilateur' + ID);
+    champsVentilateur.setAttribute('class', 'ventilateur');
+    ventilateur.setAttribute('id', 'ventilateur' + ID);
+    champsVentilateur.appendChild(ventilateur);
+    champsVentilateur.appendChild(lblVentilateur);
+
+    var champsLampe = document.createElement('p');
+    var lblLampe = document.createElement('label');
+    lblLampe.innerHTML = 'lampe';
+    lblLampe.setAttribute('for', 'lampe' + ID);
+    var lampe = document.createElement("input");
+    lampe.setAttribute('type', 'checkbox');
+    lampe.setAttribute('name', 'lampe' + ID);
+    champsLampe.setAttribute('class', 'lampe');
+    lampe.setAttribute('id', 'lampe' + ID);
+    champsLampe.appendChild(lampe);
+    champsLampe.appendChild(lblLampe);
 
     var Delete = document.createElement('input');
     Delete.setAttribute('type', 'button');
@@ -133,9 +183,14 @@ function creerChamps(ID) {
     Delete.setAttribute('id', 'supprimer' + ID);
     Delete.onclick = supprimer;
     champs.appendChild(titre);
+    contenu.appendChild(titreCapteur);
+    contenu.appendChild(titreActionneur);
     contenu.appendChild(champsTemperature);
     contenu.appendChild(champsMouvement);
     contenu.appendChild(champsLumiere);
+    contenu.appendChild(champsMoteur);
+    contenu.appendChild(champsVentilateur);
+    contenu.appendChild(champsLampe);
     contenu.appendChild(adresse);
     contenu.appendChild(liste);
     champs.appendChild(contenu);

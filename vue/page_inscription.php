@@ -46,7 +46,7 @@
 						<div id="checkboxCgu">
 							<p>
 								<input type="checkbox" id="cgu" name="cgu">
-								<label for="cgu"></label>J'accepte les <span id="conditions" onclick="openModal();"> conditions generales d'utilisation</span>
+								<label for="cgu">J'accepte les </label><span id="conditions" onclick="openModal();"> conditions generales d'utilisation</span>
 							</p>
 						</div>
 						<p id="erreur">
@@ -61,7 +61,7 @@
 				
 				</div>
 				<div id="col2">
-					<h2>Votre installation</h2>
+					<h2>Votre installation<span id="lienInfo" onclick="openModalInfo();"> ?</span></h2>
 					
 						<div id=conteneur>
 							
