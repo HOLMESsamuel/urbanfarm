@@ -38,10 +38,10 @@
                     <h2>00,00€</h2>
                     <!-- possibilite de choisir le nombre d'unites du produit -->
                     <label>
-                        unités<input type="number" name="number" class="number" min="1" max="100" step="1">
+                        unités<input type="number" name="number" id="number" min="1" max="99" step="1">
                     </label>
                     <!-- bouton 'Ajouter au panier' -->
-                    <div class="bouton_acheter">Ajouter au panier</div>
+                    <input type="submit" id="submit" value="Ajouter au panier">
                 </div>
             </div>
         </div>
@@ -67,10 +67,10 @@
                     <h2>00,00€</h2>
                     <!-- possibilite de choisir le nombre d'unites du produit -->
                     <label>
-                        unités<input type="number" name="number" class="number" min="1" max="100" step="1">
+                        unités<input type="number" name="number" id="number" min="1" max="99" step="1">
                     </label>
                     <!-- bouton 'Ajouter au panier' -->
-                    <div class="bouton_acheter">Ajouter au panier</div>
+                    <input type="submit" id="submit" value="Ajouter au panier">
                 </div>
             </div>
         </div>

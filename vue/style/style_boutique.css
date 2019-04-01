@@ -18,17 +18,26 @@ h3 {
     padding: 10px 20px;
 }
 
-.bouton_acheter {
+#submit {
+    background-color: white;
+    color: black;
+    border-color: black;
     border: 1px solid black;
     padding: 2px 8px;
+    font-size: 1em;
 }
 
-.bouton_acheter:hover {
+#submit:hover {
     background-color: dimgray;
     color: white;
     transition: 125ms;
     border-color: dimgray;
     border-radius: 4px;
+}
+
+#number {
+    font-size: 1em;
+    margin: 10px 0px 10px 10px;
 }
 
 .information {
@@ -39,6 +48,8 @@ h3 {
 
 .achat {
     text-align: right;
+    display: flex;
+    flex-direction: column;
 }
 
 .photo {
@@ -51,9 +62,5 @@ h3 {
 .description {
     width: 60%;
     overflow: auto;
-}
-
-.number {
-    margin: 10px 0px 10px 10px;
 }
 
