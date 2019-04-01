@@ -14,6 +14,20 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	title :{
 		text: "Représentation des données"
 	},
+	axisX: {
+		type: 'time'
+	},
+  	time: {
+    	format: "HH:mm",
+   	 	unit: 'hour',
+	    unitStepSize: 1,
+	    displayFormats: {
+	      	'minute': 'HH:mm', 
+	      	'hour': 'HH:mm', 
+	      	min: '00:00',
+	      	max: '23:59'
+	    },
+	},
 	axisY: {
 		includeZero: false
 	},
@@ -24,9 +38,9 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	}]
 });
 
-var xVal = 0;
+var xVal = new Date();
 var yVal = 100;
-var updateInterval = 1000;
+var updateInterval = 3000; // temps avant mise a jour
 var dataLength = 10; // number of dataPoints visible at any point
 
 var updateChart = function (count) {
@@ -38,7 +52,7 @@ var updateChart = function (count) {
 			x: xVal,
 			y: yVal
 		});
-		xVal++;
+		xVal = new Date();
 	}
 	if (dps.length > dataLength) {
 		dps.shift();
