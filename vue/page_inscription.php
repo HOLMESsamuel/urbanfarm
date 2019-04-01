@@ -36,12 +36,22 @@
 						<input type="mail" placeholder="confirmer le mail" id="confmail" name="confmail" value="<?php if(isset($confmail)) {echo $confmail;}?>"/>
 						<input type="password" placeholder="mot de passe" id="mdp" name="mdp"/>
 						<input type="password" placeholder="confirmer le mot de passe" id="confmdp" name="confmdp"/>
+						<br>
+						<div id="checkboxCgu">
+							<p>
+								<input type="checkbox" id="cgu" name="cgu">
+								<label for="cgu">J'accepte les <a href=""> conditions generales d'utilisation</a></label>
+							</p>
+						</div>
+						<p id="erreur">
+						<?php 
+						if(isset($erreur)){
+							echo $erreur;
+						}
+						?>
+						</p>
 						<input type="submit" id="btnValider" name="inscription" value="Confirmer"/>
-					<?php 
-					if(isset($erreur)){
-						echo $erreur;
-					}
-					?>
+					
 				
 				</div>
 				<div id="col2">

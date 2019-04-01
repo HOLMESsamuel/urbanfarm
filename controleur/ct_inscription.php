@@ -17,12 +17,13 @@ if(isset($_POST['inscription'])) {
 	$confmail = htmlspecialchars($_POST['confmail']);
 	$mdp = sha1($_POST['mdp']);
 	$confmdp = sha1($_POST['confmdp']);
-	
 
 	if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse']) AND !empty($_POST['mail']) AND !empty($_POST['mail']) AND !empty($_POST['confmail']) AND !empty($_POST['mdp']) AND !empty($_POST['confmdp'])){
 		
-
-		if(strlen($prenom) > 20){
+		if(!isset($_POST['cgu'])){
+			$erreur = "Vous devez accepter les conditions generales d'utilisation";
+		}
+		elseif(strlen($prenom) > 20){
 			$erreur = "Le prenom doit être inférieur à 20 caractères";
 		}
 		elseif(strlen($nom) > 20){
