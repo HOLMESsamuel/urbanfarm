@@ -14,6 +14,12 @@
 		<h1>Inscription</h1>
 		<form method="POST" action="">
 			<div class="container">
+			<div id="modal">
+				<div id="interieurModal">
+					<span class="close" onclick="closeModal();">&times;</span>
+					<p>Le modal</p>
+				</div>
+			</div>
 			<div id="col1">
 					<h2>Vos informations personnelles</h2>
 						
@@ -40,7 +46,7 @@
 						<div id="checkboxCgu">
 							<p>
 								<input type="checkbox" id="cgu" name="cgu">
-								<label for="cgu">J'accepte les <a href=""> conditions generales d'utilisation</a></label>
+								<label for="cgu"></label>J'accepte les <span id="conditions" onclick="openModal();"> conditions generales d'utilisation</span>
 							</p>
 						</div>
 						<p id="erreur">
