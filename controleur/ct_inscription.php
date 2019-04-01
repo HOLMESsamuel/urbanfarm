@@ -76,6 +76,7 @@ if(isset($_POST['inscription'])) {
 
 			
 			$_SESSION['mail'] = $mail;
+			$_SESSION['prenom'] = $prenom;
 			header('Location: page_profil.php?nouveau='.$_GET['nouveau']);
 			
 		}
