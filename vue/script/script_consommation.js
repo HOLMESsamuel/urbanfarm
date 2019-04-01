@@ -3,7 +3,7 @@ var comboBox= document.getElementById("comboBox");
 var graph= document.getElementById("chartContainer");
 
 function createComboBox(n) {
-    alert("Pandicorne !");
+    
     var liste = document.createElement('select');
     liste.setAttribute('name', 'liste' );
     liste.setAttribute('id', 'liste' );

@@ -12,7 +12,7 @@ var dps = [];
 var chart = new CanvasJS.Chart("chartContainer", {
 	exportEnabled: true,
 	title :{
-		text: "Dynamic Spline Chart"
+		text: "Représentation des données"
 	},
 	axisY: {
 		includeZero: false
@@ -69,16 +69,20 @@ setInterval(function(){ updateChart() }, updateInterval);
 				include("../modele/connexion.php"); 
 				include("../modele/requeteCapteur.php"); 
 			
-     			$requete = "SELECT * FROM capteur";
+     			$requete = "SELECT * FROM utilisateur";
 				$query = $bdd->query($requete);
 				$results = new ArrayObject(array());
-     			while ( $res =  $query->fetch() );
-     			$results->append($res['n°installation']);
-     			$results->append($res['n°installation']);
+				while ( $res =  $query->fetch() )
+				{
+     				$results->append($res['email']);
+				}
 			?>
-			<select name="the_name">
+			<?php foreach ( $results as $option ) :
+			   var_dump($option);
+			endforeach; ?>
+			<select name="the_name" id="combobox">
      			<?php foreach ( $results as $option ) :
-          			echo "<option>".$option['type']."</option>";
+					echo "<option>".$option."</option>";
      			endforeach; ?>
 			</select>
 
