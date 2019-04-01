@@ -69,17 +69,14 @@ setInterval(function(){ updateChart() }, updateInterval);
 				include("../modele/connexion.php"); 
 				include("../modele/requeteCapteur.php"); 
 			
-     			$requete = "SELECT * FROM utilisateur";
+     			$requete = "SELECT * FROM capteur";
 				$query = $bdd->query($requete);
 				$results = new ArrayObject(array());
 				while ( $res =  $query->fetch() )
 				{
-     				$results->append($res['email']);
+     				$results->append($res['type']." - ".$res['n°installation']);
 				}
 			?>
-			<?php foreach ( $results as $option ) :
-			   var_dump($option);
-			endforeach; ?>
 			<select name="the_name" id="combobox">
      			<?php foreach ( $results as $option ) :
 					echo "<option>".$option."</option>";
