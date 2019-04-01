@@ -1,0 +1,59 @@
+h1 {
+    font-size: 1.3em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    color: dimgray;
+    font-size: 1em;
+}
+
+.box_product {
+    border: 2px solid dimgray;
+    border-radius: 10px;
+    margin: 40px;
+    padding: 10px 20px;
+}
+
+.bouton_acheter {
+    border: 1px solid black;
+    padding: 2px 8px;
+}
+
+.bouton_acheter:hover {
+    background-color: dimgray;
+    color: white;
+    transition: 125ms;
+    border-color: dimgray;
+    border-radius: 4px;
+}
+
+.information {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.achat {
+    text-align: right;
+}
+
+.photo {
+    background-color: #cccccc;
+    width: 125px;
+    height: 125px;
+    margin: 0px 10px;
+}
+
+.description {
+    width: 60%;
+    overflow: auto;
+}
+
+.number {
+    margin: 10px 0px 10px 10px;
+}
+
