@@ -59,6 +59,15 @@ if(isset($_POST['inscription'])) {
 						if(isset($_POST['mouvement'.$i])){
 							ajoutCapteur($bdd, 'mouvement', 'on', $derniereInstallation);
 						}
+						if(isset($_POST['moteur'.$i])){
+							ajoutActionneur($bdd, 'moteur', 'off', $derniereInstallation);
+						}
+						if(isset($_POST['lampe'.$i])){
+							ajoutActionneur($bdd, 'lampe', 'off', $derniereInstallation);
+						}
+						if(isset($_POST['ventilateur'.$i])){
+							ajoutActionneur($bdd, 'ventilateur', 'off', $derniereInstallation);
+						}
 					}
 				}
 			} catch (Exception $e) {

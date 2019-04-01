@@ -161,11 +161,14 @@ p {
 select {
     font-size: 17px;
     border: 1px solid grey;
-    -ms-grid-column: 2;
-    -ms-grid-row: 2;
-    grid-row: 2;
-    grid-column: 2;
+    -ms-grid-column: 1;
+    -ms-grid-row: 6;
+    grid-row: 6;
+    grid-column: 1;
     text-align: right;
+    width: 80%;
+    height: 83%;
+    margin: 5px;
 }
 
 .contenu {
@@ -173,6 +176,7 @@ select {
     display: grid;
     -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
+    margin-bottom: 15px;
 }
 
 .titre {
@@ -188,8 +192,8 @@ select {
 .adresse {
     -ms-grid-column: 2;
     grid-column: 2;
-    -ms-grid-row: 3;
-    grid-row: 3;
+    -ms-grid-row: 6;
+    grid-row: 6;
     margin: 5px;
 }
 
@@ -209,6 +213,7 @@ select {
 }
 
 #interieurModal {
+    overflow: auto;
     background-color: white;
     margin: 20% auto;
     padding: 20px;
@@ -217,10 +222,11 @@ select {
 }
 
 .close {
-    float: right;
     color: #ccc;
     cursor: pointer;
     font-size: 40px;
+    margin-bottom: 20px;
+    float: right;
 }
 
 .close:hover {
@@ -230,5 +236,30 @@ select {
 #conditions {
     color: blue;
     text-decoration: underline;
+    cursor: pointer;
+}
+
+.moteur {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 2;
+    grid-row: 2;
+}
+
+.ventilateur {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 3;
+    grid-row: 3;
+}
+
+.lampe {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 4;
+    grid-row: 4;
+}
+
+#lienInfo {
     cursor: pointer;
 }
