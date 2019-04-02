@@ -22,7 +22,7 @@
 </form>
 </div>
 
-<?php elseif (isset($_SESSION['mail']) && !basename($_SERVER['PHP_SELF'])== 'page_admin.php'): ?>
+<?php elseif (isset($_SESSION['mail']) && basename($_SERVER['PHP_SELF'])== 'page_profil.php'): ?>
 <div id ="menu">
 	<a href="page_profil.php" class="bouton">Profil</a>
 	<a href="page_commande.php" class="bouton">Commande</a>
