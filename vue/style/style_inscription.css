@@ -89,8 +89,8 @@ input[type=radio]+label:before {
 }
 
 input[type=radio]:checked+label:before {
-    background: grey;
-    border-color: grey;
+    background: rgb(146, 194, 125);
+    border-color: #B6D7A8;
     box-shadow: inset 0px 0px 0px 2px #fff;
 }
 
@@ -147,8 +147,8 @@ input[type=checkbox]+label:before {
 }
 
 input[type=checkbox]:checked+label:before {
-    background: grey;
-    border-color: grey;
+    background: rgb(146, 194, 125);
+    border-color: #B6D7A8;
     box-shadow: inset 0px 0px 0px 2px #fff;
 }
 
@@ -280,6 +280,10 @@ select {
 }
 
 #lienInfo:hover {
-    background-color: grey;
-    color: white;
+    background-color: #B6D7A8;
+    border-color: black;
+}
+
+h4 {
+    text-align: left;
 }
