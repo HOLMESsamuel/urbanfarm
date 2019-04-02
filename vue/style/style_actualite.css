@@ -34,13 +34,23 @@
 #article {
     margin: 15px 15px;
 }
+.titre {
+    color:blue;
+}
+.titre:hover {
+    color:#B6D7A8;
+}
 
-#article:hover {
-    background: grey;
-    color: white;
+.date {
+    font-style:italic;
+    font-size:12px;
 }
 
 h3 {
     margin-top: 5px;
     text-align: center;
+}
+
+.contenu {
+    font-size: 12px;
 }
