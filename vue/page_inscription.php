@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<?php include("../controleur/ct_inscription.php"); ?>
+
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
@@ -20,7 +20,9 @@
 				var cgu = document.getElementById("cgu").checked;
 				console.log(cgu);
 				$(".erreur").load("../controleur/ct_inscription.php", {
-
+					prenom: prenom,
+					nom: nom,
+					cgu: cgu
 				});
 			});
 		});

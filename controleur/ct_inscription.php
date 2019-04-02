@@ -4,6 +4,15 @@ include("../modele/connexion.php");
 include("../modele/requeteUtilisateur.php");
 include("../modele/requeteInstallation.php");
 include("../modele/requeteCapteur.php");
+$prenom = htmlspecialchars($_POST['prenom']);
+$nom = htmlspecialchars($_POST['nom']);
+if(!empty($prenom) && !empty($nom)){
+	header('Location: ../vue/page_profil.php');
+} else {
+	echo "remplir";
+}
+
+
 
 
 if(isset($_POST['inscription'])) {
@@ -21,7 +30,7 @@ if(isset($_POST['inscription'])) {
 	if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse']) AND !empty($_POST['mail']) AND !empty($_POST['mail']) AND !empty($_POST['confmail']) AND !empty($_POST['mdp']) AND !empty($_POST['confmdp'])){
 		
 		if(!isset($_POST['cgu'])){
-			$erreur = "Vous devez accepter les conditions generales d'utilisation";
+			echo "Vous devez accepter les conditions generales d'utilisation";
 		}
 		elseif(strlen($prenom) > 20){
 			$erreur = "Le prenom doit être inférieur à 20 caractères";
