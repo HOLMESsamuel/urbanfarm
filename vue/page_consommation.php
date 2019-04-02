@@ -12,7 +12,7 @@ var dps = [];
 var chart = new CanvasJS.Chart("chartContainer", {
 	exportEnabled: true,
 	title :{
-		text: "Représentation des données"
+		text: "Données des 24 dernières heures"
 	},
 	axisX: {
 		type: 'time'
@@ -38,21 +38,26 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	}]
 });
 
-var xVal = new Date();
+//var xVal = new Date().setHours(xVal.getHours() -24);
+var today = new Date();
+today.setHours(today.getHours() -24);
+var xVal = new Date(today.getTime());
 var yVal = 100;
 var updateInterval = 3000; // temps avant mise a jour
-var dataLength = 10; // number of dataPoints visible at any point
+var dataLength = 24; // number of dataPoints visible at any point
 
 var updateChart = function (count) {
 	count = count || 1;
 	// count is number of times loop runs to generate random dataPoints.
 	for (var j = 0; j < count; j++) {	
+		
 		yVal = yVal + Math.round(5 + Math.random() *(-10));
 		dps.push({
 			x: xVal,
 			y: yVal
 		});
-		xVal = new Date();
+		xVal = new Date(xVal.getTime());
+		xVal.setHours(xVal.getHours() +1);
 	}
 	if (dps.length > dataLength) {
 		dps.shift();
