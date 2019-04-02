@@ -12,7 +12,12 @@ if(isset($_POST['valider'])){
 		if(estInscrit($bdd, $mail, $mdp)){
 			session_start();
 			$_SESSION['mail'] = $mail;
-			header('Location: page_profil.php');
+			if(estAdmin($bdd, $mail)){
+				header('Location: page_admin.php');
+			} else {
+				header('Location: page_profil.php');
+			}
+			
 		} else {
 			$erreur = "Le mail ou le mot de passe est incorect";
 		}

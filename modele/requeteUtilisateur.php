@@ -10,4 +10,8 @@
         $exist = $req->rowCount();
         return ($exist == 1);
     }
+
+    function estAdmin(PDO $bdd, String $mail):bool {
+        return false;
+    }
 ?>
