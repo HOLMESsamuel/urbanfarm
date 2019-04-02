@@ -36,12 +36,14 @@
                 <div class="achat">
                     <!-- prix du produit -->
                     <h2>00,00€</h2>
-                    <!-- possibilite de choisir le nombre d'unites du produit -->
-                    <label>
-                        unités<input type="number" name="number" id="number" min="1" max="99" step="1">
-                    </label>
-                    <!-- bouton 'Ajouter au panier' -->
-                    <input type="submit" id="submit" value="Ajouter au panier">
+                    <form method="post" action="">
+                        <!-- possibilite de choisir le nombre d'unites du produit -->
+                        <label>
+                            unités<input type="number" name="number" id="number1" min="1" max="99" step="1">
+                        </label>
+                        <!-- bouton 'Ajouter au panier' -->
+                        <input type="submit" id="submit1" value="Ajouter au panier">
+                    </form>
                 </div>
             </div>
         </div>
@@ -65,12 +67,14 @@
                 <div class="achat">
                     <!-- prix du produit -->
                     <h2>00,00€</h2>
-                    <!-- possibilite de choisir le nombre d'unites du produit -->
-                    <label>
-                        unités<input type="number" name="number" id="number" min="1" max="99" step="1">
-                    </label>
-                    <!-- bouton 'Ajouter au panier' -->
-                    <input type="submit" id="submit" value="Ajouter au panier">
+                    <form method="post" action="">
+                        <!-- possibilite de choisir le nombre d'unites du produit -->
+                        <label>
+                            unités<input type="number" name="number" id="number2" min="1" max="99" step="1">
+                        </label>
+                        <!-- bouton 'Ajouter au panier' -->
+                        <input type="submit" id="submit2" value="Ajouter au panier">
+                    </form>
                 </div>
             </div>
         </div>

@@ -16,6 +16,7 @@
     <session id="-110680348">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.70" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -38,34 +39,34 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="653" />
-          <entry key="php" value="827" />
+          <entry key="css" value="775" />
+          <entry key="php" value="849" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="653" />
-          <entry key="PHP" value="827" />
+          <entry key="CSS" value="775" />
+          <entry key="PHP" value="849" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vue/page_boutique.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="40" column="92" selection-start-line="40" selection-start-column="92" selection-end-line="40" selection-end-column="92" />
+            <state relative-caret-position="373">
+              <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vue/style/style_boutique.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="38" column="18" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="18" />
+            <state relative-caret-position="975">
+              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
             </state>
           </provider>
         </entry>
@@ -79,8 +80,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/vue/style/style_boutiquee.css" />
-        <option value="$PROJECT_DIR$/vue/style/style_boutique.css" />
         <option value="$PROJECT_DIR$/vue/page_boutique.php" />
+        <option value="$PROJECT_DIR$/vue/style/style_boutique.css" />
       </list>
     </option>
   </component>
@@ -160,12 +161,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1554126565237</updated>
-      <workItem from="1554126590069" duration="10398000" />
+      <workItem from="1554126590069" duration="12928000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10398000" />
+    <option name="totallyTimeSpent" value="12928000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -212,17 +213,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/style/style_boutique.css">
+    <entry file="file://$PROJECT_DIR$/vue/page_boutique.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="18" />
+        <state relative-caret-position="373">
+          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue/page_boutique.php">
+    <entry file="file://$PROJECT_DIR$/vue/style/style_boutique.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="40" column="92" selection-start-line="40" selection-start-column="92" selection-end-line="40" selection-end-column="92" />
+        <state relative-caret-position="975">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>

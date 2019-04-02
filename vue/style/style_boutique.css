@@ -18,7 +18,7 @@ h3 {
     padding: 10px 20px;
 }
 
-#submit {
+#submit1, #submit2 {
     background-color: white;
     color: black;
     border-color: black;
@@ -27,7 +27,7 @@ h3 {
     font-size: 1em;
 }
 
-#submit:hover {
+#submit1:hover, #submit2:hover {
     background-color: dimgray;
     color: white;
     transition: 125ms;
@@ -35,7 +35,12 @@ h3 {
     border-radius: 4px;
 }
 
-#number {
+form {
+    margin: 0px;
+    padding: 0px;
+}
+
+#number1, #number2 {
     font-size: 1em;
     margin: 10px 0px 10px 10px;
 }
@@ -50,17 +55,17 @@ h3 {
     text-align: right;
     display: flex;
     flex-direction: column;
+    width: 25%;
 }
 
 .photo {
-    background-color: #cccccc;
+    background-color: #cccc;
     width: 125px;
     height: 125px;
     margin: 0px 10px;
 }
 
 .description {
-    width: 60%;
+    width: 50%;
     overflow: auto;
 }
-
