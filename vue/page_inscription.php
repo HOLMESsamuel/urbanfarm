@@ -5,14 +5,35 @@
 		<title> Urban Farm</title>
 		<link rel = "stylesheet" href = "style/style.css"/>
 		<link rel = "stylesheet" href = "style/style_inscription.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function() { //verifie que tout est chargé dans la page
+			$("form").submit(function(event) {
+				event.preventDefault();
+				var prenom = $("#prenom").val();
+				var nom = $("#nom").val();
+				var adresse = $("#adresse").val();
+				var mail = $("#mail").val();
+				var confmail = $("#confmail").val();
+				var mdp = $("#mdp").val();
+				var confmdp = $("#confmdp").val();
+				var cgu = document.getElementById("cgu").checked;
+				console.log(cgu);
+				$(".erreur").load("../controleur/ct_inscription.php", {
+
+				});
+			});
+		});
+		</script>
 	</head>
 	<header>
 		<?php include("elem/elem_entete.php"); ?>
 	</header>	
 	
+	
 	<body>
 		<h1>Inscription</h1>
-		<form method="POST" action="">
+		<form method="POST" action="truc">
 			<div class="container">
 			<div id="modalInfo">
 				<div class="interieurModal">
@@ -56,15 +77,10 @@
 								<label for="cgu">J'accepte les </label><span id="conditions" onclick="openModal();"> conditions generales d'utilisation</span>
 							</p>
 						</div>
-						<p id="erreur">
-						<?php 
-						if(isset($erreur)){
-							echo $erreur;
-						}
-						?>
-						</p>
 						<input type="submit" id="btnValider" name="inscription" value="Confirmer"/>
-					
+						<p class="erreur">
+						 
+						</p>
 				
 				</div>
 				<div id="col2">
