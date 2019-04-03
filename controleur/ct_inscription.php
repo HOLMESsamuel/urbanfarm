@@ -1,18 +1,43 @@
 <?php
 session_start();
+
 include("../modele/connexion.php");
 include("../modele/requeteUtilisateur.php");
 include("../modele/requeteInstallation.php");
 include("../modele/requeteCapteur.php");
-$prenom = htmlspecialchars($_POST['prenom']);
+
+$prenom = htmlspecialchars($_POST['prenom']); //pour rendre impossible la saisie de code
 $nom = htmlspecialchars($_POST['nom']);
-if(!empty($prenom) && !empty($nom)){
-	header('Location: ../vue/page_profil.php');
+$adresse = htmlspecialchars($_POST['adresse']);
+$mail = htmlspecialchars($_POST['mail']);
+$confmail = htmlspecialchars($_POST['confmail']);
+$mdp = sha1($_POST['mdp']);
+$confmdp = sha1($_POST['confmdp']);
+$cgu = $_POST['cgu'];
+if($_POST['civilite'] == "true"){
+	$civilite = "M";
 } else {
-	echo "remplir";
+	$civilite ="Mme";
 }
 
 
+if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse']) AND !empty($_POST['mail']) AND !empty($_POST['confmail']) AND !empty($_POST['mdp']) AND !empty($_POST['confmdp'])){
+	if($cgu == "false"){
+		echo "Vous devez accepter les conditions generales d'utilisation";
+	} elseif(!filter_var($mail,FILTER_VALIDATE_EMAIL)){
+		echo "le mail n'est pas valide";	
+	} elseif ($mail != $confmail) {
+		echo "Votre mail de confirmation n'est pas le même";
+	} elseif($mdp != $confmdp){
+		echo "Les mots de passe ne correspondent pas";
+	} else {
+		$_SESSION['mail'] = $mail;
+		$_SESSION['prenom'] = $prenom;
+		echo "ok";
+	}
+} else {
+	echo "tous les champs doivent être remplis";
+}
 
 
 if(isset($_POST['inscription'])) {

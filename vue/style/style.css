@@ -141,3 +141,8 @@ input {
     color: white;
     transition: 0.3s ease;
 }
+
+.erreur {
+    height: 30px;
+    color: red;
+}

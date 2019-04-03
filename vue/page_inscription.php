@@ -7,23 +7,30 @@
 		<link rel = "stylesheet" href = "style/style_inscription.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
-		$(document).ready(function() { //verifie que tout est chargé dans la page
-			$("form").submit(function(event) {
-				event.preventDefault();
-				var prenom = $("#prenom").val();
-				var nom = $("#nom").val();
-				var adresse = $("#adresse").val();
-				var mail = $("#mail").val();
-				var confmail = $("#confmail").val();
-				var mdp = $("#mdp").val();
-				var confmdp = $("#confmdp").val();
-				var cgu = document.getElementById("cgu").checked;
-				console.log(cgu);
-				$(".erreur").load("../controleur/ct_inscription.php", {
-					prenom: prenom,
-					nom: nom,
-					cgu: cgu
-				});
+		$(document).ready(function(){ //attend que tout le reste soit chargé
+			$("#btnValider").click(function(e){
+				e.preventDefault(); //empeche de recherarger la page
+				$.post('../controleur/ct_inscription.php', //envoie par post
+					{
+						prenom : $("#prenom").val(), //recupere les valueurs par id
+						nom : $("#nom").val(),
+						adresse : $("#adresse").val(),
+						mail : $("#mail").val(),
+						confmail : $("#confmail").val(),
+						mdp : $("#mdp").val(),
+						confmdp : $("#confmdp").val(),
+						cgu : $("#cgu").is(":checked"),
+						civilite : $("#civilité1").is(":checked")
+					},
+					function(data){ //recupere ce qui envoye par le code php
+						if(data != 'ok'){
+							$(".erreur").html(data);
+						} else {
+							document.location.href="page_profil.php";
+						}
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+				);
 			});
 		});
 		</script>
@@ -35,7 +42,7 @@
 	
 	<body>
 		<h1>Inscription</h1>
-		<form method="POST" action="truc">
+		<form>
 			<div class="container">
 			<div id="modalInfo">
 				<div class="interieurModal">
