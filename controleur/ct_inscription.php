@@ -20,8 +20,6 @@ if($_POST['civilite'] == "true"){
 	$civilite ="Mme";
 }
 
-$titre1 = htmlspecialchars($_POST['titre1']);
-
 
 if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse']) AND !empty($_POST['mail']) AND !empty($_POST['confmail']) AND !empty($_POST['mdp']) AND !empty($_POST['confmdp'])){
 	if($cgu == "false"){
@@ -35,8 +33,42 @@ if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse
 	} elseif($mdp != $confmdp){
 		echo "Les mots de passe ne correspondent pas";
 	} else {
-		
-		echo $titre1;
+		try {
+			ajoutUtilisateur($bdd, $mail, $nom, $prenom, $civilite, $adresse, $mdp);
+			for($i=1; $i<10; $i++){
+				if(isset($_POST['titre'.$i])){
+					$titre = htmlspecialchars($_POST['titre'.$i]);
+					$type = htmlspecialchars($_POST['type'.$i]);
+					$adresse = htmlspecialchars($_POST['adresse'.$i]);
+					ajoutInstallation($bdd, $titre, $type, $adresse, $mail);
+					$derniereInstallation = derniereInstallation($bdd);
+					if($_POST['temperature'.$i] == "true"){
+						ajoutCapteur($bdd, 'temperature', 'on', $derniereInstallation);
+					}
+					if($_POST['lumiere'.$i] == "true"){
+						ajoutCapteur($bdd, 'lumiere', 'on', $derniereInstallation);
+					}
+					if($_POST['mouvement'.$i] == "true"){
+						ajoutCapteur($bdd, 'mouvement', 'on', $derniereInstallation);
+					}
+					if($_POST['moteur'.$i] == "true"){
+						ajoutActionneur($bdd, 'moteur', 'off', $derniereInstallation);
+					}
+					if($_POST['lampe'.$i] == "true"){
+						ajoutActionneur($bdd, 'lampe', 'off', $derniereInstallation);
+					}
+					if($_POST['ventilateur'.$i] == "true"){
+						ajoutActionneur($bdd, 'ventilateur', 'off', $derniereInstallation);
+					}
+					$_SESSION['mail'] = $mail;
+					$_SESSION['prenom'] = $prenom;
+					echo "ok";
+				}
+			}
+
+		} catch (Exception $e) {
+			echo $e;
+		}
 	}
 } else {
 	echo "tous les champs doivent être remplis";

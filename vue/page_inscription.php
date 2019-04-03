@@ -21,7 +21,15 @@
 						confmdp : $("#confmdp").val(),
 						cgu : $("#cgu").is(":checked"),
 						civilite : $("#civilité1").is(":checked"),
-						titre1 : $("#titre1").val()
+						titre1 : $("#titre1").val(),
+						adresse1 : $("#adresse1").val(),
+						type1 : $("#liste1").val(),
+						temperature1 : $("#temperature1").is(":checked"),
+						lumiere1 : $("#lumiere1").is(":checked"),
+						mouvement1 : $("#mouvement1").is(":checked"),
+						moteur1 : $("#moteur1").is(":checked"),
+						lampe1 : $("#lampe1").is(":checked"),
+						ventilateur1 : $("#ventilateur1").is(":checked")
 					},
 					function(data){ //recupere ce qui envoye par le code php
 						if(data != 'ok'){

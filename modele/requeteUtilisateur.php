@@ -1,6 +1,6 @@
 <?php
     function ajoutUtilisateur(PDO $bdd, String $mail, String $nom, String $prenom, String $civilite, String $adresse, String $mdp){
-        $req = $bdd->prepare('INSERT INTO utilisateur(email, nom, prenom, civilité, adresse, motdepasse, propriétaire) VALUES (?,?,?,?,?,?,?)');
+        $req = $bdd->prepare('INSERT INTO utilisateur(email, nom, prenom, civilité, adresse, motdepasse, administrateur) VALUES (?,?,?,?,?,?,?)');
         $req->execute(array($mail,$nom,$prenom,$civilite,$adresse,$mdp,"non"));
     }
 
