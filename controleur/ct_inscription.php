@@ -20,20 +20,23 @@ if($_POST['civilite'] == "true"){
 	$civilite ="Mme";
 }
 
+$titre1 = htmlspecialchars($_POST['titre1']);
+
 
 if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse']) AND !empty($_POST['mail']) AND !empty($_POST['confmail']) AND !empty($_POST['mdp']) AND !empty($_POST['confmdp'])){
 	if($cgu == "false"){
 		echo "Vous devez accepter les conditions generales d'utilisation";
 	} elseif(!filter_var($mail,FILTER_VALIDATE_EMAIL)){
 		echo "le mail n'est pas valide";	
+	} elseif(mailDejaPris($bdd, $mail)){
+		echo "Ce mail est déjà utilisé";
 	} elseif ($mail != $confmail) {
 		echo "Votre mail de confirmation n'est pas le même";
 	} elseif($mdp != $confmdp){
 		echo "Les mots de passe ne correspondent pas";
 	} else {
-		$_SESSION['mail'] = $mail;
-		$_SESSION['prenom'] = $prenom;
-		echo "ok";
+		
+		echo $titre1;
 	}
 } else {
 	echo "tous les champs doivent être remplis";

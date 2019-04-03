@@ -20,7 +20,8 @@
 						mdp : $("#mdp").val(),
 						confmdp : $("#confmdp").val(),
 						cgu : $("#cgu").is(":checked"),
-						civilite : $("#civilité1").is(":checked")
+						civilite : $("#civilité1").is(":checked"),
+						titre1 : $("#titre1").val()
 					},
 					function(data){ //recupere ce qui envoye par le code php
 						if(data != 'ok'){

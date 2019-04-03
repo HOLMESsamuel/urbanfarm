@@ -5,7 +5,7 @@
 		$(document).ready(function(){ //attend que tout le reste soit chargé
 			$("#confirmer").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_accueil.php', //envoie par post
+				$.post('../controleur/ct_accueil.php', //envoie par post au fichier controleur
 					{
 						mail : $("#mail").val(),
 						mdp : $("#mdp").val()

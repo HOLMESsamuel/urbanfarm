@@ -17,4 +17,11 @@
         $exist = $req->rowCount();
         return ($exist == 1);
     }
+
+    function mailDejaPris(PDO $bdd, String $mail):bool {
+        $req = $bdd->prepare("SELECT * FROM utilisateur WHERE email=?");
+        $req->execute(array($mail));
+        $exist = $req->rowCount();
+        return ($exist == 1);
+    }
 ?>
