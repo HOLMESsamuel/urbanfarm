@@ -87,3 +87,10 @@ input {
     background: grey;
     color: white;
 }
+
+#erreur {
+    text-align: center;
+    color: red;
+    height: 25px;
+    margin: 5px;
+}
