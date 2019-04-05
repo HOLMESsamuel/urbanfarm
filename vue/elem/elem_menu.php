@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php if (basename($_SERVER['PHP_SELF'])== 'page_accueil.php' || !isset($_SESSION['mail'])): ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
