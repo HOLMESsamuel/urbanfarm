@@ -11,7 +11,7 @@ if(isset($_SESSION['mail'])){
 function comfirmDeco(){
   var txt;
   var r = confirm("Es tu sur de vouloir continuer ? Retourner a l'accueil vas te déconneter ");
-  if(r==true && ){
+  if(r==true){
     document.location.href = "page_accueil.php";
   }
 }
