@@ -9,7 +9,7 @@
 body {
     margin-left: auto;
     margin-right: auto;
-    padding-top: 96px;
+    padding-top: 120px;
 }
 
 header {
@@ -19,7 +19,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 3;
+    z-index: 99;
 }
 
 .container {
@@ -150,4 +150,8 @@ input {
 .erreur {
     height: 30px;
     color: red;
+}
+
+#btn_accueil {
+    cursor: pointer;
 }
