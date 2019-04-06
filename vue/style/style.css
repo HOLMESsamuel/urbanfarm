@@ -94,11 +94,20 @@ footer {
 }
 
 #nav {
-    text-align: center;
-    margin: 15px auto;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
-#nav input {
+#formulaire {
+    text-align: center;
+    margin: 15px auto;
+    display: none;
+    transition: 0.5s;
+}
+
+#formulaire input {
     text-align: center;
     padding: 10px;
     border: 1px solid gray;
@@ -148,10 +157,37 @@ input {
 }
 
 .erreur {
-    height: 30px;
+    height: 60px;
+    width: 80%;
+    margin: 0px auto;
     color: red;
 }
 
 #btn_accueil {
+    cursor: pointer;
+}
+
+#connexion {
+    float: left;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-left: 15px;
+    padding: 3px;
+    border: 1px solid black;
+    transition: 0.5s;
+}
+
+#connexion:hover {
+    background: rgb(145, 182, 129);
+}
+
+#connexion:hover #formulaire {
+    display: block;
+}
+
+#panier {
+    float: right;
+    top: 30px;
+    right: 40px;
     cursor: pointer;
 }

@@ -23,23 +23,30 @@
 			});
 		});
 </script>
-<div id ="nav">
-<form>
-	<p>
-		<input type="text" id ="mail" name="mail" placeholder="E-mail"/>
-		<br/>
-		<input type="password" id="mdp" name="mdp" placeholder="Mot de passe"/>
-		<br/>
-		<input name="valider" id="confirmer" class="entree" type="submit" value="Valider"/>
-	</p>
-	<p class="erreur">
-	</p>
-</form>
-<br/>
-<form action="page_inscription.php">
-	<input type="submit" class="entree" value="Nouvel Utilisateur">
-</form>
+<div id="nav">
+	<h3 id="connexion" onclick="menuConnexion();">Se connecter
+	<div id ="formulaire">
+	<form>
+		<p>
+			<input type="text" id ="mail" name="mail" placeholder="E-mail"/>
+			<br/>
+			<input type="password" id="mdp" name="mdp" placeholder="Mot de passe"/>
+			<br/>
+			<input name="valider" id="confirmer" class="entree" type="submit" value="Valider"/>
+		</p>
+		<p class="erreur">
+		</p>
+	</form>
+	<br/>
+	<form action="page_inscription.php">
+		<input type="submit" class="entree" value="Nouvel Utilisateur">
+	</form>
+	</div>
+	</h3>
+	<script src="./script/script_connexion.js"></script>
 </div>
+
+
 
 <?php elseif (isset($_SESSION['mail']) && basename($_SERVER['PHP_SELF'])!= 'page_admin.php'): ?>
 <div id ="menu">

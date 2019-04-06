@@ -2,6 +2,7 @@
 session_start();
 if(isset($_SESSION['mail'])){
   echo '<span id="btn_accueil" onclick="comfirmDeco();"> <img src = "img/logo.png" height="100" alt="logo"/> </span>';
+   echo '<span id="panier"><img src = "img/boutique.png" height="50"/></span>';
 } else {
   echo '<span id="btn_accueil" onclick="retour();"> <img src = "img/logo.png" height="100" alt="logo"/> </span>';
 }
