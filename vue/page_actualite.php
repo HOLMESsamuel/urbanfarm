@@ -6,6 +6,7 @@
 		<link rel = "stylesheet" href = "style/style_actualite.css"/>
 	</head>
 	<header>
+		<?php include("../controleur/ct_actualite.php"); ?>
 		<?php include("elem/elem_entete.php"); ?>
 	</header>	
 	
@@ -14,19 +15,24 @@
 	    <div id="col1">
 			  <?php include("elem/elem_menu.php"); ?>
 			</div>
+
+			<div id="col2">
+				<h2> 
+					<?php afficheDernierTitre($bdd); ?>
+				</h2>
+				<div class="article">
+					<?php afficheDernierArticle($bdd); ?>
+				</div>
+	    </div>
 		
 			<div id="col3">
 				<h3> Les dernières Actualités </h3>
 				<div id="article">
-					<?php include("../controleur/ct_actualites.php")
-					?>
+					<?php recupereTitre($bdd);	?>
 				</div>
 			</div>
 
-		  <div id="col2">
-				<h2> 
-				</h2>
-	    </div>
+		  
 	  </div>
 	</body>
 

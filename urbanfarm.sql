@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 29 mars 2019 à 12:50
+-- Généré le :  Dim 07 avr. 2019 à 15:10
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -30,13 +30,20 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `actionneur`;
 CREATE TABLE IF NOT EXISTS `actionneur` (
-  `n°Actionneur` int(11) NOT NULL,
-  `type` varchar(10) COLLATE latin1_bin NOT NULL,
-  `etat` varchar(10) COLLATE latin1_bin NOT NULL,
+  `n°Actionneur` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) COLLATE latin1_bin NOT NULL,
+  `etat` varchar(255) COLLATE latin1_bin NOT NULL,
   `n°installation` int(11) NOT NULL,
-  PRIMARY KEY (`n°Actionneur`),
-  UNIQUE KEY `n°installation` (`n°installation`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  PRIMARY KEY (`n°Actionneur`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+
+--
+-- Déchargement des données de la table `actionneur`
+--
+
+INSERT INTO `actionneur` (`n°Actionneur`, `type`, `etat`, `n°installation`) VALUES
+(6, 'lampe', 'off', 10),
+(7, 'ventilateur', 'off', 10);
 
 -- --------------------------------------------------------
 
@@ -59,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `article` (
 
 INSERT INTO `article` (`n°article`, `titre`, `contenu`, `date`) VALUES
 (1, 'test', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus aliquet orci, eu maximus leo maximus vitae. Aliquam ultricies neque arcu, id commodo ipsum maximus a. Sed arcu augue, volutpat non luctus non, consequat non orci. Sed lacinia efficitur quam, id semper velit pulvinar in. Morbi vitae ligula eget metus consequat dapibus ac at ante. Aenean risus ipsum, pellentesque ac luctus vel, ornare ac nibh. Integer id magna commodo, facilisis purus eget, vehicula diam. Morbi sit amet nibh id enim sodales commodo eu a massa. Sed ac tortor eget felis pellentesque euismod. Praesent in maximus tellus.\r\n\r\nEtiam vitae lectus iaculis, posuere sapien quis, commodo nulla. Ut in mauris fermentum, efficitur urna a, scelerisque quam. Sed dolor magna, dictum et velit non, sagittis lacinia elit. Duis sem justo, efficitur id arcu sit amet, faucibus varius tortor. Suspendisse faucibus risus non ipsum suscipit congue. Duis sodales tempus enim a ornare. Aliquam interdum sodales metus, fermentum euismod nunc tristique ut. Aenean id ornare turpis, vitae suscipit metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean efficitur ligula lectus, a rutrum nisl lobortis in.\r\n\r\nIn eget turpis viverra, efficitur nisi quis, elementum massa. Integer turpis mi, consequat eu massa hendrerit, malesuada suscipit magna. Ut ultrices blandit ligula, at pellentesque nisl pulvinar maximus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus tempor, purus id aliquam semper, nunc orci fringilla eros, ut lobortis purus sapien sit amet nisi. Pellentesque vitae est et purus elementum mollis. Aenean et feugiat elit. Donec rhoncus congue sagittis. Aliquam metus ipsum, consectetur a porta quis, euismod ac ipsum. Curabitur rhoncus, tortor ac vestibulum pretium, libero elit dignissim dui, ut vehicula eros felis id nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean placerat condimentum sem vitae vehicula. Curabitur tellus nisl, bibendum finibus nisl eget, placerat ullamcorper erat. Vestibulum in efficitur dolor. Nam elementum sed dolor et fermentum. Suspendisse vulputate lacus a turpis lobortis posuere.\r\n\r\nMauris dignissim ligula eu erat hendrerit posuere non vitae libero. Cras molestie ac nibh in eleifend. Mauris vulputate ante sed quam sollicitudin vulputate ut et tortor. Nullam et sem sit amet nibh rutrum facilisis eget ut tellus. Duis sit amet ultrices ipsum. Vivamus vel lorem gravida velit aliquet aliquet. Quisque in felis justo.\r\n\r\nVivamus eu pulvinar arcu. Morbi vestibulum, lacus molestie ultrices placerat, est eros iaculis est, sed sollicitudin augue erat eget mauris. Proin eu nisl quam. In ligula massa, suscipit in dignissim nec, imperdiet ac neque. Sed suscipit tellus sapien, sit amet ullamcorper massa molestie pulvinar. Donec libero ligula, cursus ac lobortis id, pretium id dolor. Integer venenatis leo quis nunc consectetur, sed finibus est posuere.', '2019-03-29'),
-(2, 'test2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus aliquet orci, eu maximus leo maximus vitae. Aliquam ultricies neque arcu, id commodo ipsum maximus a. Sed arcu augue, volutpat non luctus non, consequat non orci. Sed lacinia efficitur quam, id semper velit pulvinar in. Morbi vitae ligula eget metus consequat dapibus ac at ante. Aenean risus ipsum, pellentesque ac luctus vel, ornare ac nibh. Integer id magna commodo, facilisis purus eget, vehicula diam. Morbi sit amet nibh id enim sodales commodo eu a massa. Sed ac tortor eget felis pellentesque euismod. Praesent in maximus tellus.\r\n\r\nEtiam vitae lectus iaculis, posuere sapien quis, commodo nulla. Ut in mauris fermentum, efficitur urna a, scelerisque quam. Sed dolor magna, dictum et velit non, sagittis lacinia elit. Duis sem justo, efficitur id arcu sit amet, faucibus varius tortor. Suspendisse faucibus risus non ipsum suscipit congue. Duis sodales tempus enim a ornare. Aliquam interdum sodales metus, fermentum euismod nunc tristique ut. Aenean id ornare turpis, vitae suscipit metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean efficitur ligula lectus, a rutrum nisl lobortis in.\r\n\r\nIn eget turpis viverra, efficitur nisi quis, elementum massa. Integer turpis mi, consequat eu massa hendrerit, malesuada suscipit magna. Ut ultrices blandit ligula, at pellentesque nisl pulvinar maximus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus tempor, purus id aliquam semper, nunc orci fringilla eros, ut lobortis purus sapien sit amet nisi. Pellentesque vitae est et purus elementum mollis. Aenean et feugiat elit. Donec rhoncus congue sagittis. Aliquam metus ipsum, consectetur a porta quis, euismod ac ipsum. Curabitur rhoncus, tortor ac vestibulum pretium, libero elit dignissim dui, ut vehicula eros felis id nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean placerat condimentum sem vitae vehicula. Curabitur tellus nisl, bibendum finibus nisl eget, placerat ullamcorper erat. Vestibulum in efficitur dolor. Nam elementum sed dolor et fermentum. Suspendisse vulputate lacus a turpis lobortis posuere.\r\n\r\nMauris dignissim ligula eu erat hendrerit posuere non vitae libero. Cras molestie ac nibh in eleifend. Mauris vulputate ante sed quam sollicitudin vulputate ut et tortor. Nullam et sem sit amet nibh rutrum facilisis eget ut tellus. Duis sit amet ultrices ipsum. Vivamus vel lorem gravida velit aliquet aliquet. Quisque in felis justo.\r\n\r\nVivamus eu pulvinar arcu. Morbi vestibulum, lacus molestie ultrices placerat, est eros iaculis est, sed sollicitudin augue erat eget mauris. Proin eu nisl quam. In ligula massa, suscipit in dignissim nec, imperdiet ac neque. Sed suscipit tellus sapien, sit amet ullamcorper massa molestie pulvinar. Donec libero ligula, cursus ac lobortis id, pretium id dolor. Integer venenatis leo quis nunc consectetur, sed finibus est posuere.', '2019-03-30');
+(2, 'L\'impact des oeufs frais sur la santé', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus aliquet orci, eu maximus leo maximus vitae. Aliquam ultricies neque arcu, id commodo ipsum maximus a. Sed arcu augue, volutpat non luctus non, consequat non orci. Sed lacinia efficitur quam, id semper velit pulvinar in. Morbi vitae ligula eget metus consequat dapibus ac at ante. Aenean risus ipsum, pellentesque ac luctus vel, ornare ac nibh. Integer id magna commodo, facilisis purus eget, vehicula diam. Morbi sit amet nibh id enim sodales commodo eu a massa. Sed ac tortor eget felis pellentesque euismod. Praesent in maximus tellus.\r\n\r\n\r\n\r\n\r\n\r\n', '2019-03-30');
 
 -- --------------------------------------------------------
 
@@ -70,21 +77,19 @@ INSERT INTO `article` (`n°article`, `titre`, `contenu`, `date`) VALUES
 DROP TABLE IF EXISTS `capteur`;
 CREATE TABLE IF NOT EXISTS `capteur` (
   `n°capteur` int(11) NOT NULL AUTO_INCREMENT,
-  `type` varchar(20) COLLATE latin1_bin NOT NULL,
-  `etat` varchar(10) COLLATE latin1_bin NOT NULL,
+  `type` varchar(255) COLLATE latin1_bin NOT NULL,
+  `etat` varchar(255) COLLATE latin1_bin NOT NULL,
   `n°installation` int(11) NOT NULL,
   PRIMARY KEY (`n°capteur`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Déchargement des données de la table `capteur`
 --
 
 INSERT INTO `capteur` (`n°capteur`, `type`, `etat`, `n°installation`) VALUES
-(1, 'temperature', 'on', 1),
-(2, 'mouvement', 'on', 1),
-(3, 'lumiere', 'on', 2),
-(4, 'mouvement', 'on', 3);
+(16, 'temperature', 'on', 10),
+(17, 'mouvement', 'on', 10);
 
 -- --------------------------------------------------------
 
@@ -100,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `data` (
   `valeur` int(11) NOT NULL,
   PRIMARY KEY (`n°data`),
   KEY `n°capteur` (`n°capteur`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 -- --------------------------------------------------------
 
@@ -117,16 +122,14 @@ CREATE TABLE IF NOT EXISTS `installation` (
   `email` varchar(255) COLLATE latin1_bin NOT NULL,
   PRIMARY KEY (`n°installation`),
   KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Déchargement des données de la table `installation`
 --
 
 INSERT INTO `installation` (`n°installation`, `nom`, `type`, `adresse`, `email`) VALUES
-(1, 'Holmes', 'poulailler', '27 Rue Des Volontaires', 'samholmes57@gmail.com'),
-(2, 'Holmes', 'serre', '26 Rue Des Volontaires', 'samholmes57@gmail.com'),
-(3, 'Holmes', 'serre', 'khvkhv', 'samholmes57@gmail.com');
+(10, 'insttion 1', 'serre', 'kjhkjh', 'sam.holmes@live.fr');
 
 -- --------------------------------------------------------
 
@@ -171,28 +174,23 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `civilité` varchar(255) COLLATE latin1_bin NOT NULL,
   `adresse` varchar(255) COLLATE latin1_bin NOT NULL,
   `motdepasse` varchar(255) COLLATE latin1_bin NOT NULL,
-  `propriétaire` varchar(255) COLLATE latin1_bin NOT NULL,
+  `administrateur` varchar(255) COLLATE latin1_bin NOT NULL,
   `n°panier` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`email`),
   KEY `INDEX` (`n°panier`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`email`, `nom`, `prenom`, `civilité`, `adresse`, `motdepasse`, `propriétaire`, `n°panier`) VALUES
-('samholmes57@gmail.com', 'Holmes', 'Samuel', 'M', '26 Rue Des Volontaires', '43f0af343451be62bc8bdc64c292c7166d48491f', 'oui', 1);
+INSERT INTO `utilisateur` (`email`, `nom`, `prenom`, `civilité`, `adresse`, `motdepasse`, `administrateur`, `n°panier`) VALUES
+('sam.holmes@live.fr', 'holmes', 'samuel', 'M', '27 Rue Des Volontaires', '43f0af343451be62bc8bdc64c292c7166d48491f', 'oui', 24),
+('samholmes57@gmail.com', 'Holmes', 'Samuel', 'M', '26 Rue Des Volontaires', '43f0af343451be62bc8bdc64c292c7166d48491f', 'non', 1);
 
 --
 -- Contraintes pour les tables déchargées
 --
-
---
--- Contraintes pour la table `actionneur`
---
-ALTER TABLE `actionneur`
-  ADD CONSTRAINT `actionneur_ibfk_1` FOREIGN KEY (`n°installation`) REFERENCES `installation` (`n°installation`);
 
 --
 -- Contraintes pour la table `data`

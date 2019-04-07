@@ -7,6 +7,7 @@ session_destroy(); ?>
 		<title> Urban Farm</title>
 		<link rel = "stylesheet" href = "style/style.css"/>
 		<link rel = "stylesheet" href = "style/style_accueil.css"/>
+		<?php include("../controleur/ct_actualite.php"); ?>
 	</head>
 	
 	<header>
@@ -53,14 +54,8 @@ session_destroy(); ?>
 					<div id="col2">
 						<h2>Dernières actualités</h2>
 						<div id="actualité">
-							<div id="titre">Blablabla</div>
-							<div id="texte">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-									ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-									ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-									ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+							<div id="titre"><?php afficheDernierTitre($bdd); ?></div>
+							<div id="texte"><?php afficheDernierArticle($bdd); ?></div>
 						</div>
 					</div>
 					<div id="col3">
