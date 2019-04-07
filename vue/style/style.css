@@ -113,7 +113,6 @@ footer {
     border: 1px solid gray;
     width: 80%;
     margin: 10px auto;
-    text-transform: uppercase;
 }
 
 input {
@@ -146,7 +145,6 @@ input {
     border: 1px solid gray;
     margin: 40px auto;
     padding: 10px;
-    text-transform: uppercase;
     color: black;
 }
 
@@ -170,7 +168,7 @@ input {
 #connexion {
     float: left;
     cursor: pointer;
-    margin-top: 50px;
+    margin-top: 35px;
     margin-left: 15px;
     padding: 3px;
     border: 1px solid black;

@@ -22,7 +22,7 @@
             <!-- intitule du produit -->
             <h1>Lorem Ipsum</h1>
             <!-- numero de reference -->
-            <h3>ref 0000</h3>
+            <h3 class="ref">ref 0000</h3>
             <!-- contenu descriptif du produit -->
             <div class="information">
                 <!-- case representant la photo du produit -->
@@ -53,7 +53,7 @@
             <!-- intitule du produit -->
             <h1>Lorem Ipsum</h1>
             <!-- numero de reference -->
-            <h3>ref 0000</h3>
+            <h3 class="ref">ref 0000</h3>
             <!-- contenu descriptif du produit -->
             <div class="information">
                 <!-- case representant la photo du produit -->
