@@ -184,8 +184,8 @@ input {
 }
 
 #panier {
-    float: right;
+    position: absolute;
     top: 30px;
-    right: 40px;
+    right: 20px;
     cursor: pointer;
 }
