@@ -1,12 +1,11 @@
 <?php
     include("connexion.php");
 
+    /**
+     * recupere le contennu de l'article dont le titre est celui entré en paramètre
+     */
     function recupereArticle(PDO $bdd, String $titre){
-        $req="SELECT contenu FROM article WHERE titre=.$titre.";
-        $resultat=$bdd->query($req);
-        while ($row=$resultat->fetch()){
-            echo "<a href='titre'>".$row['titre']."</a>";
-        }
+        
     }
 
     function recupereTitre(PDO $bdd){ //recupere tous les titres avec leur date
@@ -23,7 +22,10 @@
             echo "... <br>";
         }
     }
-
+    /**
+     * compte le nombre d'articles 
+     * parcours les articles et renvoie le titre du dernier ajouté
+     */
     function dernierTitre(PDO $bdd): String{
         $req = $bdd->prepare("SELECT * FROM article");
         $req->execute();
@@ -35,7 +37,10 @@
         $row = $req->fetch();
         return $row['titre'];    
     }
-
+    /**
+     * compte le nombre d'articles 
+     * parcours les articles et renvoie le contenu du dernier ajouté
+     */
     function dernierArticle(PDO $bdd): String {
         $req = $bdd->prepare("SELECT * FROM article");
         $req->execute();

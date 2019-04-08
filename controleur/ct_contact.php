@@ -7,6 +7,4 @@ if(isset($_SESSION['mail'])){
 } else {
     echo "Il faut être connecté pour envoyer un message";
 }
-
-
 ?>
