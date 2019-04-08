@@ -7,21 +7,35 @@
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
 }
 
 #col1 {
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
     background: white;
 }
 
+#col2 {
+    -ms-grid-column: 2;
+    -ms-grid-row: 1;
+}
+
 #col3 {
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
     width: 100%;
+}
+
+#col4 {
+    -ms-grid-column: 2;
+    -ms-grid-row: 2;
 }
 
 #description {
     text-align: center;
-    border: 2px solid dimgray;
-    border-radius: 10px;
     padding: 5px;
     margin: 20px 15px;
 }
@@ -287,8 +301,6 @@ h2 {
     margin: 20px auto;
     width: 90%;
     padding: 15px;
-    border: 2px solid dimgray;
-    border-radius: 10px;
 }
 
 #titre {
@@ -297,8 +309,6 @@ h2 {
 }
 
 .box_product {
-    border: 2px solid dimgray;
-    border-radius: 10px;
     margin: 40px;
     padding: 10px 20px;
 }
@@ -332,8 +342,6 @@ h2 {
     width: 500px;
     height: 450px;
     padding: 20px;
-    border: 2px solid dimgray;
-    border-radius: 10px;
     margin: 10px auto;
     display: -ms-grid;
     display: grid;
@@ -344,6 +352,26 @@ h2 {
 
 .image-personnel:hover {
     cursor: pointer;
+}
+
+#horticulteur{
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+}
+
+#fermier{
+    -ms-grid-column: 2;
+    -ms-grid-row: 1;
+}
+
+#ingenieur{
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
+}
+
+#electronique{
+    -ms-grid-column: 2;
+    -ms-grid-row: 2;
 }
 
 @media only screen and (max-width: 1200px) {

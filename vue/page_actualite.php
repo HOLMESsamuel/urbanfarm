@@ -4,6 +4,7 @@
 		<title> Urban Farm</title>
 		<link rel = "stylesheet" href = "style/style.css"/>
 		<link rel = "stylesheet" href = "style/style_actualite.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
 	<header>
 		<?php include("../controleur/ct_actualite.php"); ?>
@@ -34,6 +35,11 @@
 
 		  
 	  </div>
+		<script>
+			nouvelleActu(){
+				console.log("ok");
+			}
+		</script>
 	</body>
 
 	<footer>

@@ -185,7 +185,14 @@ input {
 
 #panier {
     position: absolute;
-    top: 30px;
+    top: 35px;
+    right: 55px;
+    cursor: pointer;
+}
+
+#deconnecte {
+    position: absolute;
+    top: 40px;
     right: 20px;
     cursor: pointer;
 }
