@@ -14,7 +14,7 @@
         $n=0;
         while ($row=$resultat->fetch()){
             $n=$n+1;
-            echo "<a class='titre' href='titre.$n'>".$row['titre']."</a>";
+            echo "<a class='titre' id=".$row['titre']." onclick='nouvelleActu();' href='titre.$n'>".$row['titre']."</a>";
             echo " ";
             echo "<a class='date'>".$row['date']."</a>";
             echo "<br>";
