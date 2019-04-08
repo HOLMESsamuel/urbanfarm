@@ -28,4 +28,18 @@
         $exist = $req->rowCount();
         return ($exist == 1);
     }
+
+    function recupereInfo(PDO $bdd, String $mail, String $info): String {
+        $req = $bdd->prepare("SELECT ".$info." FROM utilisateur WHERE email=?");
+        $req->execute(array($mail));
+        $row = $req->fetch();
+        return $row[$info];
+    }
+
+    function nbInstallations(PDO $bdd, String $mail): int{
+        $req = $bdd->prepare("SELECT * FROM installation WHERE email=?");
+        $req->execute(array($mail));
+        $nbInstallations = $req->rowCount();
+        return $nbInstallations;
+    }
 ?>
