@@ -20,8 +20,6 @@
 
 #description {
     text-align: center;
-    border: 2px solid dimgray;
-    border-radius: 10px;
     padding: 5px;
     margin: 20px 15px;
 }
@@ -287,8 +285,6 @@ h2 {
     margin: 20px auto;
     width: 90%;
     padding: 15px;
-    border: 2px solid dimgray;
-    border-radius: 10px;
 }
 
 #titre {
@@ -297,8 +293,6 @@ h2 {
 }
 
 .box_product {
-    border: 2px solid dimgray;
-    border-radius: 10px;
     margin: 40px;
     padding: 10px 20px;
 }
@@ -332,8 +326,6 @@ h2 {
     width: 500px;
     height: 450px;
     padding: 20px;
-    border: 2px solid dimgray;
-    border-radius: 10px;
     margin: 10px auto;
     display: -ms-grid;
     display: grid;
