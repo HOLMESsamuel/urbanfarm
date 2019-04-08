@@ -53,7 +53,6 @@
 	<a href="page_profil.php" class="bouton">Profil</a>
 	<a href="page_commande.php" class="bouton">Commande</a>
 	<a href="page_consommation.php" class="bouton">Consommation</a>
-	<a href="page_accueil.php" class="bouton">Deconnexion</a>
 
 </div>
 
@@ -62,7 +61,6 @@
 	<a href="page_statistiques.php" class="bouton">Statistiques</a>
 	<a href="page_messages.php" class="bouton">Messages</a>
 	<a href="page_gestion_actualite.php" class="bouton">Actualités</a>
-	<a href="page_accueil.php" class="bouton">Deconnexion</a>
 
 </div>
 <?php endif ?>
