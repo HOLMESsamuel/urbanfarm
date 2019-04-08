@@ -42,4 +42,6 @@
         $nbInstallations = $req->rowCount();
         return $nbInstallations;
     }
+
+    
 ?>

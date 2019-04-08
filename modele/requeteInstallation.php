@@ -8,4 +8,11 @@
         $dernierIndice = $bdd->lastInsertId();
         return $dernierIndice;
     }
+
+    function recupereInfoInstall(PDO $bdd, String $mail, String $info): String {
+        $req = $bdd->prepare("SELECT ".$info." FROM installation WHERE email=?");
+        $req->execute(array($mail));
+        $row = $req->fetch();
+        return $row[$info];
+    }
 ?>
