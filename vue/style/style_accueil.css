@@ -8,8 +8,8 @@
     display: grid;
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
-    -ms-grid-rows: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+    -ms-grid-rows: none none;
+        grid-template-rows: none none;
 }
 
 #col1 {
@@ -37,7 +37,8 @@
 #description {
     text-align: center;
     padding: 5px;
-    margin: 20px 15px;
+    font-size: 20px;
+    margin: 20px 15%;
 }
 
 .galleryContainer {
