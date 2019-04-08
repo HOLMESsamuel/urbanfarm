@@ -7,15 +7,31 @@
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
 }
 
 #col1 {
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
     background: white;
 }
 
+#col2 {
+    -ms-grid-column: 2;
+    -ms-grid-row: 1;
+}
+
 #col3 {
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
     width: 100%;
+}
+
+#col4 {
+    -ms-grid-column: 2;
+    -ms-grid-row: 2;
 }
 
 #description {
@@ -336,6 +352,26 @@ h2 {
 
 .image-personnel:hover {
     cursor: pointer;
+}
+
+#horticulteur{
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+}
+
+#fermier{
+    -ms-grid-column: 2;
+    -ms-grid-row: 1;
+}
+
+#ingenieur{
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
+}
+
+#electronique{
+    -ms-grid-column: 2;
+    -ms-grid-row: 2;
 }
 
 @media only screen and (max-width: 1200px) {
