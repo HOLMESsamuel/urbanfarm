@@ -1,12 +1,16 @@
 <?php 
 session_start();
-if(isset($_SESSION['mail'])){
+ if (strpos(basename($_SERVER['PHP_SELF']), 'admin')==true) { 
   echo '<span id="deconnecte" onclick="retour();"><img src = "img/deconnect.png" height="20"/></span>';
-  echo '<span id="btn_accueil" onclick="comfirmDeco();"> <img src = "img/logo.png" height="100" alt="logo"/> </span>';
+}
+ if (isset($_SESSION['mail']) && strpos(basename($_SERVER['PHP_SELF']), 'admin')==false){
   echo '<span id="panier"><img src = "img/boutique.png" height="30"/></span>';
-} else {
+}
+ if (basename($_SERVER['PHP_SELF'])== 'page_accueil.php' || isset($_SESSION['mail'])) {
   echo '<span id="btn_accueil" onclick="retour();"> <img src = "img/logo.png" height="100" alt="logo"/> </span>';
 }
+
+
 ?>
 
 <script>
