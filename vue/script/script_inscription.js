@@ -50,8 +50,8 @@ var deletePattern = /^supprimer(\d+)$/
 var elementPattern = /^champs(\d+)$/
 var nb = 0;
 
-function ajouterChamps() {
-    conteneur.appendChild(creerChamps(dernierChamps() + 1));
+function ajouterChamps(nature) {
+    conteneur.appendChild(creerChamps(dernierChamps() + 1, nature));
 }
 
 function dernierChamps() {
@@ -71,6 +71,7 @@ function supprimer() {
                     elementNo = parseInt(elementID.replace(elementPattern, '$1'));
                     if (!isNaN(elementNo) && elementNo == n) {
                         conteneur.removeChild(conteneur.childNodes[i]);
+                        modal.style.display = 'none';
                         return;
                     }
                 }
@@ -82,7 +83,7 @@ function supprimer() {
 
 
 
-function creerChamps(ID) {
+function creerChamps(ID, nature) {
     var champs = document.createElement("div");
     champs.setAttribute("class", "champs");
     champs.setAttribute("id", "champs" + ID);
@@ -194,9 +195,15 @@ function creerChamps(ID) {
 
     var Delete = document.createElement('input');
     Delete.setAttribute('type', 'button');
-    Delete.setAttribute('value', 'Supprimer');
+    Delete.setAttribute('value', 'Annuler');
     Delete.setAttribute('id', 'supprimer' + ID);
     Delete.onclick = supprimer;
+
+
+
+
+
+
     champs.appendChild(titre);
     contenu.appendChild(titreCapteur);
     contenu.appendChild(titreActionneur);
@@ -210,9 +217,18 @@ function creerChamps(ID) {
     contenu.appendChild(liste);
     champs.appendChild(contenu);
     champs.appendChild(Delete);
+    if (nature == "profil") {
+        var confirmer = document.createElement('input');
+        confirmer.setAttribute('type', 'button');
+        confirmer.setAttribute('value', 'confirmer');
+        confirmer.setAttribute('id', 'confirmer' + ID);
+        champs.appendChild(confirmer);
+        modal.style.display = 'block';
+    }
 
     return champs;
 }
+
 
 function nombreDeFormulaires() {
     nb = dernierChamps();

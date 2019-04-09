@@ -28,25 +28,33 @@
 					<p>Nom : <?php echo recupereInfo($bdd, $_SESSION['mail'], "nom"); ?></p>
 					<p>Adresse : <?php echo recupereInfo($bdd, $_SESSION['mail'], "adresse"); ?></p>
 				</div>
+					<input class="btnModif" type="button" value="Modifier mes informations">
+					<input class="btnModif" type="button" value="Modifier mon mot de passe">
 				<br>
-				<div id="installations">
-					<?php
-						if(nbInstallations($bdd, $_SESSION['mail']) == 0){
-							echo "<h3>Vous n'avez pas encore d'installation</h3>";
-						} elseif (nbInstallations($bdd, $_SESSION['mail']) == 1) {
-							echo "<h3>Votre installation</h3>";
-						} else {
-							echo "<h3>Vos installations</h3>";
-						}
-					?>
-				</div>
 			</div>
 				<div id="col3">
+					<div id="installations">
+						<?php
+							if(nbInstallations($bdd, $_SESSION['mail']) == 0){
+								echo "<h3>Vous n'avez pas encore d'installation</h3>";
+							} elseif (nbInstallations($bdd, $_SESSION['mail']) == 1) {
+								echo "<h3>Votre installation</h3>";
+							} else {
+								echo "<h3>Vos installations</h3>";
+							}
+						?>
+					</div>
+					<br>
 					<form>
-						<div id=conteneur>
-								
+					<div id="modal">
+						<div class="interieurModal">
+							<h3>Ajout d'une installation</h3>
+							<div id=conteneur>
+								<!-- contient le formulaire ajouté par js-->
+							</div>
 						</div>
-						<input type="button" value="ajouter une installation" onclick="ajouterChamps();">
+			</div>
+						<input type="button" value="ajouter une installation" onclick="ajouterChamps('profil');">
 					</form>
 				</div>
 		</div>
