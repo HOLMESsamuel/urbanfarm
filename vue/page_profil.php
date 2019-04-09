@@ -28,8 +28,25 @@
 					<p>Nom : <?php echo recupereInfo($bdd, $_SESSION['mail'], "nom"); ?></p>
 					<p>Adresse : <?php echo recupereInfo($bdd, $_SESSION['mail'], "adresse"); ?></p>
 				</div>
-					<input class="btnModif" type="button" value="Modifier mes informations">
-					<input class="btnModif" type="button" value="Modifier mon mot de passe">
+					<input class="btnModif" type="button" onclick="modifProfil();" value="Modifier mes informations">
+					<div class="modal" id="modalProfil">
+						<div class="interieurModal">
+							<h3>Modifier vos informations personnelles</h3>
+							<span class="close" onclick="closeModalProfil();">&times;</span>
+							<div id=conteneurProfil>
+								<!-- contient le formulaire ajouté par js-->
+							</div>
+						</div>
+					</div>
+					<input class="btnModif" onclick="modifMdp();" type="button" value="Modifier mon mot de passe">
+					<div class="modal" id="modalMdp">
+						<div class="interieurModal">
+							<span class="close" onclick="closeModalMdp();">&times;</span>
+							<div id=conteneurMdp>
+								<!-- contient le formulaire ajouté par js-->
+							</div>
+						</div>
+					</div>
 				<br>
 			</div>
 				<div id="col3">
@@ -46,7 +63,7 @@
 					</div>
 					<br>
 					<form>
-					<div id="modal">
+					<div class="modal" id="modal">
 						<div class="interieurModal">
 							<h3>Ajout d'une installation</h3>
 							<div id=conteneur>
@@ -61,6 +78,7 @@
 		
 	</body>
 	<script src="script/script_inscription.js"></script>
+	<script src="script/script_profil.js"></script>
 	<footer>
 		<?php include("elem/elem_pied.php"); ?>
 	</footer>

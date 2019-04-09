@@ -179,7 +179,7 @@ h4 {
     width: 50%;
 }
 
-#modal {
+.modal {
     display: none;
     position: fixed;
     z-index: 4000;
