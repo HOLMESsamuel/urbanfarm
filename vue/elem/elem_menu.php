@@ -15,7 +15,7 @@
 						} else if (data == 'client'){
 							document.location.href="./page_profil.php";
 						} else {
-							document.location.href="./page_admin.php";
+							document.location.href="./page_admin_stat.php";
 						}
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
@@ -47,8 +47,8 @@
 </div>
 
 
-
-<?php elseif (isset($_SESSION['mail']) && basename($_SERVER['PHP_SELF'])!= 'page_admin.php'): ?>
+<?php 
+elseif (isset($_SESSION['mail']) && strpos(basename($_SERVER['PHP_SELF']), 'admin') == false): ?>
 <div id ="menu">
 	<a href="page_profil.php" class="bouton">Profil</a>
 	<a href="page_commande.php" class="bouton">Commande</a>
@@ -56,11 +56,11 @@
 
 </div>
 
-<?php elseif (isset($_SESSION['mail']) && basename($_SERVER['PHP_SELF'])== 'page_admin.php'): ?>
+<?php elseif (isset($_SESSION['mail']) && strpos(basename($_SERVER['PHP_SELF']), 'admin') == true ): ?>
 <div id ="menu">
-	<a href="page_statistiques.php" class="bouton">Statistiques</a>
-	<a href="page_messages.php" class="bouton">Messages</a>
-	<a href="page_gestion_actualite.php" class="bouton">Actualités</a>
+	<a href="page_admin_stat.php" class="bouton">Statistiques</a>
+	<a href="page_admin_message.php" class="bouton">Messages</a>
+	<a href="page_admin_actu.php" class="bouton">Actualités</a>
 
 </div>
 <?php endif ?>
