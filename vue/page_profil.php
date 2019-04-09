@@ -41,6 +41,7 @@
 					<input class="btnModif" onclick="modifMdp();" type="button" value="Modifier mon mot de passe">
 					<div class="modal" id="modalMdp">
 						<div class="interieurModal">
+							<h3>Changement de mot de passe</h3>
 							<span class="close" onclick="closeModalMdp();">&times;</span>
 							<div id=conteneurMdp>
 								<!-- contient le formulaire ajouté par js-->
