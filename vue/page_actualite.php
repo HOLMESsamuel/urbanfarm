@@ -5,6 +5,22 @@
 		<link rel = "stylesheet" href = "style/style.css"/>
 		<link rel = "stylesheet" href = "style/style_actualite.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){ //attend que tout le reste soit chargé
+			$("#btnSearch").click(function(e){
+				e.preventDefault(); //empeche de recherarger la page
+				$.post('../controleur/ct_search.php', //envoie par post au fichier controleur
+					{
+						id : $("#id").val()
+					},
+					function(data){ //recupere ce qui envoye par le code php
+						$("#rep").html(data);
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+				);
+			});
+		});
+</script>
 	</head>
 	<header>
 		<?php include("../controleur/ct_actualite.php"); ?>
@@ -15,65 +31,15 @@
 		<div class="container">
 	    <div id="col1">
 			  <?php include("elem/elem_menu.php"); ?>
-				
-				<?php
-
-					// php search data in mysql database using PDO
-					// set data in input text
-
-					$world = "";
-
-					if(isset($_POST['Find']))
-					{
-									// connect to mysql
-							try {
-									$pdoConnect = new PDO("mysql:host=localhost;dbname=test_db","root","");
-							} catch (PDOException $exc) {
-									echo $exc->getMessage();
-									exit();
-							}
-							
-							// id to search
-							$id = $_POST['id'];
-							
-							// mysql search query
-							$pdoQuery = "SELECT * FROM users WHERE id = :id";
-							
-							$pdoResult = $pdoConnect->prepare($pdoQuery);
-							
-							//set your id to the query id
-							$pdoExec = $pdoResult->execute(array(":id"=>$id));
-							
-							if($pdoExec)
-							{
-											// if id exist 
-											// show data in inputs
-									if($pdoResult->rowCount()>0)
-									{
-											foreach($pdoResult as $row)
-											{
-													$word = $row['word'];
-											}
-									}
-											// if the id not exist
-											// show a message and clear inputs
-									else{
-											echo 'No Data With This word';
-									}
-							}else{
-									echo 'ERROR Data Not Inserted';
-							}
-					}
-					?>
-
-					<form action="php_search_in_mysql_database_using_pdo.php" method="post">
-						Word To Search : <input type="text" name="word" value="<?php echo $word;?>"><br><br>
-						<input type="submit" name="Find" value="Find Data">
-					</form>
-
 			</div>
 
 			<div id="col2">
+				<form>
+					Search : <input type="text" id="id" name="id">
+				<input type="submit" id="btnSearch" name="Find" value="O">
+				</form>
+				<div id="rep"></div>
+
 				<h2> 
 					<?php afficheDernierTitre($bdd); ?>
 				</h2>
