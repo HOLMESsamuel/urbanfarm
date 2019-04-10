@@ -31,8 +31,8 @@
 					<input class="btnModif" type="button" onclick="modifProfil();" value="Modifier mes informations">
 					<div class="modal" id="modalProfil">
 						<div class="interieurModal">
-							<h3>Modifier vos informations personnelles</h3>
 							<span class="close" onclick="closeModalProfil();">&times;</span>
+							<h3>Modifier vos informations personnelles</h3>
 							<div id=conteneurProfil>
 								<!-- contient le formulaire ajouté par js-->
 							</div>

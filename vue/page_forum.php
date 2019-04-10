@@ -13,9 +13,7 @@
     $conn = mysql_connect("localhost","root","");
     mysql_query("SET NAMES 'utf8'");
     mysql_query("SET CHARACTER SET utf8");
-    if(!$conn){
-        die('La connexion a échoué'mysql_error());
-    }
+    
     mysql_select_db("testurbanfarm",$conn);
 ?>
 	</div>
@@ -39,9 +37,7 @@
 						$keywords=$_POST['keywords'];
 						$sql="SELECT * FROM questions WHERE contenu LIKE '%keywords%' ";
 						$result= mysql_query($conn,$sql);
-						if (!%result){
-							die('La connexion a échoué'mysql_error());
-						}
+						
 						?>
 						
                         <div id="questionlist">

@@ -112,7 +112,8 @@ select {
 }
 
 .champs input[type=button] {
-    width: 50%;
+    width: 30%;
+    margin: 20px 10%;
 }
 
 .adresse {
@@ -142,19 +143,6 @@ select {
     grid-column: 2;
     -ms-grid-row: 4;
     grid-row: 4;
-}
-
-#lienInfo {
-    cursor: pointer;
-    border: 1px solid grey;
-    padding: 0px 10px;
-    border-radius: 50%;
-    transition: 0.3s ease;
-}
-
-#lienInfo:hover {
-    background-color: #B6D7A8;
-    border-color: black;
 }
 
 h4 {
@@ -203,10 +191,15 @@ h4 {
     color: #ccc;
     cursor: pointer;
     font-size: 40px;
-    margin-bottom: 20px;
     float: right;
+    top: 0;
 }
 
 .close:hover {
     color: black;
+}
+
+#conteneurProfil input {
+    width: 60%;
+    margin: 15px auto;
 }
