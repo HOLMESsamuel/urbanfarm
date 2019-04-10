@@ -4,7 +4,7 @@ var modalMdp = document.getElementById("modalMdp");
 var conteneurProfil = document.getElementById("conteneurProfil");
 var conteneurMdp = document.getElementById("conteneurMdp");
 
-function modifProfil() {
+function modifProfil(prenomPrec, nomPrec, adressePrec) {
     for (var i = 0; i < conteneurProfil.childNodes.length; i++) {
         conteneurProfil.removeChild(conteneurProfil.childNodes[i]);
     }
@@ -14,27 +14,22 @@ function modifProfil() {
     var prenom = document.createElement('input');
     prenom.setAttribute('type', 'text');
     prenom.setAttribute('placeholder', 'prenom');
+    prenom.setAttribute('value', prenomPrec);
 
     var nom = document.createElement('input');
     nom.setAttribute('type', 'text');
     nom.setAttribute('placeholder', 'nom');
+    nom.setAttribute('value', nomPrec);
 
     var adresse = document.createElement('input');
     adresse.setAttribute('type', 'text');
     adresse.setAttribute('placeholder', 'adresse');
-
-    var mail = document.createElement('input');
-    mail.setAttribute('type', 'text');
-    mail.setAttribute('placeholder', 'mail');
-    var confirmer = document.createElement('input');
-    confirmer.setAttribute('type', 'button');
-    confirmer.setAttribute('value', 'Confirmer');
+    adresse.setAttribute('value', adressePrec);
 
     conteneurProfil.appendChild(prenom);
     conteneurProfil.appendChild(nom);
     conteneurProfil.appendChild(adresse);
-    conteneurProfil.appendChild(mail);
-    conteneurProfil.appendChild(confirmer);
+
 
     modalProfil.style.display = "block";
 }
@@ -60,15 +55,8 @@ function modifMdp() {
     confNouveauMdp.setAttribute('type', 'text');
     confNouveauMdp.setAttribute('placeholder', 'Confirmer mot de passe');
 
-    var confirmer = document.createElement('input');
-    confirmer.setAttribute('type', 'button');
-    confirmer.setAttribute('value', 'Confirmer');
-
     conteneurMdp.appendChild(nouveauMdp);
     conteneurMdp.appendChild(confNouveauMdp);
-    conteneurMdp.appendChild(confirmer);
-
-
 
     modalMdp.style.display = "block";
 }

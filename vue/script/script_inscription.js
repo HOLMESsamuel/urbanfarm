@@ -91,7 +91,7 @@ function creerChamps(ID, nature) {
     var titre = document.createElement('input');
     titre.setAttribute('class', 'titre');
     titre.setAttribute('type', 'text');
-    titre.setAttribute('value', 'installation ' + ID);
+    titre.setAttribute('value', 'installation');
     titre.setAttribute('name', 'titre' + ID);
     titre.setAttribute('id', 'titre' + ID);
 
@@ -218,11 +218,6 @@ function creerChamps(ID, nature) {
     champs.appendChild(contenu);
     champs.appendChild(Delete);
     if (nature == "profil") {
-        var confirmer = document.createElement('input');
-        confirmer.setAttribute('type', 'button');
-        confirmer.setAttribute('value', 'confirmer');
-        confirmer.setAttribute('id', 'confirmer' + ID);
-        champs.appendChild(confirmer);
         modal.style.display = 'block';
     }
 

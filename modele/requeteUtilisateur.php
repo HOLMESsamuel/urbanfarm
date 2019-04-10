@@ -43,5 +43,10 @@
         return $nbInstallations;
     }
 
+    function modifProfil(PDO $bdd, String $mail, String $prenom, String $nom, String $adresse){
+        $req = $bdd->prepare("UPDATE utilisateur SET prenom=?, nom=?, adresse=? WHERE mail=?");
+        $req->execute(array($prenom, $nom, $adresse, $mail));
+    }
+
     
 ?>
