@@ -5,6 +5,22 @@
 		<link rel = "stylesheet" href = "style/style.css"/>
 		<link rel = "stylesheet" href = "style/style_actualite.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){ //attend que tout le reste soit chargé
+			$("#btnSearch").click(function(e){
+				e.preventDefault(); //empeche de recherarger la page
+				$.post('../controleur/ct_search.php', //envoie par post au fichier controleur
+					{
+						id : $("#id").val()
+					},
+					function(data){ //recupere ce qui envoye par le code php
+						$("#rep").html(data);
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+				);
+			});
+		});
+</script>
 	</head>
 	<header>
 		<?php include("../controleur/ct_actualite.php"); ?>
@@ -18,6 +34,12 @@
 			</div>
 
 			<div id="col2">
+				<form>
+					Search : <input type="text" id="id" name="id">
+				<input type="submit" id="btnSearch" name="Find" value="O">
+				</form>
+				<div id="rep"></div>
+
 				<h2> 
 					<?php afficheDernierTitre($bdd); ?>
 				</h2>
