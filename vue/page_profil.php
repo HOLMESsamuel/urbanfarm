@@ -24,11 +24,7 @@
 						ventilateur : $("#ventilateur1").is(":checked")
 					},
 					function(data){ //recupere ce qui est envoye par le code php
-						if(data != 'ok'){
-	
-						} else {
-							
-						}
+						document.location.href="page_profil.php";
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
@@ -45,11 +41,7 @@
 						
 					},
 					function(data){ //recupere ce qui est envoye par le code php
-						if(data != 'ok'){
-							console.log(data);
-						} else {
-							
-						}
+						document.location.href="page_profil.php";
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
@@ -64,10 +56,10 @@
 						confNouveauMdp : $("#confNouveauMdp").val()
 					},
 					function(data){ //recupere ce qui est envoye par le code php
-						if(data != 'ok'){
-							$(".erreur").html(data);
+						if(data =="ok"){
+							closeModalMdp();
 						} else {
-							
+							$(".erreur").html(data);
 						}
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
@@ -80,6 +72,7 @@
 		<?php include("elem/elem_entete.php"); ?>
 		<?php include("../modele/connexion.php"); ?>
 		<?php include("../modele/requeteUtilisateur.php"); ?>
+		<?php include("../modele/requeteInstallation.php"); ?>
 	</header>	
 	<input style="display: none;" id="mail"value="<?php echo $_SESSION['mail']; ?>">
 	<?php
@@ -137,8 +130,16 @@
 							<h3>Vous n'avez pas encore d'installation</h3>
 						<?php elseif (nbInstallations($bdd, $_SESSION['mail']) == 1): ?>
 							<h3>Votre installation</h3>
+							<div class="installation">
+								<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom") ?>
+							</div>
 						<?php else :?>
 							<h3>Vos installations</h3>
+							<?php for($i=0; $i<nbInstallations($bdd, $_SESSION['mail']); $i++): ?>
+								<div class="installation">
+									<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom") ?>
+								</div>
+							<?php endfor ?>
 						<?php endif ?>
 					</div>
 					<br>

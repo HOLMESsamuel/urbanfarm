@@ -203,3 +203,18 @@ h4 {
     width: 60%;
     margin: 15px auto;
 }
+
+.installation {
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        display: block;
+        text-align: center;
+    }
+}

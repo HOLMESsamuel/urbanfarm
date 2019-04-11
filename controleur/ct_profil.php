@@ -50,6 +50,7 @@ if($modif == "installation"){
     $confNouveauMdp = sha1($_POST['confNouveauMdp']);
     if($nouveauMdp == $confNouveauMdp){
         modifMdp($bdd, $mail, $nouveauMdp);
+        echo "ok";
     } else {
         echo "Les mots de passe ne correspondent pas";
     }
