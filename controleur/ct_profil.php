@@ -42,6 +42,8 @@ if($modif == "installation"){
     $prenom = htmlspecialchars($_POST['prenom']);
     $nom = htmlspecialchars($_POST['nom']);
     $adresse = htmlspecialchars($_POST['adresse']);
+    modifProfil($bdd, $mail, $prenom, $nom, $adresse);
+    echo "ok";
 } else {
     $mail = htmlspecialchars($_POST['mail']);
     $nouveauMdp = sha1($_POST['nouveauMdp']);
