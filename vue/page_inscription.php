@@ -1,19 +1,71 @@
 <!DOCTYPE HTML>
-<?php include("../controleur/ct_inscription.php"); ?>
+
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
 		<link rel = "stylesheet" href = "style/style.css"/>
 		<link rel = "stylesheet" href = "style/style_inscription.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){ //attend que tout le reste soit chargé
+			$("#btnValider").click(function(e){
+				e.preventDefault(); //empeche de recherarger la page
+				$.post('../controleur/ct_inscription.php', //envoie par post
+					{
+						prenom : $("#prenom").val(), //recupere les valueurs par id
+						nom : $("#nom").val(),
+						adresse : $("#adresse").val(),
+						mail : $("#mail").val(),
+						confmail : $("#confmail").val(),
+						mdp : $("#mdp").val(),
+						confmdp : $("#confmdp").val(),
+						cgu : $("#cgu").is(":checked"),
+						civilite : $("#civilité1").is(":checked"),
+						titre1 : $("#titre1").val(),
+						adresse1 : $("#adresse1").val(),
+						type1 : $("#liste1").val(),
+						temperature1 : $("#temperature1").is(":checked"),
+						lumiere1 : $("#lumiere1").is(":checked"),
+						mouvement1 : $("#mouvement1").is(":checked"),
+						moteur1 : $("#moteur1").is(":checked"),
+						lampe1 : $("#lampe1").is(":checked"),
+						ventilateur1 : $("#ventilateur1").is(":checked")
+					},
+					function(data){ //recupere ce qui envoye par le code php
+						if(data != 'ok'){
+							$(".erreur").html(data);
+						} else {
+							document.location.href="page_profil.php";
+						}
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+				);
+			});
+		});
+		</script>
 	</head>
 	<header>
 		<?php include("elem/elem_entete.php"); ?>
 	</header>	
 	
+	
 	<body>
 		<h1>Inscription</h1>
-		<form method="POST" action="">
+		<form>
 			<div class="container">
+			<div id="modalInfo">
+				<div class="interieurModal">
+					<span class="close" onclick="closeModalInfo();">&times;</span>
+					<p>Les infos</p>
+				</div>
+
+			</div>
+			<div id="modal">
+				<div class="interieurModal">
+					<span class="close" onclick="closeModal();">&times;</span>
+					<p>Le modal</p>
+				</div>
+			</div>
 			<div id="col1">
 					<h2>Vos informations personnelles</h2>
 						
@@ -36,16 +88,21 @@
 						<input type="mail" placeholder="confirmer le mail" id="confmail" name="confmail" value="<?php if(isset($confmail)) {echo $confmail;}?>"/>
 						<input type="password" placeholder="mot de passe" id="mdp" name="mdp"/>
 						<input type="password" placeholder="confirmer le mot de passe" id="confmdp" name="confmdp"/>
+						<br>
+						<div id="checkboxCgu">
+							<p>
+								<input type="checkbox" id="cgu" name="cgu">
+								<label for="cgu">J'accepte les </label><span id="conditions" onclick="openModal();"> conditions generales d'utilisation</span>
+							</p>
+						</div>
 						<input type="submit" id="btnValider" name="inscription" value="Confirmer"/>
-					<?php 
-					if(isset($erreur)){
-						echo $erreur;
-					}
-					?>
+						<p class="erreur">
+						 
+						</p>
 				
 				</div>
 				<div id="col2">
-					<h2>Votre installation</h2>
+					<h2>Votre installation  <span id="lienInfo" onclick="openModalInfo();">  ?  </span></h2>
 					
 						<div id=conteneur>
 							

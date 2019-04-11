@@ -3,37 +3,73 @@
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
 		<link rel = "stylesheet" href = "style/style.css"/>
-		<link rel = "stylesheet" href = "style/style_consomation.css"/>
+		<link rel = "stylesheet" href = "style/style_consommation.css"/>
+
 		<script>
-		window.onload = function () {
+window.onload = function () {
 
-		//Better to construct options first and then pass it as a parameter
-		var options = {
-			title: {
-				text: "Spline Chart with Export as Image"
-			},
-			animationEnabled: true,
-			exportEnabled: true,
-			data: [
-			{
-				type: "spline", //change it to line, area, column, pie, etc
-				dataPoints: [
-					{ x: 10, y: 10 },
-					{ x: 20, y: 12 },
-					{ x: 30, y: 8 },
-					{ x: 40, y: 14 },
-					{ x: 50, y: 6 },
-					{ x: 60, y: 24 },
-					{ x: 70, y: -4 },
-					{ x: 80, y: 10 }
-				]
-			}
-			]
-		};
-		$("#chartContainer").CanvasJSChart(options);
+var dps = [];
+var chart = new CanvasJS.Chart("chartContainer", {
+	exportEnabled: true,
+	title :{
+		text: "Données des 24 dernières heures"
+	},
+	axisX: {
+		type: 'time'
+	},
+  	time: {
+    	format: "HH:mm",
+   	 	unit: 'hour',
+	    unitStepSize: 1,
+	    displayFormats: {
+	      	'minute': 'HH:mm', 
+	      	'hour': 'HH:mm', 
+	      	min: '00:00',
+	      	max: '23:59'
+	    },
+	},
+	axisY: {
+		includeZero: false
+	},
+	data: [{
+		type: "spline",
+		markerSize: 0,
+		dataPoints: dps 
+	}]
+});
 
-		}
-		</script>
+//var xVal = new Date().setHours(xVal.getHours() -24);
+var today = new Date();
+today.setHours(today.getHours() -24);
+var xVal = new Date(today.getTime());
+var yVal = 100;
+var updateInterval = 3000; // temps avant mise a jour
+var dataLength = 24; // number of dataPoints visible at any point
+
+var updateChart = function (count) {
+	count = count || 1;
+	// count is number of times loop runs to generate random dataPoints.
+	for (var j = 0; j < count; j++) {	
+		
+		yVal = yVal + Math.round(5 + Math.random() *(-10));
+		dps.push({
+			x: xVal,
+			y: yVal
+		});
+		xVal = new Date(xVal.getTime());
+		xVal.setHours(xVal.getHours() +1);
+	}
+	if (dps.length > dataLength) {
+		dps.shift();
+	}
+	chart.render();
+};
+
+updateChart(dataLength); 
+setInterval(function(){ updateChart() }, updateInterval); 
+
+}
+</script>
 	</head>
 
 	<header>
@@ -46,26 +82,35 @@
 			    	<?php include("elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-				<tr>
-				<td>Owner</td>
-				<td>
-							<select name="owner">
-				<?php 
-				//$sql = mysqli_query($connection, "SELECT username FROM users");
-				//while ($row = $sql->fetch_assoc()){
-				//echo "<option value=\"owner1\">" . $row['username'] . "</option>";				}
-				?>
-				</select>
-				</td>
-				</tr>
-				<div id="chartContainer"></div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+			<?php 
+				include("../modele/connexion.php"); 
+				include("../modele/requeteCapteur.php"); 
+			
+     			$requete = "SELECT * FROM capteur";
+				$query = $bdd->query($requete);
+				$results = new ArrayObject(array());
+				while ( $res =  $query->fetch() )
+				{
+     				$results->append($res['type']." - ".$res['n°installation']);
+				}
+			?>
+			<select name="the_name" id="combobox">
+     			<?php foreach ( $results as $option ) :
+					echo "<option>".$option."</option>";
+     			endforeach; ?>
+			</select>
+
+			
+			<div id="chartContainer"></div>				
 			
 	    	</div>
 		</div>
-		<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-		<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 	</body>
+	<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+	<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+	<script src="script/script_consommation.js"></script>
 
 	<footer>
 		<?php include("elem/elem_pied.php"); ?>

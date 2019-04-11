@@ -4,6 +4,29 @@
 		<title> Urban Farm</title>
 		<link rel = "stylesheet" href = "style/style.css"/>
 		<link rel = "stylesheet" href = "style/style_contact.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){ //attend que tout le reste soit chargé
+			$("#envoiMessage").click(function(e){
+				e.preventDefault(); //empeche de recherarger la page
+				$.post('../controleur/ct_contact.php', //envoie par post
+					{
+						mail : $("#mail").val(),
+						titre : $("#titre").val(),
+						texte : $("#text").val()
+					},
+					function(data){ //recupere ce qui envoye par le code php
+						if(data != 'ok'){
+							$("#erreur").html(data);
+						} else {
+							
+						}
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+				);
+			});
+		});
+		</script>
 	</head>
 	<header>
 		<?php include("elem/elem_entete.php"); ?>
@@ -28,7 +51,7 @@
 					Pour cela, remplissez le formulaire ci-dessous.
 				</p>
 				<br>
-				<form method="post" action="formulaire"></form>
+				<form></form>
 					<input type="mail" placeholder="Adresse mail" id="mail" name="mail" value="<?php if(isset($mail)) {echo $mail;}?>"/>	
 					<br>
 					<input type="titre" placeholder="Titre du message" id="titre" name="titre" value="<?php if(isset($itre)) {echo $titre;}?>"/>
@@ -37,6 +60,7 @@
 					<br>
 					<input type="submit"  id="envoiMessage" name="envoi" value="Envoyer"/>
 				</form>
+				<p id="erreur"></p>
 			</div>
 
 			<div id="col3">

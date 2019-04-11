@@ -1,0 +1,205 @@
+.container {
+    min-height: 06%;
+    margin: 15px;
+    padding-bottom: 96px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 3fr 2fr;
+    grid-template-columns: 1fr 3fr 2fr;
+}
+
+#col3 {
+    -ms-grid-column: 3;
+    grid-column: 3;
+    height: 100%;
+    margin: 0px 5px;
+    display: inline-block;
+    text-align: center;
+}
+
+#col2 {
+    text-align: center;
+}
+
+.champs {
+    margin: 5px;
+    padding: 20px 40px;
+    text-align: left;
+}
+
+input[type=button] {
+    text-align: center;
+}
+
+input[type=button]:hover {
+    color: white;
+    background-color: grey;
+}
+
+input {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid gray;
+    width: 80%;
+    margin: 5px auto;
+    transition: 0.3s ease;
+}
+
+input[type=checkbox] {
+    width: 20px;
+    display: none;
+}
+
+input[type=button] {
+    text-align: center;
+}
+
+input[type=button]:hover {
+    color: white;
+    background-color: grey;
+}
+
+input[type=checkbox]+label:before {
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-top: -3px;
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+    width: 17px;
+    height: 17px;
+}
+
+input[type=checkbox]:checked+label:before {
+    background: rgb(146, 194, 125);
+    border-color: #B6D7A8;
+    box-shadow: inset 0px 0px 0px 2px #fff;
+}
+
+p {
+    margin: 10px 0px;
+    -ms-grid-column: 1;
+    grid-column: 1;
+}
+
+select {
+    font-size: 17px;
+    border: 1px solid grey;
+    -ms-grid-column: 1;
+    -ms-grid-row: 6;
+    grid-row: 6;
+    grid-column: 1;
+    text-align: right;
+    width: 80%;
+    height: 83%;
+    margin: 5px;
+}
+
+.contenu {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 15px;
+}
+
+.titre {
+    text-align: center;
+    margin-bottom: 15px;
+    width: 30%;
+}
+
+.champs input[type=button] {
+    width: 30%;
+    margin: 20px 10%;
+}
+
+.adresse {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 6;
+    grid-row: 6;
+    margin: 5px;
+}
+
+.moteur {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 2;
+    grid-row: 2;
+}
+
+.ventilateur {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 3;
+    grid-row: 3;
+}
+
+.lampe {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 4;
+    grid-row: 4;
+}
+
+h4 {
+    text-align: left;
+}
+
+#infoPerso {
+    text-align: left;
+    border: 1px solid grey;
+    padding: 20px;
+    width: 60%;
+    margin: 15px auto;
+}
+
+#messageBienvenue {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btnModif {
+    width: 50%;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 4000;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.interieurModal {
+    overflow: auto;
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    width: 70%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #ccc;
+    cursor: pointer;
+    font-size: 40px;
+    float: right;
+    top: 0;
+}
+
+.close:hover {
+    color: black;
+}
+
+#conteneurProfil input {
+    width: 60%;
+    margin: 15px auto;
+}

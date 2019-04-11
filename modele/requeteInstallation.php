@@ -7,9 +7,12 @@
     function derniereInstallation(PDO $bdd): int {
         $dernierIndice = $bdd->lastInsertId();
         return $dernierIndice;
-        /*$req = 'SELECT * FROM installation';
-        $ligne = $bdd->query($req);
-        $dernierIndice = $ligne->rowCount();
-        return $dernierIndice;*/
+    }
+
+    function recupereInfoInstall(PDO $bdd, String $mail, String $info): String {
+        $req = $bdd->prepare("SELECT ".$info." FROM installation WHERE email=?");
+        $req->execute(array($mail));
+        $row = $req->fetch();
+        return $row[$info];
     }
 ?>
