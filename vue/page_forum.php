@@ -8,56 +8,7 @@
     <header>
         <?php include("elem/elem_entete.php"); ?>
     </header>
-	<div>
-	<?php
-    $conn = mysql_connect("localhost","root","");
-    mysql_query("SET NAMES 'utf8'");
-    mysql_query("SET CHARACTER SET utf8");
-    
-    mysql_select_db("testurbanfarm",$conn);
-?>
-	</div>
-
-<<<<<<< HEAD
-	<body>
-		<div class="container">
-	    	<div id="col1">
-			    	<?php include("elem/elem_menu.php"); ?>
-    		</div>
-		    <div id="col2">
-				/
-	
-
-<body>
-  <div id="questionlist">
-	<div id="header">
-		<h1>questions</h1>
-	</div>
-	<div class="content">
-	
-				<h3>1.Question1?</h3>
-				<p>Réponse1.</p>
-
-				<h3>2.Question2?</h3>
-				<p>Réponse2.</p>
-		
-				<h3>3.Question3?</h3>
-				<p>Réponse3.</p>
-
-				<h3>4.Question4?</h3>
-				<p>Réponse4.</p>
-
-				<h3>5.Question5?</h3>
-				<p>Réponse5.</p>
-
-				<h3>6.Question6?</h3>
-				<p>Réponse6.</p>
-			</div>					
-  </div>
-</body>
-</html>
-/	
-=======
+		<?php include("modele/requeteForum.php"); ?>
     <body>
         <div class="container">
          <div id="col1">
@@ -66,66 +17,62 @@
          <div id="col2">
                         <h2>Aide et Support</h2>
                         <br>
+                        <script src="../vue/script/script_recherche.js"></script>
                         <form method=post action="">
                             <input type="text" name="keywords" size=40 maxlength=400
-                             placeholder='Entrez question ici...'>
-                        <input type="submit" name=gcrech value="Recherchez"/>
+                             placeholder='Entrez question ici...'
+                             onkeyup="xmlhttp(this.value)"/>
+                        <input type="submit" name=gcrech value="Recherchez" />
                         </form>
                         <br>
->>>>>>> 9b2404bba090a3a34a3e4f90da00db834baca4bc
+                        <p><span id="urbanfarm.sql"></span></p>
 
-						<?php
-						$keywords=$_POST['keywords'];
-						$sql="SELECT * FROM questions WHERE contenu LIKE '%keywords%' ";
-						$result= mysql_query($conn,$sql);
-						
-						?>
-						
                         <div id="questionlist">
                             <div style="border-style:solid;border-width:1px">
-                            <div class="content">
-                                        <h4>1.Question1?</h4>
-                                        <p>Réponse1.</p>
-                                    </div> 
+								<div class="content">
+								
+									 <h4>Qu'est-ce que Urbanfarm?</h4>
+									 <p>Nous sommes le fournisseur de services intelligent sur Internet pour Urbanfarm.</p>
+								</div>
                             </div> 
                             <br>
                            
                             <div style="border-style:solid;border-width:1px">
                             <div class="content">
-                                        <h4>2.Question2?</h4>
-                                        <p>Réponse2.</p>
+                                        <h4>Que pouvez-vous faire sur notre site?</h4>
+                                        <p>Vous pouvez surveiller en ligne les dernières opérations de Urbanfarm et obtenir la bonne analyse de données., obtenir les dernières nouvelles interactives et participer.</p>
                                     </div> 
                             </div> 
                             <br>
 
                             <div style="border-style:solid;border-width:1px">
                             <div class="content">
-                                        <h4>3.Question3?</h4>
-                                        <p>Réponse3.</p>
+                                        <h4>Que puis-je obtenir en m'inscrivant sur le site?</h4>
+                                        <p>Vous pouvez obtenir les dernières nouvelles de l'événement et obtenir des avantages spéciaux qui ne sont ouverts aux membres qu'en enregistrant votre abonnement, rejoignez-nous!</p>
                                     </div> 
                             </div> 
                             <br>
                            
                             <div style="border-style:solid;border-width:1px">
                             <div class="content">
-                                        <h4>4.Question4?</h4>
-                                        <p>Réponse4.</p>
+                                        <h4>J'ai acheté le site Web environ, combien de temps puis-je le recevoir?</h4>
+                                        <p>Nous expédions les marchandises dans les meilleurs délais pour vous garantir la meilleure expérience d'achat possible (délai de livraison général: 2 à 5 jours).</p>
                                     </div> 
                             </div> 
                             <br>
                            
                             <div style="border-style:solid;border-width:1px">
                             <div class="content">
-                                        <h4>5.Question5?</h4>
-                                        <p>Réponse5.</p>
+                                        <h4>Puis-je participer à des interactions dans d'autres régions internationales?</h4>
+                                        <p>Nous sommes toujours les bienvenus pour participer à notre interaction hors ligne, mais veuillez noter que nos achats en ligne sont ouverts uniquement à l'île-de-France.</p>
                                     </div> 
                             </div> 
                             <br>
                            
                             <div style="border-style:solid;border-width:1px">
                             <div class="content">
-                                        <h4>6.Question6?</h4>
-                                        <p>Réponse6.</p>
+                                        <h4>Quel est le contenu de l'interaction hors ligne?</h4>
+                                        <p>Il peut y avoir des expériences écologiques, des réunions de famille, des visites pour explorer l’écologie intelligente la plus moderne, et bien sûr, un dîner spécial avec un arrangement spécial.</p>
                                     </div> 
                             </div>         
                         </div>
