@@ -11,6 +11,7 @@
 				e.preventDefault(); //empeche de recherarger la page
 				$.post('../controleur/ct_profil.php', //envoie par post
 					{
+						modif : "installation",
 						mail : $("#mail").val(),
 						titre : $("#titre1").val(),
 						adresse : $("#adresse1").val(),
@@ -36,12 +37,16 @@
 				e.preventDefault(); //empeche de recherarger la page
 				$.post('../controleur/ct_profil.php', //envoie par post
 					{
-						type : "profil",
+						modif : "profil",
+						mail : $("#mail").val(),
+						prenom : $("#prenom").val(),
+						nom : $("#nom").val(),
+						adresse : $("#adresse").val()
 						
 					},
 					function(data){ //recupere ce qui est envoye par le code php
 						if(data != 'ok'){
-	
+							console.log(data);
 						} else {
 							
 						}
@@ -53,12 +58,14 @@
 				e.preventDefault(); //empeche de recherarger la page
 				$.post('../controleur/ct_profil.php', //envoie par post
 					{
-						type : "mdp",
-						
+						mail : $("#mail").val(),
+						modif : "mdp",//transmet la nature du changement a effectuer au controlleur
+						nouveauMdp : $("#nouveauMdp").val(),
+						confNouveauMdp : $("#confNouveauMdp").val()
 					},
 					function(data){ //recupere ce qui est envoye par le code php
 						if(data != 'ok'){
-	
+							$(".erreur").html(data);
 						} else {
 							
 						}
@@ -103,7 +110,9 @@
 							<span class="close" onclick="closeModalProfil();">&times;</span>
 							<h3>Modifier vos informations personnelles</h3>
 							<div id=conteneurProfil>
-								<!-- contient le formulaire ajouté par js-->
+								<input type="text" id="prenom" placeholder="Prenom" value="<?php echo $prenom ?>">
+								<input type="text" id="nom" placeholder="Nom" value="<?php echo $nom ?>">
+								<input type="text" id="adresse" placeholder="Adresse" value="<?php echo $adresse ?>">
 							</div>
 							<input id="confirmerProf" value="Confirmer" type="button">
 						</div>
@@ -117,6 +126,7 @@
 								<!-- contient le formulaire ajouté par js-->
 							</div>
 							<input id="confirmerMdp" value="Confirmer" type="button">
+							<div class="erreur"></div>
 						</div>
 					</div>
 				<br>

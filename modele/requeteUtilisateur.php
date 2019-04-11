@@ -44,9 +44,13 @@
     }
 
     function modifProfil(PDO $bdd, String $mail, String $prenom, String $nom, String $adresse){
-        $req = $bdd->prepare("UPDATE utilisateur SET prenom=?, nom=?, adresse=? WHERE mail=?");
+        $req = $bdd->prepare("UPDATE utilisateur SET prenom=?, nom=?, adresse=? WHERE email=?");
         $req->execute(array($prenom, $nom, $adresse, $mail));
     }
 
+    function modifMdp(PDO $bdd, String $mail, String $mdp){
+        $req = $bdd->prepare("UPDATE utilisateur SET motdepasse=? WHERE email=?");
+        $req->execute(array($mdp, $mail));
+    }
     
 ?>

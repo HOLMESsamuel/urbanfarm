@@ -25,6 +25,4 @@
 	<footer>
 		<?php include("elem/elem_pied.php"); ?>
 	</footer>
-	<script src="../vue/script/script_profil.js"></script>
-	<?php include("../controleur/ct_profil.php"); ?>
 </html>
