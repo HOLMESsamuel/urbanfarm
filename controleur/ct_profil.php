@@ -44,6 +44,14 @@ if($modif == "installation"){
     $adresse = htmlspecialchars($_POST['adresse']);
     modifProfil($bdd, $mail, $prenom, $nom, $adresse);
     echo "ok";
+} elseif ($modif == "supinstal"){
+    $installation = $_POST['installation'];
+    try {
+        echo $installation;
+    } catch (Exception $e) {
+        echo $e;
+    } 
+    
 } else {
     $mail = htmlspecialchars($_POST['mail']);
     $nouveauMdp = sha1($_POST['nouveauMdp']);
