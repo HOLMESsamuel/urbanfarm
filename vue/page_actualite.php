@@ -9,7 +9,7 @@
 		$(document).ready(function(){ //attend que tout le reste soit chargé
 			$("#btnSearch").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_search.php', //envoie par post au fichier controleur
+				$.post('../controleur/ct_actualiteSearch.php', //envoie par post au fichier controleur
 					{
 						id : $("#id").val()
 					},
@@ -34,18 +34,22 @@
 			</div>
 
 			<div id="col2">
-				<form>
-					Search : <input type="text" id="id" name="id">
-				<input type="submit" id="btnSearch" name="Find" value="O">
-				</form>
-				<div id="rep"></div>
-
 				<h2> 
 					<?php afficheDernierTitre($bdd); ?>
 				</h2>
 				<div class="article">
 					<?php afficheDernierArticle($bdd); ?>
 				</div>
+
+				<form id="from">
+					Search : <input type="text" id="id" name="id">
+					<button type="submit" id="btnSearch" name="Find" style="border: 0; background: transparent">
+    				<img src="img/loupe.PNG" width="20" height="20" alt="submit" />
+					</button>
+					<!--<input type="submit" id="btnSearch" name="Find" value="O">-->
+				</form>
+				<div id="rep"></div>
+
 	    </div>
 		
 			<div id="col3">
