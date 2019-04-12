@@ -138,6 +138,7 @@
 							<?php for($i=0; $i<nbInstallations($bdd, $_SESSION['mail']); $i++): ?>
 								<div class="installation">
 									<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom",$i) ?>
+									<input type="button" value="supprimer" id="<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], 'n°installation', $i); ?>">
 								</div>
 							<?php endfor ?>
 						<?php endif ?>

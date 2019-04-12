@@ -16,8 +16,14 @@
 			    	<?php include("elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
-				
-			
+					<span>Bienvenue </span>
+					<?php echo recupereInfo($bdd, $_SESSION['mail'], "prenom"); ?>
+
+				<!-- 
+				nb d'incrit actuel nd apache_child_terminate
+				graph date message 
+				graph date d'actu
+				-->
 	    	</div>
 		</div>
 	</body>
