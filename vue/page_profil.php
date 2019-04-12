@@ -131,13 +131,14 @@
 						<?php elseif (nbInstallations($bdd, $_SESSION['mail']) == 1): ?>
 							<h3>Votre installation</h3>
 							<div class="installation">
-								<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom") ?>
+								<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom",0) ?>
 							</div>
 						<?php else :?>
 							<h3>Vos installations</h3>
 							<?php for($i=0; $i<nbInstallations($bdd, $_SESSION['mail']); $i++): ?>
 								<div class="installation">
-									<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom") ?>
+									<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom",$i) ?>
+									<input type="button" value="supprimer" id="<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], 'n°installation', $i); ?>">
 								</div>
 							<?php endfor ?>
 						<?php endif ?>

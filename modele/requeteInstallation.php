@@ -9,9 +9,14 @@
         return $dernierIndice;
     }
 
-    function recupereInfoInstall(PDO $bdd, String $mail, String $info): String {
+    function recupereInfoInstall(PDO $bdd, String $mail, String $info, Int $numero): String {
         $req = $bdd->prepare("SELECT ".$info." FROM installation WHERE email=?");
+        $n = 0;
         $req->execute(array($mail));
+        while ($n<$numero){
+            $row = $req->fetch();
+            $n = $n+1; 
+        }
         $row = $req->fetch();
         return $row[$info];
     }
