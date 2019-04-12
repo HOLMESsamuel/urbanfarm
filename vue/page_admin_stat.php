@@ -32,6 +32,6 @@
 	</body>
 
 	<footer>
-		<?php include("elem/elem_pied.php"); ?>
+		<?php include("elem/elem_admin_pied.php"); ?>
 	</footer>
 </html>

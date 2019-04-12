@@ -3,7 +3,7 @@
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
 		<link rel = "stylesheet" href = "style/style.css"/>
-		<link rel = "stylesheet" href = "style/style_admin_actu.css"/>
+		<link rel = "stylesheet" href = "style/style_admin_boutique.css"/>
 
 	</head>
 	<header>
