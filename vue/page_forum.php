@@ -8,7 +8,7 @@
     <header>
         <?php include("elem/elem_entete.php"); ?>
     </header>
-		<?php include("modele/requeteForum.php"); ?>
+		
     <body>
         <div class="container">
          <div id="col1">
