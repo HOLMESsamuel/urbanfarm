@@ -7,4 +7,6 @@
  function afficheDernierArticle($bdd) {
      echo dernierArticle($bdd);
  }
+
+
 ?>

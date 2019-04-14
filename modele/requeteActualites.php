@@ -5,8 +5,17 @@
      * recupere le contennu de l'article dont le titre est celui entré en paramètre
      */
     function recupereArticle(PDO $bdd, String $titre){
-        
+        $req = $bdd->prepare("SELECT * FROM article WHERE titre=?");
+        $req->execute(array($titre));
+        $row=$req->fetch();
+        echo "<br><a class='titre' id=".$row['titre']." onclick='nouvelleActu();' >".$row['titre']."</a>";
+        echo " ";
+        echo "<a class='date'>".$row['date']."</a>";
+        echo "<br>";
+        echo "<a class='contenu'>".substr($row['contenu'],0,100)."</a>";
+        echo "... <br>";
     }
+
 
     function recupereTitre(PDO $bdd){ //recupere tous les titres avec leur date
         $req="SELECT * FROM article";
