@@ -339,7 +339,7 @@ h2 {
     overflow: auto;
 }
 
-#equipe {
+.equipe {
     width: 500px;
     height: 450px;
     padding: 20px;
@@ -350,9 +350,31 @@ h2 {
     grid-template-columns: 1fr 1fr;
     text-align: center;
 }
-
-.image-personnel:hover {
-    cursor: pointer;
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+.text {
+  white-space: nowrap; 
+  color: white;
+  font-size: 10px;
+  position: absolute;
+  overflow: hidden;
+  top: 0%;
+  left: 0%;
+  bottom: 0%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.equipe:hover .overlay {
+  height: 100%;
 }
 
 #horticulteur{
@@ -394,17 +416,8 @@ h2 {
     .description{
         visibility: hidden;
     }
+}
 
-    #equipe{
-        width: 500px;
-        height: 450px;
-        padding: 20px;
-        display: -ms-grid;
-        display: grid;
-        -ms-grid-columns: 1fr;
-         grid-template-columns: 1fr;
-        text-align: center;
-    }
 
     .image-personnel {
         margin-bottom : 15px;
