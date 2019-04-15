@@ -52,7 +52,7 @@
 					Pour cela, remplissez le formulaire ci-dessous.
 				</p>
 				<br>
-				<form></form>
+				<form>
 					<input type="mail" placeholder="Adresse mail" id="mail" name="mail" value="<?php if(isset($mail)) {echo $mail;}?>"/>	
 					<br>
 					<input type="titre" placeholder="Titre du message" id="titre" name="titre" value="<?php if(isset($itre)) {echo $titre;}?>"/>

@@ -22,6 +22,20 @@
         return ($exist == 1);
     }
 
+    function countUtilisateur(PDO $bdd):int {
+        $req = $bdd->prepare("SELECT * FROM utilisateur ");
+        $req->execute();
+        $nb = $req->rowCount();
+        return ($nb);
+    }
+
+    function countAdmin(PDO $bdd):int {
+        $req = $bdd->prepare("SELECT * FROM utilisateur WHERE administrateur=?");
+        $req->execute(array("oui"));
+        $nb = $req->rowCount();
+        return ($nb);
+    }
+
     function mailDejaPris(PDO $bdd, String $mail):bool {
         $req = $bdd->prepare("SELECT * FROM utilisateur WHERE email=?");
         $req->execute(array($mail));

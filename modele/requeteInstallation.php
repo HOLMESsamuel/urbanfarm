@@ -20,4 +20,22 @@
         $row = $req->fetch();
         return $row[$info];
     }
+
+    function recupereCapteurInstall(PDO $bdd, String $numero) {
+        $req = $bdd->prepare("SELECT type FROM capteur WHERE n°installation=?");
+        $req->execute(array($numero));
+        while($row = $req->fetch()){
+            echo $row["type"];
+            echo " ";
+        }  
+    }
+
+    function recupereActionneurInstall(PDO $bdd, String $numero) {
+        $req = $bdd->prepare("SELECT type FROM actionneur WHERE n°installation=?");
+        $req->execute(array($numero));
+        while($row = $req->fetch()){
+            echo $row["type"];
+            echo " ";
+        }  
+    }
 ?>
