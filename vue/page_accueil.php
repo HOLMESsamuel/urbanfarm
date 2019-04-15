@@ -84,22 +84,30 @@ session_destroy(); ?>
 					</div>
 					<div id="col4">
 						<h2>Une equipe surmotivée pour vous repondre !</h2>
-						<div id="equipe">
+						<div class="equipe">
 							<div class="image-personnel" id="horticulteur">
 								<img src="./img/horticulteur.jpg" width="200" height="200">
-								<p class="cv"></p>
+								<div class="overlay">
+									<div class="cv">Jami 70 ans..bzz</div>
+								</div>
 							</div>
 							<div class="image-personnel" id="fermier">
 								<img src="./img/fermier.jpg" width="200" height="200">
-								<p class="cv"></p>
+								<div class="overlay">
+									<div class="cv">Jami 70 ans..bzz</div>
+								</div>
 							</div>
 							<div class="image-personnel" id="ingenieur">
 								<img src="./img/ingenieur.png" width="200" height="200">
-								<p class="cv"></p>
+								<div class="overlay">
+									<div class="cv">Jami 70 ans..bzz</div>
+								</div>
 							</div>
 							<div class="image-personnel" id="electronique">
 								<img src="./img/electronique.jpg" width="200" height="200">
-								<p class="cv"></p>
+								<div class="overlay">
+									<div class="cv">Jami 70 ans..bzz</div>
+								</div>
 							</div>
 						</div>
 					</div>						
