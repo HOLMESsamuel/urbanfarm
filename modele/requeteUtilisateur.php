@@ -8,7 +8,7 @@
      * compte le nombre de lignes de la tablee utilisateur dont el mail et le mdp sont ceux entrés en paramètre
      * si ce nombre est exactement 1 l'utilisateur est bien inscrit.
      */
-    function estInscrit(PDO $bdd, $mail, $mdp): bool {
+    function estInscrit(PDO $bdd, String $mail,String $mdp): bool {
         $req = $bdd->prepare("SELECT * FROM utilisateur WHERE email=? AND motdepasse=?");
 		$req->execute(array($mail,$mdp));
         $exist = $req->rowCount();

@@ -7,6 +7,22 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){ //attend que tout le reste soit chargé
+			for(var i=0;i<5;i++){
+				$("#sup"+i).click(function(e){
+				e.preventDefault(); //empeche de recherarger la page
+				$.post('../controleur/ct_profil.php', //envoie par post
+					{
+						modif : "supinstal",
+						installation : $("#numero"+i).val()
+					},
+					function(data){ //recupere ce qui est envoye par le code php
+						console.log(data);
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+				);
+			});
+			}
+			
 			$("#confirmer").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
 				$.post('../controleur/ct_profil.php', //envoie par post
@@ -138,7 +154,9 @@
 							<?php for($i=0; $i<nbInstallations($bdd, $_SESSION['mail']); $i++): ?>
 								<div class="installation">
 									<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom",$i) ?>
-									<input type="button" value="supprimer" id="<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], 'n°installation', $i); ?>">
+
+									<input type="button" value="Supprimer" id="<?php echo 'sup'.$i; ?>">
+									<input style="display: none;" id="<?php echo 'numero'.$i ?>".$i value="<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom",$i); ?>">
 								</div>
 							<?php endfor ?>
 						<?php endif ?>
