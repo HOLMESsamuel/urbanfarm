@@ -153,10 +153,15 @@
 							<h3>Vos installations</h3>
 							<?php for($i=0; $i<nbInstallations($bdd, $_SESSION['mail']); $i++): ?>
 								<div class="installation">
-									<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom",$i) ?>
-
+									<?php $numero = recupereInfoInstall($bdd, $_SESSION['mail'], "n°installation",$i); ?>
+									<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom",$i); ?>
+									<p>Capteurs : <?php recupereCapteurInstall($bdd, $numero); ?></p>
+									<p>Actionneurs : <?php recupereActionneurInstall($bdd, $numero); ?></p>
+									<p>Adresse : <?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "adresse",$i); ?></p>
+									
+									<input type="button" value="Modifier">
 									<input type="button" value="Supprimer" id="<?php echo 'sup'.$i; ?>">
-									<input style="display: none;" id="<?php echo 'numero'.$i ?>".$i value="<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom",$i); ?>">
+									<input style="display: none;" id="<?php echo 'numero'.$i ?>".$i value="<?php echo $numero; ?>">
 								</div>
 							<?php endfor ?>
 						<?php endif ?>
