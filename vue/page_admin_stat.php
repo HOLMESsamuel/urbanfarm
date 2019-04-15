@@ -21,6 +21,13 @@
 		    <div id="col2">
 					<span>Bienvenue </span>
 					<?php echo recupereInfo($bdd, $_SESSION['mail'], "prenom"); ?>
+					<span><br>Il y a actuelment </span>
+					<?php echo countUtilisateur($bdd); ?>
+					<span> personnes inscrites (dont </span>
+					<?php echo countAdmin($bdd); ?>
+					<span>administrateurs)</span>
+					
+					
 
 				<!-- 
 				nb d'incrit actuel nd apache_child_terminate
