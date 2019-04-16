@@ -15,6 +15,13 @@
         return ($exist == 1);
     }
 
+    function passageAdmin(PDO $bdd, String $mail) {
+        $req = $bdd->prepare("UPDATE utilisateur
+            SET administrateur = 'oui'
+            WHERE email=?");
+        $req->execute(array($mail));
+    }
+
     function estAdmin(PDO $bdd, String $mail):bool {
         $req = $bdd->prepare("SELECT * FROM utilisateur WHERE email=? AND administrateur=?");
         $req->execute(array($mail, "oui"));
