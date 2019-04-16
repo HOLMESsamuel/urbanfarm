@@ -46,11 +46,10 @@ if($modif == "installation"){
     echo "ok";
 } elseif ($modif == "supinstal"){
     $installation = $_POST['installation'];
-    try {
-        echo $installation;
-    } catch (Exception $e) {
-        echo $e;
-    } 
+    supprimerCapteur($bdd, $installation);
+    supprimerActionneur($bdd, $installation);
+    supprimerInstallation($bdd, $installation);
+    echo "ok";
     
 } else {
     $mail = htmlspecialchars($_POST['mail']);

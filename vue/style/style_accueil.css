@@ -350,33 +350,63 @@ h2 {
     grid-template-columns: 1fr 1fr;
     text-align: center;
 }
-.overlay {
+.overlay1 {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #008CBA;
-  overflow: hidden;
-  width: 100%;
+  background-color: grey;
+  width: 200px;
   height: 0;
   transition: .5s ease;
 }
+.overlay2 {
+  position: absolute;
+  background-color: grey;
+  width: 200px;
+  height: 0;
+  transition: .5s ease;
+}
+.overlay3 {
+  position: absolute;
+  background-color: grey;
+  width: 200px;
+  height: 0;
+  transition: .5s ease;
+ 
+}
+.overlay4 {
+  position: absolute;
+  background-color: grey;
+  width: 200px;
+  height: 0;
+  transition: .5s ease;
+
+}
+
+
 .cv {
   white-space: nowrap; 
   color: white;
-  font-size: 10px;
+  font-size: 20px;
   position: absolute;
   overflow: hidden;
-  top: 0%;
-  left: 0%;
-  bottom: 0%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
 }
-.equipe:hover .overlay {
-  height: 100%;
+#horticulteur:hover .overlay1 {
+  height: 200px;
+}
+#fermier:hover .overlay2 {
+  height: 200px;
+}
+#electronique:hover .overlay4 {
+  height: 200px;
+}
+#ingenieur:hover .overlay3 {
+  height: 200px;
 }
 
+.overlay:
 #horticulteur{
     -ms-grid-column: 1;
     -ms-grid-row: 1;

@@ -15,11 +15,44 @@
 						installation : $("#numero1").val()
 					},
 					function(data){ //recupere ce qui est envoye par le code php
-						console.log(data);
+						document.location.href="page_profil.php";
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 					);
 				});
+
+				$("#sup0").click(function(e){
+				e.preventDefault(); //empeche de recherarger la page
+				$.post('../controleur/ct_profil.php', //envoie par post
+					{
+						modif : "supinstal",
+						installation : $("#numero0").val()
+					},
+					function(data){ //recupere ce qui est envoye par le code php
+						console.log("ijjg");
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+					);
+				});
+
+				$("#sup2").click(function(e){
+				e.preventDefault(); //empeche de recherarger la page
+				$.post('../controleur/ct_profil.php', //envoie par post
+					{
+						modif : "supinstal",
+						installation : $("#numero2").val()
+					},
+					function(data){ //recupere ce qui est envoye par le code php
+						if(data == "ok"){
+							document.location.href="page_profil.php";
+						}
+						
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+					);
+				});
+
+			
 		
 			
 			$("#confirmer").click(function(e){
