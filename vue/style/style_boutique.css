@@ -18,8 +18,7 @@ h2 {
     padding: 10px 20px;
 }
 
-#submit1,
-#submit2 {
+#submit {
     background-color: white;
     color: black;
     border-color: black;
@@ -28,8 +27,7 @@ h2 {
     font-size: 1em;
 }
 
-#submit1:hover,
-#submit2:hover {
+#submit:hover {
     background-color: dimgray;
     color: white;
     transition: 125ms;
@@ -42,8 +40,7 @@ form {
     padding: 0px;
 }
 
-#number1,
-#number2 {
+#number {
     font-size: 1em;
     margin: 10px 0px 10px 10px;
 }

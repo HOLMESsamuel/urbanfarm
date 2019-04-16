@@ -8,7 +8,7 @@
 </head>
 <header>
     <?php include("elem/elem_entete.php"); ?>
-    <?php include ("../controleur/ct_boutique.php"); ?>
+    <?php include("../controleur/ct_boutique.php"); ?>
 </header>
 
 <body>
