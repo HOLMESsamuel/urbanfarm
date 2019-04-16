@@ -356,6 +356,7 @@ h2 {
   width: 200px;
   height: 0;
   transition: .5s ease;
+  overflow: hidden;
 }
 .overlay2 {
   position: absolute;
@@ -363,6 +364,7 @@ h2 {
   width: 200px;
   height: 0;
   transition: .5s ease;
+  overflow:hidden;
 }
 .overlay3 {
   position: absolute;
@@ -370,6 +372,7 @@ h2 {
   width: 200px;
   height: 0;
   transition: .5s ease;
+  overflow: hidden;
  
 }
 .overlay4 {
@@ -378,20 +381,20 @@ h2 {
   width: 200px;
   height: 0;
   transition: .5s ease;
+  overflow:hidden;
 
 }
 
 
 .cv {
-  white-space: nowrap; 
+  white-space: normal; 
   color: white;
   font-size: 20px;
   position: absolute;
   overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  top: 30%;
+  left: 0%;
+  width: 200px;
 }
 #horticulteur:hover .overlay1 {
   height: 200px;
@@ -403,8 +406,7 @@ h2 {
   height: 200px;
 }
 #ingenieur:hover .overlay3 {
-  height: 200px;
-}
+  height: 200px;}
 
 .overlay:
 #horticulteur{

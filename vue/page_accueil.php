@@ -88,7 +88,8 @@ session_destroy(); ?>
 							<div class="image-personnel" id="horticulteur">
 								<div class="overlay1">
 									<p class="cv">
-										Stéphane le <em>pro</em> de la découpe
+										Stéphane </d>
+										 le <em>pro</em> de la découpe
 									</p>
 						
 								</div>
