@@ -57,6 +57,14 @@
         return $nbInstallations;
     }
 
+    function recupereCapteur(PDO $bdd, String $mail): int{
+        $req = $bdd->prepare( "SELECT * FROM capteur 
+        INNER JOIN installation ON capteur.n°installation = installation.n°installation WHERE email=?");
+        $req->execute(array($mail));
+        $nbCapt = $req->rowCount();
+        return $nbCapt;
+    }
+
     function modifProfil(PDO $bdd, String $mail, String $prenom, String $nom, String $adresse){
         $req = $bdd->prepare("UPDATE utilisateur SET prenom=?, nom=?, adresse=? WHERE email=?");
         $req->execute(array($prenom, $nom, $adresse, $mail));
