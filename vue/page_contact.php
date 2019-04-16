@@ -8,7 +8,7 @@
 		<script>
 			$(document).ready(function(){ //attend que tout le reste soit chargé
 			$("#envoiMessage").click(function(e){
-				e.preventDefault(); //empeche de recherarger la page
+				e.preventDefault(); //empeche de recharger la page
 				$.post('../controleur/ct_contact.php', //envoie par post
 					{
 						mail : $("#mail").val(),
@@ -19,7 +19,8 @@
 						if(data != 'ok'){
 							$("#erreur").html(data);
 						} else {
-							
+							document.location.href="page_accueil.php";
+						}
 						}
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
