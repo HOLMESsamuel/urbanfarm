@@ -19,8 +19,12 @@
     		</div>
 
 		    <div id="col2">
-				<span>Nb capteurs : </span>
-				<?php echo recupereCapteur($bdd, $_SESSION['mail']); ?>
+				<?php $nbCapteur = recupereCapteur($bdd, $_SESSION['mail']); ?>
+				<?php for($i=0; $i<$nbCapteur; $i++): ?>
+					<div class="capteur">
+						capteur
+					</div>
+				<?php endfor ?>
 				
 			
 	    	</div>

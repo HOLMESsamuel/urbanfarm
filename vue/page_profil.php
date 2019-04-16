@@ -29,7 +29,7 @@
 						installation : $("#numero0").val()
 					},
 					function(data){ //recupere ce qui est envoye par le code php
-						console.log("ijjg");
+						document.location.href="page_profil.php";
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 					);
@@ -43,9 +43,7 @@
 						installation : $("#numero2").val()
 					},
 					function(data){ //recupere ce qui est envoye par le code php
-						if(data == "ok"){
-							document.location.href="page_profil.php";
-						}
+						document.location.href="page_profil.php";
 						
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
@@ -179,7 +177,15 @@
 						<?php elseif (nbInstallations($bdd, $_SESSION['mail']) == 1): ?>
 							<h3>Votre installation</h3>
 							<div class="installation">
-								<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom",0) ?>
+									<?php $numero = recupereInfoInstall($bdd, $_SESSION['mail'], "n°installation",0); ?>
+									<?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "nom",0); ?>
+									<p>Capteurs : <?php recupereCapteurInstall($bdd, $numero); ?></p>
+									<p>Actionneurs : <?php recupereActionneurInstall($bdd, $numero); ?></p>
+									<p>Adresse : <?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "adresse",0); ?></p>
+									
+									<input type="button" value="Modifier">
+									<input type="button" value="Supprimer" id="<?php echo 'sup0'; ?>">
+									<input style="display: none;" id="<?php echo 'numero0' ?>".$i value="<?php echo $numero; ?>">
 							</div>
 						<?php else :?>
 							<h3>Vos installations</h3>
