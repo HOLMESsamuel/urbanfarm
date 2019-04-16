@@ -86,28 +86,41 @@ session_destroy(); ?>
 						<h2>Une equipe surmotivée pour vous repondre !</h2>
 						<div class="equipe">
 							<div class="image-personnel" id="horticulteur">
-								<img src="./img/horticulteur.jpg" width="200" height="200">
-								<div class="overlay">
-									<div class="cv">Jami 70 ans..bzz</div>
+								<div class="overlay1">
+									<p class="cv">
+										Stéphane le <em>pro</em> de la découpe
+									</p>
+						
 								</div>
+								<img src="./img/horticulteur.jpg" width="200" height="200">
 							</div>
 							<div class="image-personnel" id="fermier">
-								<img src="./img/fermier.jpg" width="200" height="200">
-								<div class="overlay">
-									<div class="cv">Jami 70 ans..bzz</div>
+								<div class="overlay2">
+									<p class="cv">
+										Stéphane le <em>pro</em> de la découpe
+									</p>
+									
 								</div>
+								<img src="./img/fermier.jpg" width="200" height="200">
+							
 							</div>
 							<div class="image-personnel" id="ingenieur">
-								<img src="./img/ingenieur.png" width="200" height="200">
-								<div class="overlay">
-									<div class="cv">Jami 70 ans..bzz</div>
+								<div class="overlay3">
+									<p class="cv">
+										Stéphane le <em>pro</em> de la découpe
+									</p>
 								</div>
+								<img src="./img/ingenieur.png" width="200" height="200">
 							</div>
 							<div class="image-personnel" id="electronique">
-								<img src="./img/electronique.jpg" width="200" height="200">
-								<div class="overlay">
-									<div class="cv">Jami 70 ans..bzz</div>
+								<div class="overlay4">
+									<p class="cv">
+										Stéphane le <em>pro</em> de la découpe
+									</p>
+									
 								</div>
+								<img src="./img/electronique.jpg" width="200" height="200">
+								
 							</div>
 						</div>
 					</div>						
