@@ -60,11 +60,11 @@ if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse
 					if($_POST['ventilateur'.$i] == "true"){
 						ajoutActionneur($bdd, 'ventilateur', 'off', $derniereInstallation);
 					}
-					$_SESSION['mail'] = $mail;
-					$_SESSION['prenom'] = $prenom;
-					echo "ok";
 				}
 			}
+			$_SESSION['mail'] = $mail;
+			$_SESSION['prenom'] = $prenom;
+			echo "ok";
 
 		} catch (Exception $e) {
 			echo $e;

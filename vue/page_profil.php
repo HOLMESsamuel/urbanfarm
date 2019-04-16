@@ -7,21 +7,20 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){ //attend que tout le reste soit chargé
-			for(var i=0;i<5;i++){
-				$("#sup"+i).click(function(e){
+				$("#sup1").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
 				$.post('../controleur/ct_profil.php', //envoie par post
 					{
 						modif : "supinstal",
-						installation : $("#numero"+i).val()
+						installation : $("#numero1").val()
 					},
 					function(data){ //recupere ce qui est envoye par le code php
 						console.log(data);
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
-				);
-			});
-			}
+					);
+				});
+		
 			
 			$("#confirmer").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
