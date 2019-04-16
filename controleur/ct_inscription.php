@@ -35,7 +35,9 @@ if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse
 	} else {
 		try {
 			ajoutUtilisateur($bdd, $mail, $nom, $prenom, $civilite, $adresse, $mdp);
-			//passageAdmin($bdd, $mail);
+			if ( substr($mail, -9) == '@urban.fr') {
+				passageAdmin($bdd, $mail);
+			}
 			for($i=1; $i<10; $i++){
 				if(isset($_POST['titre'.$i])){
 					$titre = htmlspecialchars($_POST['titre'.$i]);
