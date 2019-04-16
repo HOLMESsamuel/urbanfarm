@@ -8,7 +8,7 @@
 		<script>
 			$(document).ready(function(){ //attend que tout le reste soit chargé
 			$("#envoiMessage").click(function(e){
-				e.preventDefault(); //empeche de recherarger la page
+				e.preventDefault(); //empeche de recharger la page
 				$.post('../controleur/ct_contact.php', //envoie par post
 					{
 						mail : $("#mail").val(),
@@ -19,7 +19,8 @@
 						if(data != 'ok'){
 							$("#erreur").html(data);
 						} else {
-							
+							document.location.href="page_accueil.php";
+						}
 						}
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
@@ -51,7 +52,7 @@
 					Pour cela, remplissez le formulaire ci-dessous.
 				</p>
 				<br>
-				<form></form>
+				<form>
 					<input type="mail" placeholder="Adresse mail" id="mail" name="mail" value="<?php if(isset($mail)) {echo $mail;}?>"/>	
 					<br>
 					<input type="titre" placeholder="Titre du message" id="titre" name="titre" value="<?php if(isset($itre)) {echo $titre;}?>"/>
