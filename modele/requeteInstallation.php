@@ -43,4 +43,30 @@
         $req = $bdd->prepare("DELETE FROM installation WHERE n°installation = ?");
         $req->execute(array($numero));
     }
+
+    function recupereInfoCapteur(PDO $bdd, String $mail, String $info, Int $numero): String {
+        $req = $bdd->prepare("SELECT capteur.".$info." FROM capteur 
+        INNER JOIN installation ON capteur.n°installation = installation.n°installation WHERE email=?");
+        $n = 0;
+        $req->execute(array($mail));
+        while ($n<$numero){
+            $row = $req->fetch();
+            $n = $n+1; 
+        }
+        $row = $req->fetch();
+        return $row[$info];
+    }
+
+    function recupereInfoActionneur(PDO $bdd, String $mail, String $info, Int $numero): String {
+        $req = $bdd->prepare("SELECT actionneur.".$info." FROM actionneur 
+        INNER JOIN installation ON actionneur.n°installation = installation.n°installation WHERE email=?");
+        $n = 0;
+        $req->execute(array($mail));
+        while ($n<$numero){
+            $row = $req->fetch();
+            $n = $n+1; 
+        }
+        $row = $req->fetch();
+        return $row[$info];
+    }
 ?>

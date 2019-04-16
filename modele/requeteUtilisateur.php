@@ -72,6 +72,14 @@
         return $nbCapt;
     }
 
+    function recupereActionneur(PDO $bdd, String $mail): int{
+        $req = $bdd->prepare( "SELECT * FROM actionneur 
+        INNER JOIN installation ON actionneur.n°installation = installation.n°installation WHERE email=?");
+        $req->execute(array($mail));
+        $nbAct = $req->rowCount();
+        return $nbAct; 
+    }
+
     function modifProfil(PDO $bdd, String $mail, String $prenom, String $nom, String $adresse){
         $req = $bdd->prepare("UPDATE utilisateur SET prenom=?, nom=?, adresse=? WHERE email=?");
         $req->execute(array($prenom, $nom, $adresse, $mail));

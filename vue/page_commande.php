@@ -16,18 +16,28 @@
 				<?php include("elem/elem_menu.php"); ?>
 				<?php include("../modele/connexion.php"); ?>
 				<?php include("../modele/requeteUtilisateur.php"); ?>
+				<?php include("../modele/requeteInstallation.php"); ?>
     		</div>
 
 		    <div id="col2">
 				<?php $nbCapteur = recupereCapteur($bdd, $_SESSION['mail']); ?>
 				<?php for($i=0; $i<$nbCapteur; $i++): ?>
 					<div class="capteur">
-						capteur
+						<?php echo recupereInfoCapteur($bdd, $_SESSION['mail'], "type", $i); ?>
+						<p>Etat : <?php echo recupereInfoCapteur($bdd, $_SESSION['mail'], "etat", $i); ?></p>
 					</div>
 				<?php endfor ?>
-				
-			
 	    	</div>
+
+			<div id="col3">
+				<?php $nbAct = recupereActionneur($bdd, $_SESSION['mail']); ?>
+				<?php for($i=0; $i<$nbAct; $i++): ?>
+					<div class="capteur">
+						<?php echo recupereInfoActionneur($bdd, $_SESSION['mail'], "type", $i); ?>
+						<p>Etat : <?php echo recupereInfoActionneur($bdd, $_SESSION['mail'], "etat", $i); ?></p>
+					</div>
+				<?php endfor ?>
+			</div>
 		</div>
 	</body>
 
