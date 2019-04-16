@@ -89,16 +89,9 @@ var chart1 = new CanvasJS.Chart("chartC", {
 					<?php echo countAdmin($bdd); ?>
 					<span>administrateurs)</span>
 					
-					<div id="chartC" style="height: 300px; width: 100%;">srtyui</div>
-					<span>azertyuiopoiuytreza</span>
+					<div id="chartC" style="height: 300px; width: 100%;"></div>
 					<div id="chartActu" style="height: 300px; width: 100%;"></div>
 					
-
-				<!-- 
-				nb d'incrit actuel nd apache_child_terminate
-				graph date message 
-				graph date d'actu
-				-->
 	    	</div>
 		</div>
 	</body>
