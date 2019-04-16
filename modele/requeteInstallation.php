@@ -38,4 +38,9 @@
             echo " ";
         }  
     }
+
+    function supprimerInstallation(PDO $bdd, String $numero){
+        $req = $bdd->prepare("DELETE FROM installation WHERE n°installation = ?");
+        $req->execute(array($numero));
+    }
 ?>
