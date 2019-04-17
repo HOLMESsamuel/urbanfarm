@@ -25,6 +25,10 @@
 					<div class="capteur">
 						<?php echo recupereInfoCapteur($bdd, $_SESSION['mail'], "type", $i); ?>
 						<p>Etat : <?php echo recupereInfoCapteur($bdd, $_SESSION['mail'], "etat", $i); ?></p>
+						<label class="switch">
+							<input type="checkbox" checked>
+							<span class="slider round"></span>
+						</label>
 					</div>
 				<?php endfor ?>
 	    	</div>
@@ -35,6 +39,10 @@
 					<div class="capteur">
 						<?php echo recupereInfoActionneur($bdd, $_SESSION['mail'], "type", $i); ?>
 						<p>Etat : <?php echo recupereInfoActionneur($bdd, $_SESSION['mail'], "etat", $i); ?></p>
+						<label class="switch">
+							<input type="checkbox" checked>
+							<span class="slider round"></span>
+						</label>
 					</div>
 				<?php endfor ?>
 			</div>
