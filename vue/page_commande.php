@@ -20,6 +20,7 @@
     		</div>
 
 		    <div id="col2">
+			<h3>Les capteurs </h3>
 				<?php $nbCapteur = recupereCapteur($bdd, $_SESSION['mail']); ?>
 				<?php for($i=0; $i<$nbCapteur; $i++): ?>
 					<div class="capteur">
@@ -34,6 +35,7 @@
 	    	</div>
 
 			<div id="col3">
+				<h3>Les actionneurs </h3>
 				<?php $nbAct = recupereActionneur($bdd, $_SESSION['mail']); ?>
 				<?php for($i=0; $i<$nbAct; $i++): ?>
 					<div class="capteur">
