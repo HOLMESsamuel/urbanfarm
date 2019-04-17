@@ -27,7 +27,7 @@
 						<?php echo recupereInfoCapteur($bdd, $_SESSION['mail'], "type", $i); ?>
 						<p>Etat : <?php echo recupereInfoCapteur($bdd, $_SESSION['mail'], "etat", $i); ?></p>
 						<label class="switch">
-							<input type="checkbox" checked>
+							<input type="checkbox" <?php echo "checked"?>>
 							<span class="slider round"></span>
 						</label>
 					</div>
