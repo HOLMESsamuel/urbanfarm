@@ -88,8 +88,7 @@ session_destroy(); ?>
 							<div class="image-personnel" id="horticulteur">
 								<div class="overlay1">
 									<p class="cv">
-										Stéphane </d>
-										 le <em>pro</em> de la découpe
+										Stéphane notre horticulteur
 									</p>
 						
 								</div>
@@ -98,7 +97,7 @@ session_destroy(); ?>
 							<div class="image-personnel" id="fermier">
 								<div class="overlay2">
 									<p class="cv">
-										Stéphane le <em>pro</em> de la découpe
+										Patrick notre éleveur
 									</p>
 									
 								</div>
@@ -108,7 +107,7 @@ session_destroy(); ?>
 							<div class="image-personnel" id="ingenieur">
 								<div class="overlay3">
 									<p class="cv">
-										Stéphane le <em>pro</em> de la découpe
+										Eric notre ingénieur réseau
 									</p>
 								</div>
 								<img src="./img/ingenieur.png" width="200" height="200">
@@ -116,7 +115,7 @@ session_destroy(); ?>
 							<div class="image-personnel" id="electronique">
 								<div class="overlay4">
 									<p class="cv">
-										Stéphane le <em>pro</em> de la découpe
+										Marine notre responsable technique
 									</p>
 									
 								</div>
