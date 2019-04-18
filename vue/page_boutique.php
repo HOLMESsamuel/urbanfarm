@@ -17,6 +17,9 @@
         <?php include("elem/elem_menu.php"); ?>
     </div>
     <div id="col2">
+
+        <a href="page_panier.php">Panier</a>
+
         <?php while ($produit = $req->fetch()) {
             echo
                 '<div class="box_product"> 
@@ -28,7 +31,7 @@
                         <p class="description">' . $produit['description'] . '</p>
                         <div class="achat">
                             <h2>' . $produit['prix'] . '€</h2>
-                            <form method="post" action="">
+                            <form method="post" action="page_panier.php">
                                 <label>
                                     unités<input type="number" name="number" id="number" min="1" max="99" step="1" value="1">
                                 </label>
