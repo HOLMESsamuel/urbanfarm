@@ -4,6 +4,24 @@
 		<title> Urban Farm</title>
 		<link rel="stylesheet" href="style/style.css"/>
 		<link rel = "stylesheet" href = "style/style_commande.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){ //attend que tout le reste soit chargé
+			$(".sliderBtn").click(function(e){
+				$.post('../controleur/ct_commande.php', //envoie par post
+					{
+						id : $(this).attr('id'),
+						etat : $(this).is(":checked")
+					},
+					function(data){ //recupere ce qui envoye par le code php
+						console.log(data);
+				
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+				);
+			});
+		});
+		</script>
 	</head>
 	<header>
 		<?php include("elem/elem_entete.php"); ?>
@@ -25,9 +43,10 @@
 				<?php for($i=0; $i<$nbCapteur; $i++): ?>
 					<div class="capteur">
 						<?php echo recupereInfoCapteur($bdd, $_SESSION['mail'], "type", $i); ?>
-						<p>Etat : <?php echo recupereInfoCapteur($bdd, $_SESSION['mail'], "etat", $i); ?></p>
+						<?php $etat = recupereInfoCapteur($bdd, $_SESSION['mail'], "etat", $i); ?>
+						<p>Etat : <?php echo $etat ?></p>
 						<label class="switch">
-							<input type="checkbox" <?php echo "checked"?>>
+							<input class="sliderBtn" type="checkbox" <?php if($etat == "on"){ echo "checked";} ?>>
 							<span class="slider round"></span>
 						</label>
 					</div>
@@ -40,9 +59,10 @@
 				<?php for($i=0; $i<$nbAct; $i++): ?>
 					<div class="capteur">
 						<?php echo recupereInfoActionneur($bdd, $_SESSION['mail'], "type", $i); ?>
-						<p>Etat : <?php echo recupereInfoActionneur($bdd, $_SESSION['mail'], "etat", $i); ?></p>
+						<?php $etat = recupereInfoActionneur($bdd, $_SESSION['mail'], "etat", $i); ?>
+						<p>Etat : <?php echo $etat ?></p>
 						<label class="switch">
-							<input type="checkbox" checked>
+							<input class="sliderBtn" id="<?php echo 'actionneur'.$i ?>" type="checkbox" <?php if($etat == "on"){ echo "checked";} ?>>
 							<span class="slider round"></span>
 						</label>
 					</div>

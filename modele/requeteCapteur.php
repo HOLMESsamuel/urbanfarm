@@ -18,4 +18,24 @@
         $req = $bdd->prepare("DELETE FROM actionneur WHERE n°installation = ? ");
         $req->execute(array($numero)); 
     }
+
+    function changeStateCapteur(PDO $bdd, String $state, String $n°capteur){
+        $req = $bdd->prepare("UPDATE capteur SET etat=? WHERE n°capteur=?");
+        if($state == 'on'){
+            $newState = 'off';
+        } else {
+            $newState = 'on';   
+        }
+        $req->execute(array($newState, $n°capteur));
+    }
+
+    function changeStateActionneur(PDO $bdd, String $state, String $n°actionneur){
+        $req = $bdd->prepare("UPDATE actionneur SET etat=? WHERE n°actionneur=?");
+        if($state == 'on'){
+            $newState = 'off';
+        } else {
+            $newState = 'on';   
+        }
+        $req->execute(array($newState, $n°actionneur));
+    }
 ?>
