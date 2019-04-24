@@ -7,15 +7,32 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 			$(document).ready(function(){ //attend que tout le reste soit chargé
-			$(".sliderBtn").click(function(e){
+				var capteurPattern = /^capteur(\d+)$/
+				var actionneurPattern = /^actionneur(\d+)$/
+			$(".sliderBtnCapteur").click(function(e){
 				$.post('../controleur/ct_commande.php', //envoie par post
 					{
-						id : $(this).attr('id'),
-						etat : $(this).is(":checked")
+						numero : parseInt(this.id.replace(capteurPattern, '$1')),
+						etat : $(this).is(":checked"),
+						mail : $("#mail").val(),
+						type : "capteur"
 					},
 					function(data){ //recupere ce qui envoye par le code php
-						console.log(data);
-				
+						
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+				);
+			});
+			$(".sliderBtnActionneur").click(function(e){
+				$.post('../controleur/ct_commande.php', //envoie par post
+					{
+						numero : parseInt(this.id.replace(actionneurPattern, '$1')),
+						etat : $(this).is(":checked"),
+						mail : $("#mail").val(),
+						type : "actionneur"
+					},
+					function(data){ //recupere ce qui envoye par le code php
+						
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
@@ -25,6 +42,7 @@
 	</head>
 	<header>
 		<?php include("elem/elem_entete.php"); ?>
+		<input style="display: none;" id="mail"value="<?php echo $_SESSION['mail']; ?>">
 	</header>
 	<body>	
 	
@@ -44,9 +62,9 @@
 					<div class="capteur">
 						<?php echo recupereInfoCapteur($bdd, $_SESSION['mail'], "type", $i); ?>
 						<?php $etat = recupereInfoCapteur($bdd, $_SESSION['mail'], "etat", $i); ?>
-						<p>Etat : <?php echo $etat ?></p>
+						<br>
 						<label class="switch">
-							<input class="sliderBtn" type="checkbox" <?php if($etat == "on"){ echo "checked";} ?>>
+							<input class="sliderBtnCapteur" id="<?php echo 'capteur'.$i ?>" type="checkbox" <?php if($etat == "on"){ echo "checked";} ?>>
 							<span class="slider round"></span>
 						</label>
 					</div>
@@ -60,9 +78,9 @@
 					<div class="capteur">
 						<?php echo recupereInfoActionneur($bdd, $_SESSION['mail'], "type", $i); ?>
 						<?php $etat = recupereInfoActionneur($bdd, $_SESSION['mail'], "etat", $i); ?>
-						<p>Etat : <?php echo $etat ?></p>
+						<br>
 						<label class="switch">
-							<input class="sliderBtn" id="<?php echo 'actionneur'.$i ?>" type="checkbox" <?php if($etat == "on"){ echo "checked";} ?>>
+							<input class="sliderBtnActionneur" id="<?php echo 'actionneur'.$i ?>" type="checkbox" <?php if($etat == "on"){ echo "checked";} ?>>
 							<span class="slider round"></span>
 						</label>
 					</div>

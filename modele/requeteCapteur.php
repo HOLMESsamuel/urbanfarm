@@ -21,7 +21,7 @@
 
     function changeStateCapteur(PDO $bdd, String $state, String $n°capteur){
         $req = $bdd->prepare("UPDATE capteur SET etat=? WHERE n°capteur=?");
-        if($state == 'on'){
+        if($state == 'false'){
             $newState = 'off';
         } else {
             $newState = 'on';   
@@ -31,7 +31,7 @@
 
     function changeStateActionneur(PDO $bdd, String $state, String $n°actionneur){
         $req = $bdd->prepare("UPDATE actionneur SET etat=? WHERE n°actionneur=?");
-        if($state == 'on'){
+        if($state == 'false'){
             $newState = 'off';
         } else {
             $newState = 'on';   
