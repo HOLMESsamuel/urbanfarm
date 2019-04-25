@@ -7,7 +7,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 			$(document).ready(function(){ //attend que tout le reste soit chargé
-				var capteurPattern = /^capteur(\d+)$/
+				var capteurPattern = /^capteur(\d+)$/ //permet de recuperer le numero qui suit "capteur"
 				var actionneurPattern = /^actionneur(\d+)$/
 			$(".sliderBtnCapteur").click(function(e){
 				$.post('../controleur/ct_commande.php', //envoie par post

@@ -27,6 +27,7 @@
 
 #col2 {
     text-align: center;
+    border-right: solid grey 1px;
 }
 
 .switch {
@@ -34,6 +35,7 @@
     display: inline-block;
     width: 60px;
     height: 34px;
+    margin: 10px;
 }
 
 .switch input {
@@ -86,4 +88,11 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+@media only screen and (max-width: 800px) {
+    .container {
+        display: block;
+        text-align: center;
+    }
 }

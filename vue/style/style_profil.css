@@ -178,7 +178,7 @@ h4 {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.interieurModal {
+.interieurGrandModal {
     overflow: auto;
     background-color: white;
     margin: 5% auto;
@@ -187,12 +187,22 @@ h4 {
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
+.interieurModal {
+    overflow: auto;
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    width: 40%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
 .close {
+    position: relative;
     color: #ccc;
     cursor: pointer;
     font-size: 40px;
-    float: right;
-    top: 0;
+    top: -35px;
+    right: -50%;
 }
 
 .close:hover {

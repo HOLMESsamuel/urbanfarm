@@ -207,7 +207,7 @@
 					<br>
 					<form>
 					<div class="modal" id="modal">
-						<div class="interieurModal">
+						<div class="interieurGrandModal">
 							<h3>Ajout d'une installation</h3>
 							<div id=conteneur>
 								<!-- contient le formulaire ajouté par js-->

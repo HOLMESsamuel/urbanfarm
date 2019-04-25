@@ -1,7 +1,6 @@
 var modalProfil = document.getElementById("modalProfil");
 var modalMdp = document.getElementById("modalMdp");
 
-var conteneurProfil = document.getElementById("conteneurProfil");
 var conteneurMdp = document.getElementById("conteneurMdp");
 
 function modifProfil() {
@@ -9,12 +8,6 @@ function modifProfil() {
 }
 
 function closeModalProfil() {
-    for (var i = 0; i < conteneurProfil.childNodes.length; i++) {
-        conteneurProfil.removeChild(conteneurProfil.childNodes[i]);
-    }
-    for (var i = 0; i < conteneurProfil.childNodes.length; i++) {
-        conteneurProfil.removeChild(conteneurProfil.childNodes[i]);
-    }
     modalProfil.style.display = "none";
 }
 
