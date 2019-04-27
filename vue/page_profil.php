@@ -7,12 +7,12 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){ //attend que tout le reste soit chargé
-				$("#sup1").click(function(e){
+				$(".sup").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
 				$.post('../controleur/ct_profil.php', //envoie par post
 					{
 						modif : "supinstal",
-						installation : $("#numero1").val()
+						installation : this.id
 					},
 					function(data){ //recupere ce qui est envoye par le code php
 						document.location.href="page_profil.php";
@@ -20,38 +20,6 @@
 					"text" //a mettre pour pouvoir recuperer du texte
 					);
 				});
-
-				$("#sup0").click(function(e){
-				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_profil.php', //envoie par post
-					{
-						modif : "supinstal",
-						installation : $("#numero0").val()
-					},
-					function(data){ //recupere ce qui est envoye par le code php
-						document.location.href="page_profil.php";
-					},
-					"text" //a mettre pour pouvoir recuperer du texte
-					);
-				});
-
-				$("#sup2").click(function(e){
-				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_profil.php', //envoie par post
-					{
-						modif : "supinstal",
-						installation : $("#numero2").val()
-					},
-					function(data){ //recupere ce qui est envoye par le code php
-						document.location.href="page_profil.php";
-						
-					},
-					"text" //a mettre pour pouvoir recuperer du texte
-					);
-				});
-
-			
-		
 			
 			$("#confirmer").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
@@ -184,8 +152,7 @@
 									<p>Adresse : <?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "adresse",0); ?></p>
 									
 									<input type="button" value="Modifier">
-									<input type="button" value="Supprimer" id="<?php echo 'sup0'; ?>">
-									<input style="display: none;" id="<?php echo 'numero0' ?>".$i value="<?php echo $numero; ?>">
+									<input class="sup" type="button" value="Supprimer" id="<?php echo $numero; ?>">
 							</div>
 						<?php else :?>
 							<h3>Vos installations</h3>
@@ -198,8 +165,7 @@
 									<p>Adresse : <?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "adresse",$i); ?></p>
 									
 									<input type="button" value="Modifier">
-									<input type="button" value="Supprimer" id="<?php echo 'sup'.$i; ?>">
-									<input style="display: none;" id="<?php echo 'numero'.$i ?>".$i value="<?php echo $numero; ?>">
+									<input class="sup" type="button" value="Supprimer" id="<?php echo $numero; ?>">
 								</div>
 							<?php endfor ?>
 						<?php endif ?>
