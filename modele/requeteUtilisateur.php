@@ -120,5 +120,11 @@
         $req = $bdd->prepare("UPDATE utilisateur SET etat=? WHERE email=?");
         $req->execute(array("confirme", $mail));
     }
+
+    function supression(PDO $bdd, String $mail){
+        $req = $bdd->prepare("DELETE FROM utilisateur WHERE email = ?");
+        $req->execute(array($mail));
+        //ajouter la supression de ses installations etc
+    }
     
 ?>
