@@ -18,8 +18,15 @@
 			    	<?php include("elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
-				<?php echo nonConfirme($bdd); ?>
-			
+				<?php $n=nonConfirme($bdd); ?>
+				<?php for($i=0; $i<$n; $i++): ?>
+					<div>
+					<?php echo recupereInfoNonConfirme($bdd, "prenom", $i); ?>
+					<?php echo recupereInfoNonConfirme($bdd, "nom", $i); ?>
+					<?php echo recupereInfoNonConfirme($bdd, "email", $i); ?>
+					<br>
+					</div>
+				<?php endfor ?>
 	    	</div>
 		</div>
 	</body>

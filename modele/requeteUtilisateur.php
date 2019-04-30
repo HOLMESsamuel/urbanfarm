@@ -103,5 +103,22 @@
         $exist = $req->rowCount();
         return $exist;
     }
+
+    function recupereInfoNonConfirme(PDO $bdd, String $info, Int $numero): String{
+        $req = $bdd->prepare("SELECT ".$info." FROM utilisateur WHERE etat=?");
+        $n = 0;
+        $req->execute(array("attente"));
+        while ($n<$numero){
+            $row = $req->fetch();
+            $n = $n+1; 
+        }
+        $row = $req->fetch();
+        return $row[$info];
+    }
+
+    function confirmation(PDO $bdd, String $mail){
+        $req = $bdd->prepare("UPDATE utilisateur SET etat=? WHERE email=?");
+        $req->execute(array("confirme", $mail));
+    }
     
 ?>
