@@ -61,6 +61,7 @@ elseif (isset($_SESSION['mail']) && strpos(basename($_SERVER['PHP_SELF']), 'admi
 	<a href="page_admin_stat.php" class="bouton">Statistiques</a>
 	<a href="page_admin_message.php" class="bouton">Messages</a>
 	<a href="page_admin_actu.php" class="bouton">Actualités</a>
+	<a href="page_admin_gestionUtilisateurs.php" class="bouton">Gestion des inscriptions</a>
 
 </div>
 <?php endif ?>
