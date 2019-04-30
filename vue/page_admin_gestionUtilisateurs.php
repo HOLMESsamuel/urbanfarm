@@ -8,6 +8,8 @@
 	</head>
 	<header>
 		<?php include("elem/elem_entete.php"); ?>
+		<?php include("../modele/connexion.php"); ?>
+		<?php include("../modele/requeteUtilisateur.php"); ?>
 	</header>	
 	
 	<body>
@@ -16,7 +18,7 @@
 			    	<?php include("elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
-				
+				<?php echo nonConfirme($bdd); ?>
 			
 	    	</div>
 		</div>

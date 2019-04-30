@@ -37,7 +37,7 @@
 						//} else if (substr($mail, -9) == '@urban.fr') {
 						//	document.location.href="page_admin_stat.php";
 						} else {
-							document.location.href="page_profil.php";
+							document.location.href="page_accueil.php";
 						}
 					},
 					"text" //a mettre pour pouvoir recuperer du texte

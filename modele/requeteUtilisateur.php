@@ -1,7 +1,7 @@
 <?php
     function ajoutUtilisateur(PDO $bdd, String $mail, String $nom, String $prenom, String $civilite, String $adresse, String $mdp){
-        $req = $bdd->prepare('INSERT INTO utilisateur(email, nom, prenom, civilité, adresse, motdepasse, administrateur) VALUES (?,?,?,?,?,?,?)');
-        $req->execute(array($mail,$nom,$prenom,$civilite,$adresse,$mdp,"non"));
+        $req = $bdd->prepare('INSERT INTO utilisateur(email, nom, prenom, civilité, adresse, motdepasse, administrateur, etat) VALUES (?,?,?,?,?,?,?,?)');
+        $req->execute(array($mail,$nom,$prenom,$civilite,$adresse,$mdp,"non","attente"));
     }
 
     /**
@@ -17,7 +17,7 @@
 
     function passageAdmin(PDO $bdd, String $mail) {
         $req = $bdd->prepare("UPDATE utilisateur
-            SET administrateur = 'oui'
+            SET administrateur = 'oui', etat= 'confirme'
             WHERE email=?");
         $req->execute(array($mail));
     }
@@ -88,6 +88,20 @@
     function modifMdp(PDO $bdd, String $mail, String $mdp){
         $req = $bdd->prepare("UPDATE utilisateur SET motdepasse=? WHERE email=?");
         $req->execute(array($mdp, $mail));
+    }
+
+    function estConfirme(PDO $bdd, String $mail): bool {
+        $req = $bdd->prepare("SELECT * FROM utilisateur WHERE email=? AND etat=?");
+        $req->execute(array($mail, "confirme"));
+        $exist = $req->rowCount();
+        return ($exist == 1);
+    }
+
+    function nonConfirme(PDO $bdd): Int {
+        $req = $bdd->prepare("SELECT * FROM utilisateur WHERE etat=?");
+        $req->execute(array("attente"));
+        $exist = $req->rowCount();
+        return $exist;
     }
     
 ?>

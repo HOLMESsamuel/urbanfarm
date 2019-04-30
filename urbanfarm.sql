@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 07 avr. 2019 à 15:10
+-- Généré le :  mar. 30 avr. 2019 à 11:29
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -35,15 +35,17 @@ CREATE TABLE IF NOT EXISTS `actionneur` (
   `etat` varchar(255) COLLATE latin1_bin NOT NULL,
   `n°installation` int(11) NOT NULL,
   PRIMARY KEY (`n°Actionneur`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Déchargement des données de la table `actionneur`
 --
 
 INSERT INTO `actionneur` (`n°Actionneur`, `type`, `etat`, `n°installation`) VALUES
-(6, 'lampe', 'off', 10),
-(7, 'ventilateur', 'off', 10);
+(15, 'lampe', 'off', 23),
+(16, 'ventilateur', 'off', 23),
+(21, 'moteur', 'off', 27),
+(22, 'lampe', 'off', 27);
 
 -- --------------------------------------------------------
 
@@ -81,15 +83,17 @@ CREATE TABLE IF NOT EXISTS `capteur` (
   `etat` varchar(255) COLLATE latin1_bin NOT NULL,
   `n°installation` int(11) NOT NULL,
   PRIMARY KEY (`n°capteur`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Déchargement des données de la table `capteur`
 --
 
 INSERT INTO `capteur` (`n°capteur`, `type`, `etat`, `n°installation`) VALUES
-(16, 'temperature', 'on', 10),
-(17, 'mouvement', 'on', 10);
+(30, 'temperature', 'on', 23),
+(31, 'mouvement', 'on', 23),
+(37, 'temperature', 'on', 27),
+(38, 'mouvement', 'on', 27);
 
 -- --------------------------------------------------------
 
@@ -122,14 +126,16 @@ CREATE TABLE IF NOT EXISTS `installation` (
   `email` varchar(255) COLLATE latin1_bin NOT NULL,
   PRIMARY KEY (`n°installation`),
   KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Déchargement des données de la table `installation`
 --
 
 INSERT INTO `installation` (`n°installation`, `nom`, `type`, `adresse`, `email`) VALUES
-(10, 'insttion 1', 'serre', 'kjhkjh', 'sam.holmes@live.fr');
+(10, 'insttion 1', 'serre', 'kjhkjh', 'sam.holmes@live.fr'),
+(23, 'poulailler', 'poulailler', '10 rue de vanves', 'samholmes57@gmail.com'),
+(27, 'demo', 'poulailler', '10 rue de vanves', 'samholmes57@gmail.co');
 
 -- --------------------------------------------------------
 
@@ -157,8 +163,17 @@ DROP TABLE IF EXISTS `produit`;
 CREATE TABLE IF NOT EXISTS `produit` (
   `n°produit` int(11) NOT NULL,
   `type` varchar(255) COLLATE latin1_bin NOT NULL,
+  `description` text COLLATE latin1_bin NOT NULL,
+  `prix` int(11) NOT NULL,
   PRIMARY KEY (`n°produit`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+
+--
+-- Déchargement des données de la table `produit`
+--
+
+INSERT INTO `produit` (`n°produit`, `type`, `description`, `prix`) VALUES
+(1, 'capteur', 'Semper leo. Fusce lectus justo, porta quis felis at, imperdiet elementum libero. Duis nec dignissim lectus.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse scelerisque venenatis purus eget maximus. Fusce dapibus leo sed sem fringilla, nec convallis arcu egestas. Nullam ut\r\n\r\nNulla facilisi. Etiam euismod tristique ipsum, vitae fringilla orci tempor at. Cras dignissim laoreet ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec vitae aliquet dui, sit amet cursus ante. Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut sodales porta lacus, eu facilisis justo. Curabitur sed leo dui.', 5);
 
 -- --------------------------------------------------------
 
@@ -176,17 +191,20 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `motdepasse` varchar(255) COLLATE latin1_bin NOT NULL,
   `administrateur` varchar(255) COLLATE latin1_bin NOT NULL,
   `n°panier` int(11) NOT NULL AUTO_INCREMENT,
+  `etat` varchar(255) COLLATE latin1_bin NOT NULL,
   PRIMARY KEY (`email`),
   KEY `INDEX` (`n°panier`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`email`, `nom`, `prenom`, `civilité`, `adresse`, `motdepasse`, `administrateur`, `n°panier`) VALUES
-('sam.holmes@live.fr', 'holmes', 'samuel', 'M', '27 Rue Des Volontaires', '43f0af343451be62bc8bdc64c292c7166d48491f', 'oui', 24),
-('samholmes57@gmail.com', 'Holmes', 'Samuel', 'M', '26 Rue Des Volontaires', '43f0af343451be62bc8bdc64c292c7166d48491f', 'non', 1);
+INSERT INTO `utilisateur` (`email`, `nom`, `prenom`, `civilité`, `adresse`, `motdepasse`, `administrateur`, `n°panier`, `etat`) VALUES
+('elise@urban.fr', 'gabilly', 'elise', 'Mme', '10 rue de vanves', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'oui', 30, 'confirme'),
+('sam.holmes@live.fr', 'holmes', 'samuel', 'M', '27 Rue Des Volontaires', '43f0af343451be62bc8bdc64c292c7166d48491f', 'oui', 24, 'confirme'),
+('samholmes57@gmail.co', 'Holmes', 'Sam', 'M', '27 Rue Des Volontaires', '43f0af343451be62bc8bdc64c292c7166d48491f', 'non', 31, 'confirme'),
+('samholmes57@gmail.com', 'Holmes', 'samuel', 'M', '26 Rue Des Volontaires', '43f0af343451be62bc8bdc64c292c7166d48491f', 'non', 1, 'confirme');
 
 --
 -- Contraintes pour les tables déchargées
