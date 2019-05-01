@@ -71,6 +71,11 @@
         $nbCapt = $req->rowCount();
         return $nbCapt;
     }
+    function supprimeCapteur(PDO $bdd, String $mail){
+        $req = $bdd->prepare( "DELETE FROM capteur 
+        INNER JOIN installation ON capteur.n°installation = installation.n°installation WHERE email=?");
+        $req->execute(array($mail));
+    }
 
     function recupereActionneur(PDO $bdd, String $mail): int{
         $req = $bdd->prepare( "SELECT * FROM actionneur 
@@ -78,6 +83,11 @@
         $req->execute(array($mail));
         $nbAct = $req->rowCount();
         return $nbAct; 
+    }
+    function supprimeActionneur(PDO $bdd, String $mail){
+        $req = $bdd->prepare( "DELETE FROM actionneur 
+        INNER JOIN installation ON actionneur.n°installation = installation.n°installation WHERE email=?");
+        $req->execute(array($mail));
     }
 
     function modifProfil(PDO $bdd, String $mail, String $prenom, String $nom, String $adresse){
@@ -121,10 +131,19 @@
         $req->execute(array("confirme", $mail));
     }
 
+    function supressionInstallation(PDO $bdd, String $mail){
+        $req = $bdd->prepare("DELETE FROM installation WHERE email = ?");
+        $req->execute(array($mail));
+    }
+
     function supression(PDO $bdd, String $mail){
+        supprimeActionneur($bdd, $mail);
+        supprimeCapteur($bdd, $mail);
+        supressionInstallation($bdd, $mail);
         $req = $bdd->prepare("DELETE FROM utilisateur WHERE email = ?");
         $req->execute(array($mail));
-        //ajouter la supression de ses installations etc
     }
+
+    
     
 ?>
