@@ -85,8 +85,8 @@
         return $nbAct; 
     }
     function supprimeActionneur(PDO $bdd, String $mail){
-        $req = $bdd->prepare( "DELETE FROM actionneur 
-        INNER JOIN installation ON actionneur.n°installation = installation.n°installation WHERE email=?");
+        $req = $bdd->prepare( "DELETE FROM actionneur WHERE n°actionneur=(SELECT n°actionneur FROM actionneur
+        INNER JOIN installation ON actionneur.n°installation = installation.n°installation WHERE email=?)");
         $req->execute(array($mail));
     }
 
@@ -137,9 +137,6 @@
     }
 
     function supression(PDO $bdd, String $mail){
-        supprimeActionneur($bdd, $mail);
-        supprimeCapteur($bdd, $mail);
-        supressionInstallation($bdd, $mail);
         $req = $bdd->prepare("DELETE FROM utilisateur WHERE email = ?");
         $req->execute(array($mail));
     }
