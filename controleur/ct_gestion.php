@@ -7,8 +7,6 @@ try{
     if($commande == "confirmation"){
         confirmation($bdd, $mail);
     } else {
-        supprimeCapteur($bdd, $mail);
-        supressionInstallation($bdd, $mail);
         supression($bdd, $mail);
     }
     
