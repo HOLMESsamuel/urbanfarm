@@ -21,3 +21,10 @@ input[type=button]:hover {
     color: white;
     background-color: grey;
 }
+
+footer {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}

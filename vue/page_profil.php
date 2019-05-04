@@ -60,6 +60,19 @@
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
 			});
+			$("#supCompte").click(function(e){
+				e.preventDefault(); //empeche de recherarger la page
+				$.post('../controleur/ct_profil.php', //envoie par post
+					{
+						modif : "supProfil",
+						mail : $("#mail").val()
+					},
+					function(data){ //recupere ce qui est envoye par le code php
+						document.location.href="page_accueil.php";
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+					);
+				});
 			$("#confirmerMdp").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
 				$.post('../controleur/ct_profil.php', //envoie par post
@@ -136,6 +149,7 @@
 							<div class="erreur"></div>
 						</div>
 					</div>
+					<input class = "btnModif" id="supCompte" type="button" value="Supprimer mon compte">
 				<br>
 			</div>
 				<div id="col3">
