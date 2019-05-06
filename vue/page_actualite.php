@@ -28,11 +28,15 @@
 	</header>	
 	
 	<body>
-		<div class="container">
+		<div class="container" style=<?php if(!isset($_SESSION['mail'])){ echo "min-height: 06%;
+    margin: 15px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 150fr 50fr;
+    grid-template-columns: 1fr 150fr 50fr;";} ?>>
 	    <div id="col1">
 			  <?php include("elem/elem_menu.php"); ?>
 			</div>
-
 			<div id="col2">
 				<h2> 
 					<?php afficheDernierTitre($bdd); ?>
