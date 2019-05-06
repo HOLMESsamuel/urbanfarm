@@ -6,13 +6,22 @@ include("../modele/requeteUtilisateur.php");
 include("../modele/requeteInstallation.php");
 include("../modele/requeteCapteur.php");
 
+function estComplexe(String $mdp): bool{
+	$longueur = strlen($mdp);
+	if($longeur<5){
+		return false;
+	} else {
+		return true;
+	}
+}
+
 $prenom = htmlspecialchars($_POST['prenom']); //pour rendre impossible la saisie de code
 $nom = htmlspecialchars($_POST['nom']);
 $adresse = htmlspecialchars($_POST['adresse']);
 $mail = htmlspecialchars($_POST['mail']);
 $confmail = htmlspecialchars($_POST['confmail']);
-$mdp = sha1($_POST['mdp']);//sha1 est une metode de cryptage pour ne pas stocker le mdp tel quel
-$confmdp = sha1($_POST['confmdp']);
+$mdp = htmlspecialchars($_POST['mdp']);//sha1 est une metode de cryptage pour ne pas stocker le mdp tel quel
+$confmdp = htmlspecialchars($_POST['confmdp']);
 $cgu = $_POST['cgu'];
 if($_POST['civilite'] == "true"){
 	$civilite = "M";
@@ -32,9 +41,12 @@ if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse
 		echo "Votre mail de confirmation n'est pas le même";
 	} elseif($mdp != $confmdp){
 		echo "Les mots de passe ne correspondent pas";
+	} elseif(!estComplexe($mdp)){
+		echo "Le mot de passe doit contenir au moins 5 caractères dont une lettre majuscule et un chiffre";
 	} else {
 		try {
-			ajoutUtilisateur($bdd, $mail, $nom, $prenom, $civilite, $adresse, $mdp);
+			$mdpCrypte = sha1($_POST['mdp']);
+			ajoutUtilisateur($bdd, $mail, $nom, $prenom, $civilite, $adresse, $mdpCrypte);
 			if ( substr($mail, -9) == '@urban.fr') {
 				passageAdmin($bdd, $mail);
 			}

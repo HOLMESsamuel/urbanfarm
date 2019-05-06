@@ -33,7 +33,7 @@
 					},
 					function(data){ //recupere ce qui envoye par le code php
 						if(data != 'ok'){
-							$(".erreur").html(data);
+							$("#erreurForm").html(data);
 						//} else if (substr($mail, -9) == '@urban.fr') {
 						//	document.location.href="page_admin_stat.php";
 						} else {
@@ -88,8 +88,12 @@
 						<br>
 						<input type="mail" placeholder="mail" id="mail" name="mail" value="<?php if(isset($mail)) {echo $mail;}?>"/>
 						<input type="mail" placeholder="confirmer le mail" id="confmail" name="confmail" value="<?php if(isset($confmail)) {echo $confmail;}?>"/>
-						<input type="password" placeholder="mot de passe" id="mdp" name="mdp"/>
-						<input type="password" placeholder="confirmer le mot de passe" id="confmdp" name="confmdp"/>
+						<input type="password" placeholder="mot de passe" id="mdp" name="mdp" oninput="testMdp();"/>
+						<div class="erreur" id="erreurMdp">
+						</div>
+						<input type="password" placeholder="confirmer le mot de passe" id="confmdp" name="confmdp" oninput="testConfMdp();"/>
+						<div class="erreur" id="erreurConfMdp">
+						</div>
 						<br>
 						<div id="checkboxCgu">
 							<p>
@@ -98,7 +102,7 @@
 							</p>
 						</div>
 						<input type="submit" id="btnValider" name="inscription" value="Confirmer"/>
-						<p class="erreur">
+						<p class="erreur" id=erreurForm>
 						 
 						</p>
 				

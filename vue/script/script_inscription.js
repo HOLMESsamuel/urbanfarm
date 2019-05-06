@@ -17,6 +17,39 @@ function openModalInfo() {
     modalInfo.style.display = "block";
 }
 
+function testMdp() {
+    var mdp = document.getElementById('mdp').value;
+    var longueur = mdp.length;
+    var maj = false;
+    for (var i = 0; i < longueur; i++) {
+        var lettre = mdp[i];
+        maj = maj || (lettre == lettre.toUpperCase());
+    }
+    if (longueur < 5) {
+        document.getElementById("erreurMdp").innerHTML = "Le mot de passe est trop court";
+        document.getElementById("erreurMdp").style.color = "red";
+    } else if (!maj) {
+        document.getElementById("erreurMdp").innerHTML = "Le mot de passe doit contenir une majuscule";
+        document.getElementById("erreurMdp").style.color = "red";
+    } else if (!/\d/.test(mdp)) {
+        document.getElementById("erreurMdp").innerHTML = "Le mot de passe doit contenir un chiffre";
+        document.getElementById("erreurMdp").style.color = "red";
+    } else {
+        document.getElementById("erreurMdp").innerHTML = "Le mot de passe est convenable";
+        document.getElementById("erreurMdp").style.color = "green";
+    }
+}
+
+function testConfMdp() {
+    var mdp = document.getElementById('mdp').value;
+    var confmdp = document.getElementById('confmdp').value;
+    if (mdp != confmdp) {
+        document.getElementById("erreurConfMdp").innerHTML = "Les mots de passe ne sont pas identiques";
+    } else {
+        document.getElementById("erreurConfMdp").innerHTML = "";
+    }
+}
+
 //partie pour le modale des cgu
 
 var modal = document.getElementById('modal');
