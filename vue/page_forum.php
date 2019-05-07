@@ -4,8 +4,26 @@
         <title> Urban Farm</title>
         <link rel = "stylesheet" href = "style/style.css"/>
         <link rel = "stylesheet" href = "style/style_forum.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+		$(document).ready(function(){ //attend que tout le reste soit chargé
+			$("#questionSearch").click(function(e){
+				e.preventDefault(); //empeche de recherarger la page
+				$.post('../controleur/ct_forum.php', //envoie par post au fichier controleur
+					{
+						id : $("#ques").val()
+					},
+					function(data){ //recupere ce qui envoye par le code php
+						$("#rep").html(data);
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+				);
+			});
+		});
+        </script>
     </head>
     <header>
+        <?php include("../controleur/ct_forum.php");?>
         <?php include("elem/elem_entete.php"); ?>
     </header>
 		
