@@ -26,6 +26,10 @@ header {
     min-height: 06%;
     margin: 15px;
     padding-bottom: 96px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 4fr;
+    grid-template-columns: 1fr 4fr;
 }
 
 #col1 {

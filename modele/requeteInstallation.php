@@ -69,4 +69,11 @@
         $row = $req->fetch();
         return $row[$info];
     }
+
+    function recupereNom(PDO $bdd, String $insta): String{
+        $req = $bdd->prepare("SELECT * FROM installation WHERE n°installation=?");
+        $req->execute(array($insta));
+        $row = $req->fetch();
+        return $row['nom'];
+    }
 ?>
