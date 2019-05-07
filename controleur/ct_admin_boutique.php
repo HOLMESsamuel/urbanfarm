@@ -20,12 +20,18 @@ if (!empty($_POST["ref"])) {
         $ref = test_input($_POST["ref"]);
 }
 
-var_dump($ref);
-
 if(!empty($_POST["nom"]) AND !empty($_POST["desc"]) AND !empty($_POST["prix"])){
-    addVal($bdd, $nom, $desc, $prix);
+    if(is_numeric($prix)){
+        addVal($bdd, $nom, $desc, $prix);
+    } else {
+        echo "Le prix doit etre numerique.";
+    }
 } elseif (!empty($_POST["ref"])){
-    suppVal($bdd, $ref);
+    if(is_numeric($ref)){
+        suppVal($bdd, $ref);
+    } else {
+        echo "La reference doit etre numerique.";
+    }
 }
 
 function test_input($data) {
