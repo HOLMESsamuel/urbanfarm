@@ -5,7 +5,7 @@
         <link rel = "stylesheet" href = "style/style.css"/>
         <link rel = "stylesheet" href = "style/style_forum.css"/>
     </head>
-    <header>
+    <header> 
         <?php include("elem/elem_entete.php"); ?>
     </header>
 		
