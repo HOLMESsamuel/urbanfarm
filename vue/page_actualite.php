@@ -20,20 +20,40 @@
 				);
 			});
 		});
-</script>
+		</script>
+		
 	</head>
 	<header>
 		<?php include("../controleur/ct_actualite.php"); ?>
 		<?php include("elem/elem_entete.php"); ?>
+		<?php 
+        if(isset($_SESSION['mail'])): ?>
+            <style>
+            .container {
+                min-height: 06%;
+                margin: 15px;
+                display: -ms-grid;
+                display: grid;
+                -ms-grid-columns: 1fr 3fr 1fr;
+                grid-template-columns: 1fr 3fr 1fr;
+            }
+            </style>
+        <?php else: ?>
+            <style>
+            .container {
+                min-height: 06%;
+                margin: 15px;
+                display: -ms-grid;
+                display: grid;
+                -ms-grid-columns: 1fr 150fr 50fr ;
+                grid-template-columns: 1fr 150fr 50fr;
+                }
+            </style>
+        <?php endif ?>
 	</header>	
 	
 	<body>
-		<div class="container" style=<?php if(!isset($_SESSION['mail'])){ echo "min-height: 06%;
-    margin: 15px;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 150fr 50fr;
-    grid-template-columns: 1fr 150fr 50fr;";} ?>>
+		<div class="container">
 	    <div id="col1">
 			  <?php include("elem/elem_menu.php"); ?>
 			</div>

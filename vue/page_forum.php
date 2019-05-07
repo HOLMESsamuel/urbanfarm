@@ -4,9 +4,34 @@
         <title> Urban Farm</title>
         <link rel = "stylesheet" href = "style/style.css"/>
         <link rel = "stylesheet" href = "style/style_forum.css"/>
+        
     </head>
     <header>
         <?php include("elem/elem_entete.php"); ?>
+        <?php 
+        if(isset($_SESSION['mail'])): ?>
+            <style>
+            .container {
+                min-height: 06%;
+                margin: 15px;
+                display: -ms-grid;
+                display: grid;
+                -ms-grid-columns: 1fr 4fr;
+                grid-template-columns: 1fr 4fr;
+            }
+            </style>
+        <?php else: ?>
+            <style>
+            .container {
+                min-height: 06%;
+                margin: 15px;
+                display: -ms-grid;
+                display: grid;
+                -ms-grid-columns: 1fr 150fr ;
+                grid-template-columns: 1fr 150fr;
+                }
+            </style>
+        <?php endif ?>
     </header>
 		
     <body>
