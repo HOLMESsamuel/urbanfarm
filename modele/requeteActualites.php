@@ -8,7 +8,7 @@
         $req = $bdd->prepare("SELECT * FROM article WHERE titre=?");
         $req->execute(array($titre));
         $row=$req->fetch();
-        echo "<br><a class='titre' id=".$row['titre']." onclick='nouvelleActu();' >".$row['titre']."</a>";
+        echo "<br><a class='titre' id=".$row['titre']." >".$row['titre']."</a>";
         echo " ";
         echo "<a class='date'>".$row['date']."</a>";
         echo "<br>";
@@ -16,18 +16,26 @@
         echo "... <br>";
     }
 
+    function getUnArticle(PDO $bdd, String $numArticle){
+        $req = $bdd->prepare("SELECT * FROM article WHERE n°article=?");
+        $req->execute(array($numArticle));
+        $row=$req->fetch();
+        echo $row['titre'];
+        echo "&&";
+        echo $row['contenu'];
+    }
 
-    function recupereTitre(PDO $bdd){ //recupere tous les titres avec leur date
+    function recupereTitre(PDO $bdd){ //recupere les cinq premiers titres avec leur date
         $req="SELECT * FROM article";
         $resultat=$bdd->query($req);
         $n=0;
-        while ($row=$resultat->fetch()){
+        while ($row=$resultat->fetch() AND $n<5){
             $n=$n+1;
-            echo "<a class='titre' id=".$row['titre']." onclick='nouvelleActu();' href='titre.$n'>".$row['titre']."</a>";
+            echo "<a class='titre' id=".$row['n°article'].">".$row['titre']."</a>";
             echo " ";
             echo "<a class='date'>".$row['date']."</a>";
             echo "<br>";
-            echo "<a class='contenu'>".substr($row['contenu'],0,100)."</a>";
+            echo "<a class='contenu'>".substr($row['contenu'],0,80)."</a>";
             echo "... <br>";
         }
     }

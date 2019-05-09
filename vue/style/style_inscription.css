@@ -198,8 +198,9 @@ select {
     margin: 5px;
 }
 
-#erreur {
+.erreur {
     color: red;
+    height: 20px;
 }
 
 #modal {
