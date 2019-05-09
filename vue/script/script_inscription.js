@@ -12,10 +12,32 @@ function closeModalExtInfo(e) {
     }
 }
 
-
 function openModalInfo() {
     modalInfo.style.display = "block";
 }
+
+//partie pour le modale des cgu
+
+var modalCgu = document.getElementById('modalCgu');
+var close = document.getElementById('close');
+
+window.addEventListener('click', closeModalExt)
+
+function openModalCgu() {
+    console.log("coucou");
+    modalCgu.style.display = 'block';
+}
+
+function closeModalCgu() {
+    modalCgu.style.display = 'none';
+}
+
+function closeModalExt(e) {
+    if (e.target == modalCgu) {
+        modalCgu.style.display = 'none';
+    }
+}
+// 
 
 function testMdp() {
     var mdp = document.getElementById('mdp').value;
@@ -50,12 +72,10 @@ function testConfMdp() {
     }
 }
 
-//partie pour le modale des cgu
 
+
+//modal ajout insta
 var modal = document.getElementById('modal');
-var close = document.getElementById('close');
-
-window.addEventListener('click', closeModalExt)
 
 function openModal() {
     modal.style.display = 'block';
@@ -64,14 +84,6 @@ function openModal() {
 function closeModal() {
     modal.style.display = 'none';
 }
-
-function closeModalExt(e) {
-    if (e.target == modal) {
-        modal.style.display = 'none';
-    }
-}
-
-
 
 
 //la partie suivante gere l'ajout de champs au formulaire

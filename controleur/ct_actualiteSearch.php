@@ -27,7 +27,9 @@ if (strlen($id)<3){
     $n=$pdoQuery->rowCount();
     if($n>0) {
         foreach($pdoQuery as $row) {
-            echo recupereArticle($pdoConnect, $row['titre']);
+            $titre = recupereArticle($pdoConnect,$row['titre']);
+            $retour = "<a class='titre' id='.$titre.'>'.$titre.'</a>";
+            echo $retour;
         }
     }
     // if the id not exist

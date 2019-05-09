@@ -196,7 +196,7 @@
 							<div class="erreur"></div>
 						</div>
 			</div>
-						<input type="button" value="ajouter une installation" onclick="conteneur.appendChild(creerChamps(1, 'profil'));">
+						<input type="button" value="ajouter une installation" onclick="conteneur.appendChild(creerChamps(1, 'profil'));">  
 					</form>
 				</div>
 		</div>

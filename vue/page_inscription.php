@@ -62,9 +62,9 @@
 				</div>
 
 			</div>
-			<div id="modal">
+			<div id="modalCgu">
 				<div class="interieurModal">
-					<span class="close" onclick="closeModal();">&times;</span>
+					<span class="close" onclick="closeModalCgu();">&times;</span>
 					<p>Le modal</p>
 				</div>
 			</div>
@@ -98,7 +98,7 @@
 						<div id="checkboxCgu">
 							<p>
 								<input type="checkbox" id="cgu" name="cgu">
-								<label for="cgu">J'accepte les </label><span id="conditions" onclick="openModal();"> conditions generales d'utilisation</span>
+								<label for="cgu">J'accepte les </label><span id="conditions" onclick="openModalCgu();"> conditions generales d'utilisation</span>
 							</p>
 						</div>
 						<input type="submit" id="btnValider" name="inscription" value="Confirmer"/>

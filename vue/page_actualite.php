@@ -15,6 +15,7 @@
 					},
 					function(data){ //recupere ce qui envoye par le code php
 						$("#rep").html(data);
+						$(document).ready();
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
@@ -26,7 +27,6 @@
 						numArticle : this.id
 					},
 					function(data){ //recupere ce qui envoye par le code php
-						console.log("azertyui");
 						$("#title").html(data.split("&&")[1]);
 						$(".article").html(data.split("&&")[2]);
 					},
