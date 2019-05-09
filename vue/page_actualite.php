@@ -26,6 +26,7 @@
 						numArticle : this.id
 					},
 					function(data){ //recupere ce qui envoye par le code php
+						console.log("azertyui");
 						$("#title").html(data.split("&&")[1]);
 						$(".article").html(data.split("&&")[2]);
 					},

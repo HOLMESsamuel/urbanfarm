@@ -8,7 +8,7 @@
         $req = $bdd->prepare("SELECT * FROM article WHERE titre=?");
         $req->execute(array($titre));
         $row=$req->fetch();
-        echo "<br><a class='titre' id=".$row['titre']." >".$row['titre']."</a>";
+        echo "<br><a class='titre' id=".$row['n°article']." >".$row['titre']."</a>";
         echo " ";
         echo "<a class='date'>".$row['date']."</a>";
         echo "<br>";
