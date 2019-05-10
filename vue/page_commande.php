@@ -60,6 +60,9 @@
 				<?php $nbCapteur = recupereCapteur($bdd, $_SESSION['mail']); ?>
 				<?php for($i=0; $i<$nbCapteur; $i++): ?>
 					<div class="capteur">
+						<?php $insta = recupereInfoCapteur($bdd, $_SESSION['mail'], "n°installation", $i); ?>
+						<?php echo recupereNom($bdd, $insta); ?>
+						<br>
 						<?php echo recupereInfoCapteur($bdd, $_SESSION['mail'], "type", $i); ?>
 						<?php $etat = recupereInfoCapteur($bdd, $_SESSION['mail'], "etat", $i); ?>
 						<br>
@@ -76,6 +79,9 @@
 				<?php $nbAct = recupereActionneur($bdd, $_SESSION['mail']); ?>
 				<?php for($i=0; $i<$nbAct; $i++): ?>
 					<div class="capteur">
+						<?php $insta = recupereInfoActionneur($bdd, $_SESSION['mail'], "n°installation", $i); ?>
+						<?php echo recupereNom($bdd, $insta); ?>
+						<br>
 						<?php echo recupereInfoActionneur($bdd, $_SESSION['mail'], "type", $i); ?>
 						<?php $etat = recupereInfoActionneur($bdd, $_SESSION['mail'], "etat", $i); ?>
 						<br>

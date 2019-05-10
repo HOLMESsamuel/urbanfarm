@@ -6,9 +6,9 @@
 		<link rel = "stylesheet" href = "style/style_contact.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
-			$(document).ready(function(){ //attend que tout le reste soit chargé
+		$(document).ready(function(){ //attend que tout le reste soit chargé
 			$("#envoiMessage").click(function(e){
-				e.preventDefault(); //empeche de recharger la page
+				e.preventDefault(); //empeche de recherarger la page
 				$.post('../controleur/ct_contact.php', //envoie par post
 					{
 						mail : $("#mail").val(),
@@ -21,7 +21,6 @@
 						} else {
 							document.location.href="page_accueil.php";
 						}
-						}
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
@@ -31,6 +30,30 @@
 	</head>
 	<header>
 		<?php include("elem/elem_entete.php"); ?>
+		<?php 
+        if(isset($_SESSION['mail'])): ?>
+            <style>
+            .container {
+                min-height: 06%;
+                margin: 15px;
+                display: -ms-grid;
+                display: grid;
+                -ms-grid-columns: 1fr 3fr 1fr;
+                grid-template-columns: 1fr 3fr 1fr;
+            }
+            </style>
+        <?php else: ?>
+            <style>
+            .container {
+                min-height: 06%;
+                margin: 15px;
+                display: -ms-grid;
+                display: grid;
+                -ms-grid-columns: 1fr 150fr 50fr;
+                grid-template-columns: 1fr 150fr 50fr;
+                }
+            </style>
+        <?php endif ?>
 	</header>
 
 	<body>
