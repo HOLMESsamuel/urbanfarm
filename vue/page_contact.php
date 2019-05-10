@@ -82,7 +82,7 @@
 					<br>
 					<textarea  id="text" placeholder="Ecrivez votre message ici ..."></textarea>
 					<br>
-					<input type="submit"  onclick="envoiMessage();" id="envoiMessage" name="envoi" value="Envoyer"/>
+					<input type="submit" id="envoiMessage" name="envoi" value="Envoyer"/>
 				</form>
 				<p id="erreur"></p>
 			</div>
