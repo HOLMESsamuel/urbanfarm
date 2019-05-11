@@ -6,9 +6,9 @@
 		<link rel = "stylesheet" href = "style/style_contact.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
-			$(document).ready(function(){ //attend que tout le reste soit chargé
+		$(document).ready(function(){ //attend que tout le reste soit chargé
 			$("#envoiMessage").click(function(e){
-				e.preventDefault(); //empeche de recharger la page
+				e.preventDefault(); //empeche de recherarger la page
 				$.post('../controleur/ct_contact.php', //envoie par post
 					{
 						mail : $("#mail").val(),
@@ -20,7 +20,6 @@
 							$("#erreur").html(data);
 						} else {
 							document.location.href="page_accueil.php";
-						}
 						}
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
@@ -83,7 +82,7 @@
 					<br>
 					<textarea  id="text" placeholder="Ecrivez votre message ici ..."></textarea>
 					<br>
-					<input type="submit"  onclick="envoiMessage();" id="envoiMessage" name="envoi" value="Envoyer"/>
+					<input type="submit" id="envoiMessage" name="envoi" value="Envoyer"/>
 				</form>
 				<p id="erreur"></p>
 			</div>
