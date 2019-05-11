@@ -36,20 +36,59 @@
 			    	<?php include("elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2"> 
-				<h2>Ecrire un nouvel article</h2>
-				<input type="titre" placeholder="Titre de l'article" id="titre" name="titre" value="<?php if(isset($itre)) {echo $titre;}?>"/>
-				<br>
-				<textarea  id="text" placeholder="Rédigez votre article ..."></textarea>
-				<br>
-				<input type="submit" id="ajoutImage" name="ajoutImage" value="Ajouter une image">
-				<input type="submit" id="ajoutArticle" name="ajoutArticle" value="Publier">
-	    	</div>
-			<div id="col3">
-				<h3> Les dernières Actualités </h3>
-				<div id="article">
-					<?php recupereTitre($bdd);	?>
-				</div>
-			</div> 
+			<?php
+				include ("../modele/connexion.php");
+				$req=$bdd->prepare("SELECT * FROM article ");
+				$req->execute(array());
+				?>
+				<table >
+					<tr class="header">
+						<td>N° </td>
+						<td>Titre </td>
+						<td>Contenu </td>
+						<td>Date </td>
+					</tr>
+					<?php
+						while ($row=$req->fetch()) {
+								echo "<tr>";
+								echo "<td>".$row[0]."</td>";
+								echo "<td>".$row[1]."</td>";
+								echo "<td>".substr($row[2],0,100)."...</td>";
+								echo "<td>".$row[3]."</td>";
+								echo "</tr>";
+						}
+					?>
+				</table>
+
+				<div id="inputZone">
+					<div id="addAndSupp">
+						<form>
+							Titre: <br><input type="text" name="nom" id="nom"> <br>
+							Description: <br><textarea rows="6" cols="50" name="desc" id="desc" ></textarea><br>
+						</form> 
+						<button class="btn" id="buttonImg">Image</button>
+						<button class="btn" id="buttonPub">Publier</button>
+						<form >
+							Ref: <input type="text" name="ref" id="ref">
+						</form> 
+						<button class="btn" id="buttonSupp">Supprimer article</button>
+					</div>
+					<div id="modif">
+						<form >
+							Ref: <input type="text" name="ref" id="ref">
+						</form> 
+						<button class="btn" id="buttonSupp">Chercher article</button>
+						<form>
+							Titre: <br><input type="text" name="nom" id="nom"> <br>
+							Description: <br><textarea rows="6" cols="50" name="desc" id="desc" ></textarea><br>
+						</form> 
+						<button class="btn" id="buttonImgM">Image</button>
+						<button class="btn" id="buttonPubM">Publier</button>
+
+					</div>
+					<div id="rep"></div>
+				</div>	
+			</div>
 		</div>
 	</body>
 
