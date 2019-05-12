@@ -8,20 +8,61 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
-			$(document).ready(function(){ //attend que tout le reste soit chargé
-				$("#btnSearch").click(function(e){
-					e.preventDefault(); //empeche de recherarger la page
-					$.post('../controleur/ct_actualiteSearch.php', //envoie par post au fichier controleur
-						{
-							id : $("#id").val()
-						},
-						function(data){ //recupere ce qui envoye par le code php
-							$("#rep").html(data);
-						},
-						"text" //a mettre pour pouvoir recuperer du texte
-					);
-				});
-			});
+            $(document).ready(function(){ //attend que tout le reste soit chargé
+                $("#btnPub").click(function(e){
+                    e.preventDefault(); //empeche de recherarger la page
+                    $.post('../controleur/ct_admin_actu.php', //envoie par post au fichier controleur
+                        {
+                            titre: $("#titre").val(),
+                            cont: $("#cont").val()
+                        },
+                        function(data){ //recupere ce qui envoye par le code php
+                            $("#rep").html(data);
+                        },
+                        "text" //a mettre pour pouvoir recuperer du texte
+                    );
+                });
+                $("#btnSupp").click(function(e){
+                    e.preventDefault(); //empeche de recherarger la page
+                    $.post('../controleur/ct_admin_actu.php', //envoie par post au fichier controleur
+                        {
+                            ref: $("#ref").val()
+                        },
+                        function(data){ //recupere ce qui envoye par le code php
+                            $("#rep").html(data);
+                        },
+                        "text" //a mettre pour pouvoir recuperer du texte
+                    );
+                });
+                $("#btnMod").click(function(e){
+                    e.preventDefault(); //empeche de recherarger la page
+                    $.post('../controleur/ct_admin_actu.php', //envoie par post au fichier controleur
+                        {
+                            titreM: $("#titreM").val(),
+                            contM: $("#contM").val(),
+                            refM: $("#refM").val()
+                        },
+                        function(data){ //recupere ce qui envoye par le code php
+                            $("#rep").html(data);
+                        },
+                        "text" //a mettre pour pouvoir recuperer du texte
+                    );
+                });
+                $("#btnCher").click(function(e){
+                    e.preventDefault(); //empeche de recherarger la page
+                    $.post('../controleur/ct_admin_actu.php', //envoie par post au fichier controleur
+                        {
+                            refM: $("#refM").val()
+                        },
+                        function(data){ //recupere ce qui envoye par le code php
+                            $("#rep").html(data);
+							$("#titreM").html(data.split("&&")[0]);
+							$("#contM").html(data.split("&&")[1]);
+                        },
+                        "text" //a mettre pour pouvoir recuperer du texte
+                    );
+                });
+            });
 		</script> 
 
 	</head>
@@ -63,27 +104,27 @@
 				<div id="inputZone">
 					<div id="addAndSupp">
 						<form>
-							Titre: <br><input type="text" name="nom" id="nom"> <br>
-							Description: <br><textarea rows="6" cols="50" name="desc" id="desc" ></textarea><br>
+							Titre : <br><input type="text" name="titre" id="titre"> <br>
+							Contenu : <br><textarea rows="6" cols="50" name="cont" id="cont" ></textarea><br>
 						</form> 
-						<button class="btn" id="buttonImg">Image</button>
-						<button class="btn" id="buttonPub">Publier</button>
+						<button class="btn" id="btnImg">Image</button>
+						<button class="btn" id="btnPub">Publier</button>
 						<form >
-							Ref: <input type="text" name="ref" id="ref">
+							Ref : <input type="text" name="ref" id="ref">
 						</form> 
-						<button class="btn" id="buttonSupp">Supprimer article</button>
+						<button class="btn" id="btnSupp">Supprimer article</button>
 					</div>
 					<div id="modif">
 						<form >
-							Ref: <input type="text" name="ref" id="ref">
+							Ref : <input type="text" name="refM" id="refM">
 						</form> 
-						<button class="btn" id="buttonSupp">Chercher article</button>
+						<button class="btn" id="btnCher">Chercher article</button>
 						<form>
-							Titre: <br><input type="text" name="nom" id="nom"> <br>
-							Description: <br><textarea rows="6" cols="50" name="desc" id="desc" ></textarea><br>
+							Titre : <br><input type="text" name="titreM" id="titreM"> <br>
+							Contenu : <br><textarea rows="6" cols="50" name="contM" id="contM" ></textarea><br>
 						</form> 
-						<button class="btn" id="buttonImgM">Image</button>
-						<button class="btn" id="buttonPubM">Publier</button>
+						<button class="btn" id="btnImg">Image</button>
+						<button class="btn" id="btnMod">Modifier</button>
 
 					</div>
 					<div id="rep"></div>

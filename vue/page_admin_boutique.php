@@ -18,7 +18,7 @@
                         },
                         function(data){ //recupere ce qui envoye par le code php
                             $("#rep").html(data);
-						document.location.href="page_admin_boutique.php";
+							document.location.href="page_admin_boutique.php";
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
                     );
