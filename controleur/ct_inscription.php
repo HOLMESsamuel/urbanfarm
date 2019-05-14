@@ -8,7 +8,7 @@ include("../modele/requeteCapteur.php");
 
 function estComplexe(String $mdp): bool{
 	$longueur = strlen($mdp);
-	if($longeur<5){
+	if($longueur<5){
 		return false;
 	} else {
 		return true;
@@ -77,8 +77,24 @@ if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse
 					}
 				}
 			}
-			$_SESSION['mail'] = $mail;
-			$_SESSION['prenom'] = $prenom;
+			$header = "MIME-Version: 1.0\r\n";
+			$header.='From:"urbanfarm.fr"<sam@urban.fr>'."\n";
+			$header.='Content-Type:text/html; charset="utf-8"'."\n";
+			$header.='Content-Transfer-Encoding: 8bit';
+
+			$message='
+			<html>
+			<body>
+			<div align="center">
+			Merci de votre inscription, vous recevrez un mail quand votre compte sera prêt
+			<br>
+			</div>
+			</body>
+			</html>
+			';
+
+			mail($mail, "inscription", $message, $header);
+			
 			echo "ok";
 
 		} catch (Exception $e) {

@@ -2,7 +2,7 @@
 
 <html>
 	<head> <meta charset = utf-8>
-		<title> Urban Farm</title>
+		<title> Urban Farm</title> 
 		<link rel = "stylesheet" href = "style/style.css"/>
 		<link rel = "stylesheet" href = "style/style_inscription.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
