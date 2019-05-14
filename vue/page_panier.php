@@ -16,6 +16,11 @@
     </div>
     <div id="col2">
 
+        <?php
+        $ref = $_GET["ref"];
+        echo $ref;
+        ?>
+
     </div>
 </div>
 </body>
