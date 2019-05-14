@@ -56,7 +56,7 @@
                         },
                         function(data){ //recupere ce qui envoye par le code php
                             $("#rep").html(data);
-							$("#titreM").html(data.split("&&")[0]);
+							$("#titreM").html("azertyuio");
 							$("#contM").html(data.split("&&")[1]);
                         },
                         "text" //a mettre pour pouvoir recuperer du texte

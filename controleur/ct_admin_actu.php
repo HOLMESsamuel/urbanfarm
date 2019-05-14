@@ -35,17 +35,20 @@ if(!empty($_POST["titre"]) AND !empty($_POST["cont"]) ){
         echo 'alert("La reference doit etre numerique.")';
         echo '</script>';
     }
-} elseif (!empty($_POST["refM"])){
+} elseif(!empty($_POST["refM"]) AND !empty($_POST["titreM"]) AND !empty($_POST["contM"]) ){
+    var_dump($refM);
+    var_dump($titreM);
+    var_dump($contM);
     if(is_numeric($refM)){
-        cherVal($bdd, $refM);
+        modVal($bdd, $refM, $titreM, $contM);
     } else {
         echo '<script language="javascript">';
         echo 'alert("La reference doit etre numerique.")';
         echo '</script>';
     }
-} elseif(!empty($_POST["refM"]) AND !empty($_POST["titreM"]) AND !empty($_POST["contM"]) ){
+} elseif (!empty($_POST["refM"])){
     if(is_numeric($refM)){
-        modVal($bdd, $refM, $titreM, $contM);
+        cherVal($bdd, $refM);
     } else {
         echo '<script language="javascript">';
         echo 'alert("La reference doit etre numerique.")';
