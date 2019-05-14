@@ -11,7 +11,7 @@
 				e.preventDefault(); //empeche de recherarger la page
 				$.post('../controleur/ct_contact.php', //envoie par post
 					{
-						mail : $("#mail").val(),
+						mail : $("#mailEnvoi").val(),
 						titre : $("#titre").val(),
 						texte : $("#text").val()
 					},
@@ -76,7 +76,7 @@
 				</p>
 				<br>
 				<form>
-					<input type="mail" placeholder="Adresse mail" id="mail" name="mail" value="<?php if(isset($mail)) {echo $mail;}?>"/>	
+					<input type="mail" placeholder="Adresse mail" id="mailEnvoi" name="mailEnvoi" value="<?php if(isset($mail)) {echo $mail;}?>"/>	
 					<br>
 					<input type="titre" placeholder="Titre du message" id="titre" name="titre" value="<?php if(isset($itre)) {echo $titre;}?>"/>
 					<br>
