@@ -4,3 +4,79 @@ footer {
     -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
 }
+
+/* mise en page tableau */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+/* mise en page */
+textarea {
+    resize: none;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+    
+#button,#buttonSupp {
+    width: 100%;
+    background-color: #B6D7A8;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+#button:hover,#buttonSupp:hover {
+    background-color: rgb(145, 182, 129);
+}
+
+
+#inputZone{
+    display: -ms-grid;
+        display: grid;
+    -ms-grid-columns: 2fr 1fr;
+        grid-template-columns: 2fr 1fr;
+}
+  
+#add {
+    -ms-grid-column: 1;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+#supp {
+    -ms-grid-column: 2;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
