@@ -53,6 +53,7 @@
 				<?php include("../modele/connexion.php"); ?>
 				<?php include("../modele/requeteUtilisateur.php"); ?>
 				<?php include("../modele/requeteInstallation.php"); ?>
+				<?php include("../modele/requeteCapteur.php"); ?>
     		</div>
 
 		    <div id="col2">
@@ -60,6 +61,7 @@
 				<?php $nbCapteur = recupereCapteur($bdd, $_SESSION['mail']); ?>
 				<?php for($i=0; $i<$nbCapteur; $i++): ?>
 					<div class="capteur">
+						<?php $numeroCapteur = recupereInfoCapteur($bdd, $_SESSION['mail'], "n°capteur", $i); ?>
 						<?php $insta = recupereInfoCapteur($bdd, $_SESSION['mail'], "n°installation", $i); ?>
 						<?php echo recupereNom($bdd, $insta); ?>
 						<br>
@@ -70,6 +72,8 @@
 							<input class="sliderBtnCapteur" id="<?php echo 'capteur'.$i ?>" type="checkbox" <?php if($etat == "on"){ echo "checked";} ?>>
 							<span class="slider round"></span>
 						</label>
+						<br>
+						<?php echo "Derniere valeur : ".derniereValeur($bdd, $numeroCapteur); ?>
 					</div>
 				<?php endfor ?>
 	    	</div>

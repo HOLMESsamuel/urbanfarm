@@ -28,7 +28,7 @@
 						mail : this.id 
 					},
 					function(data){ //recupere ce qui envoye par le code php
-						console.log(data);
+						document.location.href="page_admin_gestionUtilisateurs.php";
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);

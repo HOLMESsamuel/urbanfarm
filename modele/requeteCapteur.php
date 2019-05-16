@@ -38,4 +38,20 @@
         }
         $req->execute(array($newState, $n°actionneur));
     }
+
+    function derniereValeur(PDO $bdd, String $numero): String{
+        $req = $bdd->prepare("SELECT * FROM data WHERE n°capteur=? ORDER BY n°data DESC");
+        $req->execute(array($numero));
+        try{
+            $row = $req->fetch();
+            return($row["valeur"]);
+        } catch(Exception $e) {
+            return("pas de valeur connue");
+        }
+    }
+
+    function ajoutData(PDO $bdd, String $numero, String $valeur){
+        $req = $bdd->prepare("INSERT INTO data(n°data, valeur) VALUES(?,?)");
+        $req->execute(array($numero, $valeur));
+    }
 ?>
