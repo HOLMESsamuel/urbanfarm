@@ -7,6 +7,7 @@
 </head>
 <header>
     <?php include("elem/elem_entete.php"); ?>
+    <?php include("../controleur/ct_panier.php"); ?>
 </header>
 
 <body>
@@ -17,9 +18,44 @@
     <div id="col2">
 
         <?php
-        $ref = $_GET["ref"];
-        echo $ref;
+        $id = $_GET["ref"];
+        echo $id;
         ?>
+
+
+
+        <table>
+            <tr>
+                <th>ref</th>
+                <th>type</th>
+                <th>description</th>
+                <th>prix</th>
+                <th>quantité</th>
+                <th>montant</th>
+            </tr>
+
+            <?php
+            ajouteProduitPanier();
+            $panier = $_SESSION['panier'];
+
+            foreach ($panier as $ref => $quantite) {
+                $produit = getProduit($bdd,$ref)->fetch();
+                $type = $produit['type'];
+                $description = $produit['description'];
+                $prix = $produit['prix'];
+                $montant = $quantite * $prix;
+
+                echo
+                '<tr>
+                <td>'.$ref.'</td>
+                <td>'.$type.'</td>
+                <td>'.$description.'</td>
+                <td>'.$prix.'</td>
+                <td>'.$quantite.'</td>
+                <td>'.$montant.'</td>
+                </tr>';
+            } ?>
+        </table>
 
     </div>
 </div>
