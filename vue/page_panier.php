@@ -14,6 +14,30 @@
 <div class="container">
     <div id="col1">
         <?php include("elem/elem_menu.php"); ?>
+        <?php
+        if(isset($_SESSION['mail'])): ?>
+            <style>
+                .container {
+                    min-height: 06%;
+                    margin: 15px;
+                    display: -ms-grid;
+                    display: grid;
+                    -ms-grid-columns: 1fr 4fr;
+                    grid-template-columns: 1fr 4fr;
+                }
+            </style>
+        <?php else: ?>
+            <style>
+                .container {
+                    min-height: 06%;
+                    margin: 15px;
+                    display: -ms-grid;
+                    display: grid;
+                    -ms-grid-columns: 1fr 150fr ;
+                    grid-template-columns: 1fr 150fr;
+                }
+            </style>
+        <?php endif ?>
     </div>
     <div id="col2">
 
