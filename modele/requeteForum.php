@@ -13,6 +13,5 @@
         $req->execute(array($quest));
         $row=$req->fetch();
         echo "<a class='question'>".substr($row['question'],0,200)."</a>";
-        }
     }
 ?>

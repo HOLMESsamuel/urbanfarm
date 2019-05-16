@@ -13,7 +13,7 @@ try {
 // connect to mysql
 $ques = $_POST['id'];
 
-if (strlen($ques)<3){
+if (strlen($ques)<3) {
     echo 'Recherche trop courte';
 } else {
     // mysql search query
@@ -23,14 +23,14 @@ if (strlen($ques)<3){
     // if id exist 
     // show data in inputs
     $n=$pdoQuery->rowCount();
-    if($n>0) {
+    if ($n>0) {
         foreach($pdoQuery as $row) {
             echo recupereArticle($pdoConnect, $row['titre']);
         }
     }
     // if the id not exist
     // show a message and clear inputs
-    else{
+    else {
         echo 'Pas d articles corespondant';
     }
 }
