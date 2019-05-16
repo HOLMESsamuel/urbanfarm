@@ -3,7 +3,7 @@
 <head> <meta charset = utf-8>
     <title> Urban Farm</title>
     <link rel = "stylesheet" href = "style/style.css"/>
-    <link rel = "stylesheet" href = "style/style_questions.css"/>
+    <link rel = "stylesheet" href = "style/style_panier.css"/>
 </head>
 <header>
     <?php include("elem/elem_entete.php"); ?>
@@ -40,14 +40,6 @@
         <?php endif ?>
     </div>
     <div id="col2">
-
-        <?php
-        $id = $_GET["ref"];
-        echo $id;
-        ?>
-
-
-
         <table>
             <tr>
                 <th>ref</th>
@@ -66,6 +58,9 @@
                 $produit = getProduit($bdd,$ref)->fetch();
                 $type = $produit['type'];
                 $description = $produit['description'];
+                if (strlen($description) > 64) {
+                    $description = substr($description,0,64).'...';
+                }
                 $prix = $produit['prix'];
                 $montant = $quantite * $prix;
 
@@ -74,13 +69,12 @@
                 <td>'.$ref.'</td>
                 <td>'.$type.'</td>
                 <td>'.$description.'</td>
-                <td>'.$prix.'</td>
+                <td>'.$prix.'€</td>
                 <td>'.$quantite.'</td>
-                <td>'.$montant.'</td>
+                <td>'.$montant.'€</td>
                 </tr>';
             } ?>
         </table>
-
     </div>
 </div>
 </body>

@@ -14,6 +14,7 @@ function creePanier() {
         $_SESSION['panier']['quantite'] = array();
         */
     }
+
 }
 
 
@@ -26,10 +27,7 @@ function ajouteProduitPanier() {
         $ref = htmlspecialchars($_GET['ref']);
         $quantite = htmlspecialchars($_POST['quantite']);
         $_SESSION['panier'][$ref] = $quantite;
-    } else {
-        echo "Le produit n'a pas été ajouté au panier";
     }
-
 }
 
 function modifieProduitPanier() {
