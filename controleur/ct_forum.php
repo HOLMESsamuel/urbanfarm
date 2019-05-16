@@ -1,6 +1,6 @@
 <?php
 include("../modele/requeteForum.php");
-include("../modele/connexion.php")
+include("../modele/connexion.php");
 
 // php search data in mysql database using PDO
 // set data in input text
