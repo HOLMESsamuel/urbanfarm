@@ -72,12 +72,14 @@
 			  <?php include("elem/elem_menu.php"); ?>
 			</div>
 			<div id="col2">
+			<div id="articleContainer">
 				<h2 id="title"> 
 					<?php afficheDernierTitre($bdd); ?>
 				</h2>
 				<div class="article">
 					<?php afficheDernierArticle($bdd); ?>
 				</div>
+			</div>
 
 				<form id="from">
 					Search : <input type="text" id="id" name="id"> 
@@ -88,7 +90,7 @@
 				</form>
 				<div id="rep"></div>
 
-	    </div>
+	    </div> 
 		
 			<div id="col3">
 				<h3> Les dernières Actualités </h3>

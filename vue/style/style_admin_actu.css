@@ -10,7 +10,7 @@
 #col1 {
     -ms-grid-column: 1;
     grid-column: 1;
-    height: 120%;
+    height: 100%;
     margin: 0px 5px;
     background-color: rgb(241, 241, 241);
 }
@@ -22,14 +22,17 @@
     display: inline-block;
 }
 
+
 /* mise en page tableau */
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
-  
-td, th {
+
+td,
+th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
@@ -39,7 +42,9 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
+
 /* mise en page */
+
 textarea {
     resize: none;
     width: 100%;
@@ -49,9 +54,9 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-  }
+}
 
-input[type=text]{
+input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -60,7 +65,7 @@ input[type=text]{
     border-radius: 4px;
     box-sizing: border-box;
 }
-    
+
 .btn {
     width: 100%;
     background-color: #B6D7A8;
@@ -70,19 +75,18 @@ input[type=text]{
     border-radius: 4px;
     cursor: pointer;
 }
-  
+
 .btn:hover {
     background-color: rgb(145, 182, 129);
 }
 
-
-#inputZone{
+#inputZone {
     display: -ms-grid;
-        display: grid;
+    display: grid;
     -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
-  
+
 #addAndSupp {
     -ms-grid-column: 1;
     border-radius: 5px;
@@ -90,10 +94,18 @@ input[type=text]{
     background-color: #f2f2f2;
     padding: 20px;
 }
+
 #modif {
     -ms-grid-column: 2;
     border-radius: 5px;
     margin: 10px;
     background-color: #f2f2f2;
     padding: 20px;
+}
+
+footer {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
