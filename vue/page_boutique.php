@@ -55,9 +55,9 @@
                         <p class="description">' . $produit['description'] . '</p>
                         <div class="achat">
                             <h2>' . $produit['prix'] . '€</h2>
-                            <form method="post" action="page_panier.php">
+                            <form method="post" action="page_panier.php?ref='.$produit['n°produit'].'">
                                 <label>
-                                    unités<input type="number" name="number" id="number" min="1" max="99" step="1" value="1">
+                                    unités<input type="number" name="quantite" id="number" min="1" max="99" step="1" value="1">
                                 </label>
                                 <input type="submit" id="submit" value="Ajouter au panier">
                             </form>
