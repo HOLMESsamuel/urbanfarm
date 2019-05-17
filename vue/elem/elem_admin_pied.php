@@ -10,3 +10,7 @@
 	<a href="page_admin_boutique.php"><img src = "img/boutique.png" height="50" title="Boutique"/></a>
 	<figcaption>Boutique</figcaption>
 </figure>
+<figure class="admin_dis" id="image">
+	<a href="page_discussion.php"><img src = "img/discussion.png" height="50" title="Discussion"/></a>
+	<figcaption>Discussion</figcaption>
+</figure>
