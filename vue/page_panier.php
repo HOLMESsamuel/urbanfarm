@@ -57,13 +57,14 @@
             <?php
             ajouteProduitPanier();
             $panier = $_SESSION['panier'];
+            $total = 0;
 
             foreach ($panier as $ref => $quantite) {
                 $produit = getProduit($bdd,$ref)->fetch();
                 $type = $produit['type'];
                 $description = $produit['description'];
-                if (strlen($description) > 64) {
-                    $description = substr($description,0,64).'...';
+                if (strlen($description) > 128) {
+                    $description = substr($description,0,128).'...';
                 }
                 $prix = $produit['prix'];
                 $montant = number_format($quantite * $prix,2,"."," ");
@@ -77,8 +78,15 @@
                 <td class="quantite">'.$quantite.'</td>
                 <td class="montant">'.$montant.'€</td>
                 </tr>';
+
+                $total += $prix;
             } ?>
         </table>
+
+        <h2>
+            Total  :  <?php echo number_format($total,2,"."," ")?>€
+        </h2>
+
     </div>
 </div>
 </body>
