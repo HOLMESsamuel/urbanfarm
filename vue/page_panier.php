@@ -71,21 +71,25 @@
 
                 echo
                 '<tr>
-                <td>'.$ref.'</td>
-                <td>'.$type.'</td>
+                <td class="ref">'.$ref.'</td>
+                <td class="type">'.$type.'</td>
                 <td class="description">'.$description.'</td>
                 <td class="prix">'.$prix.'€</td>
                 <td class="quantite">'.$quantite.'</td>
                 <td class="montant">'.$montant.'€</td>
                 </tr>';
 
-                $total += $prix;
+                $total += $quantite * $prix;
             } ?>
         </table>
 
         <h2>
             Total  :  <?php echo number_format($total,2,"."," ")?>€
         </h2>
+
+        <p align="right">
+            <button>Passer à la caisse</button>
+        </p>
 
     </div>
 </div>
