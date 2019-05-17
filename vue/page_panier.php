@@ -40,9 +40,12 @@
         <?php endif ?>
     </div>
     <div id="col2">
+
+        <a href="page_boutique.php">Retour à la boutique</a>
+
         <table>
             <tr>
-                <th>ref</th>
+                <th>ref.</th>
                 <th>type</th>
                 <th>description</th>
                 <th>prix</th>
@@ -50,31 +53,40 @@
                 <th>montant</th>
             </tr>
 
+
             <?php
             ajouteProduitPanier();
             $panier = $_SESSION['panier'];
+            $total = 0;
 
             foreach ($panier as $ref => $quantite) {
                 $produit = getProduit($bdd,$ref)->fetch();
                 $type = $produit['type'];
                 $description = $produit['description'];
-                if (strlen($description) > 64) {
-                    $description = substr($description,0,64).'...';
+                if (strlen($description) > 128) {
+                    $description = substr($description,0,128).'...';
                 }
                 $prix = $produit['prix'];
-                $montant = $quantite * $prix;
+                $montant = number_format($quantite * $prix,2,"."," ");
 
                 echo
                 '<tr>
                 <td>'.$ref.'</td>
                 <td>'.$type.'</td>
-                <td>'.$description.'</td>
-                <td>'.$prix.'€</td>
-                <td>'.$quantite.'</td>
-                <td>'.$montant.'€</td>
+                <td class="description">'.$description.'</td>
+                <td class="prix">'.$prix.'€</td>
+                <td class="quantite">'.$quantite.'</td>
+                <td class="montant">'.$montant.'€</td>
                 </tr>';
+
+                $total += $prix;
             } ?>
         </table>
+
+        <h2>
+            Total  :  <?php echo number_format($total,2,"."," ")?>€
+        </h2>
+
     </div>
 </div>
 </body>
