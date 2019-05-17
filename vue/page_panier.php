@@ -72,7 +72,7 @@
                 '<tr>
                 <td>'.$ref.'</td>
                 <td>'.$type.'</td>
-                <td>'.$description.'</td>
+                <td class="description">'.$description.'</td>
                 <td class="prix">'.$prix.'€</td>
                 <td class="quantite">'.$quantite.'</td>
                 <td class="montant">'.$montant.'€</td>
