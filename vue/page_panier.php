@@ -53,7 +53,6 @@
                 <th>montant</th>
             </tr>
 
-
             <?php
             ajouteProduitPanier();
             $panier = $_SESSION['panier'];

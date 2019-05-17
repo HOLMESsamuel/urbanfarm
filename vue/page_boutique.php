@@ -50,8 +50,7 @@
                     <h1>' . $produit['type'] . '</h1>
                     <h3 class="ref"> ref ' . $produit['n°produit'] . '</h3>
                     <div class="information">
-                        <div class="photo">
-                        </div>
+                        <img class="photo_produit" src="img/'.strtolower($produit['type']).'.jpg" width="200" height="200">
                         <p class="description">' . $produit['description'] . '</p>
                         <div class="achat">
                             <h2>' . $produit['prix'] . '€</h2>

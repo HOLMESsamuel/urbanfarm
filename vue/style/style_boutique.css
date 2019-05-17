@@ -63,11 +63,19 @@ a {
     width: 25%;
 }
 
+/*
 .photo {
     background-color: #cccc;
     width: 125px;
     height: 125px;
     margin: 0px 10px;
+}
+*/
+
+.photo_produit {
+    width: 150px;
+    height: 150px;
+    border: 1px solid gray;
 }
 
 .description {
