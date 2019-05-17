@@ -42,7 +42,7 @@
 		<?php include("elem/elem_entete.php"); ?>
 		<?php include("../modele/requeteDiscussion.php"); ?>
 	</header>	
-    <input style="display: none;" id="mail"value="<?php echo $_SESSION['mail']; ?>">
+    <input style="display: none;" id="mail"value="<?php if (isset($_SESSION['mail'])): echo $_SESSION['mail']; endif ?>">
     
 	<body>
 		<div class="container">
