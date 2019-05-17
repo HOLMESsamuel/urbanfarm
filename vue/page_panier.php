@@ -40,15 +40,19 @@
         <?php endif ?>
     </div>
     <div id="col2">
+
+        <a href="page_boutique.php">Retour à la boutique</a>
+
         <table>
             <tr>
-                <th>ref</th>
+                <th>ref.</th>
                 <th>type</th>
                 <th>description</th>
                 <th>prix</th>
                 <th>quantité</th>
                 <th>montant</th>
             </tr>
+
 
             <?php
             ajouteProduitPanier();
@@ -62,16 +66,16 @@
                     $description = substr($description,0,64).'...';
                 }
                 $prix = $produit['prix'];
-                $montant = $quantite * $prix;
+                $montant = number_format($quantite * $prix,2,"."," ");
 
                 echo
                 '<tr>
                 <td>'.$ref.'</td>
                 <td>'.$type.'</td>
                 <td>'.$description.'</td>
-                <td>'.$prix.'€</td>
-                <td>'.$quantite.'</td>
-                <td>'.$montant.'€</td>
+                <td class="prix">'.$prix.'€</td>
+                <td class="quantite">'.$quantite.'</td>
+                <td class="montant">'.$montant.'€</td>
                 </tr>';
             } ?>
         </table>

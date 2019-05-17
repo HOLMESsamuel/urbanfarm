@@ -7,7 +7,31 @@ table {
     border-collapse: collapse;
 }
 
-table, th, td {
+table, td {
+    /*
     border: 1px solid black;
+     */
     padding: 15px 30px;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+th {
+    padding: 5px 30px;
+    background-color: #B6D7A8;
+}
+
+th, td {
+    border-bottom: 1px solid black;
+}
+
+a {
+    text-decoration: none;
+    color : black;
+}
+
+.montant, .prix, .quantite {
+    text-align: right;
 }
