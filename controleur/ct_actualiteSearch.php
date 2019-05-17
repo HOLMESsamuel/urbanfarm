@@ -28,7 +28,7 @@ if (strlen($id)<3){
     if($n>0) {
         foreach($pdoQuery as $row) {
             $titre = recupereArticle($pdoConnect,$row['titre']);
-            $retour = "<a class='titre' id='.$titre.'>'.$titre.'</a>";
+            $retour = "<a class='titreRecherche' id='.$titre.'>'.$titre.'</a>";
             echo $retour;
         }
     }

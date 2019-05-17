@@ -15,12 +15,24 @@
 					},
 					function(data){ //recupere ce qui envoye par le code php
 						$("#rep").html(data);
-						$(document).ready();
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
 			});
 			$(".titre").click(function(e){
+				e.preventDefault(); //empeche de recherarger la page
+				$.post('../controleur/ct_actualite.php', //envoie par post au fichier controleur
+					{
+						numArticle : this.id
+					},
+					function(data){ //recupere ce qui envoye par le code php
+						$("#title").html(data.split("&&")[1]);
+						$(".article").html(data.split("&&")[2]);
+					},
+					"text" //a mettre pour pouvoir recuperer du texte
+				);
+			});
+			$(".titreRecherche").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
 				$.post('../controleur/ct_actualite.php', //envoie par post au fichier controleur
 					{

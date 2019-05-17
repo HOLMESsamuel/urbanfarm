@@ -14,7 +14,7 @@
         echo "<br>";
         echo "<a class='contenu'>".substr($row['contenu'],0,100)."</a>";
         echo "... <br>";
-    }
+    } 
 
     function getUnArticle(PDO $bdd, String $numArticle){
         $req = $bdd->prepare("SELECT * FROM article WHERE n°article=?");
@@ -22,7 +22,7 @@
         $row=$req->fetch();
         echo $row['titre'];
         echo "&&";
-        echo $row['contenu'];
+        echo $row['contenu']; 
     }
 
     function recupereTitre(PDO $bdd){ //recupere les cinq premiers titres avec leur date
