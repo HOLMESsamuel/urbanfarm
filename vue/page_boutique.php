@@ -42,7 +42,7 @@
     </div>
     <div id="col2">
 
-        <a href="page_panier.php">Panier</a>
+        <a href="page_panier.php">Votre panier</a>
 
         <?php while ($produit = $req->fetch()) {
             echo
