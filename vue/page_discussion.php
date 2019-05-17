@@ -97,6 +97,12 @@
 	</body>
 
 	<footer>
-		<?php include("elem/elem_admin_pied.php"); ?>
+    <?php if (isset($_SESSION['mail'])):?>
+        <?php if (substr($_SESSION['mail'], -9)== "@urban.fr"):?>
+		    <?php include("elem/elem_admin_pied.php"); ?>
+        <?php endif ?>
+    <?php else : ?>
+		<?php include("elem/elem_pied.php"); ?>
+    <?php endif ?>
 	</footer>
 </html>

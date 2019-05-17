@@ -48,7 +48,7 @@
 
 
 <?php 
-elseif (isset($_SESSION['mail']) && strpos(basename($_SERVER['PHP_SELF']), 'admin') == false): ?>
+elseif (isset($_SESSION['mail']) && substr($_SESSION['mail'], -9)!= "@urban.fr"): ?>
 <div id ="menu">
 	<a href="page_profil.php" class="bouton">Profil</a>
 	<a href="page_commande.php" class="bouton">Commande</a>
@@ -56,7 +56,7 @@ elseif (isset($_SESSION['mail']) && strpos(basename($_SERVER['PHP_SELF']), 'admi
 
 </div>
 
-<?php elseif (isset($_SESSION['mail']) && strpos(basename($_SERVER['PHP_SELF']), 'admin') == true ): ?>
+<?php elseif (isset($_SESSION['mail']) && substr($_SESSION['mail'], -9)== "@urban.fr" ): ?>
 <div id ="menu">
 	<a href="page_admin_stat.php" class="bouton">Statistiques</a>
 	<a href="page_admin_message.php" class="bouton">Messages</a>
