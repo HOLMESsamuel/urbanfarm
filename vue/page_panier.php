@@ -66,16 +66,16 @@
                     $description = substr($description,0,128).'...';
                 }
                 $prix = $produit['prix'];
-                $montant = number_format($quantite * $prix,2,"."," ");
+                $montant = $quantite * $prix;
 
                 echo
                 '<tr>
                 <td class="ref">'.$ref.'</td>
                 <td class="type">'.$type.'</td>
                 <td class="description">'.$description.'</td>
-                <td class="prix">'.$prix.'€</td>
+                <td class="prix">' . number_format($prix, 2,',',' ') .'€</td>
                 <td class="quantite">'.$quantite.'</td>
-                <td class="montant">'.$montant.'€</td>
+                <td class="montant">' . number_format($montant, 2,',',' ') . '€</td>
                 </tr>';
 
                 $total += $quantite * $prix;
@@ -83,7 +83,7 @@
         </table>
 
         <h2>
-            Total  :  <?php echo number_format($total,2,"."," ")?>€
+            Total  :  <?php echo number_format($total,2,',',' ')?>€
         </h2>
 
         <p align="right">

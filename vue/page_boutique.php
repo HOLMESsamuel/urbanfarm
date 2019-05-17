@@ -45,19 +45,23 @@
         <a href="page_panier.php">Votre panier</a>
 
         <?php while ($produit = $req->fetch()) {
+            $type = $produit['type'];
+            $ref = $produit['n°produit'];
+            $prix = number_format($produit['prix'],2,',',' ');
+
             echo
                 '<div class="box_product"> 
-                    <h1>' . $produit['type'] . '</h1>
-                    <h3 class="ref"> ref ' . $produit['n°produit'] . '</h3>
+                    <h1>' . $type . '</h1>
+                    <h3 class="ref"> ref ' . $ref . '</h3>
                     <div class="information">
-                        <img class="photo_produit" src="img/'.strtolower($produit['type']).'.jpg" width="200" height="200">
+                        <img class="photo_produit" src="img/'.strtolower($type).'.jpg" width="200" height="200">
                         <p class="description">' . $produit['description'] . '</p>
                         <div class="achat">
-                            <h2>' . $produit['prix'] . '€</h2>
-                            <form method="post" action="page_panier.php?ref='.$produit['n°produit'].'">
+                            <h2>' . $prix . '€</h2>
+                            <form method="post" action="page_panier.php?ref=' . $ref . '">
                                 <label>
-                                    unités<input type="number" name="quantite" id="number" min="1" max="99" step="1" value="1">
-                                </label>
+                                    unités : <input type="number" name="quantite" id="number" min="1" max="99" step="1" value="1">
+                                </label><br>
                                 <input type="submit" id="submit" value="Ajouter au panier">
                             </form>
                         </div>

@@ -35,11 +35,6 @@ h2 {
     border-radius: 4px;
 }
 
-form {
-    margin: 0px;
-    padding: 0px;
-}
-
 a {
     text-decoration: none;
     color : black;
@@ -53,34 +48,24 @@ a {
 .information {
     display: flex;
     justify-content: space-between;
-    margin: 10px;
+    margin: 8px;
 }
 
 .achat {
     text-align: right;
     display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 20%;
 }
-
-/*
-.photo {
-    background-color: #cccc;
-    width: 125px;
-    height: 125px;
-    margin: 0px 10px;
-}
-*/
 
 .photo_produit {
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     border: 1px solid gray;
 }
 
 .description {
-    width: 50%;
-    overflow: auto;
+    width: 60%;
 }
 
 #connexion {
