@@ -1,4 +1,7 @@
 <?php
+include("../modele/connexion.php");
+include("../modele/requeteData.php");
+
 /**
  * ecrit la requete html nécessaire pour aller l=chercher le fichier de log associé au
  * nom d'equipe puis lexecute sépare les trames les unes des autres et renvoie un tableau
@@ -14,7 +17,7 @@ function recupereTrame():array {
 
     $dossier = "appService";
 
-    $nomEquipe = "1212";
+    $nomEquipe = "G10E";
 
     $parametre = "ACTION=GETLOG&TEAM=".$nomEquipe;
 
@@ -49,6 +52,12 @@ function afficheTab(array $tab){
         echo $tab[$i];
         echo "<br>";
     }
+}
+
+function recupereDerniereTrame(): String {
+    $tabTrame = recupereTrame();
+    $taille = count($tabTrame);
+    return($tabTrame[$taille-1]);
 }
 
 afficheTab(recupereTrame());
@@ -88,7 +97,47 @@ function decomposeTrame(String $trame):array {
     return $trameDecompose;
 }
 
-echo decomposeTrame(recupereTrame()[0])["timestamp"];
+function estPlusRecent(String $trame, int $timestamp): bool {
+    $aTester = (int)decomposeTrame($trame)["timestamp"];
+    return ($aTester-$timestamp > 0);
+}
+
+function trameNonLue($bdd): array {
+    $tabTrame = recupereTrame();
+    $trameNonLue = array();
+    $nombreTrame = count($tabTrame);
+    $dernierTimestamp = dernierTimestamp($bdd);
+    $indice = 0;
+    $plusAncient = true;
+    while($indice < $nombreTrame && $plusAncient){
+        if(estPlusRecent($tabTrame[$indice], $dernierTimestamp)){
+            $plusAncient = false;
+        } else {
+            $indice ++;
+        }
+    }
+    for($i = $indice; $i < $nombreTrame; $i++){
+        array_push($trameNonLue, $tabTrame[$i]);
+    }
+
+    return $trameNonLue;
+}
+
+function majData($bdd){
+    $trameNonLue = trameNonLue($bdd);
+    $nbTrame = count($trameNonLue);
+    for($i = 0; $i<$nbTrame; $i++){
+        if(strlen($trameNonLue[$i])>27){
+            $timestamp = (int)decomposeTrame($trameNonLue[$i])["timestamp"];
+            $typeCapteur = (int)decomposeTrame($trameNonLue[$i])["NUM"];
+            $valeur = (int)decomposeTrame($trameNonLue[$i])["VAL"];
+            ajoutData($bdd, $timestamp, $typeCapteur, $valeur);
+        }
+    }
+}
+
+majData($bdd);
+
 
 ?>
 
