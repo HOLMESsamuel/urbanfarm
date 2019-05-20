@@ -27,7 +27,7 @@
                     $.post('../controleur/ct_discussion.php', //envoie par post au fichier controleur
                         {
                             com: $("#suj").val(),
-                            mail : $("#mail").val()
+                            mail : $("#email").val()
                         },
                         function(data){ //recupere ce qui envoye par le code php
                             $("#rep").html(data);
@@ -67,7 +67,7 @@
             </style>
         <?php endif ?>
 	</header>	
-    <input style="display: none;" id="mail"value="<?php if (isset($_SESSION['mail'])): echo $_SESSION['mail']; endif ?>">
+    <input style="display: none;" id="email"value="<?php if (isset($_SESSION['mail'])): echo $_SESSION['mail']; endif ?>">
     
 	<body>
 		<div class="container">
@@ -124,10 +124,12 @@
 	<footer>
     <?php if (isset($_SESSION['mail'])):?>
         <?php if (substr($_SESSION['mail'], -9)== "@urban.fr"):?>
-		    <?php include("elem/elem_admin_pied.php"); ?>
+		    <?php include("../vue/elem/elem_admin_pied.php"); ?>
+        <?php else : ?>
+            <?php include("../vue/elem/elem_pied.php"); ?>
         <?php endif ?>
     <?php else : ?>
-		<?php include("elem/elem_pied.php"); ?>
+		<?php include("../vue/elem/elem_pied.php"); ?>
     <?php endif ?>
 	</footer>
 </html>
