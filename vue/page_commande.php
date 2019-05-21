@@ -37,6 +37,17 @@
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
 			});
+			setInterval(function(){
+            $.post('../controleur/ct_trame.php', //envoie par post au fichier controleur
+                        {
+                            
+                        },
+                        function(data){ //recupere ce qui envoye par le code php
+                            console.log(data);
+                        },
+                        "text" //a mettre pour pouvoir recuperer du texte
+            );}
+        	, 60000);
 		});
 		</script>
 	</head>

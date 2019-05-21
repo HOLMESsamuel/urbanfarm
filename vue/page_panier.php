@@ -4,6 +4,22 @@
     <title> Urban Farm</title>
     <link rel = "stylesheet" href = "style/style.css"/>
     <link rel = "stylesheet" href = "style/style_panier.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        setInterval(function(){
+            $.post('../controleur/ct_trame.php', //envoie par post au fichier controleur
+                        {
+                            
+                        },
+                        function(data){ //recupere ce qui envoye par le code php
+                            console.log(data);
+                        },
+                        "text" //a mettre pour pouvoir recuperer du texte
+            );}
+        , 60000);
+    });
+    </script>
 </head>
 <header>
     <?php include("elem/elem_entete.php"); ?>

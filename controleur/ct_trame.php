@@ -60,7 +60,7 @@ function recupereDerniereTrame(): String {
     return($tabTrame[$taille-1]);
 }
 
-afficheTab(recupereTrame());
+echo "hello";
 
 /**
  * Decompose chaque trame quu'elle soit courante ou rapide en tous ses éléments
@@ -136,7 +136,7 @@ function majData($bdd){
     }
 }
 
-majData($bdd);
+
 
 
 ?>
