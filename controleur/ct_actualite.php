@@ -1,5 +1,5 @@
 <?php 
- include("../modele/requeteActualites.php"); 
+ include("./modele/requeteActualites.php"); 
 
  function afficheDernierTitre($bdd){
     echo dernierTitre($bdd);

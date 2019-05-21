@@ -13,9 +13,9 @@
 						if(data != 'client' && data != 'admin'){
 							$(".erreur").html(data);
 						} else if (data == 'client'){
-							document.location.href="./page_profil.php";
+							document.location.href="vue/page_profil.php";
 						} else {
-							document.location.href="./page_admin_stat.php";
+							document.location.href="vue/page_admin_stat.php";
 						}
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
@@ -43,24 +43,24 @@
 	</form>
 	</div>
 	</h3>
-	<script src="./script/script_connexion.js"></script>
+	<script src="vue/script/script_connexion.js"></script>
 </div>
 
 
 <?php 
 elseif (isset($_SESSION['mail']) && substr($_SESSION['mail'], -9)!= "@urban.fr"): ?>
 <div id ="menu">
-	<a href="page_profil.php" class="bouton">Profil</a>
-	<a href="page_commande.php" class="bouton">Commande</a>
-	<a href="page_consommation.php" class="bouton">Consommation</a>
+	<a href="vue/page_profil.php" class="bouton">Profil</a>
+	<a href="vue/page_commande.php" class="bouton">Commande</a>
+	<a href="vue/page_consommation.php" class="bouton">Consommation</a>
 
 </div>
 
 <?php elseif (isset($_SESSION['mail']) && substr($_SESSION['mail'], -9)== "@urban.fr" ): ?>
 <div id ="menu">
-	<a href="page_admin_stat.php" class="bouton">Statistiques</a>
-	<a href="page_admin_message.php" class="bouton">Messages</a>
-	<a href="page_admin_gestionUtilisateurs.php" class="bouton">Gestion des inscriptions</a>
+	<a href="vue/page_admin_stat.php" class="bouton">Statistiques</a>
+	<a href="vue/page_admin_message.php" class="bouton">Messages</a>
+	<a href="vue/page_admin_gestionUtilisateurs.php" class="bouton">Gestion des inscriptions</a>
 
 </div>
 <?php endif ?>

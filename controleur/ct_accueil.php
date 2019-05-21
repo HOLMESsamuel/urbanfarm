@@ -1,9 +1,13 @@
 <?php
-include("../modele/connexion.php");
-include("../modele/requeteUtilisateur.php");
+include("modele/connexion.php");
+include("modele/requeteUtilisateur.php");
 
-$mail = htmlspecialchars($_POST['mail']);
-$mdp = sha1($_POST['mdp']);
+if (!empty($_POST['mail'])) {
+	$mail = htmlspecialchars($_POST['mail']);
+}
+if (!empty($_POST['mdp'])) {
+	$mdp = sha1($_POST['mdp']);
+}
 
 if(empty($_POST['mail']) OR empty($_POST['mdp'])){
 	echo "certains champs ne sont pas remplis";
