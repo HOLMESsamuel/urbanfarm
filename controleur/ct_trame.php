@@ -60,7 +60,7 @@ function recupereDerniereTrame(): String {
     return($tabTrame[$taille-1]);
 }
 
-echo "hello";
+afficheTab(recupereTrame());
 
 /**
  * Decompose chaque trame quu'elle soit courante ou rapide en tous ses éléments
@@ -135,6 +135,31 @@ function majData($bdd){
         }
     }
 }
+
+majData($bdd);
+
+//a partir d'ici les fonction sont utilisées pour envoyer des trames
+
+function envoieTrame(String $trame){
+    $ch = curl_init();
+
+    $name = 'projets-tomcat.isep.fr';//nom du site
+
+    $numeroPort = ':8080';//numero de port du serveur
+
+    $dossier = "appService";
+
+    $nomEquipe = "G10E";
+
+    $parametre = "ACTION=COMMAND&TEAM=".$nomEquipe."&TRAME=".$trame;
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_URL,'http://'.$name.$numeroPort.'/'.$dossier.'/?'.$parametre);
+    $content = curl_exec($ch);
+    echo $content;
+}
+
+envoieTrame("113450035000174");
 
 
 
