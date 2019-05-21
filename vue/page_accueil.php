@@ -1,19 +1,17 @@
-<?php 
-session_start();
-session_destroy(); ?>
+
 <!DOCTYPE HTML>
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
-		<link rel = "stylesheet" href = "style/style.css"/>
-		<link rel = "stylesheet" href = "style/style_accueil.css"/>
-		<?php include("../controleur/ct_actualite.php"); ?>
+		<link rel = "stylesheet" href = "vue/style/style.css"/>
+		<link rel = "stylesheet" href = "vue/style/style_accueil.css"/>
+		<?php include("controleur/ct_actualite.php"); ?>
 	</head>
 	
 	<header>
-		<?php include("elem/elem_entete.php"); ?>
+		<?php include("vue/elem/elem_entete.php"); ?>
 	</header>
-	<?php include("elem/elem_menu.php"); ?>
+	<?php include("vue/elem/elem_menu.php"); ?>
 	<body>
 		<div id="description"> Urbanfarm en quelques mots ?
 			<p>LA solution qu'il vous faut pour produire votre propre nourriture à votre echelle, tout est completement personnalisable et simple, laissez vous guider !</p>
@@ -29,25 +27,25 @@ session_destroy(); ?>
 							<p class="captionText slideTextFromTop"></p>
 						</div>
 						<div class="imageHolder">
-							<img src="img/f1.jpg">
+							<img src="vue/img/f1.jpg">
 							<p class="captionText">Construisez votre propre ferme sans efforts !</p>
 						</div>
 						<div class="imageHolder">
-							<img src="img/f2.jpg">
+							<img src="vue/img/f2.jpg">
 							<p class="captionText">Automatisez l'entretien d'une serre !</p>
 						</div>
 						<div class="imageHolder">
-							<img src="img/f3.jpg">
+							<img src="vue/img/f3.jpg">
 							<p class="captionText">Goutez au bonheur de la compagnie des poules !</p>
 						</div>
 						<div class="imageHolder">
-							<img src="img/f4.jpg">
+							<img src="vue/img/f4.jpg">
 							<p class="captionText">Automatisez tout un poulailler</p>
 						</div>
 					</div>
 					<div id="dotsContainer"></div>
 					</div>
-						<script src="script/scriptCarousel.js"></script>
+						<script src="vue/script/scriptCarousel.js"></script>
 						<br><br>
 						
 					</div>
@@ -92,7 +90,7 @@ session_destroy(); ?>
 									</p>
 						
 								</div>
-								<img src="./img/horticulteur.jpg" width="200" height="200">
+								<img src="vue/img/horticulteur.jpg" width="200" height="200">
 							</div>
 							<div class="image-personnel" id="fermier">
 								<div class="overlay2">
@@ -101,7 +99,7 @@ session_destroy(); ?>
 									</p>
 									
 								</div>
-								<img src="./img/fermier.jpg" width="200" height="200">
+								<img src="vue/img/fermier.jpg" width="200" height="200">
 							
 							</div>
 							<div class="image-personnel" id="ingenieur">
@@ -110,7 +108,7 @@ session_destroy(); ?>
 										Eric notre ingénieur réseau
 									</p>
 								</div>
-								<img src="./img/ingenieur.png" width="200" height="200">
+								<img src="vue/img/ingenieur.png" width="200" height="200">
 							</div>
 							<div class="image-personnel" id="electronique">
 								<div class="overlay4">
@@ -119,7 +117,7 @@ session_destroy(); ?>
 									</p>
 									
 								</div>
-								<img src="./img/electronique.jpg" width="200" height="200">
+								<img src="vue/img/electronique.jpg" width="200" height="200">
 								
 							</div>
 						</div>
@@ -130,6 +128,6 @@ session_destroy(); ?>
 	</body>
 
 	<footer>
-		<?php include("elem/elem_pied.php"); ?>
+		<?php include("vue/elem/elem_pied.php"); ?>
 	</footer>
 </html>

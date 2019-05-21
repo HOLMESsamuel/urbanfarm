@@ -1,5 +1,5 @@
 <?php
-include "../modele/requetePanier.php";
+include "modele/requetePanier.php";
 
 function creePanier() {
     if (!isset($_SESSION['panier'])) {

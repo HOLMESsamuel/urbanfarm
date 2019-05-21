@@ -3,14 +3,14 @@
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title> 
-		<link rel = "stylesheet" href = "style/style.css"/>
-		<link rel = "stylesheet" href = "style/style_inscription.css"/>
+		<link rel = "stylesheet" href = "vue/style/style.css"/>
+		<link rel = "stylesheet" href = "vue/style/style_inscription.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){ //attend que tout le reste soit chargé
 			$("#btnValider").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_inscription.php', //envoie par post
+				$.post('controleur/ct_inscription.php', //envoie par post
 					{
 						prenom : $("#prenom").val(), //recupere les valueurs par id
 						nom : $("#nom").val(),
@@ -37,7 +37,7 @@
 						//} else if (substr($mail, -9) == '@urban.fr') {
 						//	document.location.href="page_admin_stat.php";
 						} else {
-							document.location.href="page_accueil.php";
+							document.location.href="index.php";
 						}
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
@@ -47,7 +47,7 @@
 		</script>
 	</head>
 	<header>
-		<?php include("elem/elem_entete.php"); ?>
+		<?php include("vue/elem/elem_entete.php"); ?>
 	</header>	
 	
 	
@@ -122,8 +122,8 @@
 			</div>
 		</form>
 	</body>
-	<script src="script/script_inscription.js"></script>
+	<script src="vue/script/script_inscription.js"></script>
 	<footer>
-		<?php include("elem/elem_pied.php"); ?>
+		<?php include("vue/elem/elem_pied.php"); ?>
 	</footer>
 </html>

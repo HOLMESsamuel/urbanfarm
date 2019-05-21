@@ -3,18 +3,18 @@
 <head>
     <meta charset=utf-8>
     <title> Urban Farm</title>
-    <link rel="stylesheet" href="style/style.css"/>
-    <link rel="stylesheet" href="style/style_boutique.css"/>
+    <link rel="stylesheet" href="vue/style/style.css"/>
+    <link rel="stylesheet" href="vue/style/style_boutique.css"/>
 </head>
 <header>
-    <?php include("elem/elem_entete.php"); ?>
-    <?php include("../controleur/ct_boutique.php"); ?>
+    <?php include("vue/elem/elem_entete.php"); ?>
+    <?php include("controleur/ct_boutique.php"); ?>
 </header>
 
 <body>
 <div class="container">
     <div id="col1">
-        <?php include("elem/elem_menu.php"); ?>
+        <?php include("vue/elem/elem_menu.php"); ?>
         <?php 
         if(isset($_SESSION['mail'])): ?>
             <style>
@@ -42,7 +42,7 @@
     </div>
     <div id="col2">
 
-        <a href="page_panier.php">Votre panier</a>
+        <a href="index.php?page=panier">Votre panier</a>
 
         <?php while ($produit = $req->fetch()) {
             $type = $produit['type'];
@@ -54,11 +54,11 @@
                     <h1>' . $type . '</h1>
                     <h3 class="ref"> ref ' . $ref . '</h3>
                     <div class="information">
-                        <img class="photo_produit" src="img/'.strtolower($type).'.jpg" width="200" height="200">
+                        <img class="photo_produit" src="vue/img/'.strtolower($type).'.jpg" width="200" height="200">
                         <p class="description">' . $produit['description'] . '</p>
                         <div class="achat">
                             <h2>' . $prix . '€</h2>
-                            <form method="post" action="page_panier.php?ref=' . $ref . '">
+                            <form method="post" action="index.php?page=panier&ref=' . $ref . '">
                                 <label>
                                     unités : <input type="number" name="quantite" id="number" min="1" max="99" step="1" value="1">
                                 </label><br>
@@ -73,6 +73,6 @@
 </body>
 
 <footer>
-    <?php include("elem/elem_pied.php"); ?>
+    <?php include("vue/elem/elem_pied.php"); ?>
 </footer>
 </html>

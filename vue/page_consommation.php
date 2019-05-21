@@ -2,13 +2,13 @@
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
-		<link rel = "stylesheet" href = "style/style.css"/>
-		<link rel = "stylesheet" href = "style/style_consommation.css"/>
+		<link rel = "stylesheet" href = "vue/style/style.css"/>
+		<link rel = "stylesheet" href = "vue/style/style_consommation.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){
 			setInterval(function(){
-				$.post('../controleur/ct_trame.php', //envoie par post au fichier controleur
+				$.post('controleur/ct_trame.php', //envoie par post au fichier controleur
 							{
 								
 							},
@@ -88,20 +88,20 @@ setInterval(function(){ updateChart() }, updateInterval);
 	</head>
 
 	<header>
-		<?php include("elem/elem_entete.php"); ?>
+		<?php include("vue/elem/elem_entete.php"); ?>
 	</header>	
 	
 	<body>
 		<div class="container">
 	    	<div id="col1">
-			    	<?php include("elem/elem_menu.php"); ?>
+			    	<?php include("vue/elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
 			<?php 
-				include("../modele/connexion.php"); 
-				include("../modele/requeteCapteur.php"); 
+				include("modele/connexion.php"); 
+				include("modele/requeteCapteur.php"); 
 			
      			$requete = "SELECT * FROM capteur";
 				$query = $bdd->query($requete);
@@ -125,9 +125,9 @@ setInterval(function(){ updateChart() }, updateInterval);
 	</body>
 	<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 	<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-	<script src="script/script_consommation.js"></script>
+	<script src="vue/script/script_consommation.js"></script>
 
 	<footer>
-		<?php include("elem/elem_pied.php"); ?>
+		<?php include("vue/elem/elem_pied.php"); ?>
 	</footer>
 </html>

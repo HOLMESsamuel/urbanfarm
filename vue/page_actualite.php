@@ -2,14 +2,14 @@
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
-		<link rel = "stylesheet" href = "style/style.css"/>
-		<link rel = "stylesheet" href = "style/style_actualite.css"/>
+		<link rel = "stylesheet" href = "vue/style/style.css"/>
+		<link rel = "stylesheet" href = "vue/style/style_actualite.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){ //attend que tout le reste soit chargé
 			$("#btnSearch").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_actualiteSearch.php', //envoie par post au fichier controleur
+				$.post('controleur/ct_actualiteSearch.php', //envoie par post au fichier controleur
 					{
 						id : $("#id").val()
 					},
@@ -21,7 +21,7 @@
 			});
 			$(".titre").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_actualite.php', //envoie par post au fichier controleur
+				$.post('controleur/ct_actualite.php', //envoie par post au fichier controleur
 					{
 						numArticle : this.id
 					},
@@ -34,7 +34,7 @@
 			});
 			$(".titreRecherche").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_actualite.php', //envoie par post au fichier controleur
+				$.post('controleur/ct_actualite.php', //envoie par post au fichier controleur
 					{
 						numArticle : this.id
 					},
@@ -50,8 +50,8 @@
 		
 	</head>
 	<header>
-		<?php include("../controleur/ct_actualite.php"); ?>
-		<?php include("elem/elem_entete.php"); ?>
+		<?php include("controleur/ct_actualite.php"); ?>
+		<?php include("vue/elem/elem_entete.php"); ?>
 		<?php 
         if(isset($_SESSION['mail'])): ?>
             <style>
@@ -81,7 +81,7 @@
 	<body>
 		<div class="container">
 	    <div id="col1">
-			  <?php include("elem/elem_menu.php"); ?>
+			  <?php include("vue/elem/elem_menu.php"); ?>
 			</div>
 			<div id="col2">
 			<div id="articleContainer">
@@ -96,7 +96,7 @@
 				<form id="from">
 					Search : <input type="text" id="id" name="id"> 
 					<button type="submit" id="btnSearch" name="Find" style="border: 0; background: transparent">
-    				<img src="img/loupe.PNG" width="20" height="20" alt="submit" />
+    				<img src="vue/img/loupe.PNG" width="20" height="20" alt="submit" />
 					</button>
 					<!--<input type="submit" id="btnSearch" name="Find" value="O">-->
 				</form>
@@ -116,6 +116,6 @@
 	</body>
 
 	<footer>
-		<?php include("elem/elem_pied.php"); ?>
+		<?php include("vue/elem/elem_pied.php"); ?>
 	</footer>
 </html>

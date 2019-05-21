@@ -2,8 +2,8 @@
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
-		<link rel = "stylesheet" href = "style/style.css"/>
-		<link rel = "stylesheet" href = "style/style_admin_stat.css"/>
+		<link rel = "stylesheet" href = "vue/style/style.css"/>
+		<link rel = "stylesheet" href = "vue/style/style_admin_stat.css"/>
 
 	</head>
 	<script>
@@ -69,16 +69,16 @@ var chart1 = new CanvasJS.Chart("chartC", {
 	</script>
 
 	<header>
-		<?php include("elem/elem_entete.php"); ?>
-		<?php include("../modele/connexion.php"); ?>
-		<?php include("../modele/requeteUtilisateur.php"); ?>
+		<?php include("vue/elem/elem_entete.php"); ?>
+		<?php include("modele/connexion.php"); ?>
+		<?php include("modele/requeteUtilisateur.php"); ?>
 	</header>	
 	<input style="display: none;" id="mail"value="<?php echo $_SESSION['mail']; ?>">
 	
 	<body>
 		<div class="container">
 	    	<div id="col1">
-			    	<?php include("elem/elem_menu.php"); ?>
+			    	<?php include("vue/elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
 					<span>Bienvenue </span>
@@ -99,6 +99,6 @@ var chart1 = new CanvasJS.Chart("chartC", {
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 	<footer>
-		<?php include("elem/elem_admin_pied.php"); ?>
+		<?php include("vue/elem/elem_admin_pied.php"); ?>
 	</footer>
 </html>

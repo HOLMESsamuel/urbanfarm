@@ -1,3 +1,3 @@
 <?php
-include "../modele/requeteBoutique.php";
+include "modele/requeteBoutique.php";
 ?>

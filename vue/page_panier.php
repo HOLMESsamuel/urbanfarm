@@ -2,13 +2,13 @@
 <html>
 <head> <meta charset = utf-8>
     <title> Urban Farm</title>
-    <link rel = "stylesheet" href = "style/style.css"/>
-    <link rel = "stylesheet" href = "style/style_panier.css"/>
+    <link rel = "stylesheet" href = "vue/style/style.css"/>
+    <link rel = "stylesheet" href = "vue/style/style_panier.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
     $(document).ready(function(){
         setInterval(function(){
-            $.post('../controleur/ct_trame.php', //envoie par post au fichier controleur
+            $.post('controleur/ct_trame.php', //envoie par post au fichier controleur
                         {
                             
                         },
@@ -22,14 +22,14 @@
     </script>
 </head>
 <header>
-    <?php include("elem/elem_entete.php"); ?>
-    <?php include("../controleur/ct_panier.php"); ?>
+    <?php include("vue/elem/elem_entete.php"); ?>
+    <?php include("controleur/ct_panier.php"); ?>
 </header>
 
 <body>
 <div class="container">
     <div id="col1">
-        <?php include("elem/elem_menu.php"); ?>
+        <?php include("vue/elem/elem_menu.php"); ?>
         <?php
         if(isset($_SESSION['mail'])): ?>
             <style>
@@ -57,7 +57,7 @@
     </div>
     <div id="col2">
 
-        <a href="page_boutique.php">Retour à la boutique</a>
+        <a href="index.php?page=boutique">Retour à la boutique</a>
 
         <table>
             <tr>
@@ -111,6 +111,6 @@
 </body>
 
 <footer>
-    <?php include("elem/elem_pied.php"); ?>
+    <?php include("vue/elem/elem_pied.php"); ?>
 </footer>
 </html>

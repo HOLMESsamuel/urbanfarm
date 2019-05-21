@@ -2,20 +2,20 @@
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
-		<link rel = "stylesheet" href = "style/style.css"/>
-		<link rel = "stylesheet" href = "style/style_profil.css"/>
+		<link rel = "stylesheet" href = "vue/style/style.css"/>
+		<link rel = "stylesheet" href = "vue/style/style_profil.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){ //attend que tout le reste soit chargé
 				$(".sup").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_profil.php', //envoie par post
+				$.post('controleur/ct_profil.php', //envoie par post
 					{
 						modif : "supinstal",
 						installation : this.id
 					},
 					function(data){ //recupere ce qui est envoye par le code php
-						document.location.href="page_profil.php";
+						document.location.href="index.php?page=profil";
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 					);
@@ -23,7 +23,7 @@
 			
 			$("#confirmer").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_profil.php', //envoie par post
+				$.post('controleur/ct_profil.php', //envoie par post
 					{
 						modif : "installation",
 						mail : $("#mail").val(),
@@ -38,14 +38,14 @@
 						ventilateur : $("#ventilateur1").is(":checked")
 					},
 					function(data){ //recupere ce qui est envoye par le code php
-						document.location.href="page_profil.php";
+						document.location.href="index.php?page=profil";
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
 			});
 			$("#confirmerProf").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_profil.php', //envoie par post
+				$.post('controleur/ct_profil.php', //envoie par post
 					{
 						modif : "profil",
 						mail : $("#mail").val(),
@@ -55,27 +55,27 @@
 						
 					},
 					function(data){ //recupere ce qui est envoye par le code php
-						document.location.href="page_profil.php";
+						document.location.href="index.php?page=profil";
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
 			});
 			$("#supCompte").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_profil.php', //envoie par post
+				$.post('controleur/ct_profil.php', //envoie par post
 					{
 						modif : "supProfil",
 						mail : $("#mail").val()
 					},
 					function(data){ //recupere ce qui est envoye par le code php
-						document.location.href="page_accueil.php";
+						document.location.href="index.php?page=accueil";
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 					);
 				});
 			$("#confirmerMdp").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_profil.php', //envoie par post
+				$.post('controleur/ct_profil.php', //envoie par post
 					{
 						mail : $("#mail").val(),
 						modif : "mdp",//transmet la nature du changement a effectuer au controlleur
@@ -93,7 +93,7 @@
 				);
 			});
 			setInterval(function(){
-				$.post('../controleur/ct_trame.php', //envoie par post au fichier controleur
+				$.post('controleur/ct_trame.php', //envoie par post au fichier controleur
 							{
 								
 							},
@@ -107,10 +107,10 @@
 		</script>
 	</head>
 	<header>
-		<?php include("elem/elem_entete.php"); ?>
-		<?php include("../modele/connexion.php"); ?>
-		<?php include("../modele/requeteUtilisateur.php"); ?>
-		<?php include("../modele/requeteInstallation.php"); ?>
+		<?php include("vue/elem/elem_entete.php"); ?>
+		<?php include("modele/connexion.php"); ?>
+		<?php include("modele/requeteUtilisateur.php"); ?>
+		<?php include("modele/requeteInstallation.php"); ?>
 	</header>	
 	<input style="display: none;" id="mail"value="<?php echo $_SESSION['mail']; ?>">
 	<?php
@@ -121,7 +121,7 @@
 	<body>
 		<div class="container">
 			<div id="col1">
-				<?php include("./elem/elem_menu.php"); ?>
+				<?php include("vue/elem/elem_menu.php"); ?>
 			</div>
 			<div id="col2">
 				<div id="messageBienvenue">
@@ -213,9 +213,9 @@
 		</div>
 		
 	</body>
-	<script src="script/script_inscription.js"></script>
-	<script src="script/script_profil.js"></script>
+	<script src="vue/script/script_inscription.js"></script>
+	<script src="vue/script/script_profil.js"></script>
 	<footer>
-		<?php include("elem/elem_pied.php"); ?>
+		<?php include("vue/elem/elem_pied.php"); ?>
 	</footer>
 </html>

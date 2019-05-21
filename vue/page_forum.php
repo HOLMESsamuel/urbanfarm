@@ -2,14 +2,14 @@
 <html>
     <head> <meta charset = utf-8>
         <title> Urban Farm</title>
-        <link rel = "stylesheet" href = "style/style.css"/>
-        <link rel = "stylesheet" href = "style/style_forum.css"/>
+        <link rel = "stylesheet" href = "vue/style/style.css"/>
+        <link rel = "stylesheet" href = "vue/style/style_forum.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
 		$(document).ready(function(){ //attend que tout le reste soit chargé
 			$("#questionSearch").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_forum.php', //envoie par post au fichier controleur
+				$.post('controleur/ct_forum.php', //envoie par post au fichier controleur
 					{
 						id : $("#ques").val()
 					},
@@ -23,8 +23,8 @@
         </script>
     </head>
     <header>
-        <?php include("../controleur/ct_forum.php");?>
-        <?php include("elem/elem_entete.php"); ?>
+        <?php include("controleur/ct_forum.php");?>
+        <?php include("vue/elem/elem_entete.php"); ?>
         <?php 
         if(isset($_SESSION['mail'])): ?>
             <style>
@@ -54,12 +54,12 @@
     <body>
         <div class="container">
          <div id="col1">
-                 <?php include("elem/elem_menu.php"); ?>
+                 <?php include("vue/elem/elem_menu.php"); ?>
         </div>
          <div id="col2">
                         <h2>Aide et Support</h2>
                         <br>
-                        <script src="../vue/script/script_recherche.js"></script>
+                        <script src="script/script_recherche.js"></script>
                         <form method=post action="">
                             <input type="text" name="keywords" size=40 maxlength=400
                              placeholder='Entrez question ici...'
@@ -131,6 +131,6 @@
     </body>
 
     <footer>
-        <?php include("elem/elem_pied.php"); ?>
+        <?php include("vue/elem/elem_pied.php"); ?>
     </footer>
 </html>

@@ -2,15 +2,15 @@
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
-		<link rel = "stylesheet" href = "style/style.css"/>
-		<link rel = "stylesheet" href = "style/style_discussion.css"/>
+		<link rel = "stylesheet" href = "vue/style/style.css"/>
+		<link rel = "stylesheet" href = "vue/style/style_discussion.css"/>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
             $(document).ready(function(){ //attend que tout le reste soit chargé
                 $(".button").click(function(e){
                     e.preventDefault(); //empeche de recherarger la page
-                    $.post('../controleur/ct_discussion.php', //envoie par post au fichier controleur
+                    $.post('controleur/ct_discussion.php', //envoie par post au fichier controleur
                         {
                             id_annonce : this.id,
                             com: $("#com"+this.id).val(),
@@ -24,7 +24,7 @@
                 });
                 $("#btnSujet").click(function(e){
                     e.preventDefault(); //empeche de recherarger la page
-                    $.post('../controleur/ct_discussion.php', //envoie par post au fichier controleur
+                    $.post('controleur/ct_discussion.php', //envoie par post au fichier controleur
                         {
                             com: $("#suj").val(),
                             mail : $("#email").val()
@@ -40,8 +40,8 @@
         
 	</head>
 	<header>
-		<?php include("elem/elem_entete.php"); ?>
-		<?php include("../modele/requeteDiscussion.php"); ?>
+		<?php include("vue/elem/elem_entete.php"); ?>
+		<?php include("modele/requeteDiscussion.php"); ?>
         <?php 
         if(isset($_SESSION['mail'])): ?>
             <style>
@@ -72,12 +72,12 @@
 	<body>
 		<div class="container">
 	    	<div id="col1">
-			    	<?php include("elem/elem_menu.php"); ?>
+			    	<?php include("vue/elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
 				
 			    <?php
-                    include ("../modele/connexion.php");
+                    include ("modele/connexion.php");
                     $req=$bdd->prepare("SELECT * FROM annonce ");
                     $req->execute(array());   
                 while ($row=$req->fetch()): ?>
@@ -124,12 +124,12 @@
 	<footer>
     <?php if (isset($_SESSION['mail'])):?>
         <?php if (substr($_SESSION['mail'], -9)== "@urban.fr"):?>
-		    <?php include("../vue/elem/elem_admin_pied.php"); ?>
+		    <?php include("vue/elem/elem_admin_pied.php"); ?>
         <?php else : ?>
-            <?php include("../vue/elem/elem_pied.php"); ?>
+            <?php include("vue/elem/elem_pied.php"); ?>
         <?php endif ?>
     <?php else : ?>
-		<?php include("../vue/elem/elem_pied.php"); ?>
+		<?php include("vue/elem/elem_pied.php"); ?>
     <?php endif ?>
 	</footer>
 </html>

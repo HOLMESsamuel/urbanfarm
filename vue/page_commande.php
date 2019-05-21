@@ -2,15 +2,15 @@
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
-		<link rel="stylesheet" href="style/style.css"/>
-		<link rel = "stylesheet" href = "style/style_commande.css"/>
+		<link rel="stylesheet" href="vue/style/style.css"/>
+		<link rel = "stylesheet" href = "vue/style/style_commande.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 			$(document).ready(function(){ //attend que tout le reste soit chargé
 				var capteurPattern = /^capteur(\d+)$/ //permet de recuperer le numero qui suit "capteur"
 				var actionneurPattern = /^actionneur(\d+)$/
 			$(".sliderBtnCapteur").click(function(e){
-				$.post('../controleur/ct_commande.php', //envoie par post
+				$.post('controleur/ct_commande.php', //envoie par post
 					{
 						numero : parseInt(this.id.replace(capteurPattern, '$1')),
 						etat : $(this).is(":checked"),
@@ -24,7 +24,7 @@
 				);
 			});
 			$(".sliderBtnActionneur").click(function(e){
-				$.post('../controleur/ct_commande.php', //envoie par post
+				$.post('controleur/ct_commande.php', //envoie par post
 					{
 						numero : parseInt(this.id.replace(actionneurPattern, '$1')),
 						etat : $(this).is(":checked"),
@@ -38,7 +38,7 @@
 				);
 			});
 			setInterval(function(){
-            $.post('../controleur/ct_trame.php', //envoie par post au fichier controleur
+            $.post('controleur/ct_trame.php', //envoie par post au fichier controleur
                         {
                             
                         },
@@ -52,7 +52,7 @@
 		</script>
 	</head>
 	<header>
-		<?php include("elem/elem_entete.php"); ?>
+		<?php include("vue/elem/elem_entete.php"); ?>
 		<input style="display: none;" id="mail"value="<?php echo $_SESSION['mail']; ?>">
 	</header>
 	<body>	
@@ -60,11 +60,11 @@
 	<body>
 		<div class="container">
 	    	<div id="col1">
-				<?php include("elem/elem_menu.php"); ?>
-				<?php include("../modele/connexion.php"); ?>
-				<?php include("../modele/requeteUtilisateur.php"); ?>
-				<?php include("../modele/requeteInstallation.php"); ?>
-				<?php include("../modele/requeteCapteur.php"); ?>
+				<?php include("vue/elem/elem_menu.php"); ?>
+				<?php include("modele/connexion.php"); ?>
+				<?php include("modele/requeteUtilisateur.php"); ?>
+				<?php include("modele/requeteInstallation.php"); ?>
+				<?php include("modele/requeteCapteur.php"); ?>
     		</div>
 
 		    <div id="col2">
@@ -111,6 +111,6 @@
 	</body>
 
 	<footer>
-		<?php include("elem/elem_pied.php"); ?>
+		<?php include("vue/elem/elem_pied.php"); ?>
 	</footer>
 </html>

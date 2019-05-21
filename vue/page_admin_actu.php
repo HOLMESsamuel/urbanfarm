@@ -2,16 +2,16 @@
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
-		<link rel = "stylesheet" href = "style/style.css"/>
-		<link rel = "stylesheet" href = "style/style_actualite.css"/>
-		<link rel = "stylesheet" href = "style/style_admin_actu.css"/>
+		<link rel = "stylesheet" href = "vue/style/style.css"/>
+		<link rel = "stylesheet" href = "vue/style/style_actualite.css"/>
+		<link rel = "stylesheet" href = "vue/style/style_admin_actu.css"/>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
             $(document).ready(function(){ //attend que tout le reste soit chargé
                 $("#btnPub").click(function(e){
                     e.preventDefault(); //empeche de recherarger la page
-                    $.post('../controleur/ct_admin_actu.php', //envoie par post au fichier controleur
+                    $.post('controleur/ct_admin_actu.php', //envoie par post au fichier controleur
                         {
                             titre: $("#titre").val(),
                             cont: $("#cont").val()
@@ -24,7 +24,7 @@
                 });
                 $("#btnSupp").click(function(e){
                     e.preventDefault(); //empeche de recherarger la page
-                    $.post('../controleur/ct_admin_actu.php', //envoie par post au fichier controleur
+                    $.post('controleur/ct_admin_actu.php', //envoie par post au fichier controleur
                         {
                             ref: $("#ref").val()
                         },
@@ -36,7 +36,7 @@
                 });
                 $("#btnMod").click(function(e){
                     e.preventDefault(); //empeche de recherarger la page
-                    $.post('../controleur/ct_admin_actu.php', //envoie par post au fichier controleur
+                    $.post('controleur/ct_admin_actu.php', //envoie par post au fichier controleur
                         {
                             titreM: $("#titreM").val(),
                             contM: $("#contM").val(),
@@ -50,7 +50,7 @@
                 });
                 $("#btnCher").click(function(e){
                     e.preventDefault(); //empeche de recherarger la page
-                    $.post('../controleur/ct_admin_actu.php', //envoie par post au fichier controleur
+                    $.post('controleur/ct_admin_actu.php', //envoie par post au fichier controleur
                         {
                             refM: $("#refM").val()
                         },
@@ -67,18 +67,18 @@
 
 	</head>
 	<header>
-		<?php include("../controleur/ct_actualite.php"); ?>
-		<?php include("elem/elem_entete.php"); ?>
+		<?php include("controleur/ct_actualite.php"); ?>
+		<?php include("vue/elem/elem_entete.php"); ?>
 	</header>	
 	
 	<body>
 		<div class="container">
 	    	<div id="col1">
-			    	<?php include("elem/elem_menu.php"); ?>
+			    	<?php include("vue/elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2"> 
 			<?php
-				include ("../modele/connexion.php");
+				include ("modele/connexion.php");
 				$req=$bdd->prepare("SELECT * FROM article ");
 				$req->execute(array());
 				?>
@@ -134,6 +134,6 @@
 	</body>
 
 	<footer>
-		<?php include("elem/elem_admin_pied.php"); ?>
+		<?php include("vue/elem/elem_admin_pied.php"); ?>
 	</footer>
 </html>

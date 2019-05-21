@@ -2,35 +2,35 @@
 <html>
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
-		<link rel = "stylesheet" href = "style/style.css"/>
-		<link rel = "stylesheet" href = "style/style_admin_forum.css"/>
+		<link rel = "stylesheet" href = "vue/style/style.css"/>
+		<link rel = "stylesheet" href = "vue/style/style_admin_forum.css"/>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
             $(document).ready(function(){ //attend que tout le reste soit chargé
                 $("#button").click(function(e){
                     e.preventDefault(); //empeche de recherarger la page
-                    $.post('../controleur/ct_admin_forum.php', //envoie par post au fichier controleur
+                    $.post('controleur/ct_admin_forum.php', //envoie par post au fichier controleur
                         {
                             ques: $("#ques").val(),
                             reponse: $("#reponse").val()
                         },
                         function(data){ //recupere ce qui envoye par le code php
                             $("#rep").html(data);
-							document.location.href="page_admin_forum.php";
+							document.location.href="index.php?page=admin_forum";
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
                     );
                 });
                 $("#buttonSupp").click(function(e){
                     e.preventDefault(); //empeche de recherarger la page
-                    $.post('../controleur/ct_admin_forum.php', //envoie par post au fichier controleur
+                    $.post('controleur/ct_admin_forum.php', //envoie par post au fichier controleur
                         {
                             ref: $("#ref").val()
                         },
                         function(data){ //recupere ce qui envoye par le code php
                             $("#rep").html(data);
-							document.location.href="page_admin_forum.php";
+							document.location.href="index.php?page=admin_forum";
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
                     );
@@ -39,18 +39,18 @@
         </script>
 	</head>
 	<header>
-		<?php include("elem/elem_entete.php"); ?>
+		<?php include("vue/elem/elem_entete.php"); ?>
 	</header>	
 	
 	<body>
 		<div class="container">
 	    	<div id="col1">
-			    	<?php include("elem/elem_menu.php"); ?>
+			    	<?php include("vue/elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
 				
 			<?php
-				include ("../modele/connexion.php");
+				include ("modele/connexion.php");
 				$req=$bdd->prepare("SELECT * FROM questions ");
 				$req->execute(array());
 				?>
@@ -94,6 +94,6 @@
 	</body>
 
 	<footer>
-		<?php include("elem/elem_admin_pied.php"); ?>
+		<?php include("vue/elem/elem_admin_pied.php"); ?>
 	</footer>
 </html>

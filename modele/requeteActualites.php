@@ -1,5 +1,4 @@
 <?php
-    include("connexion.php");
 
     /**
      * recupere le contennu de l'article dont le titre est celui entré en paramètre
