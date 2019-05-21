@@ -136,7 +136,7 @@ function majData($bdd){
     }
 }
 
-majData($bdd);
+
 
 //a partir d'ici les fonction sont utilisées pour envoyer des trames
 
@@ -159,7 +159,7 @@ function envoieTrame(String $trame){
     echo $content;
 }
 
-envoieTrame("113450035000174");
+
 
 
 
