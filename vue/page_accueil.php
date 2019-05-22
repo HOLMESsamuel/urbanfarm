@@ -6,7 +6,8 @@
 		<link rel = "stylesheet" href = "vue/style/style.css"/>
 		<link rel = "stylesheet" href = "vue/style/style_accueil.css"/>
 		<?php include("controleur/ct_actualite.php"); ?>
-	</head>
+        <?php include("controleur/ct_boutique.php"); ?>
+    </head>
 	
 	<header>
 		<?php include("vue/elem/elem_entete.php"); ?>
@@ -59,26 +60,31 @@
 					<div id="col3">
 						<h2>Nos best-sellers</h2>
 						<div class="box_product">
-							<!-- intitule du produit -->
-							<h1>Lorem Ipsum</h1>
-							<!-- numero de reference -->
-							<h3 class="ref">ref 0000</h3>
-							<!-- contenu descriptif du produit -->
-							<div class="information">
-								<!-- case representant la photo du produit -->
-								<div class="photo">
-								</div>
-								<!-- description du produit -->
-								<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-									incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-									ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-								<!-- partie liee a l'achat -->
+                            <?php
+                            $produit = getRandomProduit($bdd)->fetch();
+
+                            $type = $produit['type'];
+                            $ref = $produit['n°produit'];
+                            $description = $produit['description'];
+                            if (strlen($description) > 20) {
+                                $description = substr($description,0,64) . "...";
+                            }
+                            $prix = $produit['prix'];
+                            echo
+                            //inititule du produit
+                            '<h1>' . $type . '</h1>' .
+                            //numero de reference
+                            '<h3 class = "ref">ref. ' . $ref . '</h3>' .
+                            //contenu descriptif du produit
+                            '<div class="information">
+                                <img class="photo_produit" src="vue/img/'.strtolower($type).'.jpg" width="150" height="150">
+                                <p class="description">' . $description . '</p>
 								<div class="achat">
-									<!-- prix du produit -->
-									<h2>00,00€</h2>
+									<h2>' . number_format($prix,2,",","") . '€</h2>
 								</div>
-							</div>
-						</div>
+                            </div>';
+                            ?>
+                        </div>
 					</div>
 					<div id="col4">
 						<h2>Une equipe surmotivée pour vous repondre !</h2>
