@@ -1,8 +1,10 @@
 <?php
 include 'connexion.php';
 
-$req = $bdd->query('SELECT * FROM produit');
-
+function getProduits(PDO $bdd) {
+    $req = $bdd->query('SELECT * FROM produit');
+    return $req;
+}
 
 
 ?>
