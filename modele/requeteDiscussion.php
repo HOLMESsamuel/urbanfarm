@@ -5,7 +5,7 @@
         $row = $req->fetch();
         echo $row['sujet'];
         echo "<br>";
-        echo "posté par ".$row['mail_utilisateur'];
+        echo "posté par ".$row['mail_utilisateur']; 
     }
     
     function recupereCom(PDO $bdd, String $id_annonce) {
