@@ -76,7 +76,7 @@
     		</div>
 		    <div id="col2">
 				
-			    <?php
+			    <?php 
                     include ("modele/connexion.php");
                     $req=$bdd->prepare("SELECT * FROM annonce ");
                     $req->execute(array());   

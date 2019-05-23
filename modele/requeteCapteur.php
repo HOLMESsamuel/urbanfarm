@@ -50,8 +50,4 @@
         }
     }
 
-    function ajoutData(PDO $bdd, String $numero, String $valeur){
-        $req = $bdd->prepare("INSERT INTO data(n°data, valeur) VALUES(?,?)");
-        $req->execute(array($numero, $valeur));
-    }
 ?>

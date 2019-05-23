@@ -102,7 +102,7 @@
 							},
 							"text" //a mettre pour pouvoir recuperer du texte
 				);}
-			, 60000);
+			, 100000);
 		});
 		</script>
 	</head>
