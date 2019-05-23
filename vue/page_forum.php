@@ -5,26 +5,11 @@
         <link rel = "stylesheet" href = "vue/style/style.css"/>
         <link rel = "stylesheet" href = "vue/style/style_forum.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-       <script>
-		$(document).ready(function(){ //attend que tout le reste soit chargé
-			$("#questionSearch").click(function(e){
-				e.preventDefault(); //empeche de recherarger la page
-				$.post('controleur/ct_forum.php', //envoie par post au fichier controleur
-					{
-						id : $("#ques").val()
-					},
-					function(data){ //recupere ce qui envoye par le code php
-						$("#rep").html(data);
-					},
-					"text" //a mettre pour pouvoir recuperer du texte
-				);
-			});
-		});
-        </script>
+       
     </head>
     <header>
-        <?php include("controleur/ct_forum.php");?>
         <?php include("vue/elem/elem_entete.php"); ?>
+        <?php include("modele/requeteForum.php"); ?>
         <?php 
         if(isset($_SESSION['mail'])): ?>
             <style>
@@ -59,16 +44,7 @@
          <div id="col2">
                         <h2>Aide et Support</h2>
                         <br>
-                        <script src="script/script_recherche.js"></script>
-                        <form method=post action="">
-                            <input type="text" name="keywords" size=40 maxlength=400
-                             placeholder='Entrez question ici...'
-                             onkeyup="xmlhttp(this.value)"/>
-                        <input type="submit" name=gcrech value="Recherchez" />
-                        </form>
-                        <br>
-                        <p><span id="urbanfarm.sql"></span></p>
-
+                        
                         <div id="questionlist">
                             <?php
                             include ("modele/connexion.php");
