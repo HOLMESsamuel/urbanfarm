@@ -10,26 +10,26 @@
 		$(document).ready(function(){ //attend que tout le reste soit chargé
 			$(".confirmation").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_gestion.php', //envoie par post
+				$.post('controleur/ct_gestion.php', //envoie par post
 					{
 						commande : "confirmation",
 						mail : this.id //recupere les valueurs par id
 					},
 					function(data){ //recupere ce qui envoye par le code php
-						document.location.href="page_admin_gestionUtilisateurs.php";
+						document.location.href="index.php?page=admin_gestionUtilisateurs";
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
 			});
 			$(".supression").click(function(e){
 				e.preventDefault(); //empeche de recherarger la page
-				$.post('../controleur/ct_gestion.php', //envoie par post
+				$.post('controleur/ct_gestion.php', //envoie par post
 					{
 						commande : "supression",
 						mail : this.id 
 					},
 					function(data){ //recupere ce qui envoye par le code php
-						document.location.href="page_admin_gestionUtilisateurs.php";
+						document.location.href="index.php?page=admin_gestionUtilisateurs";
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
