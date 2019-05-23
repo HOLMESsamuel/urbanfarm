@@ -5,86 +5,55 @@
 		<link rel = "stylesheet" href = "vue/style/style.css"/>
 		<link rel = "stylesheet" href = "vue/style/style_consommation.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 		<script>
+		
 		$(document).ready(function(){
+			$("#combobox").change(function(){
+				capteur = this.val(),
+			});
+			
+			function  graphe(tab){
+				var ctx = document.getElementById('myChart').getContext('2d');
+				var chart = new Chart(ctx, {
+					// The type of chart we want to create
+					type: 'line',
+
+					// The data for our dataset
+					data: {
+						labels: [tab[0][0], '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+						datasets: [{
+							label: 'My First dataset',
+							backgroundColor: 'rgb(255, 229, 153)',
+							borderColor: 'rgb(182, 215, 168)',
+							data: [tab[0][1], 10, 5, 2, 20, 30, 45]
+						}]
+					},
+
+					// Configuration options go here
+					options: {}
+				});
+				}
 			setInterval(function(){
 				$.post('controleur/ct_trame.php', //envoie par post au fichier controleur
 							{
 								
 							},
 							function(data){ //recupere ce qui envoye par le code php
-								console.log(data);
+								graphe([[12,5]]);
 							},
 							"text" //a mettre pour pouvoir recuperer du texte
 				);}
-			, 60000);
+			, 10000);
 		});
-		</script>
-		<script>
-window.onload = function () {
-
-var dps = [];
-var chart = new CanvasJS.Chart("chartContainer", {
-	exportEnabled: true,
-	title :{
-		text: "Données des 24 dernières heures"
-	},
-	axisX: {
-		type: 'time'
-	},
-  	time: {
-    	format: "HH:mm",
-   	 	unit: 'hour',
-	    unitStepSize: 1,
-	    displayFormats: {
-	      	'minute': 'HH:mm', 
-	      	'hour': 'HH:mm', 
-	      	min: '00:00',
-	      	max: '23:59'
-	    },
-	},
-	axisY: {
-		includeZero: false
-	},
-	data: [{
-		type: "spline",
-		markerSize: 0,
-		dataPoints: dps 
-	}]
-});
-
-//var xVal = new Date().setHours(xVal.getHours() -24);
-var today = new Date();
-today.setHours(today.getHours() -24);
-var xVal = new Date(today.getTime());
-var yVal = 100;
-var updateInterval = 3000; // temps avant mise a jour
-var dataLength = 24; // number of dataPoints visible at any point
-
-var updateChart = function (count) {
-	count = count || 1;
-	// count is number of times loop runs to generate random dataPoints.
-	for (var j = 0; j < count; j++) {	
+		function test(){
+			var capteur = document.getElementById("mail").value;
+			console.log(capteur);
+		}
 		
-		yVal = yVal + Math.round(5 + Math.random() *(-10));
-		dps.push({
-			x: xVal,
-			y: yVal
-		});
-		xVal = new Date(xVal.getTime());
-		xVal.setHours(xVal.getHours() +1);
-	}
-	if (dps.length > dataLength) {
-		dps.shift();
-	}
-	chart.render();
-};
-
-updateChart(dataLength); 
-setInterval(function(){ updateChart() }, updateInterval); 
-
-}
-</script>
+		</script>
+		
+		
 	</head>
 
 	<header>
@@ -102,30 +71,45 @@ setInterval(function(){ updateChart() }, updateInterval);
 			<?php 
 				include("modele/connexion.php"); 
 				include("modele/requeteCapteur.php"); 
+				include("modele/requeteInstallation.php");
 			
-     			$requete = "SELECT * FROM capteur";
-				$query = $bdd->query($requete);
+     			$requete = $bdd->prepare( "SELECT * FROM capteur INNER JOIN installation ON capteur.n°installation = installation.n°installation WHERE email=?");
+				$requete->execute(array($_SESSION["mail"]));
 				$results = new ArrayObject(array());
-				while ( $res =  $query->fetch() )
+				$valeur = "";
+				while ( $res =  $requete->fetch() )
 				{
-     				$results->append($res['type']." - ".$res['n°installation']);
+					 $results->append($res[1]." - ".recupereInfoInstallation($bdd, "nom", $res['n°installation']));
 				}
+
+				$requete = $bdd->prepare( "SELECT * FROM capteur INNER JOIN installation ON capteur.n°installation = installation.n°installation
+				INNER JOIN data ON data.n°capteur = capteur.n°capteur WHERE email=?");
+				$requete->execute(array($_SESSION["mail"]));
+				$valeur = "";
+				while ( $res =  $requete->fetch() )
+				{
+					$valeur = $valeur.$res["timestamp"]." ".$res["valeur"]." ";
+				}
+				
+			
 			?>
+			<input style="display: none;" id="mail"value="<?php echo $valeur ?>">
 			<select name="the_name" id="combobox">
      			<?php foreach ( $results as $option ) :
 					echo "<option>".$option."</option>";
      			endforeach; ?>
 			</select>
-
-			
-			<div id="chartContainer"></div>				
-			
+			<div id="chartContainer">			
+				<canvas id="myChart"></canvas>
 	    	</div>
+			</div>
+			
 		</div>
 	</body>
 	<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 	<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 	<script src="vue/script/script_consommation.js"></script>
+	
 
 	<footer>
 		<?php include("vue/elem/elem_pied.php"); ?>

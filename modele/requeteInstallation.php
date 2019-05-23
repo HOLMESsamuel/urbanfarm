@@ -20,6 +20,13 @@
         $row = $req->fetch();
         return $row[$info];
     }
+    
+    function recupereInfoInstallation(PDO $bdd, String $info, String $numero): String {
+        $req = $bdd->prepare("SELECT ".$info." FROM installation WHERE n°installation=?");
+        $req->execute(array($numero));
+        $row = $req->fetch();
+        return $row[$info];
+    }
 
     function recupereCapteurInstall(PDO $bdd, String $numero) {
         $req = $bdd->prepare("SELECT type FROM capteur WHERE n°installation=?");

@@ -1,14 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
-
-#chartContainer{
-    
+#chartContainer {
     font-family: 'Roboto Slab', serif;
-    height: 400px; 
     width: 100%;
 }
 
-#combobox{
-    height: 20px; 
-    width: 100px;
-
+#combobox {
+    height: 20px;
+    width: 200px;
 }

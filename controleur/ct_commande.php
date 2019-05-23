@@ -51,4 +51,7 @@ try {
 } catch(Exception $e){
     echo $e;
 }
+
+$date = date('YmdHis', time()); 
+echo $date;
 ?>
