@@ -21,6 +21,10 @@
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
 			});
+			$("#nouvelUtilisateur").click(function(e){
+				e.preventDefault();
+				document.location.href = "index.php?page=inscription";
+			});
 		});
 </script>
 <div id="nav">
@@ -38,8 +42,8 @@
 		</p>
 	</form>
 	<br/>
-	<form action="page_inscription.php">
-		<input type="submit" class="entree" value="Nouvel Utilisateur">
+	<form  action="index.php?page=inscription" method="get">
+		<input type="submit" id="nouvelUtilisateur" name="nouvelUtilisateur" class="entree" value="Nouvel Utilisateur">
 	</form>
 	</div>
 	</h3>

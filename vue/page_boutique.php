@@ -44,7 +44,9 @@
 
         <a href="index.php?page=panier">Votre panier</a>
 
-        <?php while ($produit = $req->fetch()) {
+        <?php
+        $produits = getProduits($bdd)->fetchAll();
+        foreach ($produits as $produit) {
             $type = $produit['type'];
             $ref = $produit['n°produit'];
             $prix = number_format($produit['prix'],2,',',' ');
