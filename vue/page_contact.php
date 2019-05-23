@@ -89,13 +89,13 @@
 
 			<div id="col3">
 				<h3> Où nous retrouver ? </h3>
-				<a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal" onclick="window.open(this.href); return false;"><img src="vue/img/facebook-logo.png" width=40 class="logo" ></a>
+				<a href="https://fr-fr.facebook.com/" onclick="window.open(this.href); return false;"><img src="vue/img/facebook-logo.png" width=40 class="logo" ></a>
 				<br>
-				<a href=""><img src="vue/img/instagram_logo.png" width=40 class="logo" ></a>
+				<a href="https://www.instagram.com/?hl=fr" onclick="window.open(this.href); return false;"><img src="vue/img/instagram_logo.png" width=40 class="logo" ></a>
 				<br>
-				<a href=""><img src="vue/img/linkedin.png" width=55 class="logo" ></a>
+				<a href="https://fr.linkedin.com/" onclick="window.open(this.href); return false;"><img src="vue/img/linkedin.png" width=55 class="logo" ></a>
 				<br>
-				<a href=""><img src="vue/img/twitter_logo.png" width=75 class="logo" ></a>
+				<a href="https://twitter.com/" onclick="window.open(this.href); return false;"><img src="vue/img/twitter_logo.png" width=75 class="logo" ></a>
 
 			</div>
 		</div>
