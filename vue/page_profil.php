@@ -3,7 +3,7 @@
 	<head> <meta charset = utf-8>
 		<title> Urban Farm</title>
 		<link rel = "stylesheet" href = "vue/style/style.css"/>
-		<link rel = "stylesheet" href = "vue//stylestyle_profil.css"/>
+		<link rel = "stylesheet" href = "vue/style/style_profil.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){ //attend que tout le reste soit chargé
