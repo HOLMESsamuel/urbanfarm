@@ -10,7 +10,7 @@
     function showcontenu(PDO $bdd, String $n_question) {
         $requete = $bdd->prepare("SELECT * FROM questions WHERE n_question=?");
         $requete->execute(array($n_question));
-        $row = $req->fetch();
+        $row = $requete->fetch();
             echo $row['contenu'];
     }
 ?>
