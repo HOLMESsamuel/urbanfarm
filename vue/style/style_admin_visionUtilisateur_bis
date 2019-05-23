@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 200;
+}
+
+body {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 120px;
+}
+
+header {
+    background-color: #B6D7A8;
+    border-bottom: 1px black solid;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+}
+
+.container {
+    min-height: 06%;
+    margin: 15px;
+    padding-bottom: 96px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-column: 1fr 3fr 3fr ;
+    grid-template-columns: 1fr 3fr 3fr;
+}
+
+#col1 {
+    -ms-grid-column: 1;
+    min-height: 100%;
+    height: 100%;
+    margin: 0px 5px;
+    background-color: rgb(241, 241, 241);
+  
+}
+
+#col2 {
+    -ms-grid-column: 2;
+    margin: 0px 5px;
+    min-height: 100%;
+    height: 120%;
+    display: inline-block;
+
+
+}
+#col3 {
+     -ms-grid-column: 3;
+    margin: 0px 5px;
+    min-height: 100%;
+    height: 120%;
+    display: inline-block;
+
+}
+
+footer {
+    background-color: #FFE599;
+    border-top: 1px black solid;
+    clear: both;
+    text-align: center;
+    height: 96px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.textGestionUtilisateur{
+    text-align: center;
+
+
+
+}
+
+.con {
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.bou {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 1;
+    grid-row: 1;
+}
+
+.for {
+    -ms-grid-column: 3;
+    grid-column: 3;
+    -ms-grid-row: 1;
+    grid-row: 1;
+}
+
+.act {
+    -ms-grid-column: 4;
+    grid-column: 4;
+    -ms-grid-row: 1;
+    grid-row: 1;
+}
+
+.dis {
+    -ms-grid-column: 5;
+    grid-column: 5;
+    -ms-grid-row: 1;
+    grid-row: 1;
+}
+
+.admin_bou {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    grid-row: 1;
+}
+
+.admin_for {
+    -ms-grid-column: 2;
+    grid-column: 2;
+    -ms-grid-row: 1;
+    grid-row: 1;
+}
+
+.admin_act {
+    -ms-grid-column: 3;
+    grid-column: 3;
+    -ms-grid-row: 1;
+    grid-row: 1;
+}
+
+.admin_dis {
+    -ms-grid-column: 4;
+    grid-column: 4;
+    -ms-grid-row: 1;
+    grid-row: 1;
+}
+
+#image {
+    margin: 10px;
+    display: inline-block;
+}
+
+#nav {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#formulaire {
+    text-align: center;
+    margin: 15px auto;
+    display: none;
+    transition: 0.5s;
+}
+
+#formulaire input {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid gray;
+    width: 80%;
+    margin: 10px auto;
+}
+
+input {
+    cursor: pointer;
+}
+
+.entree:hover {
+    background-color: grey;
+    color: white;
+    transition: 0.3s ease;
+}
+
+#menu {
+    text-align: center;
+    margin: 90px auto;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.bouton {
+    cursor: pointer;
+    position: relative;
+    width: 60%;
+    left: 50%;
+    top: 150px;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    border: 1px solid gray;
+    margin: 40px auto;
+    padding: 10px;
+    color: black;
+}
+
+.bouton:hover {
+    background-color: grey;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.erreur {
+    height: 60px;
+    width: 80%;
+    margin: 0px auto;
+    color: red;
+}
+
+#btn_accueil {
+    cursor: pointer;
+}
+
+#connexion {
+    float: left;
+    cursor: pointer;
+    margin-top: 35px;
+    margin-left: 30px;
+    padding: 3px;
+    border: 1px solid black;
+    transition: 0.5s;
+}
+
+#connexion:hover {
+    background: rgb(145, 182, 129);
+}
+
+#connexion:hover #formulaire {
+    display: block;
+}
+
+#panier {
+    position: absolute;
+    top: 35px;
+    right: 55px;
+    cursor: pointer;
+}
+
+#deconnecte {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 580px) {
+    .container {
+        display: block;
+        text-align: center;
+    }
+    #connexion {
+        margin-top: 110px;
+        text-align: center;
+        background-color: #B6D7A8;
+    }
+}

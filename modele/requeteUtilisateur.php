@@ -100,11 +100,11 @@
         $req->execute(array($mdp, $mail));
     }
 
-    function estConfirme(PDO $bdd, String $mail): bool {
-        $req = $bdd->prepare("SELECT * FROM utilisateur WHERE email=? AND etat=?");
-        $req->execute(array($mail, "confirme"));
+    function estConfirme(PDO $bdd): Int {
+        $req = $bdd->prepare("SELECT * FROM utilisateur WHERE etat=?");
+        $req->execute(array( "confirme"));
         $exist = $req->rowCount();
-        return ($exist == 1);
+        return $exist;
     }
 
     function nonConfirme(PDO $bdd): Int {
@@ -125,6 +125,18 @@
         $row = $req->fetch();
         return $row[$info];
     }
+     function recupereInfoEstConfirme(PDO $bdd, String $info, Int $numero): String{
+        $req = $bdd->prepare("SELECT ".$info." FROM utilisateur WHERE etat=?");
+        $n = 0;
+        $req->execute(array("confirme"));
+        while ($n<$numero){
+            $row = $req->fetch();
+            $n = $n+1; 
+        }
+        $row = $req->fetch();
+        return $row[$info];
+    }
+
 
     function confirmation(PDO $bdd, String $mail){
         $req = $bdd->prepare("UPDATE utilisateur SET etat=? WHERE email=?");
