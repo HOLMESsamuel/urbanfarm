@@ -26,7 +26,10 @@ function modifieProduitPanier() {
 }
 
 function supprimeProduitPanier() {
-
+    if (isset($_GET['supprimer'])) {
+        $ref = htmlspecialchars($_GET['supprimer']);
+        unset($_SESSION['panier'][$ref]);
+    }
 }
 
 ?>

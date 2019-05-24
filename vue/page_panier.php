@@ -63,6 +63,7 @@
 
         creePanier(); //crée le panier
         ajouteProduitPanier(); //ajoute le produit ajouté depuis la boutique
+        supprimeProduitPanier();
 
         $panier = $_SESSION['panier'];
 
@@ -100,14 +101,20 @@
                 <td class="description">'.$description.'</td>
                 <td class="prix">' . number_format($prix, 2,',',' ') .'€</td>
                 <td class="quantite">'.$quantite.'</td>
-                <td class="montant">' . number_format($montant, 2,',',' ') . '€</td>
+                <td class="montant">' . number_format($montant, 2,',',' ') . '€
+                <a class="supprimer" href="index.php?page=panier&supprimer=' . $ref .'">X</a>
+                </td>
+                
                 </tr>';
+
+
+
 
                 $total += $quantite * $prix;
             }
+
         echo
         '</table>
-
         <h2>
             Total  : ' . number_format($total,2,',',' ') . '€
         </h2>
