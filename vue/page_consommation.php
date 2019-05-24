@@ -10,11 +10,25 @@
 		
 		$(document).ready(function(){
 			$("#combobox").change(function(){
-				capteur = this.val(),
+				$.post('controleur/ct_consommation.php', //envoie par post au fichier controleur
+							{
+								capteur : $("#combobox").val(),	
+							},
+							function(data){ //recupere ce qui envoye par le code php
+								var longueur = data.length;
+								for(var i=0; i<longueur; i++){
+									data[i] = data[i].split("-");
+								}
+								graphe(data, longueur);
+							},
+							"json" 
+				);
+				
 			});
 			
-			function  graphe(tab){
+			function  graphe(tab, longueur){
 				var ctx = document.getElementById('myChart').getContext('2d');
+				
 				var chart = new Chart(ctx, {
 					// The type of chart we want to create
 					type: 'line',
@@ -40,16 +54,13 @@
 								
 							},
 							function(data){ //recupere ce qui envoye par le code php
-								graphe([[12,5]]);
+			
 							},
 							"text" //a mettre pour pouvoir recuperer du texte
 				);}
 			, 10000);
 		});
-		function test(){
-			var capteur = document.getElementById("mail").value;
-			console.log(capteur);
-		}
+
 		
 		</script>
 		
@@ -79,21 +90,9 @@
 				$valeur = "";
 				while ( $res =  $requete->fetch() )
 				{
-					 $results->append($res[1]." - ".recupereInfoInstallation($bdd, "nom", $res['n°installation']));
+					 $results->append($res[1]."-".recupereInfoInstallation($bdd, "nom", $res['n°installation'])."-".$res['n°capteur']);
 				}
-
-				$requete = $bdd->prepare( "SELECT * FROM capteur INNER JOIN installation ON capteur.n°installation = installation.n°installation
-				INNER JOIN data ON data.n°capteur = capteur.n°capteur WHERE email=?");
-				$requete->execute(array($_SESSION["mail"]));
-				$valeur = "";
-				while ( $res =  $requete->fetch() )
-				{
-					$valeur = $valeur.$res["timestamp"]." ".$res["valeur"]." ";
-				}
-				
-			
 			?>
-			<input style="display: none;" id="mail"value="<?php echo $valeur ?>">
 			<select name="the_name" id="combobox">
      			<?php foreach ( $results as $option ) :
 					echo "<option>".$option."</option>";
