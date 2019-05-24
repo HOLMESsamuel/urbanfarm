@@ -5,6 +5,7 @@ session_start();
  
 //on se connecte à la bdd
 include("modele/connexion.php");
+include("controleur/ct_visite.php");
  
  
 //On inclut la vue si elle existe et si elle est spécifiée

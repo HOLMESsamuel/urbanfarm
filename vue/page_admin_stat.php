@@ -81,9 +81,10 @@ var chart1 = new CanvasJS.Chart("chartC", {
 			    	<?php include("vue/elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
+				<?php include("controleur/ct_stat.php"); ?>
 					<span>Bienvenue </span>
 					<?php echo recupereInfo($bdd, $_SESSION['mail'], "prenom"); ?>
-					<span><br>Il y a actuelment </span>
+					<span><br>Il y a actuellement </span>
 					<?php echo countUtilisateur($bdd); ?>
 					<span> personnes inscrites (dont </span>
 					<?php echo countAdmin($bdd); ?>
