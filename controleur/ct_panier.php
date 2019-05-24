@@ -3,7 +3,6 @@ include "modele/requetePanier.php";
 
 function creePanier() {
     if (!isset($_SESSION['panier'])) {
-
         $_SESSION['panier'] = array();
         //$_SESSION['panier']['ref'] = array();
         /*
@@ -17,12 +16,7 @@ function creePanier() {
 
 }
 
-
-//is_numeric
 function ajouteProduitPanier() {
-
-    creePanier();
-
     if (isset($_GET['ref']) && isset($_POST['quantite'])) {
         $ref = htmlspecialchars($_GET['ref']);
         $quantite = htmlspecialchars($_POST['quantite']);

@@ -57,9 +57,20 @@
     </div>
     <div id="col2">
 
-        <a href="index.php?page=boutique">Retour à la boutique</a>
+        <a href="index.php?page=boutique">Retour à la boutique</a><br>
 
-        <table>
+        <?php
+
+        creePanier(); //crée le panier
+        ajouteProduitPanier();
+
+        $panier = $_SESSION['panier'];
+
+        //si le panier n'est pas vide
+        if (!empty($panier)) {
+            //affiche les produits ajoutés au panier
+            echo
+            '<table>
             <tr>
                 <th>ref.</th>
                 <th>type</th>
@@ -67,11 +78,8 @@
                 <th>prix</th>
                 <th>quantité</th>
                 <th>montant</th>
-            </tr>
+            </tr>';
 
-            <?php
-            ajouteProduitPanier();
-            $panier = $_SESSION['panier'];
             $total = 0;
 
             foreach ($panier as $ref => $quantite) {
@@ -95,16 +103,23 @@
                 </tr>';
 
                 $total += $quantite * $prix;
-            } ?>
-        </table>
+            }
+        echo
+        '</table>
 
         <h2>
-            Total  :  <?php echo number_format($total,2,',',' ')?>€
+            Total  : ' . number_format($total,2,',',' ') . '€
         </h2>
 
         <p align="right">
             <button>Passer à la caisse</button>
-        </p>
+        </p>';
+
+        } else {
+            echo '<p align="center">Votre panier est vide</p>';
+        }
+
+        ?>
 
     </div>
 </div>
