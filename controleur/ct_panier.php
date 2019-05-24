@@ -17,7 +17,11 @@ function ajouteProduitPanier() {
     if (isset($_GET['ref']) && isset($_POST['quantite'])) {
         $ref = htmlspecialchars($_GET['ref']);
         $quantite = htmlspecialchars($_POST['quantite']);
-        $_SESSION['panier'][$ref] = $quantite;
+        if (isset($_SESSION['panier'][$ref])) {
+            $_SESSION['panier'][$ref] += $quantite;
+        } else {
+            $_SESSION['panier'][$ref] = $quantite;
+        }
     }
 }
 
