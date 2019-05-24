@@ -10,6 +10,16 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding-top: 120px;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+body::after {
+    content: '';
+    display: block;
+    height: 96px;
+    /* Set same as footer's height */
 }
 
 header {
@@ -49,15 +59,18 @@ header {
 }
 
 footer {
+    position: absolute;
     background-color: rgb(255, 229, 153);
     border-top: 1px black solid;
     clear: both;
     text-align: center;
     height: 96px;
+    width: 100%;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    bottom: 0;
 }
 
 .con {
