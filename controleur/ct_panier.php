@@ -32,6 +32,10 @@ function modifieProduitPanier() {
     if (isset($_GET['moins'])) {
         $ref = htmlspecialchars($_GET['moins']);
         $_SESSION['panier'][$ref] -= 1; //decremente la quantite de l'article
+        //si la quantite est nulle
+        if ($_SESSION['panier'][$ref] == 0) {
+            unset($_SESSION['panier'][$ref]); //supprime l'article du panier
+        }
     }
 }
 
