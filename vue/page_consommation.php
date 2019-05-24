@@ -28,6 +28,25 @@
 			
 			function  graphe(tab, longueur){
 				var ctx = document.getElementById('myChart').getContext('2d');
+				var label = [];
+				var data = [];
+				for(var i = 0; i<longueur; i++){
+					var  time = tab[i][0];
+					tab[i][0] = time.slice(6,8)+"/"+time.slice(4,6)+" "+time.slice(6,8)
+					+":"+time.slice(8,10);
+				}
+				if(longueur <5){
+					for(var i = 0; i<longueur; i++){
+						label.push(tab[i][0]);
+						data.push(tab[i][1]);
+					}
+				} else {
+					for(var i = longueur-5; i<longueur; i++){
+						label.push(tab[i][0]);
+						data.push(tab[i][1]);
+					}
+				}
+				
 				
 				var chart = new Chart(ctx, {
 					// The type of chart we want to create
@@ -35,12 +54,12 @@
 
 					// The data for our dataset
 					data: {
-						labels: [tab[0][0], '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+						labels: label,
 						datasets: [{
-							label: 'My First dataset',
+							label: 'Vos données les plus récentes',
 							backgroundColor: 'rgb(255, 229, 153)',
 							borderColor: 'rgb(182, 215, 168)',
-							data: [tab[0][1], 10, 5, 2, 20, 30, 45]
+							data: data
 						}]
 					},
 
