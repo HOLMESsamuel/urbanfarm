@@ -61,9 +61,10 @@
 
         <?php
 
-        creePanier(); //crée le panier
-        ajouteProduitPanier(); //ajoute le produit ajouté depuis la boutique
+        creePanier(); //cree le panier
+        ajouteProduitPanier(); //ajoute le produit ajoute depuis la boutique
         supprimeProduitPanier();
+        modifieProduitPanier();
 
         $panier = $_SESSION['panier'];
 
@@ -83,7 +84,7 @@
 
             $total = 0;
 
-            //affiche les produits ajoutés au panier
+            //affiche les produits ajoutes au panier
             foreach ($panier as $ref => $quantite) {
                 $produit = getProduit($bdd,$ref)->fetch();
                 $type = $produit['type'];
@@ -100,9 +101,14 @@
                 <td class="type">'.$type.'</td>
                 <td class="description">'.$description.'</td>
                 <td class="prix">' . number_format($prix, 2,',',' ') .'€</td>
-                <td class="quantite">'.$quantite.'</td>
-                <td class="montant">' . number_format($montant, 2,',',' ') . '€
-                <a class="supprimer" href="index.php?page=panier&supprimer=' . $ref .'">X</a>
+                <td class="quantite">' .
+                    $quantite .
+                    '<a class="plus" href="index.php?page=panier&plus=' . $ref .'">+</a> / 
+                     <a class="moins" href="index.php?page=panier&moins=' . $ref .'">_</a> 
+                </td>
+                <td class="montant">' .
+                    number_format($montant, 2,',',' ') . '€
+                    <a class="supprimer" href="index.php?page=panier&supprimer=' . $ref .'">X</a>
                 </td>
                 
                 </tr>';

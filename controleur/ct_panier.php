@@ -21,10 +21,23 @@ function ajouteProduitPanier() {
     }
 }
 
+/**
+ * modifie la quantite d'un article du panier
+ */
 function modifieProduitPanier() {
-
+    if (isset($_GET['plus'])) {
+        $ref = htmlspecialchars($_GET['plus']);
+        $_SESSION['panier'][$ref] += 1; //incremente la quantite de l'acticle
+    }
+    if (isset($_GET['moins'])) {
+        $ref = htmlspecialchars($_GET['moins']);
+        $_SESSION['panier'][$ref] -= 1; //decremente la quantite de l'article
+    }
 }
 
+/**
+ * supprime un article du panier
+ */
 function supprimeProduitPanier() {
     if (isset($_GET['supprimer'])) {
         $ref = htmlspecialchars($_GET['supprimer']);
