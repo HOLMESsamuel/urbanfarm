@@ -1,21 +1,18 @@
 <?php
-include "modele/requetePanier.php";
+include "modele/requeteProduit.php";
 
+/**
+ * cree la panier
+ */
 function creePanier() {
     if (!isset($_SESSION['panier'])) {
         $_SESSION['panier'] = array();
-        //$_SESSION['panier']['ref'] = array();
-        /*
-        $_SESSION['panier']['type'] = array();
-        $_SESSION['panier']['description'] = array();
-        $_SESSION['panier']['prix'] = array();
-
-        $_SESSION['panier']['quantite'] = array();
-        */
     }
-
 }
 
+/**
+ * ajoute un produit au panier
+ */
 function ajouteProduitPanier() {
     if (isset($_GET['ref']) && isset($_POST['quantite'])) {
         $ref = htmlspecialchars($_GET['ref']);

@@ -62,13 +62,13 @@
         <?php
 
         creePanier(); //crée le panier
-        ajouteProduitPanier();
+        ajouteProduitPanier(); //ajoute le produit ajouté depuis la boutique
 
         $panier = $_SESSION['panier'];
 
         //si le panier n'est pas vide
         if (!empty($panier)) {
-            //affiche les produits ajoutés au panier
+
             echo
             '<table>
             <tr>
@@ -82,6 +82,7 @@
 
             $total = 0;
 
+            //affiche les produits ajoutés au panier
             foreach ($panier as $ref => $quantite) {
                 $produit = getProduit($bdd,$ref)->fetch();
                 $type = $produit['type'];
