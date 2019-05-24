@@ -4,68 +4,50 @@
 		<title> Urban Farm</title>
 		<link rel = "stylesheet" href = "vue/style/style.css"/>
 		<link rel = "stylesheet" href = "vue/style/style_admin_stat.css"/>
-
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
 	<script>
-		window.onload = function () {
+		$(document).ready(function(){
+			$.post('controleur/ct_stat.php', //envoie par post au fichier controleur
+							{
+		
+							},
+							function(data){ //recupere ce qui envoye par le code php
+								graphe(data);
+							},
+							"json" 
+			);
+			function  graphe(tab){
+				var ctx = document.getElementById('myChart').getContext('2d');
+				var label = [];
+				var data = [];
+				var longueur = tab.length;
+					for(var i = 0; i<longueur; i++){
+						label.push(tab[i][1]);
+						data.push(tab[i][0]);
+					}
+				
+				var chart = new Chart(ctx, {
+					// The type of chart we want to create
+					type: 'line',
 
-var chart1 = new CanvasJS.Chart("chartC", {
-	animationEnabled: true,
-	theme: "light2", // "light1", "light2", "dark1", "dark2"
-	title:{
-		text: "Nombre de messages par jour"
-	},
-	axisY: {
-		title: "Nombres de messages"
-	},
-	data: [{        
-		type: "column",  
-		showInLegend: true, 
-		legendMarkerColor: "grey",
-		legendText: "Jour",
-		dataPoints: [      
-			{ y: 5, label: "08/04" },
-			{ y: 6,  label: "09/04" },
-			{ y: 5,  label: "10/04" },
-			{ y: 5,  label: "11/04" },
-			{ y: 4,  label: "12/04" },
-			{ y: 3, label: "13/04" },
-			{ y: 3,  label: "14/04" },
-			{ y: 4,  label: "15/04" }
-		]
-	}]
-});
+					// The data for our dataset
+					data: {
+						labels: label,
+						datasets: [{
+							label: 'Nombre de connexions par jour',
+							backgroundColor: 'rgb(255, 229, 153)',
+							borderColor: 'rgb(182, 215, 168)',
+							data: data
+						}]
+					},
 
-		var chart2 = new CanvasJS.Chart("chartActu", {
-			animationEnabled: true,
-			theme: "light2", // "light1", "light2", "dark1", "dark2"
-			title:{
-				text: "Nouvelles actualitées par jour"
-			},
-			axisY: {
-				title: "Nombre d'actualitées"
-			},
-			data: [{        
-				type: "column",  
-				showInLegend: true, 
-				legendMarkerColor: "grey",
-				legendText: "Jour",
-				dataPoints: [      
-					{ y: 5, label: "08/04" },
-					{ y: 3,  label: "09/04" },
-					{ y: 6,  label: "10/04" },
-					{ y: 6,  label: "11/04" },
-					{ y: 4,  label: "12/04" },
-					{ y: 3, label: "13/04" },
-					{ y: 1,  label: "14/04" },
-					{ y: 2,  label: "15/04" }
-				]
-			}]
+					// Configuration options go here
+					options: {}
+				});
+				}
 		});
-		chart1.render();
-		chart2.render();
-
-		}
 	</script>
 
 	<header>
@@ -81,7 +63,6 @@ var chart1 = new CanvasJS.Chart("chartC", {
 			    	<?php include("vue/elem/elem_menu.php"); ?>
     		</div>
 		    <div id="col2">
-				<?php include("controleur/ct_stat.php"); ?>
 					<span>Bienvenue </span>
 					<?php echo recupereInfo($bdd, $_SESSION['mail'], "prenom"); ?>
 					<span><br>Il y a actuellement </span>
@@ -89,9 +70,8 @@ var chart1 = new CanvasJS.Chart("chartC", {
 					<span> personnes inscrites (dont </span>
 					<?php echo countAdmin($bdd); ?>
 					<span>administrateurs)</span>
+			<canvas id="myChart"></canvas>		
 					
-					<div id="chartC" style="height: 300px; width: 100%;"></div>
-					<div id="chartActu" style="height: 300px; width: 100%;"></div>
 					
 	    	</div>
 		</div>

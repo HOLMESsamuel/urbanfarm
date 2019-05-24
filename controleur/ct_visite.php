@@ -1,14 +1,19 @@
 <?php
+$ip = $_SERVER['REMOTE_ADDR'];
 $req = $bdd->prepare("SELECT * FROM visite WHERE ip=?");
-$req->execute(array($_SERVER['REMOTE_ADDR']));
+$req->execute(array($ip));
 $date = date('YmdHis', time()); 
 $exist = $req->rowCount();
+
 if($exist == 1){
-    $maj = $bdd->prepare("UPDATE visite SET timestamp=?,time=? WHERE ip=?");
-    $maj->execute(array($date,time(),$_SERVER['REMOTE_ADDR']));
+    $visiteur = $req->fetch();
+    if($visiteur["time"]<time()-24*60*60){
+        $maj = $bdd->prepare("INSERT INTO visite(ip, timestamp, time) VALUES(?,?,?)");
+        $maj->execute(array($ip, $date, time()));
+    }  
 } else {
     $maj = $bdd->prepare("INSERT INTO visite(ip, timestamp, time) VALUES (?,?,?)");
-    $maj->execute(array($_SERVER['REMOTE_ADDR'], $date, time()));
+    $maj->execute(array($ip, $date, time()));
 }
 
 $sup = $bdd->prepare("DELETE FROM visite WHERE time<?");

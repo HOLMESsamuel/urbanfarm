@@ -1,34 +1,44 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: May 17, 2019 at 02:34 PM
--- Server version: 5.7.25
--- PHP Version: 7.3.1
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  ven. 24 mai 2019 à 18:42
+-- Version du serveur :  5.7.24
+-- Version de PHP :  7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
--- Database: `urbanfarm`
+-- Base de données :  `urbanfarm`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actionneur`
+-- Structure de la table `actionneur`
 --
 
-CREATE TABLE `actionneur` (
-  `n°Actionneur` int(11) NOT NULL,
+DROP TABLE IF EXISTS `actionneur`;
+CREATE TABLE IF NOT EXISTS `actionneur` (
+  `n°Actionneur` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) COLLATE latin1_bin NOT NULL,
   `etat` varchar(255) COLLATE latin1_bin NOT NULL,
-  `n°installation` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `n°installation` int(11) NOT NULL,
+  PRIMARY KEY (`n°Actionneur`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `actionneur`
+-- Déchargement des données de la table `actionneur`
 --
 
 INSERT INTO `actionneur` (`n°Actionneur`, `type`, `etat`, `n°installation`) VALUES
@@ -44,39 +54,44 @@ INSERT INTO `actionneur` (`n°Actionneur`, `type`, `etat`, `n°installation`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `annonce`
+-- Structure de la table `annonce`
 --
 
-CREATE TABLE `annonce` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `annonce`;
+CREATE TABLE IF NOT EXISTS `annonce` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `sujet` text NOT NULL,
-  `mail_utilisateur` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `mail_utilisateur` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `annonce`
+-- Déchargement des données de la table `annonce`
 --
 
 INSERT INTO `annonce` (`id`, `sujet`, `mail_utilisateur`) VALUES
 (1, 'Je n\'arrive pas a installer mon capteur', 'elise@urban.fr'),
 (2, 'Merci a tout l\'equipe d\'urbanfram !', 'panda@gmail.com'),
-(9, 'J\'ai un probleme avec mon capteur de temparature', 'elise@urban.fr');
+(9, 'J\'ai un probleme avec mon capteur de temparature', 'elise@urban.fr'),
+(10, 'un super sujet', 'bob@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article`
+-- Structure de la table `article`
 --
 
-CREATE TABLE `article` (
-  `n°article` int(11) NOT NULL,
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE IF NOT EXISTS `article` (
+  `n°article` int(11) NOT NULL AUTO_INCREMENT,
   `titre` varchar(255) COLLATE latin1_bin NOT NULL,
   `contenu` text COLLATE latin1_bin NOT NULL,
-  `date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `date` date NOT NULL,
+  PRIMARY KEY (`n°article`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `article`
+-- Déchargement des données de la table `article`
 --
 
 INSERT INTO `article` (`n°article`, `titre`, `contenu`, `date`) VALUES
@@ -87,41 +102,46 @@ INSERT INTO `article` (`n°article`, `titre`, `contenu`, `date`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `capteur`
+-- Structure de la table `capteur`
 --
 
-CREATE TABLE `capteur` (
-  `n°capteur` int(11) NOT NULL,
+DROP TABLE IF EXISTS `capteur`;
+CREATE TABLE IF NOT EXISTS `capteur` (
+  `n°capteur` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) COLLATE latin1_bin NOT NULL,
   `etat` varchar(255) COLLATE latin1_bin NOT NULL,
-  `n°installation` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `n°installation` int(11) NOT NULL,
+  PRIMARY KEY (`n°capteur`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `capteur`
+-- Déchargement des données de la table `capteur`
 --
 
 INSERT INTO `capteur` (`n°capteur`, `type`, `etat`, `n°installation`) VALUES
 (43, 'temperature', 'on', 30),
 (44, 'mouvement', 'on', 30),
-(45, 'temperature', 'on', 31),
-(46, 'mouvement', 'on', 31);
+(45, 'temperature', 'off', 31),
+(46, 'mouvement', 'off', 31);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commentaire`
+-- Structure de la table `commentaire`
 --
 
-CREATE TABLE `commentaire` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `commentaire`;
+CREATE TABLE IF NOT EXISTS `commentaire` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `mail_utilisateur` varchar(255) NOT NULL,
   `id_annonce` int(11) NOT NULL,
-  `texte` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `texte` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_annonce` (`id_annonce`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `commentaire`
+-- Déchargement des données de la table `commentaire`
 --
 
 INSERT INTO `commentaire` (`id`, `mail_utilisateur`, `id_annonce`, `texte`) VALUES
@@ -134,32 +154,51 @@ INSERT INTO `commentaire` (`id`, `mail_utilisateur`, `id_annonce`, `texte`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data`
+-- Structure de la table `data`
 --
 
-CREATE TABLE `data` (
-  `n°data` int(11) NOT NULL,
+DROP TABLE IF EXISTS `data`;
+CREATE TABLE IF NOT EXISTS `data` (
+  `n°data` int(11) NOT NULL AUTO_INCREMENT,
   `n°capteur` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `valeur` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `timestamp` bigint(11) NOT NULL,
+  `valeur` int(11) NOT NULL,
+  PRIMARY KEY (`n°data`),
+  KEY `n°capteur` (`n°capteur`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+
+--
+-- Déchargement des données de la table `data`
+--
+
+INSERT INTO `data` (`n°data`, `n°capteur`, `timestamp`, `valeur`) VALUES
+(1, 45, 20190520143532, 23),
+(2, 46, 20190519293456, 20),
+(4, 45, 20190520160326, 12),
+(5, 45, 20190521091652, 35),
+(6, 45, 20190522134534, 24),
+(7, 45, 20190523134534, 23),
+(8, 45, 20190525134534, 20);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `installation`
+-- Structure de la table `installation`
 --
 
-CREATE TABLE `installation` (
-  `n°installation` int(11) NOT NULL,
+DROP TABLE IF EXISTS `installation`;
+CREATE TABLE IF NOT EXISTS `installation` (
+  `n°installation` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) COLLATE latin1_bin NOT NULL,
   `type` varchar(255) COLLATE latin1_bin NOT NULL,
   `adresse` varchar(255) COLLATE latin1_bin NOT NULL,
-  `email` varchar(255) COLLATE latin1_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `email` varchar(255) COLLATE latin1_bin NOT NULL,
+  PRIMARY KEY (`n°installation`),
+  KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `installation`
+-- Déchargement des données de la table `installation`
 --
 
 INSERT INTO `installation` (`n°installation`, `nom`, `type`, `adresse`, `email`) VALUES
@@ -168,18 +207,20 @@ INSERT INTO `installation` (`n°installation`, `nom`, `type`, `adresse`, `email`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produit`
+-- Structure de la table `produit`
 --
 
-CREATE TABLE `produit` (
-  `n°produit` int(11) NOT NULL,
+DROP TABLE IF EXISTS `produit`;
+CREATE TABLE IF NOT EXISTS `produit` (
+  `n°produit` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) COLLATE latin1_bin NOT NULL,
   `description` text COLLATE latin1_bin NOT NULL,
-  `prix` decimal(11,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `prix` decimal(11,2) NOT NULL,
+  PRIMARY KEY (`n°produit`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `produit`
+-- Déchargement des données de la table `produit`
 --
 
 INSERT INTO `produit` (`n°produit`, `type`, `description`, `prix`) VALUES
@@ -190,17 +231,19 @@ INSERT INTO `produit` (`n°produit`, `type`, `description`, `prix`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `questions`
+-- Structure de la table `questions`
 --
 
-CREATE TABLE `questions` (
-  `n_question` int(11) NOT NULL,
+DROP TABLE IF EXISTS `questions`;
+CREATE TABLE IF NOT EXISTS `questions` (
+  `n_question` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
-  `contenu` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `contenu` text NOT NULL,
+  PRIMARY KEY (`n_question`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `questions`
+-- Déchargement des données de la table `questions`
 --
 
 INSERT INTO `questions` (`n_question`, `nom`, `contenu`) VALUES
@@ -213,10 +256,11 @@ INSERT INTO `questions` (`n_question`, `nom`, `contenu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilisateur`
+-- Structure de la table `utilisateur`
 --
 
-CREATE TABLE `utilisateur` (
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
   `email` varchar(255) COLLATE latin1_bin NOT NULL,
   `nom` varchar(255) COLLATE latin1_bin NOT NULL,
   `prenom` varchar(255) COLLATE latin1_bin NOT NULL,
@@ -224,11 +268,12 @@ CREATE TABLE `utilisateur` (
   `adresse` varchar(255) COLLATE latin1_bin NOT NULL,
   `motdepasse` varchar(255) COLLATE latin1_bin NOT NULL,
   `administrateur` varchar(255) COLLATE latin1_bin NOT NULL,
-  `etat` varchar(255) COLLATE latin1_bin NOT NULL
+  `etat` varchar(255) COLLATE latin1_bin NOT NULL,
+  PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `utilisateur`
+-- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`email`, `nom`, `prenom`, `civilité`, `adresse`, `motdepasse`, `administrateur`, `etat`) VALUES
@@ -236,149 +281,51 @@ INSERT INTO `utilisateur` (`email`, `nom`, `prenom`, `civilité`, `adresse`, `mo
 ('bob@gmail.com', 'Lennon', 'Bob', 'M', '42 rue du sens de la vie', 'd54d5bfdad8b1238a54f6b28599f4dcf6e65867d', 'non', 'confirme'),
 ('g10e@urban.fr', '10E', 'Groupe', 'M', '10 rue Emile Zola', 'd54d5bfdad8b1238a54f6b28599f4dcf6e65867d', 'oui', 'confirme');
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Structure de la table `visite`
+--
+
+DROP TABLE IF EXISTS `visite`;
+CREATE TABLE IF NOT EXISTS `visite` (
+  `ip` varchar(15) NOT NULL,
+  `timestamp` bigint(11) NOT NULL,
+  `time` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `visite`
+--
+
+INSERT INTO `visite` (`ip`, `timestamp`, `time`) VALUES
+('::1', 20190524175128, 1558720288),
+('23', 20190522134534, 1558709002),
+('24', 20190522134534, 1558720288);
+
+--
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Indexes for table `actionneur`
---
-ALTER TABLE `actionneur`
-  ADD PRIMARY KEY (`n°Actionneur`);
-
---
--- Indexes for table `annonce`
---
-ALTER TABLE `annonce`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `article`
---
-ALTER TABLE `article`
-  ADD PRIMARY KEY (`n°article`);
-
---
--- Indexes for table `capteur`
---
-ALTER TABLE `capteur`
-  ADD PRIMARY KEY (`n°capteur`);
-
---
--- Indexes for table `commentaire`
---
-ALTER TABLE `commentaire`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_annonce` (`id_annonce`);
-
---
--- Indexes for table `data`
---
-ALTER TABLE `data`
-  ADD PRIMARY KEY (`n°data`),
-  ADD KEY `n°capteur` (`n°capteur`);
-
---
--- Indexes for table `installation`
---
-ALTER TABLE `installation`
-  ADD PRIMARY KEY (`n°installation`),
-  ADD KEY `email` (`email`);
-
---
--- Indexes for table `produit`
---
-ALTER TABLE `produit`
-  ADD PRIMARY KEY (`n°produit`);
-
---
--- Indexes for table `questions`
---
-ALTER TABLE `questions`
-  ADD PRIMARY KEY (`n_question`);
-
---
--- Indexes for table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  ADD PRIMARY KEY (`email`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `actionneur`
---
-ALTER TABLE `actionneur`
-  MODIFY `n°Actionneur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
---
--- AUTO_INCREMENT for table `annonce`
---
-ALTER TABLE `annonce`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `article`
---
-ALTER TABLE `article`
-  MODIFY `n°article` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT for table `capteur`
---
-ALTER TABLE `capteur`
-  MODIFY `n°capteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
---
--- AUTO_INCREMENT for table `commentaire`
---
-ALTER TABLE `commentaire`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `data`
---
-ALTER TABLE `data`
-  MODIFY `n°data` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `installation`
---
-ALTER TABLE `installation`
-  MODIFY `n°installation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- AUTO_INCREMENT for table `produit`
---
-ALTER TABLE `produit`
-  MODIFY `n°produit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `questions`
---
-ALTER TABLE `questions`
-  MODIFY `n_question` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `commentaire`
+-- Contraintes pour la table `commentaire`
 --
 ALTER TABLE `commentaire`
   ADD CONSTRAINT `commentaire_ibfk_1` FOREIGN KEY (`id_annonce`) REFERENCES `annonce` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `data`
+-- Contraintes pour la table `data`
 --
 ALTER TABLE `data`
   ADD CONSTRAINT `data_ibfk_1` FOREIGN KEY (`n°capteur`) REFERENCES `capteur` (`n°capteur`);
 
 --
--- Constraints for table `installation`
+-- Contraintes pour la table `installation`
 --
 ALTER TABLE `installation`
   ADD CONSTRAINT `installation_ibfk_1` FOREIGN KEY (`email`) REFERENCES `utilisateur` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
