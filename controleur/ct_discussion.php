@@ -3,7 +3,7 @@
 include("../modele/connexion.php");
 include("../modele/requeteDiscussion.php");
 
-$id_annonce = $com = "";
+$id_annonce = $com = $mail = "";
 
 if (!empty($_POST["id_annonce"])) {
     $id_annonce = test_input($_POST["id_annonce"]);

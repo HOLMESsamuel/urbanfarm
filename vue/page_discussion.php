@@ -14,10 +14,11 @@
                         {
                             id_annonce : this.id,
                             com: $("#com"+this.id).val(),
-                            mail : $("#mail").val()
+                            mail : $("#email").val()
                         },
                         function(data){ //recupere ce qui envoye par le code php
                             $("#rep").html(data);
+							document.location.href="index.php?page=discussion";
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
                     );
@@ -31,6 +32,7 @@
                         },
                         function(data){ //recupere ce qui envoye par le code php
                             $("#rep").html(data);
+							document.location.href="index.php?page=discussion";
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
                     );
