@@ -32,8 +32,8 @@
 				var data = [];
 				for(var i = 0; i<longueur; i++){
 					var  time = tab[i][0];
-					tab[i][0] = time.slice(6,8)+"/"+time.slice(4,6)+" "+time.slice(6,8)
-					+":"+time.slice(8,10);
+					tab[i][0] = time.slice(6,8)+"/"+time.slice(4,6)+" "+time.slice(8,10)
+					+":"+time.slice(10,12);
 				}
 				if(longueur <5){
 					for(var i = 0; i<longueur; i++){

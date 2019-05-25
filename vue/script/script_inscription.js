@@ -155,6 +155,8 @@ function creerChamps(ID, nature) {
     adresse.setAttribute('id', 'adresse' + ID);
     adresse.setAttribute('name', 'adresse' + ID);
     adresse.setAttribute('placeholder', 'adresse');
+    var ad = document.getElementById("adresse").value;
+    adresse.setAttribute('value', ad);
 
     var liste = document.createElement('select');
     liste.setAttribute('name', 'liste' + ID);

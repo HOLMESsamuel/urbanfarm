@@ -176,7 +176,7 @@
 									<p>Actionneurs : <?php recupereActionneurInstall($bdd, $numero); ?></p>
 									<p>Adresse : <?php echo recupereInfoInstall($bdd, $_SESSION['mail'], "adresse",0); ?></p>
 									
-									<input type="button" value="Modifier">
+						
 									<input class="sup" type="button" value="Supprimer" id="<?php echo $numero; ?>">
 							</div>
 						<?php else :?>
