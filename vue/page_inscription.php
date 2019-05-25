@@ -109,6 +109,9 @@
 							
 						</div>
 						<input type="button" value="ajouter une installation" onclick="ajouterChamps();">
+					<div id="modalCgu">
+						<div class="interieurModal" style="text-align: left;">
+							<span class="close" onclick="closeModalCgu();">&times;</span>
 					<p> 
 						<h2 style="text-align: center;"><strong>Conditions Générales d'utilisation</strong></h2>
 						<br>
