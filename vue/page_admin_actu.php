@@ -17,7 +17,7 @@
                             cont: $("#cont").val()
                         },
                         function(data){ //recupere ce qui envoye par le code php
-                            $("#rep").html(data);
+							document.location.href="index.php?page=admin_actu";
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
                     );
@@ -29,7 +29,7 @@
                             ref: $("#ref").val()
                         },
                         function(data){ //recupere ce qui envoye par le code php
-                            $("#rep").html(data);
+							document.location.href="index.php?page=admin_actu";
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
                     );
@@ -43,7 +43,7 @@
                             refM: $("#refM").val()
                         },
                         function(data){ //recupere ce qui envoye par le code php
-                            $("#rep").html(data);
+							document.location.href="index.php?page=admin_actu";
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
                     );
@@ -55,7 +55,6 @@
                             refM: $("#refM").val()
                         },
                         function(data){ //recupere ce qui envoye par le code php
-                            $("#rep").html(data);
 							$("#titreM").html("azertyuio");
 							$("#contM").html(data.split("&&")[1]);
                         },
