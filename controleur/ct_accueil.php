@@ -9,7 +9,7 @@ if(empty($_POST['mail']) OR empty($_POST['mdp'])){
 	echo "certains champs ne sont pas remplis";
 } else {
 	if(estInscrit($bdd, $mail, $mdp)){
-		if(estConfirme($bdd, $mail)){
+		if(verifConfirme($bdd, $mail)){
 			session_start();
 			$_SESSION['mail'] = $mail;
 			if(estAdmin($bdd, $mail)){

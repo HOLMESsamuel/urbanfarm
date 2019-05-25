@@ -84,7 +84,9 @@
 							<span class="slider round"></span>
 						</label>
 						<br>
-						<?php echo "Derniere valeur : ".derniereValeur($bdd, $numeroCapteur); ?>
+						<?php
+							echo derniereValeur($bdd, $numeroCapteur);
+						?>
 					</div>
 				<?php endfor ?>
 	    	</div>

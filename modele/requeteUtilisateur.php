@@ -153,6 +153,10 @@
         $req->execute(array($mail));
     }
 
-    
+    function verifConfirme(PDO $bdd, String $mail):bool{
+        $req = $bdd->prepare("SELECT * FROM utilisateur WHERE email = ? AND etat=?");
+        $req->execute(array($mail, "confirme"));
+        return($req->rowCount()==1);
+    }
     
 ?>

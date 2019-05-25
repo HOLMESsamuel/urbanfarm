@@ -42,10 +42,10 @@
     function derniereValeur(PDO $bdd, String $numero): String{
         $req = $bdd->prepare("SELECT * FROM data WHERE n°capteur=? ORDER BY n°data DESC");
         $req->execute(array($numero));
-        try{
+        if($req->rowCount()>0){
             $row = $req->fetch();
-            return($row["valeur"]);
-        } catch(Exception $e) {
+            return("Derniere valeur : ".$row["valeur"]);
+        } else{
             return("pas de valeur connue");
         }
     }
