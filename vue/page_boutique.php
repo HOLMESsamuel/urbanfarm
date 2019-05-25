@@ -42,7 +42,7 @@
     </div>
     <div id="col2">
 
-        <a href="index.php?page=panier">Votre panier</a>
+        <a href="index.php?page=panier">Votre panier</a><br>
 
         <?php
         $produits = getProduits($bdd)->fetchAll();

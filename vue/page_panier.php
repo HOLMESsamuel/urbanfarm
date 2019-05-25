@@ -57,9 +57,22 @@
     </div>
     <div id="col2">
 
-        <a href="index.php?page=boutique">Retour à la boutique</a>
+        <a href="index.php?page=boutique">Retour à la boutique</a><br>
 
-        <table>
+        <?php
+
+        creePanier(); //cree le panier
+        ajouteProduitPanier(); //ajoute le produit ajoute depuis la boutique
+        supprimeProduitPanier();
+        modifieProduitPanier();
+
+        $panier = $_SESSION['panier'];
+
+        //si le panier n'est pas vide
+        if (!empty($panier)) {
+
+            echo
+            '<table>
             <tr>
                 <th>ref.</th>
                 <th>type</th>
@@ -67,13 +80,11 @@
                 <th>prix</th>
                 <th>quantité</th>
                 <th>montant</th>
-            </tr>
+            </tr>';
 
-            <?php
-            ajouteProduitPanier();
-            $panier = $_SESSION['panier'];
             $total = 0;
 
+            //affiche les produits ajoutes au panier
             foreach ($panier as $ref => $quantite) {
                 $produit = getProduit($bdd,$ref)->fetch();
                 $type = $produit['type'];
@@ -90,21 +101,39 @@
                 <td class="type">'.$type.'</td>
                 <td class="description">'.$description.'</td>
                 <td class="prix">' . number_format($prix, 2,',',' ') .'€</td>
-                <td class="quantite">'.$quantite.'</td>
-                <td class="montant">' . number_format($montant, 2,',',' ') . '€</td>
+                <td class="quantite">' .
+                    $quantite .
+                    '<a class="plus" href="index.php?page=panier&plus=' . $ref .'">+</a> / 
+                     <a class="moins" href="index.php?page=panier&moins=' . $ref .'">_</a> 
+                </td>
+                <td class="montant">' .
+                    number_format($montant, 2,',',' ') . '€
+                    <a class="supprimer" href="index.php?page=panier&supprimer=' . $ref .'">X</a>
+                </td>
+                
                 </tr>';
 
-                $total += $quantite * $prix;
-            } ?>
-        </table>
 
+
+
+                $total += $quantite * $prix;
+            }
+
+        echo
+        '</table>
         <h2>
-            Total  :  <?php echo number_format($total,2,',',' ')?>€
+            Total  : ' . number_format($total,2,',',' ') . '€
         </h2>
 
         <p align="right">
             <button>Passer à la caisse</button>
-        </p>
+        </p>';
+
+        } else {
+            echo '<p align="center">Votre panier est vide</p>';
+        }
+
+        ?>
 
     </div>
 </div>
