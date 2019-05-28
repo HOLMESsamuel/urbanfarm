@@ -56,9 +56,9 @@
 		<form>
 			<div class="container">
 			<div id="modalInfo">
-				<div class="Configurez vos informations">
+				<div class="InterieurInfo">
 					<span class="close" onclick="closeModalInfo();">&times;</span>
-					<p>Les infos</p>
+					<p>Configurez vos informations</p>
 				</div>
 
 			</div>
