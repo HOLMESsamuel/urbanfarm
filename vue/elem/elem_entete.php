@@ -5,7 +5,7 @@
     onmouseover="this.src=\'vue/img/logoPoussin.png\';" onmouseout="this.src=\'vue/img/logo.png\';" 
     height="100" alt="logo"/> </span>';
   if (strpos(basename($_SERVER['PHP_SELF']), 'admin') == false){
-    echo '<span id="panier"><img src = "vue/img/boutique.png" height="30"/></span>';
+    echo '<span id="panier"><a href="index.php?page=panier"><img src = "vue/img/boutique.png" height="30" title="Panier"/></a></span>';
   }
 } else {
   echo '<span id="btn_accueil" onclick="retour();"> <img src = "vue/img/logo.png" 

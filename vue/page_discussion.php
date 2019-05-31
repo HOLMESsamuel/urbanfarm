@@ -80,7 +80,7 @@
 				
 			    <?php 
                     include ("modele/connexion.php");
-                    $req=$bdd->prepare("SELECT * FROM annonce ");
+                    $req=$bdd->prepare("SELECT * FROM annonce ORDER BY id DESC ");
                     $req->execute(array());   
                 while ($row=$req->fetch()): ?>
                     <button class="accordion"><p><?php recupereSujet($bdd, $row['id'])?></p></button>
