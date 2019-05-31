@@ -66,7 +66,7 @@
 
 				<h4> Vous avez des questions sur Urban Farm ? </h4>
 				<p> Consultez la rubrique 
-					<a href="page_questions"> Questions fréquentes </a>.
+					<a href="index.php?page=discussion"> Questions fréquentes </a>.
 				</p>
 
 				<h4> Contactez nous directement </h4>
@@ -76,7 +76,7 @@
 				</p>
 				<br>
 				<form>
-					<input type="mail" placeholder="Adresse mail" id="mailEnvoi" name="mailEnvoi" value="<?php if(isset($mail)) {echo $mail;}?>"/>	
+					<input type="mail" placeholder="Adresse mail d'envoi" id="mailEnvoi" name="mailEnvoi" value="<?php if(isset($_SESSION['mail'])) {echo $_SESSION['mail'];}?>"/>	
 					<br>
 					<input type="titre" placeholder="Titre du message" id="titre" name="titre" value="<?php if(isset($itre)) {echo $titre;}?>"/>
 					<br>
