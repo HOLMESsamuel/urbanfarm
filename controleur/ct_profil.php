@@ -52,7 +52,7 @@ if($modif == "installation"){
     echo "ok";
 } elseif ($modif == "supProfil"){
     $mail = htmlspecialchars($_POST['mail']);
-    supression($bdd, $mail);
+    demandeSuppression($bdd, $mail);
     echo "ok";
 } else {
     $mail = htmlspecialchars($_POST['mail']);

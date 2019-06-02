@@ -114,6 +114,13 @@
         return $exist;
     }
 
+    function rechercheSupprime(PDO $bdd): Int {
+        $req = $bdd->prepare("SELECT * FROM utilisateur WHERE etat=?");
+        $req->execute(array("supprime"));
+        $exist = $req->rowCount();
+        return $exist;
+    }
+
     function recupereInfoNonConfirme(PDO $bdd, String $info, Int $numero): String{
         $req = $bdd->prepare("SELECT ".$info." FROM utilisateur WHERE etat=?");
         $n = 0;
@@ -125,6 +132,20 @@
         $row = $req->fetch();
         return $row[$info];
     }
+
+    //recupere l'info demandé d'un utilisateur souhaitant supprimer son compte
+    function recupereInfoSupprime(PDO $bdd, String $info, Int $numero): String{
+        $req = $bdd->prepare("SELECT ".$info." FROM utilisateur WHERE etat=?");
+        $n = 0;
+        $req->execute(array("supprime"));
+        while ($n<$numero){
+            $row = $req->fetch();
+            $n = $n+1; 
+        }
+        $row = $req->fetch();
+        return $row[$info];
+    }
+
      function recupereInfoEstConfirme(PDO $bdd, String $info, Int $numero): String{
         $req = $bdd->prepare("SELECT ".$info." FROM utilisateur WHERE etat=?");
         $n = 0;
@@ -154,9 +175,14 @@
     }
 
     function verifConfirme(PDO $bdd, String $mail):bool{
-        $req = $bdd->prepare("SELECT * FROM utilisateur WHERE email = ? AND etat=?");
-        $req->execute(array($mail, "confirme"));
+        $req = $bdd->prepare("SELECT * FROM utilisateur WHERE email = ? AND etat!=?");
+        $req->execute(array($mail, "attente"));
         return($req->rowCount()==1);
+    }
+
+    function demandeSuppression(PDO $bdd, String $mail){
+        $req = $bdd->prepare("UPDATE utilisateur SET etat=? WHERE email=?");
+        $req->execute(array("supprime", $mail));
     }
     
 ?>

@@ -68,7 +68,8 @@
 						mail : $("#mail").val()
 					},
 					function(data){ //recupere ce qui est envoye par le code php
-						document.location.href="index.php?page=accueil";
+						document.location.href="index.php?page=profil";
+						alert("Une demande de suppression a été envoyée à un administrateur et sera traitée rapidement.");
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 					);

@@ -22,7 +22,7 @@
 <script>
 function comfirmDeco(){
   var txt;
-  var r = confirm("Es tu sur de vouloir continuer ? Retourner a l'accueil vas te déconneter ");
+  var r = confirm("Etes vous sûr de vouloir continuer ? Retourner à l'accueil va vous déconnecter ");
   if(r==true){
     document.location.href = "index.php";
   }
