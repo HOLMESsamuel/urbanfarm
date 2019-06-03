@@ -11,7 +11,7 @@
 				e.preventDefault(); //empeche de recherarger la page
 				$.post('controleur/ct_contact.php', //envoie par post
 					{
-						mail : $("#mailEnvoi").val(),
+						 mail : $("#email").val()
 						titre : $("#titre").val(),
 						texte : $("#text").val()
 					},
@@ -55,6 +55,7 @@
             </style>
         <?php endif ?>
 	</header>
+    <input style="display: none;" id="email"value="<?php if (isset($_SESSION['mail'])): echo $_SESSION['mail']; endif ?>">
 
 	<body>
 		<div class="container">
@@ -66,25 +67,33 @@
 
 				<h4> Vous avez des questions sur Urban Farm ? </h4>
 				<p> Consultez la rubrique 
-					<a href="index.php?page=discussion"> Questions fréquentes </a>.
+					<a href="index.php?page=forum"> Questions fréquentes </a>.
 				</p>
 
 				<h4> Contactez nous directement </h4>
-				<p>
-					UrbanFarm s'engage à répondre à toutes vos questions dans les plus brefs délais. <br>
-					Pour cela, remplissez le formulaire ci-dessous.
-				</p>
-				<br>
-				<form>
-					<input type="mail" placeholder="Adresse mail d'envoi" id="mailEnvoi" name="mailEnvoi" value="<?php if(isset($_SESSION['mail'])) {echo $_SESSION['mail'];}?>"/>	
+				<?php if (isset($_SESSION['mail'])): ?>
+					<p>
+						UrbanFarm s'engage à répondre à toutes vos questions dans les plus brefs délais. <br>
+						Pour cela, remplissez le formulaire ci-dessous.
+					</p>
 					<br>
-					<input type="titre" placeholder="Titre du message" id="titre" name="titre" value="<?php if(isset($itre)) {echo $titre;}?>"/>
-					<br>
-					<textarea  id="text" placeholder="Ecrivez votre message ici ..."></textarea>
-					<br>
-					<input type="submit" id="envoiMessage" name="envoi" value="Envoyer"/>
-				</form>
+					<form>
+						<input type="titre" placeholder="Titre du message" id="titre" name="titre" value="<?php if(isset($itre)) {echo $titre;}?>"/>
+						<br>
+						<textarea  id="text" placeholder="Ecrivez votre message ici ..."></textarea>
+						<br>
+						<input type="submit" id="envoiMessage" name="envoi" value="Envoyer"/>
+					</form>
+
+				<?php else: ?>
+					<p>
+						UrbanFarm s'engage à répondre à toutes vos questions dans les plus brefs délais. <br>
+						Pour cela, merci de vous conecter.
+					</p>
+
+                <?php endif ?>
 				<p id="erreur"></p>
+
 			</div>
 
 			<div id="col3">
