@@ -5,7 +5,7 @@ function dernierTimestamp(PDO $bdd): int {
     return ($req->fetch()["timestamp"]);
 }
 
-function ajoutData(PDO $bdd, int $timestamp, int $typeCapteur, int $valeur){
+function ajoutData(PDO $bdd, int $timestamp, String $numeroCapteur, int $valeur){
     $req = $bdd->prepare("INSERT INTO data(n°capteur, timestamp, valeur) VALUES (?,?,?)");
-    $req->execute(array("45", $timestamp, $valeur));
+    $req->execute(array($numeroCapteur, $timestamp, $valeur));
 }

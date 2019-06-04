@@ -60,7 +60,6 @@ function recupereDerniereTrame(): String {
     return($tabTrame[$taille-1]);
 }
 
-afficheTab(recupereTrame());
 
 /**
  * Decompose chaque trame quu'elle soit courante ou rapide en tous ses éléments
@@ -71,7 +70,7 @@ afficheTab(recupereTrame());
 function decomposeTrame(String $trame):array {
     $longueur = strlen($trame);
     $trameDecompose = array();
-    if($longueur == 34){
+    if($longueur > 31){
         $trameDecompose = array(
             "TRA"    => substr($trame, 0, 1),
             "OBJ"  => substr($trame, 1, 4),
@@ -129,9 +128,9 @@ function majData($bdd){
     for($i = 0; $i<$nbTrame; $i++){
         if(strlen($trameNonLue[$i])>27){
             $timestamp = (int)decomposeTrame($trameNonLue[$i])["timestamp"];
-            $typeCapteur = (int)decomposeTrame($trameNonLue[$i])["NUM"];
+            $numeroCapteur = (int)decomposeTrame($trameNonLue[$i])["NUM"];
             $valeur = (int)decomposeTrame($trameNonLue[$i])["VAL"];
-            ajoutData($bdd, $timestamp, $typeCapteur, $valeur);
+            ajoutData($bdd, $timestamp, $numeroCapteur, $valeur);
         }
     }
 }
@@ -159,11 +158,7 @@ function envoieTrame(String $trame){
     echo $content;
 }
 
-
-
-
-
-
+majData($bdd);
 
 
 ?>

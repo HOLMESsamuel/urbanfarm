@@ -17,7 +17,7 @@
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
             );}
-        , 60000);
+        , 10000);
     });
     </script>
 </head>
