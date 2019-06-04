@@ -22,7 +22,10 @@ try{
 			';
 
             mail($mail, "confirmation", $message, $header);
-            confirmation($bdd, $mail);
+			confirmation($bdd, $mail);
+			
+			$date = date('Y/m/d', time());
+			permierMsg($bdd, $mail, $date);
     } else {
         supression($bdd, $mail);
     }

@@ -245,10 +245,15 @@ input {
     cursor: pointer;
 }
 
-
 #bjr {
     position: absolute;
     top: 40px;
+    left: 20px;
+}
+
+#bjr {
+    position: absolute;
+    top: 60px;
     left: 20px;
 }
 

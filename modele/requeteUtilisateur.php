@@ -164,6 +164,12 @@
         $req->execute(array("confirme", $mail));
     }
 
+    function permierMsg(PDO $bdd, String $mail, String $date){
+        $req = $bdd->prepare("INSERT INTO `messages` (`texte`, `admin`, `email_utilisateur`, `lu`, `date`) 
+            VALUES ('Bonjour et bienvenu dans la communauté UrbanFarm !', 'oui', ?, 'oui', ?);");
+        $req->execute(array($mail, $date));
+    }
+
     function supressionInstallation(PDO $bdd, String $mail){
         $req = $bdd->prepare("DELETE FROM installation WHERE email = ?");
         $req->execute(array($mail));
