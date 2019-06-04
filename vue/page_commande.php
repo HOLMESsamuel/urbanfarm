@@ -62,7 +62,6 @@
 	    	<div id="col1">
 				<?php include("vue/elem/elem_menu.php"); ?>
 				<?php include("modele/connexion.php"); ?>
-				<?php include("modele/requeteUtilisateur.php"); ?>
 				<?php include("modele/requeteInstallation.php"); ?>
 				<?php include("modele/requeteCapteur.php"); ?>
     		</div>

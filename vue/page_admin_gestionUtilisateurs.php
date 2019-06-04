@@ -41,7 +41,6 @@
 	<header>
 		<?php include("vue/elem/elem_entete.php"); ?>
 		<?php include("modele/connexion.php"); ?>
-		<?php include("modele/requeteUtilisateur.php"); ?>
 	</header>	
 	
 	<body>
