@@ -43,9 +43,10 @@ a {
     width: 40%;
 }
 
-h2 {
+#total {
     text-align: right;
     margin: 8px;
+    font-size: 1.6em;
 }
 
 button {
@@ -62,17 +63,23 @@ button:hover {
     background-color: rgb(145, 182, 129);
 }
 
-span {
-
-}
-
 .supprimer {
     margin-left: 10px;
     margin-right: 5px;
+    font-size: 1.6em;
+    color: #aaaaaa;
+}
+
+.supprimer:hover {
+    color: black;
 }
 
 .plus {
     margin-left: 10px;
+}
+
+.plus:hover, .moins:hover {
+
 }
 
 /* modal */
@@ -92,7 +99,7 @@ span {
 }
 
 /* contenu du modal */
-#resumecommande {
+#modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;

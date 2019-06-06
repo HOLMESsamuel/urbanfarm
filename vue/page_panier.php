@@ -118,9 +118,9 @@
 
         echo
         '</table>
-        <h2>
+        <p id="total">
             Total : ' . number_format($total,2,',',' ') . '€
-        </h2>
+        </p>
 
         <p align="right">
             <button id="commander">Passer à la caisse</button>
@@ -131,15 +131,23 @@
             echo '<p align="center">Votre panier est vide</p>';
         }
         ?>
-        
+
     </div>
 </div>
 
 <!--modal-->
 <div id="commande">
-    <div id="resumecommande">
-        <span class="close">&times;</span>
-        <p>text</p>
+    <div id="modal-content">
+        <div id="modal-header">
+            <span class="close">&times;</span>
+            <h1 align="center">Votre commande</h1>
+        </div>
+        <div id="modal-body">
+            <p>text</p>
+        </div>
+        <div id="modal-footer">
+            <h3>modal footer</h3>
+        </div>
     </div>
 </div>
 
