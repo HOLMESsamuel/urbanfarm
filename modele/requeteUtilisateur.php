@@ -165,9 +165,23 @@
     }
 
     function permierMsg(PDO $bdd, String $mail, String $date){
-        $req = $bdd->prepare("INSERT INTO `messages` (`texte`, `admin`, `email_utilisateur`, `lu`, `date`) 
+        $req = $bdd->prepare("INSERT INTO `conversation` (`mail_utilisateur`) VALUES (?);");
+        $req->execute(array($mail));
+        
+        $req = $bdd->prepare("SELECT id FROM conversation ORDER BY id DESC");
+        $req->execute(array());
+        $temp_id_conv=$req->fetch();
+
+        $req = $bdd->prepare("INSERT INTO `messages` (`texte`, `admin`, `id_conv`, `lu`, `date`) 
             VALUES ('Bonjour et bienvenu dans la communauté UrbanFarm !', 'oui', ?, 'oui', ?);");
-        $req->execute(array($mail, $date));
+        $req->execute(array($temp_id_conv['id'], $date));
+
+        $req = $bdd->prepare("SELECT id FROM messages ORDER BY id DESC");
+        $req->execute(array());
+        $temp_id=$req->fetch();
+        
+        $req = $bdd->prepare("UPDATE `conversation` (`ancien`) VALUES (?);");
+        $req->execute(array($temp_id['id']));
     }
 
     function supressionInstallation(PDO $bdd, String $mail){

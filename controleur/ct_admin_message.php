@@ -3,23 +3,23 @@
 include("../modele/connexion.php");
 include("../modele/requeteAdminMessage.php");
 
-$mail = $com = "";
+$id_conv = $com = "";
 
-if (!empty($_POST["mail"])) {
-    $mail = test_input($_POST["mail"]);
+if (!empty($_POST["id"])) {
+    $id_conv = test_input($_POST["id"]);
 }
 if (!empty($_POST["com"])) {
-        $com = test_input($_POST["com"]);
+    $com = test_input($_POST["com"]);
 }
 
-var_dump($mail, $com);
+$date = date('Y/m/d', time());
 
 if (empty($_POST["com"])){
     echo '<script language="javascript">';
     echo 'alert("Merci de rentrer du texte")';
     echo '</script>';
-} elseif (!empty($_POST["id_annonce"])) {
-    addMsg($bdd, $id_annonce, $com, $mail);
+} else {
+    addMsg($bdd, $id_conv, $com, $date);
 } 
 
 

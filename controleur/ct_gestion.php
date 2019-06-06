@@ -5,6 +5,10 @@ $commande = $_POST["commande"];
 $mail = $_POST["mail"];
 try{
     if($commande == "confirmation"){
+		
+		$date = date('Y/m/d', time());
+		permierMsg($bdd, $mail, $date);
+		
         $header = "MIME-Version: 1.0\r\n";
 		$header.='From:"urbanfarm.fr"<sam@urban.fr>'."\n";
 		$header.='Content-Type:text/html; charset="utf-8"'."\n";
@@ -24,8 +28,6 @@ try{
             mail($mail, "confirmation", $message, $header);
 			confirmation($bdd, $mail);
 			
-			$date = date('Y/m/d', time());
-			permierMsg($bdd, $mail, $date);
     } else {
         supression($bdd, $mail);
     }

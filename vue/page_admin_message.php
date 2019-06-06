@@ -11,12 +11,12 @@
                     e.preventDefault(); //empeche de recherarger la page
                     $.post('controleur/ct_admin_message.php', //envoie par post au fichier controleur
                         {
-                            mail : this.id,
-                            com: $("#comelise.gabilly@gmail.com").val()
+                            id : this.id,
+                            com: $("#com"+this.id).val()
                         },
                         function(data){ //recupere ce qui envoye par le code php
                             $("#rep").html(data);
-							document.location.href="index.php?page=admin_message";
+							// document.location.href="index.php?page=admin_message";
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
                     );
@@ -63,15 +63,19 @@
 				
 			    <?php 
                     include ("modele/connexion.php");
-                    $req=$bdd->prepare("SELECT * FROM conversation");
+                    $req=$bdd->prepare("SELECT DISTINCT id_conv, id FROM messages ORDER BY id DESC");
                     $req->execute(array());  
-                while ($row=$req->fetch()): ?>
+                while ($nb=$req->fetch()): 
+                    $req2=$bdd->prepare("SELECT * FROM conversation WHERE id=?");
+                    $req2->execute(array($nb['id_conv'])); 
+                    $row= $req2->fetch();
+                    ?>
                     <button class="accordion"><p><?php recupereNom($bdd, $row["mail_utilisateur"])?></p></button>
                     <div class="panel">
-                        <p><?php recupereMsg($bdd, $row["id"])?></p>
+                        <p><?php recupereMsg($bdd, $row["id"], $row["mail_utilisateur"])?></p>
                         <form>
-                            <input type="text" name="com" id="com<?php echo $row['mail_utilisateur'];?>"> 
-                            <button id="<?php echo "comelise.gabilly@gmail.com";?>" class="button">Envoyer ce message</button>
+                            <input type="text" name="com" id="com<?php echo $row['id'];?>"> 
+                            <button id="<?php echo $row['id'];?>" class="button">Envoyer ce message</button>
                         </form> 
                     </div>
                 <?php endwhile ?>
