@@ -108,13 +108,10 @@
                 </td>
                 <td class="montant">' .
                     number_format($montant, 2,',',' ') . '€
-                    <a class="supprimer" href="index.php?page=panier&supprimer=' . $ref .'">X</a>
+                    <a class="supprimer" href="index.php?page=panier&supprimer=' . $ref .'">&times;</a>
                 </td>
                 
                 </tr>';
-
-
-
 
                 $total += $quantite * $prix;
             }
@@ -122,22 +119,33 @@
         echo
         '</table>
         <h2>
-            Total  : ' . number_format($total,2,',',' ') . '€
+            Total : ' . number_format($total,2,',',' ') . '€
         </h2>
 
         <p align="right">
-            <button>Passer à la caisse</button>
-        </p>';
+            <button id="commander">Passer à la caisse</button>
+        </p>
+        ';
 
         } else {
             echo '<p align="center">Votre panier est vide</p>';
         }
-
         ?>
-
+        
     </div>
 </div>
+
+<!--modal-->
+<div id="commande">
+    <div id="resumecommande">
+        <span class="close">&times;</span>
+        <p>text</p>
+    </div>
+</div>
+
 </body>
+
+<script src="vue/script/script_panier.js"></script>
 
 <footer>
     <?php include("vue/elem/elem_pied.php"); ?>
