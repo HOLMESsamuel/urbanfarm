@@ -104,7 +104,21 @@ button:hover {
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 60%;
+}
+
+#modal-body {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 100px;
+}
+
+li {
+    margin: 10px 0px;
+}
+
+ul.prix-commande {
+    list-style-type: none;
 }
 
 /* bouton fermer */

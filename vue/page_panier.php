@@ -143,7 +143,44 @@
             <h1 align="center">Votre commande</h1>
         </div>
         <div id="modal-body">
-            <p>text</p>
+            <div id="col_produits">
+                <?php
+                $panier = $_SESSION['panier'];
+
+                if (!empty($panier)) {
+
+                    echo '<ul>';
+                    foreach ($panier as $ref => $quantite) {
+                        $produit = getProduit($bdd, $ref)->fetch();
+                        $type = $produit['type'];
+                        $prix = $produit['prix'];
+                        $montant = $quantite * $prix;
+
+                        echo
+                            '<li>' . $quantite . ' &times; ' . $type . ' (#' . $ref . ')</li>';
+                    }
+                    echo '</ul>';
+                }
+                ?>
+            </div>
+            <div id="col_prix">
+                <?php
+                $panier = $_SESSION['panier'];
+
+                if (!empty($panier)) {
+
+                    echo '<ul class="prix-commande">';
+                    foreach ($panier as $ref => $quantite) {
+                        $produit = getProduit($bdd, $ref)->fetch();
+                        $prix = $produit['prix'];
+                        $montant = $quantite * $prix;
+                        echo
+                            '<li>' . number_format($montant, 2, ',', ' ') . '€' . '</li>';
+                    }
+                    echo '</ul>';
+                }
+                ?>
+            </div>
         </div>
         <div id="modal-footer">
             <h3>modal footer</h3>
