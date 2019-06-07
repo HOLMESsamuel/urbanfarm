@@ -1,34 +1,44 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:8889
--- Generation Time: Jun 07, 2019 at 02:03 PM
--- Server version: 5.7.25
--- PHP Version: 7.2.14
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  ven. 07 juin 2019 à 14:17
+-- Version du serveur :  5.7.24
+-- Version de PHP :  7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
--- Database: `urbanfarm`
+-- Base de données :  `urbanfarm`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actionneur`
+-- Structure de la table `actionneur`
 --
 
-CREATE TABLE `actionneur` (
-  `n°Actionneur` int(11) NOT NULL,
+DROP TABLE IF EXISTS `actionneur`;
+CREATE TABLE IF NOT EXISTS `actionneur` (
+  `n°Actionneur` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) COLLATE latin1_bin NOT NULL,
   `etat` varchar(255) COLLATE latin1_bin NOT NULL,
-  `n°installation` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `n°installation` int(11) NOT NULL,
+  PRIMARY KEY (`n°Actionneur`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `actionneur`
+-- Déchargement des données de la table `actionneur`
 --
 
 INSERT INTO `actionneur` (`n°Actionneur`, `type`, `etat`, `n°installation`) VALUES
@@ -44,17 +54,19 @@ INSERT INTO `actionneur` (`n°Actionneur`, `type`, `etat`, `n°installation`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `annonce`
+-- Structure de la table `annonce`
 --
 
-CREATE TABLE `annonce` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `annonce`;
+CREATE TABLE IF NOT EXISTS `annonce` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `sujet` text NOT NULL,
-  `mail_utilisateur` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `mail_utilisateur` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `annonce`
+-- Déchargement des données de la table `annonce`
 --
 
 INSERT INTO `annonce` (`id`, `sujet`, `mail_utilisateur`) VALUES
@@ -66,18 +78,20 @@ INSERT INTO `annonce` (`id`, `sujet`, `mail_utilisateur`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article`
+-- Structure de la table `article`
 --
 
-CREATE TABLE `article` (
-  `n°article` int(11) NOT NULL,
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE IF NOT EXISTS `article` (
+  `n°article` int(11) NOT NULL AUTO_INCREMENT,
   `titre` varchar(255) COLLATE latin1_bin NOT NULL,
   `contenu` text COLLATE latin1_bin NOT NULL,
-  `date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `date` date NOT NULL,
+  PRIMARY KEY (`n°article`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `article`
+-- Déchargement des données de la table `article`
 --
 
 INSERT INTO `article` (`n°article`, `titre`, `contenu`, `date`) VALUES
@@ -88,18 +102,20 @@ INSERT INTO `article` (`n°article`, `titre`, `contenu`, `date`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `capteur`
+-- Structure de la table `capteur`
 --
 
-CREATE TABLE `capteur` (
-  `n°capteur` int(11) NOT NULL,
+DROP TABLE IF EXISTS `capteur`;
+CREATE TABLE IF NOT EXISTS `capteur` (
+  `n°capteur` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) COLLATE latin1_bin NOT NULL,
   `etat` varchar(255) COLLATE latin1_bin NOT NULL,
-  `n°installation` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `n°installation` int(11) NOT NULL,
+  PRIMARY KEY (`n°capteur`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `capteur`
+-- Déchargement des données de la table `capteur`
 --
 
 INSERT INTO `capteur` (`n°capteur`, `type`, `etat`, `n°installation`) VALUES
@@ -111,33 +127,39 @@ INSERT INTO `capteur` (`n°capteur`, `type`, `etat`, `n°installation`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commande`
+-- Structure de la table `commande`
 --
 
-CREATE TABLE `commande` (
+DROP TABLE IF EXISTS `commande`;
+CREATE TABLE IF NOT EXISTS `commande` (
   `n°commande` int(11) NOT NULL,
   `quantité` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `montant` decimal(11,2) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `n°produit` int(11) NOT NULL
+  `n°produit` int(11) NOT NULL,
+  PRIMARY KEY (`n°commande`),
+  KEY `n°produit` (`n°produit`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commentaire`
+-- Structure de la table `commentaire`
 --
 
-CREATE TABLE `commentaire` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `commentaire`;
+CREATE TABLE IF NOT EXISTS `commentaire` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `mail_utilisateur` varchar(255) NOT NULL,
   `id_annonce` int(11) NOT NULL,
-  `texte` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `texte` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_annonce` (`id_annonce`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `commentaire`
+-- Déchargement des données de la table `commentaire`
 --
 
 INSERT INTO `commentaire` (`id`, `mail_utilisateur`, `id_annonce`, `texte`) VALUES
@@ -150,18 +172,43 @@ INSERT INTO `commentaire` (`id`, `mail_utilisateur`, `id_annonce`, `texte`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data`
+-- Structure de la table `conversation`
 --
 
-CREATE TABLE `data` (
-  `n°data` int(11) NOT NULL,
+DROP TABLE IF EXISTS `conversation`;
+CREATE TABLE IF NOT EXISTS `conversation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mail_utilisateur` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `mail_utilisateur` (`mail_utilisateur`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `conversation`
+--
+
+INSERT INTO `conversation` (`id`, `mail_utilisateur`) VALUES
+(1, 'bob@gmail.com'),
+(2, 'elise.gabilly@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `data`
+--
+
+DROP TABLE IF EXISTS `data`;
+CREATE TABLE IF NOT EXISTS `data` (
+  `n°data` int(11) NOT NULL AUTO_INCREMENT,
   `n°capteur` int(11) NOT NULL,
   `timestamp` bigint(11) NOT NULL,
-  `valeur` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `valeur` int(11) NOT NULL,
+  PRIMARY KEY (`n°data`),
+  KEY `n°capteur` (`n°capteur`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `data`
+-- Déchargement des données de la table `data`
 --
 
 INSERT INTO `data` (`n°data`, `n°capteur`, `timestamp`, `valeur`) VALUES
@@ -171,25 +218,27 @@ INSERT INTO `data` (`n°data`, `n°capteur`, `timestamp`, `valeur`) VALUES
 (5, 45, 20190521091652, 35),
 (6, 45, 20190522134534, 24),
 (7, 45, 20190523134534, 23),
-(8, 45, 20190525134534, 20),
-(9, 46, 20190604090635, 10);
+(8, 45, 20190525134534, 20);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `installation`
+-- Structure de la table `installation`
 --
 
-CREATE TABLE `installation` (
-  `n°installation` int(11) NOT NULL,
+DROP TABLE IF EXISTS `installation`;
+CREATE TABLE IF NOT EXISTS `installation` (
+  `n°installation` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) COLLATE latin1_bin NOT NULL,
   `type` varchar(255) COLLATE latin1_bin NOT NULL,
   `adresse` varchar(255) COLLATE latin1_bin NOT NULL,
-  `email` varchar(255) COLLATE latin1_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `email` varchar(255) COLLATE latin1_bin NOT NULL,
+  PRIMARY KEY (`n°installation`),
+  KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `installation`
+-- Déchargement des données de la table `installation`
 --
 
 INSERT INTO `installation` (`n°installation`, `nom`, `type`, `adresse`, `email`) VALUES
@@ -198,18 +247,53 @@ INSERT INTO `installation` (`n°installation`, `nom`, `type`, `adresse`, `email`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produit`
+-- Structure de la table `messages`
 --
 
-CREATE TABLE `produit` (
-  `n°produit` int(11) NOT NULL,
+DROP TABLE IF EXISTS `messages`;
+CREATE TABLE IF NOT EXISTS `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `texte` text NOT NULL,
+  `admin` varchar(255) NOT NULL,
+  `id_conv` int(11) NOT NULL,
+  `lu` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `messages`
+--
+
+INSERT INTO `messages` (`id`, `texte`, `admin`, `id_conv`, `lu`, `date`) VALUES
+(1, 'Bonjour et bienvenu dans la communauté UrbanFarm !', 'oui', 1, 'oui', '2019-04-06'),
+(2, 'Bonjour et bienvenu dans la communauté UrbanFarm !', 'oui', 2, 'oui', '2019-04-06'),
+(3, 'Merci pour votre accueil.', 'non', 2, 'non', '2019-04-06'),
+(17, 'Boby', 'oui', 1, 'oui', '2019-06-06'),
+(6, 'Yo', 'oui', 1, 'oui', '2019-06-06'),
+(18, 'cvhjk', 'oui', 1, 'oui', '2019-06-07'),
+(19, 'Kikou', 'non', 2, 'oui', '2019-06-07'),
+(15, 'Elise', 'oui', 2, 'oui', '2019-06-06'),
+(20, 'Yo', 'non', 2, 'oui', '2019-06-07'),
+(21, 'Regarde ca marche', 'non', 2, 'oui', '2019-06-07');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produit`
+--
+
+DROP TABLE IF EXISTS `produit`;
+CREATE TABLE IF NOT EXISTS `produit` (
+  `n°produit` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(255) COLLATE latin1_bin NOT NULL,
   `description` text COLLATE latin1_bin NOT NULL,
-  `prix` decimal(11,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  `prix` decimal(11,2) NOT NULL,
+  PRIMARY KEY (`n°produit`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `produit`
+-- Déchargement des données de la table `produit`
 --
 
 INSERT INTO `produit` (`n°produit`, `type`, `description`, `prix`) VALUES
@@ -220,17 +304,19 @@ INSERT INTO `produit` (`n°produit`, `type`, `description`, `prix`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `questions`
+-- Structure de la table `questions`
 --
 
-CREATE TABLE `questions` (
-  `n_question` int(11) NOT NULL,
+DROP TABLE IF EXISTS `questions`;
+CREATE TABLE IF NOT EXISTS `questions` (
+  `n_question` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
-  `contenu` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `contenu` text NOT NULL,
+  PRIMARY KEY (`n_question`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `questions`
+-- Déchargement des données de la table `questions`
 --
 
 INSERT INTO `questions` (`n_question`, `nom`, `contenu`) VALUES
@@ -243,10 +329,11 @@ INSERT INTO `questions` (`n_question`, `nom`, `contenu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utilisateur`
+-- Structure de la table `utilisateur`
 --
 
-CREATE TABLE `utilisateur` (
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
   `email` varchar(255) COLLATE latin1_bin NOT NULL,
   `nom` varchar(255) COLLATE latin1_bin NOT NULL,
   `prenom` varchar(255) COLLATE latin1_bin NOT NULL,
@@ -254,461 +341,184 @@ CREATE TABLE `utilisateur` (
   `adresse` varchar(255) COLLATE latin1_bin NOT NULL,
   `motdepasse` varchar(255) COLLATE latin1_bin NOT NULL,
   `administrateur` varchar(255) COLLATE latin1_bin NOT NULL,
-  `etat` varchar(255) COLLATE latin1_bin NOT NULL
+  `etat` varchar(255) COLLATE latin1_bin NOT NULL,
+  PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 
 --
--- Dumping data for table `utilisateur`
+-- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`email`, `nom`, `prenom`, `civilité`, `adresse`, `motdepasse`, `administrateur`, `etat`) VALUES
 ('alice@isep.fr', 'Dupond', 'Alice', 'Mme', '3 avenue du champ', 'd54d5bfdad8b1238a54f6b28599f4dcf6e65867d', 'non', 'attente'),
 ('bob@gmail.com', 'Lennon', 'Bob', 'M', '42 rue du sens de la vie', 'd54d5bfdad8b1238a54f6b28599f4dcf6e65867d', 'non', 'confirme'),
-('g10e@urban.fr', '10E', 'Groupe', 'M', '10 rue Emile Zola', 'd54d5bfdad8b1238a54f6b28599f4dcf6e65867d', 'oui', 'confirme');
+('elise.gabilly@gmail.com', 'Gabilly', 'Elise', 'M', '7 Avenue voltaire', 'd54d5bfdad8b1238a54f6b28599f4dcf6e65867d', 'non', 'confirme'),
+('elise@gmail.com', 'Gabilly', 'Elise', 'M', '7 Avenue voltaire', 'd54d5bfdad8b1238a54f6b28599f4dcf6e65867d', 'non', 'attente'),
+('g10e@urban.fr', '10E', 'Groupe', 'M', '10 rue Emile Zola', 'd54d5bfdad8b1238a54f6b28599f4dcf6e65867d', 'oui', 'confirme'),
+('gabilly@gmail.com', 'Gabilly', 'Elise', 'M', '7 Avenue voltaire', 'd54d5bfdad8b1238a54f6b28599f4dcf6e65867d', 'non', 'attente');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `visite`
+-- Structure de la table `visite`
 --
 
-CREATE TABLE `visite` (
+DROP TABLE IF EXISTS `visite`;
+CREATE TABLE IF NOT EXISTS `visite` (
   `ip` varchar(15) NOT NULL,
   `timestamp` bigint(11) NOT NULL,
   `time` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `visite`
+-- Déchargement des données de la table `visite`
 --
 
 INSERT INTO `visite` (`ip`, `timestamp`, `time`) VALUES
-('::1', 20190604075008, 1559634608),
-('::1', 20190606070305, 1559804585),
-('::1', 20190606070340, 1559804620),
-('::1', 20190606070344, 1559804624),
-('::1', 20190606070455, 1559804695),
-('::1', 20190606070457, 1559804697),
-('::1', 20190606070501, 1559804701),
+('::1', 20190604083204, 1559637124),
+('::1', 20190605200049, 1559764849),
+('::1', 20190605200102, 1559764862),
+('::1', 20190605200123, 1559764883),
+('::1', 20190605200135, 1559764895),
+('::1', 20190605200143, 1559764903),
+('::1', 20190606065108, 1559803868),
+('::1', 20190606065108, 1559803868),
+('::1', 20190606065239, 1559803959),
+('::1', 20190606065248, 1559803968),
+('::1', 20190606065427, 1559804067),
+('::1', 20190606065501, 1559804101),
+('::1', 20190606065519, 1559804119),
+('::1', 20190606065557, 1559804157),
+('::1', 20190606065620, 1559804180),
+('::1', 20190606065636, 1559804196),
+('::1', 20190606065704, 1559804224),
+('::1', 20190606065906, 1559804346),
+('::1', 20190606070037, 1559804437),
 ('::1', 20190606070503, 1559804703),
-('::1', 20190606070506, 1559804706),
-('::1', 20190606072347, 1559805827),
-('::1', 20190606072358, 1559805838),
-('::1', 20190606072758, 1559806078),
-('::1', 20190606072801, 1559806081),
-('::1', 20190606072831, 1559806111),
-('::1', 20190606072834, 1559806114),
-('::1', 20190606072836, 1559806116),
-('::1', 20190606073043, 1559806243),
-('::1', 20190606073045, 1559806245),
-('::1', 20190606073241, 1559806361),
-('::1', 20190606073244, 1559806364),
-('::1', 20190606073247, 1559806367),
-('::1', 20190606073336, 1559806416),
-('::1', 20190606073339, 1559806419),
-('::1', 20190606073341, 1559806421),
-('::1', 20190606073813, 1559806693),
-('::1', 20190606073816, 1559806696),
-('::1', 20190606073824, 1559806704),
-('::1', 20190606073826, 1559806706),
-('::1', 20190606073914, 1559806754),
-('::1', 20190606073916, 1559806756),
-('::1', 20190606073918, 1559806758),
-('::1', 20190606073943, 1559806783),
-('::1', 20190606073945, 1559806785),
-('::1', 20190606074243, 1559806963),
-('::1', 20190606074245, 1559806965),
-('::1', 20190606074253, 1559806973),
-('::1', 20190606074255, 1559806975),
-('::1', 20190606074353, 1559807033),
-('::1', 20190606074355, 1559807035),
-('::1', 20190606074403, 1559807043),
-('::1', 20190606074405, 1559807045),
-('::1', 20190606074527, 1559807127),
-('::1', 20190606074528, 1559807128),
-('::1', 20190606074737, 1559807257),
-('::1', 20190606074739, 1559807259),
-('::1', 20190606074756, 1559807276),
-('::1', 20190606074758, 1559807278),
-('::1', 20190606074822, 1559807302),
-('::1', 20190606074825, 1559807305),
-('::1', 20190606074922, 1559807362),
-('::1', 20190606074923, 1559807363),
-('::1', 20190606074927, 1559807367),
-('::1', 20190606074929, 1559807369),
-('::1', 20190606074931, 1559807371),
-('::1', 20190606075248, 1559807568),
-('::1', 20190606075250, 1559807570),
-('::1', 20190606075534, 1559807734),
-('::1', 20190606075536, 1559807736),
-('::1', 20190606075551, 1559807751),
-('::1', 20190606075552, 1559807752),
-('::1', 20190606075652, 1559807812),
-('::1', 20190606075655, 1559807815),
-('::1', 20190606080141, 1559808101),
-('::1', 20190606080142, 1559808102),
-('::1', 20190606080229, 1559808149),
-('::1', 20190606080230, 1559808150),
+('::1', 20190606070622, 1559804782),
+('::1', 20190606070657, 1559804817),
+('::1', 20190606070804, 1559804884),
+('::1', 20190606070809, 1559804889),
+('::1', 20190606071040, 1559805040),
+('::1', 20190606071827, 1559805507),
+('::1', 20190606071850, 1559805530),
+('::1', 20190606071859, 1559805539),
+('::1', 20190606071918, 1559805558),
+('::1', 20190606073259, 1559806379),
+('::1', 20190606073259, 1559806379),
+('::1', 20190606073621, 1559806581),
+('::1', 20190606073634, 1559806594),
+('::1', 20190606074429, 1559807070),
+('::1', 20190606074502, 1559807102),
+('::1', 20190606074518, 1559807118),
+('::1', 20190606074651, 1559807211),
+('::1', 20190606074924, 1559807364),
+('::1', 20190606074939, 1559807379),
+('::1', 20190606075022, 1559807422),
+('::1', 20190606075103, 1559807463),
+('::1', 20190606075504, 1559807704),
+('::1', 20190606075817, 1559807897),
+('::1', 20190606075854, 1559807934),
+('::1', 20190606075911, 1559807951),
+('::1', 20190606075921, 1559807961),
+('::1', 20190606080219, 1559808139),
+('::1', 20190606080302, 1559808182),
+('::1', 20190606080323, 1559808203),
 ('::1', 20190606080351, 1559808231),
-('::1', 20190606080353, 1559808233),
-('::1', 20190606080734, 1559808454),
-('::1', 20190606080737, 1559808457),
-('::1', 20190606080751, 1559808471),
-('::1', 20190606080753, 1559808473),
-('::1', 20190606081011, 1559808611),
-('::1', 20190606081746, 1559809066),
-('::1', 20190606081748, 1559809068),
-('::1', 20190606081833, 1559809113),
-('::1', 20190606081835, 1559809115),
-('::1', 20190606082330, 1559809410),
-('::1', 20190606082332, 1559809412),
-('::1', 20190606082337, 1559809417),
-('::1', 20190606082346, 1559809426),
-('::1', 20190606082347, 1559809427),
-('::1', 20190606082528, 1559809528),
-('::1', 20190606082531, 1559809531),
-('::1', 20190606082725, 1559809645),
-('::1', 20190606082727, 1559809647),
-('::1', 20190606082747, 1559809667),
-('::1', 20190606082748, 1559809668),
-('::1', 20190606082752, 1559809672),
-('::1', 20190606082807, 1559809687),
-('::1', 20190606082814, 1559809694),
-('::1', 20190606082816, 1559809696),
-('::1', 20190606082906, 1559809746),
-('::1', 20190606082908, 1559809748),
-('::1', 20190606082913, 1559809753),
-('::1', 20190606082915, 1559809755),
-('::1', 20190606082921, 1559809761),
-('::1', 20190606082923, 1559809763),
-('::1', 20190606082931, 1559809771),
-('::1', 20190606083525, 1559810125),
-('::1', 20190606083527, 1559810127),
-('::1', 20190606083538, 1559810138),
-('::1', 20190606083540, 1559810140),
-('::1', 20190606083632, 1559810192),
-('::1', 20190606083634, 1559810194),
-('::1', 20190606083741, 1559810261),
-('::1', 20190606083743, 1559810263),
-('::1', 20190606083756, 1559810276),
-('::1', 20190606083835, 1559810315),
-('::1', 20190606084132, 1559810492),
-('::1', 20190606084135, 1559810495),
-('::1', 20190606084319, 1559810599),
-('::1', 20190606084321, 1559810601),
-('::1', 20190606084405, 1559810645),
-('::1', 20190606084407, 1559810647),
-('::1', 20190606084517, 1559810717),
-('::1', 20190606084518, 1559810718),
-('::1', 20190606084537, 1559810737),
-('::1', 20190606084539, 1559810739),
-('::1', 20190606084602, 1559810762),
-('::1', 20190606084604, 1559810764),
-('::1', 20190606084842, 1559810922),
-('::1', 20190606084844, 1559810924),
-('::1', 20190606084936, 1559810976),
-('::1', 20190606084938, 1559810978),
-('::1', 20190606085444, 1559811284),
-('::1', 20190606085446, 1559811286),
-('::1', 20190606085632, 1559811392),
-('::1', 20190606085634, 1559811394),
-('::1', 20190606091033, 1559812233),
-('::1', 20190606091034, 1559812234),
-('::1', 20190606091623, 1559812583),
-('::1', 20190606091625, 1559812585),
-('::1', 20190606091657, 1559812617),
-('::1', 20190606091658, 1559812618),
-('::1', 20190606091721, 1559812641),
-('::1', 20190606091722, 1559812642),
-('::1', 20190606091930, 1559812770),
-('::1', 20190606091932, 1559812772),
-('::1', 20190606091942, 1559812782),
-('::1', 20190606091943, 1559812783),
-('::1', 20190606091952, 1559812792),
-('::1', 20190606091956, 1559812796),
-('::1', 20190606092012, 1559812812),
-('::1', 20190606092014, 1559812814),
-('::1', 20190606092024, 1559812824),
-('::1', 20190606092025, 1559812825),
-('::1', 20190606092031, 1559812831),
-('::1', 20190606092033, 1559812833),
-('::1', 20190606092136, 1559812896),
-('::1', 20190606092137, 1559812897),
-('::1', 20190606092234, 1559812954),
-('::1', 20190606092236, 1559812956),
-('::1', 20190606092301, 1559812981),
-('::1', 20190606092303, 1559812983),
-('::1', 20190606092327, 1559813007),
-('::1', 20190606092329, 1559813009),
-('::1', 20190606092347, 1559813027),
-('::1', 20190606092348, 1559813028),
-('::1', 20190606092435, 1559813075),
-('::1', 20190606092436, 1559813076),
-('::1', 20190606092455, 1559813095),
-('::1', 20190606092456, 1559813096),
-('::1', 20190606092514, 1559813114),
-('::1', 20190606092516, 1559813116),
-('::1', 20190606092627, 1559813187),
-('::1', 20190606092628, 1559813188),
-('::1', 20190606092721, 1559813241),
-('::1', 20190606092723, 1559813243),
-('::1', 20190606092727, 1559813247),
-('::1', 20190606092729, 1559813249),
-('::1', 20190606092830, 1559813310),
-('::1', 20190606092831, 1559813311),
-('::1', 20190606092839, 1559813319),
-('::1', 20190606092840, 1559813320),
-('::1', 20190606092904, 1559813344),
-('::1', 20190606093048, 1559813448),
-('::1', 20190606093050, 1559813450),
-('::1', 20190606094421, 1559814261),
-('::1', 20190606094423, 1559814263),
-('::1', 20190606094430, 1559814270),
-('::1', 20190606094432, 1559814272),
-('::1', 20190606094533, 1559814333),
-('::1', 20190606094535, 1559814335),
-('::1', 20190606094557, 1559814357),
-('::1', 20190606094559, 1559814359),
-('::1', 20190606094617, 1559814377),
-('::1', 20190606094619, 1559814379),
-('::1', 20190606094928, 1559814568),
-('::1', 20190606094930, 1559814570),
-('::1', 20190606095016, 1559814616),
-('::1', 20190606095017, 1559814617),
-('::1', 20190606095110, 1559814670),
-('::1', 20190606095111, 1559814671),
-('::1', 20190606100244, 1559815364),
-('::1', 20190606100246, 1559815366),
-('::1', 20190606100346, 1559815426),
-('::1', 20190606100348, 1559815428),
-('::1', 20190606100517, 1559815517),
-('::1', 20190606100519, 1559815519),
-('::1', 20190606100619, 1559815579),
-('::1', 20190606100622, 1559815582),
-('::1', 20190606100716, 1559815636),
-('::1', 20190606100718, 1559815638),
-('::1', 20190606100741, 1559815661),
-('::1', 20190606100742, 1559815662),
-('::1', 20190606100757, 1559815677),
-('::1', 20190606100759, 1559815679),
-('::1', 20190606100808, 1559815688),
-('::1', 20190606100809, 1559815689),
-('::1', 20190606100911, 1559815751),
-('::1', 20190606100913, 1559815753),
-('::1', 20190606101611, 1559816171),
-('::1', 20190606101612, 1559816172),
-('::1', 20190606101637, 1559816197),
-('::1', 20190606101638, 1559816198),
-('::1', 20190606102015, 1559816415),
-('::1', 20190606102016, 1559816416),
-('::1', 20190606102224, 1559816544),
-('::1', 20190606102226, 1559816546),
-('::1', 20190606195351, 1559850831),
-('::1', 20190606195436, 1559850876),
-('::1', 20190606195446, 1559850886),
-('::1', 20190606195949, 1559851189),
-('::1', 20190606195952, 1559851192),
-('::1', 20190606200028, 1559851228),
-('::1', 20190606200030, 1559851230),
-('::1', 20190606200120, 1559851280),
-('::1', 20190606200122, 1559851282),
-('::1', 20190606200212, 1559851332),
-('::1', 20190606200213, 1559851333),
-('::1', 20190606200235, 1559851355),
-('::1', 20190606200237, 1559851357),
-('::1', 20190606200407, 1559851447),
-('::1', 20190606200408, 1559851448),
-('::1', 20190606200450, 1559851490),
-('::1', 20190606200451, 1559851491),
-('::1', 20190606200816, 1559851696),
-('::1', 20190606200818, 1559851698),
-('::1', 20190606200850, 1559851730),
-('::1', 20190606200851, 1559851731),
-('::1', 20190606200953, 1559851793),
-('::1', 20190606200954, 1559851794),
-('::1', 20190606201139, 1559851899),
-('::1', 20190606201141, 1559851901),
-('::1', 20190606201401, 1559852041),
-('::1', 20190606201403, 1559852043),
-('::1', 20190606201538, 1559852138),
-('::1', 20190606201540, 1559852140),
-('::1', 20190606201659, 1559852219),
-('::1', 20190606201700, 1559852220),
-('::1', 20190606201757, 1559852277),
-('::1', 20190606201802, 1559852282),
-('::1', 20190606201805, 1559852285),
-('::1', 20190606201944, 1559852384),
-('::1', 20190606202001, 1559852401),
-('::1', 20190607074740, 1559893661),
-('::1', 20190607074745, 1559893665),
-('::1', 20190607074748, 1559893668),
-('::1', 20190607075143, 1559893903),
-('::1', 20190607075146, 1559893906),
-('::1', 20190607075150, 1559893910),
-('::1', 20190607075238, 1559893958),
-('::1', 20190607082204, 1559895724),
-('::1', 20190607082506, 1559895906),
-('::1', 20190607082510, 1559895910),
-('::1', 20190607125313, 1559911994),
-('::1', 20190607125353, 1559912033),
-('::1', 20190607125402, 1559912042);
+('::1', 20190606080406, 1559808246),
+('::1', 20190606084541, 1559810741),
+('::1', 20190606084559, 1559810759),
+('::1', 20190606084626, 1559810786),
+('::1', 20190606084626, 1559810786),
+('::1', 20190606084640, 1559810800),
+('::1', 20190606084702, 1559810822),
+('::1', 20190606084754, 1559810874),
+('::1', 20190606084805, 1559810885),
+('::1', 20190606084815, 1559810895),
+('::1', 20190606084937, 1559810977),
+('::1', 20190606085019, 1559811019),
+('::1', 20190606085035, 1559811035),
+('::1', 20190606085449, 1559811289),
+('::1', 20190606085457, 1559811297),
+('::1', 20190606085829, 1559811509),
+('::1', 20190606085839, 1559811519),
+('::1', 20190606090749, 1559812069),
+('::1', 20190606091749, 1559812669),
+('::1', 20190606093644, 1559813804),
+('::1', 20190606093650, 1559813810),
+('::1', 20190606093848, 1559813928),
+('::1', 20190606093851, 1559813931),
+('::1', 20190606095747, 1559815067),
+('::1', 20190606100319, 1559815399),
+('::1', 20190606100325, 1559815405),
+('::1', 20190606100330, 1559815410),
+('::1', 20190607121132, 1559909492),
+('::1', 20190607121142, 1559909502),
+('::1', 20190607121158, 1559909518),
+('::1', 20190607121227, 1559909547),
+('::1', 20190607121243, 1559909563),
+('::1', 20190607123906, 1559911146),
+('::1', 20190607123915, 1559911155),
+('::1', 20190607123921, 1559911161),
+('::1', 20190607123936, 1559911176),
+('::1', 20190607123957, 1559911197),
+('::1', 20190607124048, 1559911248),
+('::1', 20190607124114, 1559911274),
+('::1', 20190607124354, 1559911434),
+('::1', 20190607124431, 1559911471),
+('::1', 20190607124458, 1559911498),
+('::1', 20190607124639, 1559911599),
+('::1', 20190607124702, 1559911622),
+('::1', 20190607124734, 1559911654),
+('::1', 20190607124932, 1559911772),
+('::1', 20190607124945, 1559911785),
+('::1', 20190607133337, 1559914417),
+('::1', 20190607133554, 1559914554),
+('::1', 20190607133601, 1559914561),
+('::1', 20190607133644, 1559914604),
+('::1', 20190607133649, 1559914609),
+('::1', 20190607133709, 1559914629),
+('::1', 20190607133919, 1559914759),
+('::1', 20190607134115, 1559914875),
+('::1', 20190607134529, 1559915129),
+('::1', 20190607134537, 1559915137),
+('::1', 20190607134618, 1559915178),
+('::1', 20190607134627, 1559915187),
+('::1', 20190607134648, 1559915208),
+('::1', 20190607134833, 1559915313),
+('::1', 20190607134927, 1559915367),
+('::1', 20190607134937, 1559915377),
+('::1', 20190607134954, 1559915394);
 
 --
--- Indexes for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Indexes for table `actionneur`
---
-ALTER TABLE `actionneur`
-  ADD PRIMARY KEY (`n°Actionneur`);
-
---
--- Indexes for table `annonce`
---
-ALTER TABLE `annonce`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `article`
---
-ALTER TABLE `article`
-  ADD PRIMARY KEY (`n°article`);
-
---
--- Indexes for table `capteur`
---
-ALTER TABLE `capteur`
-  ADD PRIMARY KEY (`n°capteur`);
-
---
--- Indexes for table `commande`
---
-ALTER TABLE `commande`
-  ADD PRIMARY KEY (`n°commande`),
-  ADD KEY `n°produit` (`n°produit`);
-
---
--- Indexes for table `commentaire`
---
-ALTER TABLE `commentaire`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_annonce` (`id_annonce`);
-
---
--- Indexes for table `data`
---
-ALTER TABLE `data`
-  ADD PRIMARY KEY (`n°data`),
-  ADD KEY `n°capteur` (`n°capteur`);
-
---
--- Indexes for table `installation`
---
-ALTER TABLE `installation`
-  ADD PRIMARY KEY (`n°installation`),
-  ADD KEY `email` (`email`);
-
---
--- Indexes for table `produit`
---
-ALTER TABLE `produit`
-  ADD PRIMARY KEY (`n°produit`);
-
---
--- Indexes for table `questions`
---
-ALTER TABLE `questions`
-  ADD PRIMARY KEY (`n_question`);
-
---
--- Indexes for table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  ADD PRIMARY KEY (`email`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `actionneur`
---
-ALTER TABLE `actionneur`
-  MODIFY `n°Actionneur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
---
--- AUTO_INCREMENT for table `annonce`
---
-ALTER TABLE `annonce`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `article`
---
-ALTER TABLE `article`
-  MODIFY `n°article` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `capteur`
---
-ALTER TABLE `capteur`
-  MODIFY `n°capteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
---
--- AUTO_INCREMENT for table `commentaire`
---
-ALTER TABLE `commentaire`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT for table `data`
---
-ALTER TABLE `data`
-  MODIFY `n°data` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `installation`
---
-ALTER TABLE `installation`
-  MODIFY `n°installation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- AUTO_INCREMENT for table `produit`
---
-ALTER TABLE `produit`
-  MODIFY `n°produit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `questions`
---
-ALTER TABLE `questions`
-  MODIFY `n_question` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `commande`
+-- Contraintes pour la table `commande`
 --
 ALTER TABLE `commande`
   ADD CONSTRAINT `commande_ibfk_1` FOREIGN KEY (`n°produit`) REFERENCES `produit` (`n°produit`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `commentaire`
+-- Contraintes pour la table `commentaire`
 --
 ALTER TABLE `commentaire`
   ADD CONSTRAINT `commentaire_ibfk_1` FOREIGN KEY (`id_annonce`) REFERENCES `annonce` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `data`
+-- Contraintes pour la table `data`
 --
 ALTER TABLE `data`
   ADD CONSTRAINT `data_ibfk_1` FOREIGN KEY (`n°capteur`) REFERENCES `capteur` (`n°capteur`);
 
 --
--- Constraints for table `installation`
+-- Contraintes pour la table `installation`
 --
 ALTER TABLE `installation`
   ADD CONSTRAINT `installation_ibfk_1` FOREIGN KEY (`email`) REFERENCES `utilisateur` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
