@@ -180,10 +180,13 @@
                     echo '</ul>';
                 }
                 ?>
+                <h3><?php echo 'CT : ' . number_format($total,2,',',' ') . '€'?></h3>
             </div>
         </div>
         <div id="modal-footer">
-            <h3>modal footer</h3>
+            <p align="right">
+                <button id="valider-commande">Valider</button>
+            </p>
         </div>
     </div>
 </div>

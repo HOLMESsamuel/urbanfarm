@@ -29,6 +29,7 @@ function openModal() {
  */
 function closeModalSpan() {
     modal.style.display = 'none';
+    console.log("clique (x) + ferme modal");
 }
 
 /*
@@ -37,5 +38,7 @@ function closeModalSpan() {
 function closeModalWindow(event) {
     if (event.target == modal) {
         modal.style.display = 'none';
+        console.log("clique extérieur + ferme modal");
     }
 }
+

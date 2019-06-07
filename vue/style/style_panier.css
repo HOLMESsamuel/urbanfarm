@@ -110,7 +110,7 @@ button:hover {
 #modal-body {
     display: flex;
     justify-content: space-between;
-    padding: 40px 100px;
+    padding: 20px 80px;
 }
 
 li {
@@ -119,6 +119,7 @@ li {
 
 ul.prix-commande {
     list-style-type: none;
+    text-align: right;
 }
 
 /* bouton fermer */

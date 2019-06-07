@@ -53,4 +53,11 @@ function supprimeProduitPanier() {
     }
 }
 
+/**
+ * ajoute une commande
+ */
+function ajouteCommande() {
+
+}
+
 ?>

@@ -36,4 +36,9 @@ function getRandomProduit(PDO $bdd) {
     return $req;
 }
 
+
+function insertCommande() {
+
+}
+
 ?>
