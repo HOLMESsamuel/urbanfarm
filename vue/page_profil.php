@@ -110,7 +110,6 @@
 	<header>
 		<?php include("vue/elem/elem_entete.php"); ?>
 		<?php include("modele/connexion.php"); ?>
-		<?php include("modele/requeteUtilisateur.php"); ?>
 		<?php include("modele/requeteInstallation.php"); ?>
 	</header>	
 	<input style="display: none;" id="mail"value="<?php echo $_SESSION['mail']; ?>">
