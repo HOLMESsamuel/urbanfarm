@@ -57,6 +57,7 @@ elseif (isset($_SESSION['mail']) && substr($_SESSION['mail'], -9)!= "@urban.fr")
 	<a href="index.php?page=profil" class="bouton">Profil</a>
 	<a href="index.php?page=commande" class="bouton">Commande</a>
 	<a href="index.php?page=consommation" class="bouton">Consommation</a>
+	<a href="index.php?page=message" class="bouton">Message</a>
 
 </div>
 
@@ -64,6 +65,7 @@ elseif (isset($_SESSION['mail']) && substr($_SESSION['mail'], -9)!= "@urban.fr")
 <div id ="menu">
 	<a href="index.php?page=admin_stat" class="bouton">Statistiques</a>
 	<a href="index.php?page=admin_gestionUtilisateurs" class="bouton">Gestion des inscriptions</a>
+	<a href="index.php?page=admin_message" class="bouton">Message</a>
 
 </div>
 <?php endif ?>

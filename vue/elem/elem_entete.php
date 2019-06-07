@@ -42,6 +42,10 @@ if (isset($_GET["page"])){
     echo 'Votre liste d\'achat';
   }else if ($_GET["page"]== 'profil'){
     echo 'Vos informations personnels';
+  }else if ($_GET["page"]== 'admin_message'){
+    echo 'Gestion des discussions';
+  }else if ($_GET["page"]== 'message'){
+    echo 'Vos echange avec les administrateurs';
   }
 }
 echo '<br> ';
