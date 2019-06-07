@@ -179,9 +179,6 @@
         $req = $bdd->prepare("SELECT id FROM messages ORDER BY id DESC");
         $req->execute(array());
         $temp_id=$req->fetch();
-        
-        $req = $bdd->prepare("UPDATE `conversation` (`ancien`) VALUES (?);");
-        $req->execute(array($temp_id['id']));
     }
 
     function supressionInstallation(PDO $bdd, String $mail){

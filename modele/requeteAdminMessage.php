@@ -24,6 +24,7 @@ function addMsg (PDO $bdd, String $id_conv, String $texte, String $date){
     $req = $bdd->prepare("INSERT INTO `messages` (`texte`, `admin`, `id_conv`, `lu`, `date`) 
     VALUES (?, 'oui', ?, 'oui', ?);");
         $req->execute(array($texte, $id_conv, $date));
+        
 }
 
 

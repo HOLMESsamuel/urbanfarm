@@ -16,7 +16,7 @@
                         },
                         function(data){ //recupere ce qui envoye par le code php
                             $("#rep").html(data);
-							// document.location.href="index.php?page=admin_message";
+							document.location.href="index.php?page=admin_message";
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
                     );
@@ -63,7 +63,7 @@
 				
 			    <?php 
                     include ("modele/connexion.php");
-                    $req=$bdd->prepare("SELECT DISTINCT id_conv, id FROM messages ORDER BY id DESC");
+                    $req=$bdd->prepare("SELECT DISTINCT id_conv FROM messages ORDER BY id DESC");
                     $req->execute(array());  
                 while ($nb=$req->fetch()): 
                     $req2=$bdd->prepare("SELECT * FROM conversation WHERE id=?");

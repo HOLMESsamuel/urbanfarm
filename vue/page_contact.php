@@ -11,7 +11,7 @@
 				e.preventDefault(); //empeche de recherarger la page
 				$.post('controleur/ct_contact.php', //envoie par post
 					{
-						 mail : $("#email").val()
+						mail : $("#email").val(),
 						titre : $("#titre").val(),
 						texte : $("#text").val()
 					},
