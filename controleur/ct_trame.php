@@ -158,7 +158,16 @@ function envoieTrame(String $trame){
     echo $content;
 }
 
-majData($bdd);
+
+function demandeData(PDO $bdd){
+    $capteur = numeroCapteur($bdd, $_POST['mail']);
+    for($i=0; $i<count($capteur); $i++){
+        envoieTrame("1010E23".$capteur[$i]."0000");
+    }
+}
+
+demandeData($bdd);
+//majData($bdd);
 
 
 ?>

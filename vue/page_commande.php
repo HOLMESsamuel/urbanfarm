@@ -40,7 +40,7 @@
 			setInterval(function(){
             $.post('controleur/ct_trame.php', //envoie par post au fichier controleur
                         {
-                            
+							mail : $("#mail").val()	
                         },
                         function(data){ //recupere ce qui envoye par le code php
                             

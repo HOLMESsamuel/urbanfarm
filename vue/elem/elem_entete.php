@@ -15,7 +15,7 @@ if (isset($_GET["page"])){
   if ($_GET["page"]== 'actualite'){
     echo 'Notre actualité';
   } else if ($_GET["page"]== 'admin_actu'){
-    echo 'Gestion des actualité';
+    echo 'Gestion des actualités';
   }else if ($_GET["page"]== 'admin_boutique'){
     echo 'Gestion de notre boutique';
   }else if ($_GET["page"]== 'admin_forum'){
@@ -23,11 +23,11 @@ if (isset($_GET["page"])){
   }else if ($_GET["page"]== 'admin_gestionUtilisateurs'){
     echo 'Gestion des utilisateurs';
   }else if ($_GET["page"]== 'admin_stat'){
-    echo 'Statistique sur le site';
+    echo 'Statistiques sur le site';
   }else if ($_GET["page"]== 'boutique'){
     echo 'Boutique';
   }else if ($_GET["page"]== 'commande'){
-    echo 'Gerer vos capteurs';
+    echo 'Gerez vos capteurs';
   }else if ($_GET["page"]== 'consommation'){
     echo 'Observez vos données';
   }else if ($_GET["page"]== 'contact'){
@@ -37,15 +37,15 @@ if (isset($_GET["page"])){
   }else if ($_GET["page"]== 'forum'){
     echo 'Questions courantes';
   }else if ($_GET["page"]== 'inscription'){
-    echo 'Rejoiner notre communauté';
+    echo 'Rejoigner notre communauté';
   }else if ($_GET["page"]== 'panier'){
     echo 'Votre liste d\'achat';
   }else if ($_GET["page"]== 'profil'){
-    echo 'Vos informations personnels';
+    echo 'Vos informations personnelles';
   }else if ($_GET["page"]== 'admin_message'){
     echo 'Gestion des discussions';
   }else if ($_GET["page"]== 'message'){
-    echo 'Vos echange avec les administrateurs';
+    echo 'Vos echanges avec les administrateurs';
   }
 }
 echo '<br> ';

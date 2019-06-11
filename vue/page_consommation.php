@@ -70,7 +70,7 @@
 			setInterval(function(){
 				$.post('controleur/ct_trame.php', //envoie par post au fichier controleur
 							{
-								
+								mail : $("#mail").val()	
 							},
 							function(data){ //recupere ce qui envoye par le code php
 			
@@ -127,7 +127,8 @@
 	<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 	<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 	<script src="vue/script/script_consommation.js"></script>
-	
+	<input style="display: none;" id="mail"value="<?php echo $_SESSION['mail']; ?>">
+
 
 	<footer>
 		<?php include("vue/elem/elem_pied.php"); ?>
