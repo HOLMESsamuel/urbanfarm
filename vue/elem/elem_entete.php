@@ -42,7 +42,7 @@ if (isset($_GET["page"])){
   }else if ($_GET["page"]== 'forum'){
     echo 'Questions courantes';
   }else if ($_GET["page"]== 'inscription'){
-    echo 'Rejoigner notre communauté';
+    echo 'Rejoignez notre communauté';
   }else if ($_GET["page"]== 'panier'){
     echo 'Votre liste d\'achat';
   }else if ($_GET["page"]== 'profil'){
