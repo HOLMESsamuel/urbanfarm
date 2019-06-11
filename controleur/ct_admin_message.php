@@ -18,6 +18,8 @@ if (empty($_POST["com"])){
     echo '<script language="javascript">';
     echo 'alert("Merci de rentrer du texte")';
     echo '</script>';
+} else if ($com="read") {
+    readMsg($bdd, $id_conv);
 } else {
     addMsg($bdd, $id_conv, $com, $date);
 } 

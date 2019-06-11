@@ -23,7 +23,7 @@ function nvMsg (PDO $bdd, String $mail, String $texte, String $date){
     $nb=$req->fetch();
 
     $req = $bdd->prepare("INSERT INTO `messages` (`texte`, `admin`, `id_conv`, `lu`, `date`) 
-    VALUES (?, 'non', ?, 'oui', ?);");
+    VALUES (?, 'non', ?, 'non', ?);");
         $req->execute(array($texte, $nb['id'], $date));
         
 }
