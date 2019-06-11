@@ -1,7 +1,14 @@
 <?php
-function recupereNom(PDO $bdd, String $mail){
+function recupereNom(PDO $bdd, String $mail, String $id){
+    $requete = $bdd->prepare("SELECT COUNT(*) FROM messages WHERE id_conv=? AND lu='non'");
+    $requete->execute(array($id));
+    $nb = $requete->fetch()[0];
     echo "<br>";
-    echo "Utilisateur ".recupereInfo($bdd, $mail, 'nom')." ".recupereInfo($bdd, $mail, 'prenom');
+    if($nb>0){
+        echo "Utilisateur ".recupereInfo($bdd, $mail, 'nom')." ".recupereInfo($bdd, $mail, 'prenom')." (".$nb.")";
+    } else {
+        echo "Utilisateur ".recupereInfo($bdd, $mail, 'nom')." ".recupereInfo($bdd, $mail, 'prenom');
+    }
 }
 
 function recupereMsg(PDO $bdd, String $id, String $mail) {
@@ -17,7 +24,13 @@ function recupereMsg(PDO $bdd, String $id, String $mail) {
         echo '<br>';
         echo $row['texte'];
         echo '<br><br>';
+        
     }
+}
+
+function readMsg(PDO $bdd, String $id) {
+    $requete = $bdd->prepare("UPDATE messages SET lu='oui' WHERE id_conv=?");
+    $requete->execute(array($id));
 }
 
 function addMsg (PDO $bdd, String $id_conv, String $texte, String $date){

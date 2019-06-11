@@ -21,6 +21,19 @@
                         "text" //a mettre pour pouvoir recuperer du texte
                     );
                 });
+                $(".accordion").click(function(e){
+                    e.preventDefault(); //empeche de recherarger la page
+                    $.post('controleur/ct_admin_message.php', //envoie par post au fichier controleur
+                        {
+                            id : this.id,
+                            com: "read"
+                        },
+                        function(data){ //recupere ce qui envoye par le code php
+                            $("#rep").html(data);
+                        },
+                        "text" //a mettre pour pouvoir recuperer du texte
+                    );
+                });
             });
         </script>
        
@@ -70,7 +83,7 @@
                     $req2->execute(array($nb['id_conv'])); 
                     $row= $req2->fetch();
                     ?>
-                    <button class="accordion"><p><?php recupereNom($bdd, $row["mail_utilisateur"])?></p></button>
+                    <button class="accordion" id="<?php echo $row['id'];?>"><p><?php recupereNom($bdd, $row["mail_utilisateur"], $row["id"])?></p></button>
                     <div class="panel">
                         <p><?php recupereMsg($bdd, $row["id"], $row["mail_utilisateur"])?></p>
                         <form>
