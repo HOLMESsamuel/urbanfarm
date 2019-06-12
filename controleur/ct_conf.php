@@ -10,9 +10,6 @@ if (!empty($_POST["code"])) {
     $code = test_input($_POST["code"]);
 }
 
-var_dump($input_mail);
-var_dump($code);
-
 if(!empty($_POST['input_mail']) AND !empty($_POST['code'])){
 	valMail ($bdd, $input_mail, $code);
 } else {
