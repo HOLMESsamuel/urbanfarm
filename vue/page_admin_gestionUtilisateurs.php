@@ -61,8 +61,11 @@
 						<?php echo recupereInfoNonConfirme($bdd, "prenom", $i); ?>
 						<?php echo recupereInfoNonConfirme($bdd, "nom", $i);?>
 						<br>
-						<?php echo recupereInfoNonConfirme($bdd, "email", $i); ?>
-						<br>
+						<?php echo recupereInfoNonConfirme($bdd, "email", $i); 
+						if ( recupereInfoNonConfirme($bdd, "is_mail_conf", $i)=="non"){
+							echo " (non validé)";
+						} ?>						
+						<br> 
 						<?php echo nbInstallations($bdd, recupereInfoNonConfirme($bdd, "email", $i))?> Installations
 						<br>
 						<input type="button" class="confirmation" id="<?php echo recupereInfoNonConfirme($bdd, "email", $i); ?>" value="confirmer">

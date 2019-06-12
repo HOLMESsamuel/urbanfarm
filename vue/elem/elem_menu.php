@@ -25,6 +25,10 @@
 				e.preventDefault();
 				document.location.href = "index.php?page=inscription";
 			});
+			$("#confMail").click(function(e){
+				e.preventDefault();
+				document.location.href = "index.php?page=conf";
+			});
 		});
 </script>
 <div id="nav">
@@ -44,6 +48,7 @@
 	<br/>
 	<form  action="index.php?page=inscription" method="get">
 		<input type="submit" id="nouvelUtilisateur" name="nouvelUtilisateur" class="entree" value="Nouvel Utilisateur">
+		<input type="submit" id="confMail" name="confMail" class="entree" value="Confirmation de mail">
 	</form>
 	</div>
 	</h3>

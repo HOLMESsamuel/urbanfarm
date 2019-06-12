@@ -82,11 +82,16 @@ if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse
 			$header.='Content-Type:text/html; charset="utf-8"'."\n";
 			$header.='Content-Transfer-Encoding: 8bit';
 
+			$code =  recupereInfo($bdd, $mail, 'code_validation');
 			$message='
 			<html>
 			<body>
 			<div align="center">
-			Merci de votre inscription, vous recevrez un mail quand votre compte sera prêt
+			Merci de votre inscription, vous recevrez un mail quand votre compte sera prêt.
+			<br>
+			Pour accelerer cette démarche vous pouvez confirmer votre e-mail avec le code :'.$code.' en vous rendant dans la partie Se Connecter > Confirmer mail.
+			<br>
+			L\'équipe UrbanFarm
 			<br>
 			</div>
 			</body>
