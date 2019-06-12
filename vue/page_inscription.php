@@ -34,11 +34,11 @@
 					function(data){ //recupere ce qui envoye par le code php
 						if(data != 'ok'){
 							$("#erreurForm").html(data);
-						//} else if (substr($mail, -9) == '@urban.fr') {
-						//	document.location.href="page_admin_stat.php";
-						} else {
-							document.location.href="index.php";
-						}
+						} else if (substr($mail, -9) == '@urban.fr') {
+							document.location.href="page_admin_stat.php";
+						}// else {
+						//	document.location.href="index.php";
+						//}
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);

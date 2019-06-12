@@ -86,7 +86,11 @@ if(!empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['adresse
 			<html>
 			<body>
 			<div align="center">
-			Merci de votre inscription, vous recevrez un mail quand votre compte sera prêt
+			Merci de votre inscription, vous recevrez un mail quand votre compte sera prêt.
+			<br>
+			Pour accelerer cette démarche vous pouvez confirmer votre e-mail avec le code : 42 en vous rendant dans la partie Se Connecter > Confirmer mail.
+			<br>
+			L\'équipe UrbanFarm
 			<br>
 			</div>
 			</body>
