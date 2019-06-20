@@ -127,10 +127,12 @@ function majData($bdd){
     $nbTrame = count($trameNonLue);
     for($i = 0; $i<$nbTrame; $i++){
         if(strlen($trameNonLue[$i])>27){
-            $timestamp = (int)decomposeTrame($trameNonLue[$i])["timestamp"];
-            $numeroCapteur = (int)decomposeTrame($trameNonLue[$i])["NUM"];
-            $valeur = (int)decomposeTrame($trameNonLue[$i])["VAL"];
-            ajoutData($bdd, $timestamp, $numeroCapteur, $valeur);
+            if(decomposeTrame($trameNonLue[$i])["TYP"] == "5"){
+                $timestamp = (int)decomposeTrame($trameNonLue[$i])["timestamp"];
+                $numeroCapteur = (int)decomposeTrame($trameNonLue[$i])["NUM"];
+                $valeur = (int)decomposeTrame($trameNonLue[$i])["VAL"];
+                ajoutData($bdd, $timestamp, $numeroCapteur, $valeur);
+            }
         }
     }
 }
@@ -162,11 +164,16 @@ function envoieTrame(String $trame){
 function demandeData(PDO $bdd){
     $capteur = numeroCapteur($bdd, $_POST['mail']);
     for($i=0; $i<count($capteur); $i++){
-        envoieTrame("1010E23".$capteur[$i]."0000");
+        if($capteur[$i][0] == "mouvement"){
+           // envoieTrame("1G10E21".$capteur[$i][1]."0000");
+        } else if($capteur[$i][0] == "lumiere"){
+            envoieTrame("1G10E26".$capteur[$i][1]."0000");
+        }
     }
 }
 
-demandeData($bdd);
+//demandeData($bdd);
+//sleep(2);
 //majData($bdd);
 
 

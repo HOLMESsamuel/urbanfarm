@@ -13,9 +13,9 @@ if($type == "actionneur"){
     changeStateActionneur($bdd, $etat, $id);
     $nouvelEtat = recupereInfoActionneur($bdd, $mail, "etat", $numero);
     if($nouvelEtat == "off"){
-        envoieTrame("1010E1a".$id."0000");
+        envoieTrame("1G10E1a".$id."0000");
     } else {
-        envoieTrame("1010E1a".$id."1111");
+        envoieTrame("1G10E1a".$id."1111");
     }
 }else{
     $id = recupereInfoCapteur($bdd, $mail, "n°capteur", $numero);

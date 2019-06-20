@@ -15,7 +15,10 @@ function numeroCapteur(PDO $bdd, String $mail):array {
     $req->execute(array($mail, "on"));
     $resultat = array();
     while($row = $req->fetch()){
-        array_push($resultat, $row["n°capteur"]);
+        $buffer = array();
+        array_push($buffer, $row[6]);
+        array_push($buffer, $row["n°capteur"]);
+        array_push($resultat, $buffer);
     }
     return $resultat;
 }

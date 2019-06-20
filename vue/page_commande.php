@@ -43,7 +43,7 @@
 							mail : $("#mail").val()	
                         },
                         function(data){ //recupere ce qui envoye par le code php
-                            
+                            console.log(data);
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
             );}
