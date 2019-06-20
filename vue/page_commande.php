@@ -32,7 +32,15 @@
 						type : "actionneur"
 					},
 					function(data){ //recupere ce qui envoye par le code php
-						console.log(data);
+						console.log(data.split("&")[0]);
+						console.log(data.split("&")[2]);
+						bob=data.split("&")[1];
+						t= document.getElementById("rep"+bob).innerHTML;
+						if(t=="Ouvrir"){
+							document.getElementById("rep"+bob).innerHTML = "Fermer";
+						}else{
+							document.getElementById("rep"+bob).innerHTML = "Ouvrir";
+						}
 					},
 					"text" //a mettre pour pouvoir recuperer du texte
 				);
@@ -104,7 +112,10 @@
 						<label class="switch">
 							<input class="sliderBtnActionneur" id="<?php echo 'actionneur'.$i ?>" type="checkbox" <?php if($etat == "on"){ echo "checked";} ?>>
 							<span class="slider round"></span>
+							<br><br>
+							<div id="<?php echo 'rep'.$i ?>" ><?php if($etat == "on"){ echo "Ouvrir";}else{ echo "Fermer";} ?></div>
 						</label>
+						<br>
 					</div>
 				<?php endfor ?>
 			</div>

@@ -9,6 +9,7 @@ $mail = $_POST['mail'];
 $type = $_POST['type'];
 
 if($type == "actionneur"){
+    echo "&".$numero."&";
     $id = recupereInfoActionneur($bdd, $mail, "n°actionneur", $numero);
     changeStateActionneur($bdd, $etat, $id);
     $nouvelEtat = recupereInfoActionneur($bdd, $mail, "etat", $numero);
