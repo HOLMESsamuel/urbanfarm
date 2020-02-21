@@ -55,7 +55,7 @@
                         },
                         "text" //a mettre pour pouvoir recuperer du texte
             );}
-        	, 10000);
+        	, 60000);
 		});
 		</script>
 	</head>
@@ -113,7 +113,7 @@
 							<input class="sliderBtnActionneur" id="<?php echo 'actionneur'.$i ?>" type="checkbox" <?php if($etat == "on"){ echo "checked";} ?>>
 							<span class="slider round"></span>
 							<br><br>
-							<div id="<?php echo 'rep'.$i ?>" ><?php if($etat == "on"){ echo "Ouvrir";}else{ echo "Fermer";} ?></div>
+							<div id="<?php echo 'rep'.$i ?>" ><?php if($etat == "on"){ echo "Fermer";}else{ echo "Ouvrir";} ?></div>
 						</label>
 						<br>
 					</div>
